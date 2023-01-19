@@ -19,10 +19,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 	using namespace GSM;
 	using namespace Enum;
 
-	AESysInit(hInstance, nCmdShow, 800, 600, 1, 60, true, NULL);
-	AESysSetWindowTitle("My New Demo!");
-	AESysReset();
-	AEGfxSetBackgroundColor(0.0f, 0.0f, 0.0f);
+	SystemHandler::System_Initialize(hInstance, nCmdShow);
 
 	GSM_Init(current);
 	
@@ -47,9 +44,9 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 		}
 
 		fpFree();
-		if (next != GS_RESTART) {
-			fpUnload();
-		}
+
+		if (next != GS_RESTART) fpUnload();
+
 		previous = current;
 		current = next;
 	}

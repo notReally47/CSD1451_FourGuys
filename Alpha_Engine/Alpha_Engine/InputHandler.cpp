@@ -52,8 +52,8 @@ namespace InputHandler {
 			AEGfxSetCamPosition(camX + 2, camY);
 	}
 
-	void ExitGame() {
+	void ExitGame(int &next) {
 		if (AEInputCheckTriggered(AEVK_ESCAPE))
-			GSM::next = Enum::GS_QUIT;
+			next = Enum::GS_QUIT;
 	}
 }

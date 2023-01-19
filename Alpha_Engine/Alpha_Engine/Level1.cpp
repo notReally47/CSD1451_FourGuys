@@ -1,6 +1,8 @@
 #include "Level1.h"
 #include "AEEngine.h"
 #include "InputHandler.h"
+#include "GSM.h"
+
 namespace Level1 {
 
 	AEGfxVertexList* pMesh1, * pMesh2, * pMeshLine;
@@ -78,6 +80,7 @@ namespace Level1 {
 		MoveObject(obj1Y, obj1X);
 		ChangeTexture(objtexX, objtexY);
 		MoveCamera(camX, camY);
+		ExitGame(GSM::next);
 
 		/*LOGIC*/
 		//++counter;
@@ -159,12 +162,11 @@ namespace Level1 {
 		AEGfxMeshFree(pMesh1);
 		AEGfxMeshFree(pMesh2);
 		AEGfxMeshFree(pMeshLine);
-		//AEGfxTextureUnload(pTex1);
-		//AEGfxTextureUnload(pTex2);
-		AEGfxDestroyFont(fontId);
 	}
 
 	void Level1_Unload() {
-		//something
+		//AEGfxTextureUnload(pTex1);
+		//AEGfxTextureUnload(pTex2);
+		AEGfxDestroyFont(fontId);
 	}
 }
