@@ -32,6 +32,6 @@
 *.app
 
 # Temporary files/folders
-/.tmp
-/.vs
-/bin
+*.tmp
+*.vs
+*/bin
