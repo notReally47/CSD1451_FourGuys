@@ -7,10 +7,6 @@ namespace GameObjects
 		f32 x, y;
 	};
 
-	struct Vertices {
-		f32 points[4];
-	};
-
 	struct Object {
 		AEGfxTexture* pTex;
 		AEGfxVertexList* pMesh;
@@ -25,5 +21,5 @@ namespace GameObjects
 	};
 
 	void RenderObject(Object& obj);
+	Vector* GetVertices(const Object obj);
 }
-

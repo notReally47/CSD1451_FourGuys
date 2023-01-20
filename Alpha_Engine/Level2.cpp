@@ -105,7 +105,7 @@ namespace Level2 {
 		}
 
 		if (direction != Enum::NONE) {
-			if (Collided(player.obj, leftWall) || Collided(player.obj, rightWall)) {
+			if (SAT_Collision(player.obj, leftWall) || SAT_Collision(player.obj, rightWall)) {
 				player.obj.pos.x -= player.velocity_x * AEFrameRateControllerGetFrameTime();
 			}
 		}
