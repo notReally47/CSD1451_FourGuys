@@ -20,6 +20,6 @@ namespace GameObjects
 		int State;
 	};
 
-	void RenderObject(Object& obj);
+	void RenderObject(Object obj);
 	Vector* GetVertices(const Object obj);
 }

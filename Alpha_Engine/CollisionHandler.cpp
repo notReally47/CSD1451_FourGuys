@@ -16,7 +16,7 @@ namespace CollisionHandler {
 			obj1.pos.y + (obj1.height) > obj2.pos.y - (obj2.height);
 	}
 
-	void ResetPosition(Character &movingObj, int direction) {
+	void ResetPosition(Character& movingObj, int direction) {
 		switch (direction) {
 		case Enum::RIGHT:
 			//movingObj.obj.pos.x -= movingObj.velocity_x * AEFrameRateControllerGetFrameTime();
@@ -32,20 +32,33 @@ namespace CollisionHandler {
 	}
 
 	/*SAT COLLISION*/
-	bool SAT_Collision(Object obj1, Object obj2) {
+	bool SAT_Collision(Object obj1, Object obj2, f32& depth, Vector& normal) {
 		Vector* verticesA = GetVertices(obj1);
 		Vector* verticesB = GetVertices(obj2);
+
+		normal = Vector{ 0,0 };
+		depth = static_cast<f32>((std::numeric_limits<float>::max)());
 
 		int lenA = 4;/**(&verticesA + 1) - verticesA;*/
 		int lenB = 4;/**(&verticesB + 1) - verticesB;*/
 
-		bool out = (CheckIntersect(verticesA, verticesB, lenA, lenB) && CheckIntersect(verticesB, verticesA, lenB, lenA));
+		bool out = (CheckIntersect(verticesA, verticesB, lenA, lenB, depth, normal) && CheckIntersect(verticesB, verticesA, lenB, lenA, depth, normal));
+		depth /= GetLength(normal);
+		normal = Normalize(normal);
+
+		Vector dir = Vector{ obj2.pos.x - obj1.pos.x, obj2.pos.y - obj1.pos.y };
+
+		if (vecDotProduct(dir, normal) < 0.f) {
+			normal.x = -normal.x;
+			normal.y = -normal.y;
+		}
+
 		delete[] verticesA;
 		delete[] verticesB;
 		return out;
 	}
 
-	void ProjectVertices(Vector vertices[], Vector axis, f32 &min, f32 &max, int len) {
+	void ProjectVertices(Vector vertices[], Vector axis, f32& min, f32& max, int len) {
 		min = static_cast<f32>((std::numeric_limits<float>::max)());
 		max = static_cast<f32>((std::numeric_limits<float>::min)());
 
@@ -59,7 +72,7 @@ namespace CollisionHandler {
 		}
 	}
 
-	bool CheckIntersect(Vector verticesA[], Vector verticesB[], int lenA, int lenB) {
+	bool CheckIntersect(Vector verticesA[], Vector verticesB[], int lenA, int lenB, f32& depth, Vector& normal) {
 		for (int i = 0; i < lenA; i++) {
 			f32 minA, maxA, minB, maxB;
 			Vector va = verticesA[i];
@@ -73,6 +86,12 @@ namespace CollisionHandler {
 
 			if (minA >= maxB || minB >= maxA) {
 				return false;
+			}
+
+			f32 axisDepth = maxB - minA < maxA - minB ? maxB - minA : maxA - minB;
+			if (axisDepth < depth) {
+				depth = axisDepth;
+				normal = axis;
 			}
 		}
 		return true;

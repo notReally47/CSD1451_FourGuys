@@ -11,7 +11,7 @@ namespace Level2 {
 	Character player;
 	s8 fontId;
 	f32 windowWidth, windowHeight;
-	Object objs[2] = { leftWall, rightWall };
+	Object* objs[3]{ &leftWall, &rightWall, &platform };
 
 	void Level2_Load() {
 		player.obj.pTex = AEGfxTextureLoad("../Assets/sprites/sprites.png");
@@ -55,22 +55,22 @@ namespace Level2 {
 		rightWall.pMesh = AEGfxMeshEnd();
 
 		/*CREATE PLATFORM*/
-		//platform.width = 50, platform.height = 50, platform.rotation = 0, platform.pos.x = 0, platform.pos.y = 0;
-		//AEGfxMeshStart();
-		//AEGfxTriAdd(
-		//	-1.0f, -1.0f, 0xFFFF0000, 0.0f, 1.0f,
-		//	1.0f, -1.0f, 0xFFFF0000, 1.0f, 1.0f,
-		//	-1.0f, 1.0f, 0xFFFF0000, 0.0f, 0.0f
-		//);
-		//AEGfxTriAdd(
-		//	1.0f, 1.0f, 0xFFFF0000, 1.0f, 0.0f,
-		//	1.0f, -1.0f, 0xFFFF0000, 1.0f, 1.0f,
-		//	-1.0f, 1.0f, 0xFFFF0000, 0.0f, 0.0f
-		//);
-		//platform.pMesh = AEGfxMeshEnd();
+		platform.width = 200, platform.height = 50, platform.rotation = 45, platform.pos.x = 0, platform.pos.y = -150;
+		AEGfxMeshStart();
+		AEGfxTriAdd(
+			-1.0f, -1.0f, 0xFFFF0000, 0.0f, 1.0f,
+			1.0f, -1.0f, 0xFFFF0000, 1.0f, 1.0f,
+			-1.0f, 1.0f, 0xFFFF0000, 0.0f, 0.0f
+		);
+		AEGfxTriAdd(
+			1.0f, 1.0f, 0xFFFF0000, 1.0f, 0.0f,
+			1.0f, -1.0f, 0xFFFF0000, 1.0f, 1.0f,
+			-1.0f, 1.0f, 0xFFFF0000, 0.0f, 0.0f
+		);
+		platform.pMesh = AEGfxMeshEnd();
 
 		/*CREATE PLAYER*/
-		player.obj.width = 30, player.obj.height = 30, player.obj.rotation = 0, player.obj.pos.x = 0, player.obj.pos.y = 0;
+		player.obj.width = 30, player.obj.height = 30, player.obj.rotation = 0, player.obj.pos.x = 100, player.obj.pos.y = 0;
 		AEGfxMeshStart();
 		AEGfxTriAdd(
 			-1.0f, -1.0f, 0xFFFF0000, 0.0f, 1.0f / 5.0f,
@@ -104,9 +104,16 @@ namespace Level2 {
 			break;
 		}
 
-		if (direction != Enum::NONE) {
-			if (SAT_Collision(player.obj, leftWall) || SAT_Collision(player.obj, rightWall)) {
-				player.obj.pos.x -= player.velocity_x * AEFrameRateControllerGetFrameTime();
+		/*Check for any collision*/
+		for (int i = 0; i < sizeof(objs) / sizeof(Object*); i++) {
+			f32 depth;
+			Vector normal;
+			if (SAT_Collision(player.obj, *objs[i], depth, normal)) {
+				/*Collision resolution*/
+				normal.x *= depth;
+				normal.y *= depth;
+				player.obj.pos.x -= normal.x;
+				player.obj.pos.y -= normal.y;
 			}
 		}
 	}
@@ -116,14 +123,14 @@ namespace Level2 {
 
 		RenderObject(leftWall);
 		RenderObject(rightWall);
-		//RenderObject(platform);
+		RenderObject(platform);
 		RenderObject(player.obj);
 	}
 
 	void Level2_Free() {
 		AEGfxMeshFree(leftWall.pMesh);
 		AEGfxMeshFree(rightWall.pMesh);
-		//AEGfxMeshFree(platform.pMesh);
+		AEGfxMeshFree(platform.pMesh);
 	}
 
 	void Level2_Unload() {
