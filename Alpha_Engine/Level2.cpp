@@ -14,15 +14,15 @@ namespace Level2 {
 	//Object* objs[4]{ &platform, &leftWall, &rightWall, &cornerWall };
 
 	void Level2_Load() {
-		//player.obj.pTex = AEGfxTextureLoad("../Assets/sprites/sprites.png");
-		cornerWall.pTex = AEGfxTextureLoad("../Assets/Textures/cornerwall.png");
-		leftWall.pTex = AEGfxTextureLoad("../Assets/Textures/leftwall0.png");
-		rightWall.pTex = AEGfxTextureLoad("../Assets/Textures/rightwall0.png");
-		platform.pTex[0] = AEGfxTextureLoad("../Assets/Textures/floor0.png");
-		platform.pTex[1] = AEGfxTextureLoad("../Assets/Textures/floor1.png");
-		platform.pTex[2] = AEGfxTextureLoad("../Assets/Textures/floor2.png");
-		platform.pTex[3] = AEGfxTextureLoad("../Assets/Textures/floor3.png");
-		fontId = AEGfxCreateFont("Roboto-Regular.ttf", 12);
+		//AE_ASSERT_MESG(player.obj.pTex = AEGfxTextureLoad("../Assets/Sprites/sprites.png"), "Failed to load texture");
+		AE_ASSERT_MESG(cornerWall.pTex = AEGfxTextureLoad("../Assets/Textures/cornerwall.png"), "Failed to load texture");
+		AE_ASSERT_MESG(leftWall.pTex = AEGfxTextureLoad("../Assets/Textures/leftwall0.png"), "Failed to load texture");
+		AE_ASSERT_MESG(rightWall.pTex = AEGfxTextureLoad("../Assets/Textures/rightwall0.png"), "Failed to load texture");
+		AE_ASSERT_MESG(platform.pTex[0] = AEGfxTextureLoad("../Assets/Textures/floor0.png"), "Failed to load texture");
+		AE_ASSERT_MESG(platform.pTex[1] = AEGfxTextureLoad("../Assets/Textures/floor1.png"), "Failed to load texture");
+		AE_ASSERT_MESG(platform.pTex[2] = AEGfxTextureLoad("../Assets/Textures/floor2.png"), "Failed to load texture");
+		AE_ASSERT_MESG(platform.pTex[3] = AEGfxTextureLoad("../Assets/Textures/floor3.png"), "Failed to load texture");
+		AE_ASSERT_MESG(fontId = AEGfxCreateFont("Roboto-Regular.ttf", 12), "Failed to load font");
 		windowWidth = AEGetWindowWidth();
 		windowHeight = AEGetWindowHeight();
 		//AEGfxSetPosition(-1.0f, -1.0f);
