@@ -14,6 +14,20 @@ namespace GameObjects
 		Vector pos;
 	};
 
+	struct Wall {
+		AEGfxTexture* pTex;
+		AEGfxVertexList* pMesh;
+		f32 width, height;
+		Vector pos;
+	};
+
+	struct Floor {
+		AEGfxTexture* pTex[4];
+		AEGfxVertexList* pMesh;
+		f32 width, height;
+		Vector pos;
+	};
+
 	struct Character {
 		Object obj;
 		f32 velocity_x, velocity_y;
@@ -21,5 +35,8 @@ namespace GameObjects
 	};
 
 	void RenderObject(Object obj);
+	void RenderWall(Object obj);
+	void RenderFloor(Floor obj);
 	Vector* GetVertices(const Object obj);
+	Vector* Isometric(const Object obj);
 }

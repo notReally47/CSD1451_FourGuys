@@ -6,70 +6,95 @@
 
 namespace Level2 {
 	using namespace GameObjects;
-	//AEGfxTexture* wallTex, * platformTex;
-	Object leftWall, rightWall, platform;
-	Character player;
+	Object leftWall, rightWall, cornerWall;
+	Floor platform;
+	//Character player;
 	s8 fontId;
 	f32 windowWidth, windowHeight;
-	Object* objs[3]{ &leftWall, &rightWall, &platform };
+	//Object* objs[4]{ &platform, &leftWall, &rightWall, &cornerWall };
 
 	void Level2_Load() {
-		player.obj.pTex = AEGfxTextureLoad("../Assets/sprites/sprites.png");
-		leftWall.pTex = AEGfxTextureLoad("../Assets/Textures/wallTex.png");
-		rightWall.pTex = AEGfxTextureLoad("../Assets/Textures/wallTex.png");
-		platform.pTex = AEGfxTextureLoad("../Assets/Textures/platformTex.png");
+		//player.obj.pTex = AEGfxTextureLoad("../Assets/sprites/sprites.png");
+		cornerWall.pTex = AEGfxTextureLoad("../Assets/Textures/cornerwall.png");
+		leftWall.pTex = AEGfxTextureLoad("../Assets/Textures/leftwall0.png");
+		rightWall.pTex = AEGfxTextureLoad("../Assets/Textures/rightwall0.png");
+		platform.pTex[0] = AEGfxTextureLoad("../Assets/Textures/floor0.png");
+		platform.pTex[1] = AEGfxTextureLoad("../Assets/Textures/floor1.png");
+		platform.pTex[2] = AEGfxTextureLoad("../Assets/Textures/floor2.png");
+		platform.pTex[3] = AEGfxTextureLoad("../Assets/Textures/floor3.png");
 		fontId = AEGfxCreateFont("Roboto-Regular.ttf", 12);
 		windowWidth = AEGetWindowWidth();
 		windowHeight = AEGetWindowHeight();
+		//AEGfxSetPosition(-1.0f, -1.0f);
 	}
 
 	void Level2_Init() {
-		/*CREATE LEFT WALL*/
-		leftWall.width = static_cast<f32>(windowWidth / 10), leftWall.height = static_cast<f32>(AEGetWindowHeight() / 2), leftWall.rotation = 0, leftWall.pos.x = -static_cast<f32>(2 * AEGetWindowWidth() / 5), leftWall.pos.y = 0;
-		AEGfxMeshStart();
-		AEGfxTriAdd(
-			-1.0f, -1.0f, 0xFFFF0000, 0.0f, 6.0f,
-			1.0f, -1.0f, 0xFFFF0000, 2.0f, 6.0f,
-			-1.0f, 1.0f, 0xFFFF0000, 0.0f, 0.0f
-		);
-		AEGfxTriAdd(
-			1.0f, 1.0f, 0xFFFF0000, 2.0f, 0.0f,
-			1.0f, -1.0f, 0xFFFF0000, 2.0f, 6.0f,
-			-1.0f, 1.0f, 0xFFFF0000, 0.0f, 0.0f
-		);
-		leftWall.pMesh = AEGfxMeshEnd();
 
-		/*CREATE RIGHT WALL*/
-		rightWall.width = static_cast<f32>(windowWidth / 10), rightWall.height = static_cast<f32>(AEGetWindowHeight() / 2), rightWall.rotation = 0, rightWall.pos.x = static_cast<f32>(2 * AEGetWindowWidth() / 5), rightWall.pos.y = 0;
-		AEGfxMeshStart();
-		AEGfxTriAdd(
-			-1.0f, -1.0f, 0xFFFF0000, 0.0f, 6.0f,
-			1.0f, -1.0f, 0xFFFF0000, 2.0f, 6.0f,
-			-1.0f, 1.0f, 0xFFFF0000, 0.0f, 0.0f
-		);
-		AEGfxTriAdd(
-			1.0f, 1.0f, 0xFFFF0000, 2.0f, 0.0f,
-			1.0f, -1.0f, 0xFFFF0000, 2.0f, 6.0f,
-			-1.0f, 1.0f, 0xFFFF0000, 0.0f, 0.0f
-		);
-		rightWall.pMesh = AEGfxMeshEnd();
-
-		/*CREATE PLATFORM*/
-		platform.width = 200, platform.height = 50, platform.rotation = 45, platform.pos.x = 0, platform.pos.y = -150;
+		/*CREATE CORNER WALL*/
+		
+		cornerWall.width = 64, cornerWall.height = 64, cornerWall.rotation = 0, cornerWall.pos.x = 0, cornerWall.pos.y = -16;
 		AEGfxMeshStart();
 		AEGfxTriAdd(
 			-1.0f, -1.0f, 0xFFFF0000, 0.0f, 1.0f,
 			1.0f, -1.0f, 0xFFFF0000, 1.0f, 1.0f,
-			-1.0f, 1.0f, 0xFFFF0000, 0.0f, 0.0f
+			-1.0f, 1.0f, 0xFFFF0000, 0.0f, 0.5f
 		);
 		AEGfxTriAdd(
-			1.0f, 1.0f, 0xFFFF0000, 1.0f, 0.0f,
+			1.0f, 1.0f, 0xFFFF0000, 1.0f, 0.5f,
 			1.0f, -1.0f, 0xFFFF0000, 1.0f, 1.0f,
-			-1.0f, 1.0f, 0xFFFF0000, 0.0f, 0.0f
+			-1.0f, 1.0f, 0xFFFF0000, 0.0f, 0.5f
+		);
+		cornerWall.pMesh = AEGfxMeshEnd();
+		
+		/*CREATE LEFT WALL*/
+		
+		leftWall.width = 64, leftWall.height = 64, leftWall.rotation = 0, leftWall.pos.x = -112, leftWall.pos.y = -24;
+		AEGfxMeshStart();
+		AEGfxTriAdd(
+			-1.0f, -1.0f, 0xFFFF0000, 0.0f, 1.0f,
+			1.0f, -1.0f, 0xFFFF0000, 1.0f, 1.0f,
+			-1.0f, 1.0f, 0xFFFF0000, 0.0f, 0.5f
+		);
+		AEGfxTriAdd(
+			1.0f, 1.0f, 0xFFFF0000, 1.0f, 0.5f,
+			1.0f, -1.0f, 0xFFFF0000, 1.0f, 1.0f,
+			-1.0f, 1.0f, 0xFFFF0000, 0.0f, 0.5f
+		);
+		leftWall.pMesh = AEGfxMeshEnd();
+		
+		/*CREATE RIGHT WALL*/
+		
+		rightWall.width = 64, rightWall.height = 64, rightWall.rotation = 0, rightWall.pos.x = 112, rightWall.pos.y = -24;
+		AEGfxMeshStart();
+		AEGfxTriAdd(
+			-1.0f, -1.0f, 0xFFFF0000, 0.0f, 1.0f,
+			1.0f, -1.0f, 0xFFFF0000, 1.0f, 1.0f,
+			-1.0f, 1.0f, 0xFFFF0000, 0.0f, 0.5f
+		);
+		AEGfxTriAdd(
+			1.0f, 1.0f, 0xFFFF0000, 1.0f, 0.5f,
+			1.0f, -1.0f, 0xFFFF0000, 1.0f, 1.0f,
+			-1.0f, 1.0f, 0xFFFF0000, 0.0f, 0.5f
+		);
+		rightWall.pMesh = AEGfxMeshEnd();
+		
+		/*CREATE PLATFORM*/
+		platform.width = 48, platform.height = 48, platform.pos.x = 0, platform.pos.y = -32;
+		AEGfxMeshStart();
+		AEGfxTriAdd(
+			-1.0f, -1.0f, 0xFFFF0000, 0.0f, 1.0f,	// left bottom
+			1.0f, -1.0f, 0xFFFF0000, 1.0f, 1.0f,	// right bottom
+			-1.0f, 1.0f, 0xFFFF0000, 0.0f, 0.5f		// left top		y = 0.5f
+		);
+		AEGfxTriAdd(
+			1.0f, 1.0f, 0xFFFF0000, 1.0f, 0.5f,		// right top	y = 0.5f
+			1.0f, -1.0f, 0xFFFF0000, 1.0f, 1.0f,	// right bottom
+			-1.0f, 1.0f, 0xFFFF0000, 0.0f, 0.5f		// left top		y = 0.5f
 		);
 		platform.pMesh = AEGfxMeshEnd();
 
 		/*CREATE PLAYER*/
+		/*
 		player.obj.width = 30, player.obj.height = 30, player.obj.rotation = 0, player.obj.pos.x = 100, player.obj.pos.y = 0;
 		AEGfxMeshStart();
 		AEGfxTriAdd(
@@ -84,15 +109,18 @@ namespace Level2 {
 		);
 		player.obj.pMesh = AEGfxMeshEnd();
 		player.State = Enum::CS_IDLE, player.velocity_x = 0.0f, player.velocity_y = 0.0f;
+		*/
+
 	}
 
 	void Level2_Update() {
 		using namespace CollisionHandler;
 		/*HANDLE INPUT*/
 		InputHandler::ExitGame(GSM::next);
-		int direction = InputHandler::playerMovement(player);
+		//int direction = InputHandler::playerMovement(player);
 
 		/*UPDATE LOGIC*/
+		/*
 		switch (direction) {
 		case Enum::RIGHT:
 			player.velocity_x = 100.f;
@@ -103,39 +131,48 @@ namespace Level2 {
 			player.obj.pos.x += player.velocity_x * AEFrameRateControllerGetFrameTime();
 			break;
 		}
-
+		*/
 		/*Check for any collision*/
-		for (int i = 0; i < sizeof(objs) / sizeof(Object*); i++) {
-			f32 depth;
-			Vector normal;
-			if (SAT_Collision(player.obj, *objs[i], depth, normal)) {
+		//for (int i = 0; i < sizeof(objs) / sizeof(Object*); i++) {
+			//f32 depth;
+			//Vector normal;
+			//if (SAT_Collision(player.obj, *objs[i], depth, normal)) {
 				/*Collision resolution*/
-				normal.x *= depth;
-				normal.y *= depth;
-				player.obj.pos.x -= normal.x;
-				player.obj.pos.y -= normal.y;
-			}
-		}
+				//normal.x *= depth;
+				//normal.y *= depth;
+				//player.obj.pos.x -= normal.x;
+				//player.obj.pos.y -= normal.y;
+			//}
+		//}
 	}
 
 	void Level2_Draw() {
-		AEGfxSetBackgroundColor(45.f / 255.f, 218.f / 255.f, 222.f / 255.f);
-
-		RenderObject(leftWall);
-		RenderObject(rightWall);
-		RenderObject(platform);
-		RenderObject(player.obj);
+		AEGfxSetBackgroundColor(0.f,0.f,0.f);
+		
+		
+		RenderWall(cornerWall);
+		RenderWall(leftWall);
+		RenderWall(rightWall);
+		RenderFloor(platform);
+		//RenderObject(player.obj);
 	}
 
 	void Level2_Free() {
+		AEGfxMeshFree(cornerWall.pMesh);
 		AEGfxMeshFree(leftWall.pMesh);
 		AEGfxMeshFree(rightWall.pMesh);
 		AEGfxMeshFree(platform.pMesh);
+		//AEGfxMeshFree(player.pMesh);
 	}
 
 	void Level2_Unload() {
+		AEGfxTextureUnload(cornerWall.pTex);
 		AEGfxTextureUnload(leftWall.pTex);
 		AEGfxTextureUnload(rightWall.pTex);
-		AEGfxTextureUnload(platform.pTex);
+		AEGfxTextureUnload(platform.pTex[0]);
+		AEGfxTextureUnload(platform.pTex[1]);
+		AEGfxTextureUnload(platform.pTex[2]);
+		AEGfxTextureUnload(platform.pTex[3]);
+		//AEGfxMeshFree(player.pTex);
 	}
 }
