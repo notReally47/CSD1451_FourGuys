@@ -14,7 +14,7 @@ namespace Level2 {
 	//Object* objs[4]{ &platform, &leftWall, &rightWall, &cornerWall };
 
 	void Level2_Load() {
-		//AE_ASSERT_MESG(player.obj.pTex = AEGfxTextureLoad("../Assets/Sprites/sprites.png"), "Failed to load texture");
+		//AE_ASSERT_MESG(player.obj.pTex = AEGfxTextureLoad("../Assets/Sprites/player.png"), "Failed to load texture");
 		AE_ASSERT_MESG(cornerWall.pTex = AEGfxTextureLoad("../Assets/Textures/cornerwall.png"), "Failed to load texture");
 		AE_ASSERT_MESG(leftWall.pTex = AEGfxTextureLoad("../Assets/Textures/leftwall0.png"), "Failed to load texture");
 		AE_ASSERT_MESG(rightWall.pTex = AEGfxTextureLoad("../Assets/Textures/rightwall0.png"), "Failed to load texture");
