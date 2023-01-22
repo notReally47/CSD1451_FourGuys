@@ -25,7 +25,7 @@ namespace CollisionHandler {
 		bool out = (CheckIntersect(verticesA, verticesB, lenA, lenB, depth, normal) && CheckIntersect(verticesB, verticesA, lenB, lenA, depth, normal));
 
 		depth /= GetLength(normal);
-		normal = Normalize(normal);
+		normal = vecNormalize(normal);
 
 		/*Check if normal is pointing in the correct
 		direction by comparing with center of object A to center of object B.*/

@@ -59,15 +59,21 @@ namespace InputHandler {
 			next = Enum::GS_QUIT;
 	}
 
-	int playerMovement(Character &player) {
+	bool playerMovement(Character &player) {
+		Vector dir = Vector{ 0,0 };
 		if (AEInputCheckCurr(AEVK_A)) {
-			return Enum::LEFT;
+			dir.x--;
 		}
-		else if (AEInputCheckCurr(AEVK_D)) {
-			return Enum::RIGHT;
+		if (AEInputCheckCurr(AEVK_D)) {
+			dir.x++;
 		}
-		else {
-			return Enum::NONE;
+		if (AEInputCheckCurr(AEVK_W)) {
+			dir.y++;
 		}
+		if (AEInputCheckCurr(AEVK_S)) {
+			dir.y--;
+		}
+		player.direction = dir;
+		return !(dir.x == 0 && dir.y == 0);
 	}
 }

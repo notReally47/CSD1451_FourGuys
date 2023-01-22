@@ -30,7 +30,8 @@ namespace GameObjects
 
 	struct Character {
 		Object obj;
-		f32 velocity_x, velocity_y;
+		Vector direction;
+		f32 speed;
 		int State;
 	};
 

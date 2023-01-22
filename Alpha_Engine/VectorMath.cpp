@@ -15,8 +15,16 @@ namespace VectorMath {
 		return sqrt(pow(a.x, 2) + pow(a.y, 2));
 	}
 
-	Vector Normalize(Vector a) {
+	Vector vecNormalize(Vector a) {
 		f32 len = GetLength(a);
 		return Vector{ a.x / len, a.y / len };
+	}
+
+	Vector vecAdd(Vector a, Vector b) {
+		return Vector{ a.x + b.x, a.y + b.y };
+	}
+
+	Vector vecScale(Vector a, f32 scale) {
+		return Vector{ a.x *= scale, a.y * scale };
 	}
 }
