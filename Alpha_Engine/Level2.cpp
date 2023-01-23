@@ -95,17 +95,16 @@ namespace Level2 {
 		platform.pMesh = AEGfxMeshEnd();
 
 		/*CREATE PLAYER*/
-		
 		player.obj.width = 30, player.obj.height = 30, player.obj.rotation = 0, player.obj.pos.x = 100, player.obj.pos.y = 0;
 		AEGfxMeshStart();
 		AEGfxTriAdd(
-			-1.0f, -1.0f, 0xFFFF0000, 0.0f, 1.0f / 5.0f,
-			1.0f, -1.0f, 0xFFFF0000, 1.0f / 8.0f, 1.0f / 5.0f,
+			-1.0f, -1.0f, 0xFFFF0000, 0.0f, 1.0f / 8.0f,
+			1.0f, -1.0f, 0xFFFF0000, 1.0f / 11.0f, 1.0f / 8.0f,
 			-1.0f, 1.0f, 0xFFFF0000, 0.0f, 0.0f
 		);
 		AEGfxTriAdd(
-			1.0f, 1.0f, 0xFFFF0000, 1.0f / 8.0f, 0.0f,
-			1.0f, -1.0f, 0xFFFF0000, 1.0f / 8.0f, 1.0f / 5.0f,
+			1.0f, 1.0f, 0xFFFF0000, 1.0f / 11.0f, 0.0f,
+			1.0f, -1.0f, 0xFFFF0000, 1.0f / 11.0f, 1.0f / 8.0f,
 			-1.0f, 1.0f, 0xFFFF0000, 0.0f, 0.0f
 		);
 		player.obj.pMesh = AEGfxMeshEnd();
@@ -122,7 +121,7 @@ namespace Level2 {
 
 		/*UPDATE LOGIC*/
 		if (isMoving) {
-			f32 unitSpeed = player.speed * AEFrameRateControllerGetFrameTime();
+			f32 unitSpeed = player.speed * static_cast<f32>(AEFrameRateControllerGetFrameTime());
 			player.direction = VectorMath::vecNormalize(player.direction);
 			player.obj.pos = VectorMath::vecAdd(player.obj.pos, VectorMath::vecScale(player.direction, unitSpeed));
 		}

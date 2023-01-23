@@ -161,8 +161,10 @@ namespace GameObjects {
 
 		/* Get vertex after rotation. Vertex rotates around the center of the mesh */
 		for (int i = 0; i < 4; i++) {
-			vertices[i].x = (original[i].x - obj.pos.x) * cos(-obj.rotation) - (original[i].y - obj.pos.y) * sin(-obj.rotation) + obj.pos.x;
-			vertices[i].y = (original[i].x - obj.pos.x) * sin(-obj.rotation) + (original[i].y - obj.pos.y) * cos(-obj.rotation) + obj.pos.y;
+			f32 posX = original[i].x - obj.pos.x;
+			f32 posY = original[i].y - obj.pos.y;
+			vertices[i].x = posX * static_cast<f32>(cos(-obj.rotation)) - posY * static_cast<f32>(sin(-obj.rotation)) + obj.pos.x;
+			vertices[i].y = posX * static_cast<f32>(sin(-obj.rotation)) + posY * static_cast<f32>(cos(-obj.rotation)) + obj.pos.y;
 		}
 
 		return vertices;
