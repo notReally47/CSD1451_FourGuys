@@ -75,7 +75,7 @@ namespace CollisionHandler {
 			if (minA >= maxB || minB >= maxA)
 				return false;
 
-			f32 axisDepth = maxB - minA < maxA - minB ? maxB - minA : maxA - minB; // Returns the length of intersection
+			f32 axisDepth = maxB - minA < maxA - minB ? maxB - minA : maxA - minB; // Length/depth of intersection
 
 			/*Outs the smallest depth and axis for resolution*/
 			if (axisDepth < depth) {

@@ -11,7 +11,7 @@ namespace GameObjects
 		AEGfxTexture* pTex;
 		AEGfxVertexList* pMesh;
 		f32 width, height, rotation;
-		Vector pos;
+		AEVec2 pos;
 	};
 
 	struct Wall {
@@ -30,9 +30,10 @@ namespace GameObjects
 
 	struct Character {
 		Object obj;
-		Vector direction;
+		AEVec2 direction;
 		f32 speed;
-		int State;
+		bool isMoving;
+		int spriteX, spriteY, spriteIteration, pTexOffsetX, pTexOffsetY;
 	};
 
 	void RenderObject(Object obj);

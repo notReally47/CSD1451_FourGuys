@@ -60,7 +60,7 @@ namespace InputHandler {
 	}
 
 	bool playerMovement(Character &player) {
-		Vector dir = Vector{ 0,0 };
+		AEVec2 dir = AEVec2{ 0,0 };
 		if (AEInputCheckCurr(AEVK_A)) {
 			dir.x--;
 		}

@@ -4,6 +4,7 @@
 #include "CollisionHandler.h"
 #include "GSM.h"
 #include "VectorMath.h"
+#include "AnimationHandler.h"
 
 namespace Level2 {
 	using namespace GameObjects;
@@ -108,7 +109,10 @@ namespace Level2 {
 			-1.0f, 1.0f, 0xFFFF0000, 0.0f, 0.0f
 		);
 		player.obj.pMesh = AEGfxMeshEnd();
-		player.State = Enum::CS_IDLE, player.direction = Vector{ 0,0 }, player.speed = 100.0f;
+		player.direction = AEVec2{ 0.f,0.f }, player.speed = 100.0f;
+		player.spriteX = 11, player.spriteY = 8, player.spriteIteration = 0;
+		player.pTexOffsetX = 0, player.pTexOffsetY = 0;
+		player.isMoving = false;
 		
 
 	}
@@ -117,13 +121,14 @@ namespace Level2 {
 		using namespace CollisionHandler;
 		/*HANDLE INPUT*/
 		InputHandler::ExitGame(GSM::next);
-		bool isMoving{ InputHandler::playerMovement(player) };
+		player.isMoving = InputHandler::playerMovement(player);
 
 		/*UPDATE LOGIC*/
-		if (isMoving) {
+		if (player.isMoving) {
 			f32 unitSpeed = player.speed * static_cast<f32>(AEFrameRateControllerGetFrameTime());
-			player.direction = VectorMath::vecNormalize(player.direction);
-			player.obj.pos = VectorMath::vecAdd(player.obj.pos, VectorMath::vecScale(player.direction, unitSpeed));
+			AEVec2Normalize(&player.direction, &player.direction);
+			AEVec2Scale(&player.direction, &player.direction, unitSpeed);
+			AEVec2Add(&player.obj.pos, &player.obj.pos, &player.direction);
 		}
 
 		///*Check for any collision*/
@@ -146,7 +151,7 @@ namespace Level2 {
 		RenderWall(leftWall);
 		RenderWall(rightWall);
 		RenderFloor(platform);
-		RenderObject(player.obj);
+		AnimationHandler::AnimateCharacter(player);
 	}
 
 	void Level2_Free() {
