@@ -2,9 +2,10 @@
 #include "Enum.h"
 #include "Level1.h"
 #include "Level2.h"
+#include "MainMenu.h"
 
 namespace GSM {
-	int current{ Enum::GS_LEVEL2 }, previous{ 0 }, next{ 0 };
+	int current{ Enum::GS_MENU }, previous{ 0 }, next{ 0 };
 	f64 gameTime;
 	FP fpLoad = nullptr, fpInit = nullptr, fpUpdate = nullptr, fpDraw = nullptr, fpFree = nullptr, fpUnload = nullptr;
 
@@ -16,6 +17,14 @@ namespace GSM {
 		using namespace Enum;
 		switch (current) {
 		case GS_QUIT:
+			break;
+		case GS_MENU:
+			fpLoad = MainMenu::MainMenu_Load;
+			fpInit = MainMenu::MainMenu_Init;
+			fpUpdate = MainMenu::MainMenu_Update;
+			fpDraw = MainMenu::MainMenu_Draw;
+			fpFree = MainMenu::MainMenu_Free;
+			fpUnload = MainMenu::MainMenu_Unload;
 			break;
 		case GS_LEVEL1:
 			fpLoad = Level1::Level1_Load;

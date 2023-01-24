@@ -1,0 +1,16 @@
+﻿  GSM.cpp
+  InputHandler.cpp
+  Level1.cpp
+C:\Year1\t2\csd1451\FourGuys\Alpha_Engine\Alpha_Engine\Level1.cpp(151,66): warning C4305: 'argument': truncation from 'double' to 'f32'
+C:\Year1\t2\csd1451\FourGuys\Alpha_Engine\Alpha_Engine\Level1.cpp(155,56): warning C4244: 'argument': conversion from 'double' to 'f32', possible loss of data
+C:\Year1\t2\csd1451\FourGuys\Alpha_Engine\Alpha_Engine\Level1.cpp(155,38): warning C4244: 'argument': conversion from 'double' to 'f32', possible loss of data
+  Main.cpp
+  MainMenu.cpp
+  Wall.cpp
+  pch.cpp
+  SystemHandler.cpp
+  Generating Code...
+  Alpha_Engine.vcxproj -> C:\Year1\t2\csd1451\FourGuys\Alpha_Engine\bin\Debug-x64\FourGuys.exe
+  3 File(s) copied
+  1 File(s) copied
+  1 File(s) copied
