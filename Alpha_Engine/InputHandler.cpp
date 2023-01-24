@@ -2,6 +2,7 @@
 #include "AEEngine.h"
 #include "GSM.h"
 #include "Enum.h"
+#include <iostream>
 #include "GameObjects.h"
 
 namespace InputHandler {
@@ -75,5 +76,15 @@ namespace InputHandler {
 		}
 		player.direction = dir;
 		return !(dir.x == 0 && dir.y == 0);
+	}
+	bool buttonClick(s32 mouseX, s32 mouseY, float buttonX, float buttonY) {
+		AEInputGetCursorPosition(&mouseX, &mouseY);
+		if (AEInputCheckReleased(AEVK_LBUTTON)&& mouseX <=static_cast<s32>(buttonX + 100.f) && mouseX >= static_cast<s32>(buttonX)
+		&& mouseY <= static_cast<s32>(buttonY + 50.f) && mouseY >= static_cast<s32>(buttonY))
+		{
+			std::cout << "true\n";
+			return true;
+		}
+		return false;
 	}
 }

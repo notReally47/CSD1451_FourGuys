@@ -4,13 +4,12 @@
 #include "GSM.h"
 #include "Enum.h"
 #include <iostream>
-#include <string>
-
 namespace MainMenu
 {
 
 	AEGfxVertexList *pMesh1{0}, *pMesh2{0}, *pMesh3{0};
 	s8 fontId = 0;
+	s32 mouseX{}, mouseY{};
 	char strBuffer[10];
 	char strBuffer2[10];
 	char strBuffer3[10];
@@ -22,11 +21,11 @@ namespace MainMenu
 	/*LOAD INITIAL DATA*/
 	void MainMenu_Init()
 	{
-		memset(strBuffer, 0, 100 * sizeof(char));
+		memset(strBuffer, 0, 10 * sizeof(char));
 		sprintf_s(strBuffer, "Start");
-		memset(strBuffer2, 0, 100 * sizeof(char));
+		memset(strBuffer2, 0, 10 * sizeof(char));
 		sprintf_s(strBuffer2, "Option");
-		memset(strBuffer3, 0, 100 * sizeof(char));
+		memset(strBuffer3, 0, 10 * sizeof(char));
 		sprintf_s(strBuffer3, "Exit");
 
 		AESysSetWindowTitle("Main Menu");
@@ -75,11 +74,15 @@ namespace MainMenu
 	{
 		using namespace Enum;
 		/*UPDATE LOGIC*/
-
 		InputHandler::ExitGame(GSM::next);
-		if (AEInputCheckReleased(AEVK_LBUTTON))
+		if (InputHandler::buttonClick(mouseX, mouseY, 350.f, 175.f))
 		{
-			GSM::next = GAME_STATES::GS_LEVEL1;
+			std::cout << "hi\n";
+			// GSM::next = GAME_STATES::GS_LEVEL1;
+		}
+		if (InputHandler::buttonClick(mouseX, mouseY, 350.f, 375.f))
+		{
+			GSM::next = Enum::GS_QUIT;
 		}
 	}
 
@@ -137,7 +140,7 @@ namespace MainMenu
 
 		AEGfxSetBlendMode(AE_GFX_BM_BLEND);
 		AEGfxPrint(fontId, strBuffer, -0.055f, 0.3f, 2.0f, 0.0f, 0.f, 0.f);
-		AEGfxPrint(fontId, strBuffer2,-0.08f, -0.02f, 2.0f,  0.0f, 0.f, 0.f);
+		AEGfxPrint(fontId, strBuffer2, -0.08f, -0.02f, 2.0f, 0.0f, 0.f, 0.f);
 		AEGfxPrint(fontId, strBuffer3, -0.05f, -0.35f, 2.0f, 0.0f, 0.0f, 0.0f);
 	}
 
