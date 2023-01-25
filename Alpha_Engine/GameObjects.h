@@ -39,6 +39,6 @@ namespace GameObjects
 	void RenderObject(Object obj);
 	void RenderWall(Object obj);
 	void RenderFloor(Floor obj);
-	Vector* GetVertices(const Object obj);
+	AEVec2* GetVertices(const Object obj);
 	Vector* Isometric(const Object obj);
 }

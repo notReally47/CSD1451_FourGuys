@@ -150,13 +150,13 @@ namespace GameObjects {
 		}
 	}
 
-	Vector* GetVertices(const Object obj) {
-		Vector* vertices = { new Vector[4] };
-		Vector original[4] = {
-			Vector{ obj.pos.x - obj.width - 10, obj.pos.y + obj.height - 10 },
-			Vector{ obj.pos.x + obj.width - 10, obj.pos.y + obj.height - 10 },
-			Vector{ obj.pos.x + obj.width - 10, obj.pos.y - obj.height - 10 },
-			Vector{ obj.pos.x - obj.width - 10, obj.pos.y - obj.height - 10 }
+	AEVec2* GetVertices(const Object obj) {
+		AEVec2* vertices = { new AEVec2[4] };
+		AEVec2 original[4] = {
+			AEVec2{ obj.pos.x - obj.width - 10, obj.pos.y + obj.height - 10 },
+			AEVec2{ obj.pos.x + obj.width - 10, obj.pos.y + obj.height - 10 },
+			AEVec2{ obj.pos.x + obj.width - 10, obj.pos.y - obj.height - 10 },
+			AEVec2{ obj.pos.x - obj.width - 10, obj.pos.y - obj.height - 10 }
 		};
 
 		/* Get vertex after rotation. Vertex rotates around the center of the mesh */

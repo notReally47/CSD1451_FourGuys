@@ -5,33 +5,35 @@
 namespace AnimationHandler {
 	using namespace GameObjects;
 
+	/*Get direction the player is facing and set according to the spritesheet row.*/
 	void setTextureOffsetY(Character& character) {
-		if (checkDirection(character, 1, 1)) {
+		if (checkDirection(character, 1, 1)) { //UPRIGHT
 			character.pTexOffsetY = 0;
 		}
-		else if (checkDirection(character, 1, 0)) {
+		else if (checkDirection(character, 1, 0)) { //UP
 			character.pTexOffsetY = 1;
 		}
-		else if (checkDirection(character, 1, -1)) {
+		else if (checkDirection(character, 1, -1)) { //UPLEFT
 			character.pTexOffsetY = 2;
 		}
-		else if (checkDirection(character, 0, -1)) {
+		else if (checkDirection(character, 0, -1)) { //LEFT
 			character.pTexOffsetY = 3;
 		}
-		else if (checkDirection(character, -1, -1)) {
+		else if (checkDirection(character, -1, -1)) { //DOWNLEFT
 			character.pTexOffsetY = 4;
 		}
-		else if (checkDirection(character, -1, 0)) {
+		else if (checkDirection(character, -1, 0)) { //DOWN
 			character.pTexOffsetY = 5;
 		}
-		else if (checkDirection(character, -1, 1)) {
+		else if (checkDirection(character, -1, 1)) { //DOWNRIGHT
 			character.pTexOffsetY = 6;
 		}
-		else if (checkDirection(character, 0, 1)) {
+		else if (checkDirection(character, 0, 1)) { //RIGHT
 			character.pTexOffsetY = 7;
 		}
 	}
 
+	/*Iterates through the spritesheets columns if the player is moving*/
 	void setTextureOffsetX(Character& character) {
 		if (character.isMoving) {
 			if (GSM::gameTime >= 0.1f) {
@@ -46,12 +48,14 @@ namespace AnimationHandler {
 		}
 	}
 
+	/*Helper function to compare the x and y coordinates with 2 respective values.*/
 	bool checkDirection(Character character, int a, int b) {
 		int x = static_cast<int>(character.direction.x);
 		int y = static_cast<int>(character.direction.y);
 		return (x == a && y == b);
 	}
 
+	/*Set the texture offset and render the player. This will create the animation.*/
 	void AnimateCharacter(Character& character) {
 		/*SETTINGS*/
 		AEGfxSetRenderMode(AE_GFX_RM_TEXTURE);

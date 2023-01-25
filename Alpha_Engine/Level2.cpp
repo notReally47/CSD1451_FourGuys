@@ -33,7 +33,6 @@ namespace Level2 {
 	void Level2_Init() {
 
 		/*CREATE CORNER WALL*/
-		
 		cornerWall.width = 64, cornerWall.height = 64, cornerWall.rotation = 0, cornerWall.pos.x = 0, cornerWall.pos.y = -16;
 		AEGfxMeshStart();
 		AEGfxTriAdd(
@@ -113,8 +112,6 @@ namespace Level2 {
 		player.spriteX = 11, player.spriteY = 8, player.spriteIteration = 0;
 		player.pTexOffsetX = 0, player.pTexOffsetY = 0;
 		player.isMoving = false;
-		
-
 	}
 
 	void Level2_Update() {
@@ -124,12 +121,15 @@ namespace Level2 {
 		player.isMoving = InputHandler::playerMovement(player);
 
 		/*UPDATE LOGIC*/
+		/*MOVEMENT*/
 		if (player.isMoving) {
 			f32 unitSpeed = player.speed * static_cast<f32>(AEFrameRateControllerGetFrameTime());
 			AEVec2Normalize(&player.direction, &player.direction);
 			AEVec2Scale(&player.direction, &player.direction, unitSpeed);
 			AEVec2Add(&player.obj.pos, &player.obj.pos, &player.direction);
 		}
+		/*ANIMATION*/
+
 
 		///*Check for any collision*/
 		//for (int i = 0; i < sizeof(objs) / sizeof(Object*); i++) {
@@ -141,6 +141,10 @@ namespace Level2 {
 		//		normal.y *= depth;
 		//		player.obj.pos.x -= normal.x;
 		//		player.obj.pos.y -= normal.y;
+		// 
+		//		/*TODO*/
+		//		// change the player direction based on the normal.
+		//		
 		//	}
 		//}
 	}
