@@ -11,7 +11,7 @@ namespace Level2 {
 	Object leftWall, rightWall, cornerWall;
 	Floor platform;
 	Character player;
-	s8 fontId;
+	
 	f32 windowWidth, windowHeight;
 	Object* objs[3]{ &leftWall, &rightWall, &cornerWall };
 
@@ -24,7 +24,7 @@ namespace Level2 {
 		AE_ASSERT_MESG(platform.pTex[1] = AEGfxTextureLoad("../Assets/Textures/floor1.png"), "Failed to load texture");
 		AE_ASSERT_MESG(platform.pTex[2] = AEGfxTextureLoad("../Assets/Textures/floor2.png"), "Failed to load texture");
 		AE_ASSERT_MESG(platform.pTex[3] = AEGfxTextureLoad("../Assets/Textures/floor3.png"), "Failed to load texture");
-		AE_ASSERT_MESG(fontId = AEGfxCreateFont("Roboto-Regular.ttf", 12), "Failed to load font");
+		
 		windowWidth = static_cast<f32>(AEGetWindowWidth());
 		windowHeight = static_cast<f32>(AEGetWindowHeight());
 		//AEGfxSetPosition(-1.0f, -1.0f);
