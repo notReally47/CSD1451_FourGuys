@@ -14,7 +14,7 @@ namespace Level2 {
 	
 	f32 windowWidth, windowHeight;
 	Object* objs[3]{ &leftWall, &rightWall, &cornerWall };
-/*TESTING MERGE*/
+/*TESTING MERGEzxvzvxvz*/
 	void Level2_Load() {
 		AE_ASSERT_MESG(player.obj.pTex = AEGfxTextureLoad("../Assets/Sprites/player.png"), "Failed to load texture");
 		AE_ASSERT_MESG(cornerWall.pTex = AEGfxTextureLoad("../Assets/Textures/cornerwall.png"), "Failed to load texture");
