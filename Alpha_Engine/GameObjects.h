@@ -31,6 +31,7 @@ namespace GameObjects
 	struct Character {
 		Object obj;
 		AEVec2 direction;
+		AEVec2 input;
 		f32 speed;
 		bool isMoving;
 		int spriteX, spriteY, spriteIteration, pTexOffsetX, pTexOffsetY;

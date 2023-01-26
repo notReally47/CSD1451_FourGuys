@@ -108,7 +108,7 @@ namespace Level2 {
 			-1.0f, 1.0f, 0xFFFF0000, 0.0f, 0.0f
 		);
 		player.obj.pMesh = AEGfxMeshEnd();
-		player.direction = AEVec2{ 0.f,0.f }, player.speed = 100.0f;
+		player.direction = AEVec2{ 0.f,0.f }, player.input = AEVec2{ 0,0 }, player.speed = 100.0f;
 		player.spriteX = 11, player.spriteY = 8, player.spriteIteration = 0;
 		player.pTexOffsetX = 0, player.pTexOffsetY = 0;
 		player.isMoving = false;
