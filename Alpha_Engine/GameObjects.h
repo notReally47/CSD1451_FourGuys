@@ -3,6 +3,8 @@
 
 namespace GameObjects
 {
+	extern const f32 wall_dim;
+
 	extern s8 fontId;
 	struct Vector {
 		f32 x, y;
@@ -15,31 +17,23 @@ namespace GameObjects
 		AEVec2 pos;
 	};
 
-	struct Wall {
-		AEGfxTexture* pTex;
-		AEGfxVertexList* pMesh;
-		f32 width, height;
-		Vector pos;
-	};
-
-	struct Floor {
-		AEGfxTexture* pTex[4];
-		AEGfxVertexList* pMesh;
-		f32 width, height;
-		Vector pos;
-	};
-
 	struct Character {
 		Object obj;
 		AEVec2 direction;
 		f32 speed;
+		int State;
+		void render();
 		bool isMoving;
 		int spriteX, spriteY, spriteIteration, pTexOffsetX, pTexOffsetY;
 	};
 
+	void RenderSettings(void);
 	void RenderObject(Object obj);
 	void RenderWall(Object obj);
-	void RenderFloor(Floor obj);
+	void RenderFloor(Object obj);
+	void RenderDeco(Object obj);
+	void RenderPortrait(Object obj);
+	f32 Interpolate(f64 &dt, f64 frametime);
 	AEVec2* GetVertices(const Object obj);
-	Vector* Isometric(const Object obj);
+	AEVec2* Isometric(const Object obj);
 }

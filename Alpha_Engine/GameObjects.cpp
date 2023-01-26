@@ -1,4 +1,3 @@
-#include "GameObjects.h"
 #include "pch.h"
 #include <string>
 
@@ -10,36 +9,45 @@ namespace GameObjects {
 		i_y = 0.25,
 		j_x = -0.5,
 		j_y = 0.25;
-
-	/*
-	* Render objects that have textures.
-	*/
-	void RenderObject(Object obj) {
+	const f32
+		wall_dim = 1.f / 7.f;
+	f64 dt{ 0.0 }, ani{1.f/6.f};
+	bool interpolate{ true };
+	f32 Interpolate(f64 &dt, f64 frametime) {
+		interpolate = (dt >= 1.f) ? false : (dt <= .0f) ? true : interpolate;
+		return dt += (interpolate) ? frametime : -frametime;
+	}
+	void RenderSettings(void) {
 		/*SETTINGS*/
 		AEGfxSetRenderMode(AE_GFX_RM_TEXTURE);
 		AEGfxSetTintColor(1.0f, 1.0f, 1.0f, 1.0f);
 		AEGfxSetBlendMode(AE_GFX_BM_BLEND);
 		AEGfxSetTransparency(1.0f);
-
+	}
+	/*
+	* Render objects that have textures.
+	*/
+	void RenderObject(Object obj) {
 		/*Set texture*/
 		AEGfxTextureSet(obj.pTex, 0, 0);
-
-		/*CLOCKWISE ROTATION*/
-		AEMtx33 rotate = { 0 };
-		AEMtx33Rot(&rotate, AEDegToRad(obj.rotation));
 
 		/*SCALING*/
 		AEMtx33 scale = { 0 };
 		AEMtx33Scale(&scale, obj.width, obj.height);
-
+		
+		///*TRANSLATION/POSITION*/
+		//AEMtx33 translate = { 0 };
+		//AEVec2 animate = { obj.pos.x , obj.pos.y + 10.f };
+		//if (AEInputCheckCurr(AEVK_SPACE))
+			//AEVec2Lerp(&obj.pos, &obj.pos, &animate, Interpolate(dt, AEFrameRateControllerGetFrameTime()));
+		//AEMtx33Trans(&translate, obj.pos.x, obj.pos.y);
 		/*TRANSLATION/POSITION*/
 		AEMtx33 translate = { 0 };
 		AEMtx33Trans(&translate, obj.pos.x, obj.pos.y);
 
 		/*TRANSFORMATION (TRS)*/
 		AEMtx33 transform = { 0 };
-		AEMtx33Concat(&transform, &rotate, &scale);
-		AEMtx33Concat(&transform, &translate, &transform);
+		AEMtx33Concat(&transform, &translate, &scale);
 		//AEMtx33MultVec(&transform, &transform, Isometric(obj));
 		AEGfxSetTransform(transform.m);
 
@@ -48,15 +56,6 @@ namespace GameObjects {
 	}
 
 	void RenderWall(Object obj) {
-		/*SETTINGS*/
-		AEGfxSetRenderMode(AE_GFX_RM_TEXTURE);
-		AEGfxSetTintColor(1.0f, 1.0f, 1.0f, 1.0f);
-		AEGfxSetBlendMode(AE_GFX_BM_BLEND);
-		AEGfxSetTransparency(1.0f);
-
-		/*Set texture*/
-		AEGfxTextureSet(obj.pTex, 0, 0);
-
 		/*SCALING*/
 		AEMtx33 scale = { 0 };
 		AEMtx33Scale(&scale, obj.width, obj.height);
@@ -70,47 +69,63 @@ namespace GameObjects {
 		AEMtx33Concat(&transform, &translate, &scale);
 		AEGfxSetTransform(transform.m);
 
-		/*DRAW MESH*/
-		AEGfxMeshDraw(obj.pMesh, AE_GFX_MDM_TRIANGLES);
-		
-		if (strcmp(obj.pTex->mpName, "../Assets/Textures/cornerwall.png") == 0)
-			for (int i = 0; i < 6; i++) {
+		for (int i = 0; i < 9; i++) {
+			AEVec2 init_trans;
+			switch (i) {
+			case 0: // corner wall
+				/*Set texture*/
+				AEGfxTextureSet(obj.pTex, wall_dim * 3.0f, 0);
+				init_trans = { 64,-432 };
+				break;
+			case 1: // plain right wall
+			case 3:
+			case 4:
+				/*Set texture*/
+				AEGfxTextureSet(obj.pTex, wall_dim * 4.0f, 0);
+				init_trans.x = (i == 4) ? -320 : 64;
+				init_trans.y = (i == 1) ? -432 : (i == 3) ? -512 : -384;
+				break;
+			case 2: // column right wall
+				/*Set texture*/
+				AEGfxTextureSet(obj.pTex, wall_dim * 5.0f, 0);
+				init_trans = { 64,-512 };
+				break;
+			case 5: // plain left wall
+			case 7:
+			case 8:
+				/*Set texture*/
+				AEGfxTextureSet(obj.pTex, wall_dim * 2.0f, 0);
+				init_trans.x = -64;
+				init_trans.y = (i == 5) ? -432 : -512;
+				break;
+			case 6: // column left wall
+				/*Set texture*/
+				AEGfxTextureSet(obj.pTex, wall_dim, 0);
+				init_trans = { -64,-512 };
+				break;
+			}
+			for (int j = 0; j < 6; j++) {
+				if (j == 5 && (i == 0 || i == 1 || i == 5))
+					break;
+				/*DRAW MESH*/
+				AEGfxMeshDraw(obj.pMesh, AE_GFX_MDM_TRIANGLES);
+
 				/*TRANSFORMATION (TRS)*/
 				AEMtx33Trans(&translate, 0, 80);
 				AEMtx33Concat(&transform, &translate, &transform);
 				AEGfxSetTransform(transform.m);
-
-				/*DRAW MESH*/
-				AEGfxMeshDraw(obj.pMesh, AE_GFX_MDM_TRIANGLES);
 			}
-		else
-			for (int i = 0; i < 6; i++) {
-				/*DRAW MESH*/
-				AEGfxMeshDraw(obj.pMesh, AE_GFX_MDM_TRIANGLES);
-				f32 x = (strcmp(obj.pTex->mpName, "../Assets/Textures/rightwall0.png") == 0) ? 64 : -64;
-				for (int j = 0; j < 3; j++) {
-					/*TRANSFORMATION (TRS)*/
-					AEMtx33Trans(&translate, x, -32);
-					AEMtx33Concat(&transform, &translate, &transform);
-					AEGfxSetTransform(transform.m);
-
-					/*DRAW MESH*/
-					AEGfxMeshDraw(obj.pMesh, AE_GFX_MDM_TRIANGLES);
-				}
-				/*TRANSFORMATION (TRS)*/	// translate back to original x position
-				AEMtx33Trans(&translate, -x*3, 176);
-				AEMtx33Concat(&transform, &translate, &transform);
-				AEGfxSetTransform(transform.m);
-			}
+			/*TRANSFORMATION (TRS)*/
+			AEMtx33Trans(&translate, init_trans.x, init_trans.y);
+			AEMtx33Concat(&transform, &translate, &transform);
+			AEGfxSetTransform(transform.m);
+		}
 		
 	}
 
-	void RenderFloor(Floor obj) {
-		/*SETTINGS*/
-		AEGfxSetRenderMode(AE_GFX_RM_TEXTURE);
-		AEGfxSetTintColor(1.0f, 1.0f, 1.0f, 1.0f);
-		AEGfxSetBlendMode(AE_GFX_BM_BLEND);
-		AEGfxSetTransparency(1.0f);
+	void RenderFloor(Object obj) {
+		/*Set texture*/
+		AEGfxTextureSet(obj.pTex, 0, 0);
 
 		/*SCALING*/
 		AEMtx33 scale = { 0 };
@@ -126,29 +141,89 @@ namespace GameObjects {
 		AEGfxSetTransform(transform.m);
 
 		for (int i = 0; i < 9; i++) {
-			/*Set texture*/
-			AEGfxTextureSet(obj.pTex[i % 4], 0, 0);
-			
-			/*DRAW MESH*/
-			AEGfxMeshDraw(obj.pMesh, AE_GFX_MDM_TRIANGLES);
-			for (int j = 0; j < 8; j++) {
-				/*Set texture*/
-				AEGfxTextureSet(obj.pTex[j % 2], 0, 0);
-				/*TRANSFORMATION (TRS)*/
-				AEMtx33Trans(&translate, -32, -16); //-32, -16
-				AEMtx33Concat(&transform, &translate, &transform);
-				AEGfxSetTransform(transform.m);
-
+			for (int j = 0; j < 9; j++) {
 				/*DRAW MESH*/
 				AEGfxMeshDraw(obj.pMesh, AE_GFX_MDM_TRIANGLES);
-			}
 
+				/*TRANSFORMATION (TRS)*/
+				AEMtx33Trans(&translate, -32, -16);
+				AEMtx33Concat(&transform, &translate, &transform);
+				AEGfxSetTransform(transform.m);
+			}
 			/*TRANSFORMATION (TRS)*/
-			AEMtx33Trans(&translate, 288, 112);
+			AEMtx33Trans(&translate, 320, 128);
 			AEMtx33Concat(&transform, &translate, &transform);
 			AEGfxSetTransform(transform.m);
-			
 		}
+	}
+	void RenderDeco(Object obj) {
+		
+		dt += (interpolate) ? AEFrameRateControllerGetFrameTime() : -AEFrameRateControllerGetFrameTime();
+		interpolate = (dt >= 1.f) ? false : (dt <= .0f) ? true : interpolate;
+		
+		/*Set texture*/
+		AEGfxTextureSet(obj.pTex, ani, 0);
+
+		/*CLOCKWISE ROTATION*/
+		AEMtx33 rotate = { 0 };
+		AEMtx33Rot(&rotate, AEDegToRad(obj.rotation));
+
+		/*SCALING*/
+		AEMtx33 scale = { 0 };
+		AEMtx33Scale(&scale, obj.width, obj.height);
+
+		/*TRANSLATION/POSITION*/
+		AEMtx33 translate = { 0 };
+		AEVec2 animate = { obj.pos.x , obj.pos.y + 5.f };
+		AEVec2Lerp(&obj.pos, &obj.pos, &animate, Interpolate(dt,AEFrameRateControllerGetFrameTime()));
+		AEMtx33Trans(&translate, obj.pos.x, obj.pos.y);
+
+		/*TRANSFORMATION (TRS)*/
+		AEMtx33 transform = { 0 };
+		AEMtx33Concat(&transform, &translate, &scale);
+		AEGfxSetTransform(transform.m);
+
+		for (int i = 0; i < 5; i++) {
+			/*DRAW MESH*/
+			AEGfxMeshDraw(obj.pMesh, AE_GFX_MDM_TRIANGLES);
+			/*TRANSFORMATION (TRS)*/
+			AEMtx33Trans(&translate, -32, -16);
+			AEMtx33Concat(&transform, &translate, &transform);
+			AEGfxSetTransform(transform.m);
+		}
+		for (int i = 0; i < 5; i++) {
+			/*DRAW MESH*/
+			AEGfxMeshDraw(obj.pMesh, AE_GFX_MDM_TRIANGLES);
+			/*TRANSFORMATION (TRS)*/
+			AEMtx33Trans(&translate, 32, -16);
+			AEMtx33Concat(&transform, &translate, &transform);
+			AEGfxSetTransform(transform.m);
+		}
+		/*TRANSFORMATION (TRS)*/
+		AEMtx33Trans(&translate, 0, 128);
+		AEMtx33Concat(&transform, &translate, &transform);
+		AEGfxSetTransform(transform.m);
+	}
+	void RenderPortrait(Object obj) {
+		/*Set texture*/
+		(interpolate) ? AEGfxTextureSet(obj.pTex, 0, 0):
+			AEGfxTextureSet(obj.pTex, 0.25, 0);
+
+		/*SCALING*/
+		AEMtx33 scale = { 0 };
+		AEMtx33Scale(&scale, obj.width, obj.height);
+
+		/*TRANSLATION/POSITION*/
+		AEMtx33 translate = { 0 };
+		AEMtx33Trans(&translate, obj.pos.x, obj.pos.y);
+
+		/*TRANSFORMATION (TRS)*/
+		AEMtx33 transform = { 0 };
+		AEMtx33Concat(&transform, &translate, &scale);
+		AEGfxSetTransform(transform.m);
+
+		/*DRAW MESH*/
+		AEGfxMeshDraw(obj.pMesh, AE_GFX_MDM_TRIANGLES);
 	}
 
 	AEVec2* GetVertices(const Object obj) {
@@ -172,8 +247,8 @@ namespace GameObjects {
 	}
 
 	// does nothing right now
-	Vector* Isometric(const Object obj) {
-		Vector* coordinates = { new Vector };
+	AEVec2* Isometric(const Object obj) {
+		AEVec2* coordinates = { new AEVec2 };
 		coordinates->x = (obj.pos.x * i_x * obj.width) + (obj.pos.y * j_x * obj.width);
 		coordinates->y = (obj.pos.x * i_y * obj.height) + (obj.pos.y * j_y * obj.height);
 		return coordinates;
