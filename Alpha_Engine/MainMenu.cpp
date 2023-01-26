@@ -8,15 +8,15 @@ namespace MainMenu
 {
 
 	AEGfxVertexList *pMesh1{0}, *pMesh2{0}, *pMesh3{0};
-	s8 fontId = 0;
+	
 	s32 mouseX{}, mouseY{};
 	char strBuffer[10];
 	char strBuffer2[10];
 	char strBuffer3[10];
+	using namespace GameObjects;
 	/*LOAD ASSETS*/
 	void MainMenu_Load()
 	{
-		AE_ASSERT_MESG(fontId = AEGfxCreateFont("Roboto-Regular.ttf", 12), "Failed to load font");
 	}
 	/*LOAD INITIAL DATA*/
 	void MainMenu_Init()
@@ -78,7 +78,7 @@ namespace MainMenu
 		if (InputHandler::buttonClick(mouseX, mouseY, 350.f, 175.f))
 		{
 			std::cout << "hi\n";
-			// GSM::next = GAME_STATES::GS_LEVEL1;
+			 GSM::next = GAME_STATES::GS_LEVEL2;
 		}
 		if (InputHandler::buttonClick(mouseX, mouseY, 350.f, 375.f))
 		{
@@ -149,7 +149,7 @@ namespace MainMenu
 	{
 		AEGfxMeshFree(pMesh1);
 		AEGfxMeshFree(pMesh2);
-		AEGfxDestroyFont(fontId);
+		AEGfxMeshFree(pMesh3);
 	}
 
 	/*UNLOADS ASSETS*/

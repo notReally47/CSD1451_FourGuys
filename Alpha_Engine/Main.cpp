@@ -11,13 +11,14 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 {
 	UNREFERENCED_PARAMETER(hPrevInstance);
 	UNREFERENCED_PARAMETER(lpCmdLine);
-
 	/*COMMON NAMESPACES*/
 	using namespace GSM;
 	using namespace Enum;
-
+	using namespace GameObjects;
+	
 	/*INITIALIZATIONS*/
 	SystemHandler::System_Initialize(hInstance, nCmdShow);
+	AE_ASSERT_MESG(fontId = AEGfxCreateFont("Roboto-Regular.ttf", 12), "Failed to load font");
 	GSM_Init(current);
 	
 	/*GAME LOOP*/
@@ -50,6 +51,6 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 		previous = current;
 		current = next;
 	}
-
+	AEGfxDestroyFont(fontId);
 	AESysExit();
 }

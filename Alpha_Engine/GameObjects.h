@@ -3,6 +3,7 @@
 
 namespace GameObjects
 {
+	extern s8 fontId;
 	struct Vector {
 		f32 x, y;
 	};

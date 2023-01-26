@@ -9,7 +9,7 @@ namespace Level1 {
 	AEGfxTexture* pTex1, * pTex2;
 	float obj1X, obj1Y, objtexX, objtexY, camX, camY;
 	int counter;
-	s8 fontId;
+	using namespace GameObjects;
 
 	/*LOAD ASSETS*/
 	void Level1_Load() {
@@ -18,8 +18,6 @@ namespace Level1 {
 
 		//pTex2 = AEGfxTextureLoad("YellowTexture.png");
 		//AE_ASSERT_MESG(pTex2, "Failed to create texture2!!");
-
-		fontId = AEGfxCreateFont("Roboto-Regular.ttf", 12);
 	}
 
 	/*INITIALIZE DATA*/
@@ -167,6 +165,5 @@ namespace Level1 {
 	void Level1_Unload() {
 		//AEGfxTextureUnload(pTex1);
 		//AEGfxTextureUnload(pTex2);
-		AEGfxDestroyFont(fontId);
 	}
 }

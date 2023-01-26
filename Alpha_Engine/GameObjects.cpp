@@ -3,6 +3,7 @@
 #include <string>
 
 namespace GameObjects {
+	s8 fontId;
 	// does nothing right now
 	const f32
 		i_x = 0.5,
