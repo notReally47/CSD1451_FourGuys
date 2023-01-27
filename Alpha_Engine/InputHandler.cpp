@@ -74,7 +74,10 @@ namespace InputHandler {
 		if (AEInputCheckCurr(AEVK_S)) {
 			dir.y--;
 		}
-		player.direction = dir;
+		/*CONVERSION TO ISOMETRIC*/
+		player.direction.x = dir.x + dir.y;
+		player.direction.y = -0.5f * dir.x + 0.5f * dir.y;
+		player.input = dir;
 		return !(dir.x == 0 && dir.y == 0);
 	}
 	bool buttonClick(s32 mouseX, s32 mouseY, float buttonX, float buttonY) {

@@ -19,4 +19,13 @@ namespace Enum {
 		RIGHT,
 		LEFT
 	};
+
+	enum TYPE {
+		PLAYER,
+		WALL,
+		FLOOR,
+		DECO,
+		PORTRAIT,
+		PLATFORM
+	};
 }

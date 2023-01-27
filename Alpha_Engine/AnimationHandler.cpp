@@ -8,28 +8,28 @@ namespace AnimationHandler {
 	/*Get direction the player is facing and set according to the spritesheet row.*/
 	void setTextureOffsetY(Character& character) {
 		if (checkDirection(character, 1, 1)) { //UPRIGHT
-			character.pTexOffsetY = 0;
-		}
-		else if (checkDirection(character, 1, 0)) { //UP
 			character.pTexOffsetY = 1;
 		}
-		else if (checkDirection(character, 1, -1)) { //UPLEFT
+		else if (checkDirection(character, 1, 0)) { //UP
 			character.pTexOffsetY = 2;
 		}
-		else if (checkDirection(character, 0, -1)) { //LEFT
+		else if (checkDirection(character, 1, -1)) { //UPLEFT
 			character.pTexOffsetY = 3;
 		}
-		else if (checkDirection(character, -1, -1)) { //DOWNLEFT
+		else if (checkDirection(character, 0, -1)) { //LEFT
 			character.pTexOffsetY = 4;
 		}
-		else if (checkDirection(character, -1, 0)) { //DOWN
+		else if (checkDirection(character, -1, -1)) { //DOWNLEFT
 			character.pTexOffsetY = 5;
 		}
-		else if (checkDirection(character, -1, 1)) { //DOWNRIGHT
+		else if (checkDirection(character, -1, 0)) { //DOWN
 			character.pTexOffsetY = 6;
 		}
-		else if (checkDirection(character, 0, 1)) { //RIGHT
+		else if (checkDirection(character, -1, 1)) { //DOWNRIGHT
 			character.pTexOffsetY = 7;
+		}
+		else if (checkDirection(character, 0, 1)) { //RIGHT
+			character.pTexOffsetY = 0;
 		}
 	}
 
@@ -50,8 +50,8 @@ namespace AnimationHandler {
 
 	/*Helper function to compare the x and y coordinates with 2 respective values.*/
 	bool checkDirection(Character character, int a, int b) {
-		int x = static_cast<int>(character.direction.x);
-		int y = static_cast<int>(character.direction.y);
+		int x = static_cast<int>(character.input.x);
+		int y = static_cast<int>(character.input.y);
 		return (x == a && y == b);
 	}
 
