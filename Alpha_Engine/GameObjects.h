@@ -5,7 +5,7 @@ namespace GameObjects
 {
 	/*EXTERN*/
 	extern s8 fontId;
-
+	extern bool glow;
 	/*GAME OBJECT STRUCTURE*/
 	struct Object {
 		unsigned long		type;
@@ -39,6 +39,7 @@ namespace GameObjects
 
 	/*FUNCTIONS*/
 	void RenderSettings(void);
+	void RenderColorSettings(void);
 	void RenderObject(unsigned long type, Object obj);
 	f32 Interpolate(f64 &dt, f64 frametime);	//todo
 	AEVec2* GetVertices(const Object obj);

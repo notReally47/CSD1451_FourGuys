@@ -26,6 +26,7 @@ namespace Enum {
 		FLOOR,
 		DECO,
 		PORTRAIT,
-		PLATFORM
+		PLATFORM,
+		pHighlight
 	};
 }

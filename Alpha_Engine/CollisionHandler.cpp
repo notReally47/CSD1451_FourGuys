@@ -3,6 +3,7 @@
 #include "VectorMath.h"
 #include <limits>
 #include <iostream>
+#include <cmath>
 
 namespace CollisionHandler {
 	using namespace VectorMath;
@@ -85,5 +86,8 @@ namespace CollisionHandler {
 			}
 		}
 		return true;
+	}
+	double DistanceBetweenPlayerAndPortrait(AEVec2 const portrait_pos, AEVec2 const player_pos){
+		return sqrt(pow(portrait_pos.x - player_pos.x, 2) + pow(portrait_pos.y - player_pos.y, 2));
 	}
 }
