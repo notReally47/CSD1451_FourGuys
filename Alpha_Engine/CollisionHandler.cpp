@@ -88,7 +88,7 @@ namespace CollisionHandler {
 
 	f32 checkBoundary(Character const player) {
 		f32 leftBoarder = -7.f * (f32)AEGetWindowWidth() / 20.f, rightBoarder = 7.f * (f32)AEGetWindowWidth() / 20.f;
-		return leftBoarder > player.pObjInst.transform.m[0][2] ? leftBoarder - player.pObjInst.transform.m[0][2] : player.pObjInst.transform.m[0][2] > 265.f ? rightBoarder - player.pObjInst.transform.m[0][2] : 0.f;
+		return leftBoarder > player.pObjInst.transform.m[0][2] ? leftBoarder - player.pObjInst.transform.m[0][2] : player.pObjInst.transform.m[0][2] > rightBoarder ? rightBoarder - player.pObjInst.transform.m[0][2] : 0.f;
 	}
 
 	bool portraitInteract(ObjectInst const portrait, Character const player) {
