@@ -13,7 +13,7 @@ namespace Enum {
 		CS_IDLE,
 		CS_MOVING
 	};
-	
+
 	enum DIRECTION {
 		NONE,
 		RIGHT,
@@ -26,6 +26,9 @@ namespace Enum {
 		FLOOR,
 		DECO,
 		PORTRAIT,
+		PORTRAIT2,
+		MPORTRAIT,
+		LPORTRAIT,
 		PLATFORM,
 		pHighlight
 	};

@@ -9,8 +9,8 @@ namespace GameObjects
 	/*GAME OBJECT STRUCTURE*/
 	struct Object {
 		unsigned long		type;
-		AEGfxTexture*		pTex;
-		AEGfxVertexList*	pMesh;
+		AEGfxTexture* pTex;
+		AEGfxVertexList* pMesh;
 		f32					width;
 		f32					height;
 		f32					rotation;
@@ -21,7 +21,7 @@ namespace GameObjects
 	/*TODO*/
 	/*GAME OBJECT INSTANCE STRUCTURE*/
 	struct ObjectInst {
-		Object*				pObj;
+		Object* pObj;
 		unsigned char		flag;
 		AEMtx33				transform;
 	};
@@ -41,6 +41,6 @@ namespace GameObjects
 	void RenderSettings(void);
 	void RenderColorSettings(void);
 	void RenderObject(unsigned long type, Object obj);
-	f32 Interpolate(f64 &dt, f64 frametime);	//todo
+	f32 Interpolate(f64& dt, f64 frametime);	//todo
 	AEVec2* GetVertices(const Object obj);
 }

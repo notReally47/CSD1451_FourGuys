@@ -6,7 +6,7 @@
 #include <cmath>
 
 namespace CollisionHandler {
-	using namespace VectorMath;
+	//using namespace VectorMath;
 
 	/*SAT COLLISION*/
 	bool SAT_Collision(Object obj1, Object obj2, f32& depth, AEVec2& normal) {
