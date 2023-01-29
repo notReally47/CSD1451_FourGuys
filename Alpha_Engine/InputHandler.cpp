@@ -7,6 +7,7 @@
 
 namespace InputHandler {
 	using namespace GameObjects;
+
 	void MoveObject(float &obj1Y, float &obj1X) {
 		if (AEInputCheckCurr(AEVK_1))
 			AEGfxSetBlendMode(AE_GFX_BM_NONE);

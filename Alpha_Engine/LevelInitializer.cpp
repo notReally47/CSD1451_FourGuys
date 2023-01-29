@@ -3,10 +3,7 @@
 #include "pch.h"	
 #include "LoadValues.h"		// For Load_Values::
 
-
-
 namespace Level_Initializer {
-
 	using namespace std;
 
 	void Init_Mesh_From_File(vector<Load_Values::ValueFromFile>& vff, GameObjects::Object& object) {
@@ -27,8 +24,6 @@ namespace Level_Initializer {
 			}
 		}
 	}// END Init_Mesh_From_File
-
-
 
 	void Init_Object_Instance(vector<Load_Values::ValueFromFile>& vff, GameObjects::Object* object[], GameObjects::ObjectInst object_instance[], size_t object_instance_size) {
 		for (size_t i{ 0 }; i < object_instance_size; i++) {
@@ -60,7 +55,5 @@ namespace Level_Initializer {
 											.0f, .0f, 1.0f };
 		}
 	}// END Init_Object_Instance
-
-	
 
 }// END namespace Level_Initializer

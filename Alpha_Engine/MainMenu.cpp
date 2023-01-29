@@ -4,9 +4,9 @@
 #include "GSM.h"
 #include "Enum.h"
 #include <iostream>
+
 namespace MainMenu
 {
-
 	AEGfxVertexList *pMesh1{0}, *pMesh2{0}, *pMesh3{0};
 	
 	s32 mouseX{}, mouseY{};

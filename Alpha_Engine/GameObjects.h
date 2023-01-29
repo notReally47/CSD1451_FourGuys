@@ -28,10 +28,10 @@ namespace GameObjects
 	struct Character {
 		ObjectInst					pObjInst;
 		AEVec2						dir;
-		AEVec2				input;
-		//AEVec2			rotation;
-		f32					speed;
-		int					spriteIteration;
+		AEVec2						input;
+		//AEVec2					rotation;
+		f32							speed;
+		int							spriteIteration;
 	};
 
 	/*FUNCTIONS*/

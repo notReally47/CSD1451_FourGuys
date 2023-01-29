@@ -5,6 +5,7 @@
 #include <cmath>
 
 namespace CollisionHandler {
+
 	/*SAT COLLISION*/
 	bool SAT_Collision(ObjectInst obj1, ObjectInst obj2, f32& depth, AEVec2& normal) {
 		/*Get vertices of the 2 objects*/
@@ -84,6 +85,7 @@ namespace CollisionHandler {
 		}
 		return true;
 	}
+
 	double DistanceBetweenPlayerAndPortrait(AEVec2 const portrait_pos, AEVec2 const player_pos){
 		return sqrt(pow(portrait_pos.x - player_pos.x, 2) + pow(portrait_pos.y - player_pos.y, 2));
 	}
