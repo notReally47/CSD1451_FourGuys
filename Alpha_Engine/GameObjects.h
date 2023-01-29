@@ -4,43 +4,38 @@
 namespace GameObjects
 {
 	/*EXTERN*/
-	extern s8 fontId;
-	extern bool glow;
+	extern s8						fontId;
+	extern const unsigned char		FLAG_INACTIVE;
+	extern const unsigned char		FLAG_ACTIVE;		//todo
+
 	/*GAME OBJECT STRUCTURE*/
 	struct Object {
-		unsigned long		type;
-		AEGfxTexture* pTex;
-		AEGfxVertexList* pMesh;
-		f32					width;
-		f32					height;
-		f32					rotation;
-		AEVec2				scale;		//todo
-		AEVec2				pos;
+		unsigned long				type;
+		AEGfxTexture*				pTex;
+		AEGfxVertexList*			pMesh;
 	};
 
 	/*TODO*/
 	/*GAME OBJECT INSTANCE STRUCTURE*/
 	struct ObjectInst {
-		Object* pObj;
-		unsigned char		flag;
-		AEMtx33				transform;
+		Object*						pObj;
+		unsigned char				flag;
+		AEVec2						tex_offset;
+		AEMtx33						transform;	// {w, 0, x, 0, h, y, 0, 0, 1}
 	};
 
 	/*CHARACTER STRUCTURE*/
 	struct Character {
-		Object obj;
-		AEVec2 direction;
-		AEVec2 input;
-		f32 speed;
-		int State;
-		bool isMoving;
-		int spriteX, spriteY, spriteIteration, pTexOffsetX, pTexOffsetY;
+		ObjectInst					pObjInst;
+		AEVec2						dir;
+		AEVec2				input;
+		//AEVec2			rotation;
+		f32					speed;
+		int					spriteIteration;
 	};
 
 	/*FUNCTIONS*/
-	void RenderSettings(void);
-	void RenderColorSettings(void);
-	void RenderObject(unsigned long type, Object obj);
-	f32 Interpolate(f64& dt, f64 frametime);	//todo
-	AEVec2* GetVertices(const Object obj);
+	void	RenderSettings	(void);
+	void	RenderObject	(ObjectInst &obj);
+	AEVec2* GetVertices		(const ObjectInst obj);
 }

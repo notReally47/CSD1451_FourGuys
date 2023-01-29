@@ -1,15 +1,12 @@
 #include "CollisionHandler.h"
 #include "pch.h"
-#include "VectorMath.h"
 #include <limits>
 #include <iostream>
 #include <cmath>
 
 namespace CollisionHandler {
-	//using namespace VectorMath;
-
 	/*SAT COLLISION*/
-	bool SAT_Collision(Object obj1, Object obj2, f32& depth, AEVec2& normal) {
+	bool SAT_Collision(ObjectInst obj1, ObjectInst obj2, f32& depth, AEVec2& normal) {
 		/*Get vertices of the 2 objects*/
 		AEVec2* verticesA = GetVertices(obj1);
 		AEVec2* verticesB = GetVertices(obj2);
@@ -29,9 +26,9 @@ namespace CollisionHandler {
 		AEVec2Normalize(&normal, &normal);
 
 		/*Check if normal is pointing in the correct
-		direction by comparing with center of object A to center of object B.*/
-
-		AEVec2 dir = AEVec2{ obj2.pos.x - obj1.pos.x, obj2.pos.y - obj1.pos.y }; // Get vector from object A to object B
+		direction by comparing with center of object A to center of object B.
+		obj2 position x - obj1 position x, obj2 position y - obj1 position y */
+		AEVec2 dir = AEVec2{ obj2.transform.m[0][2] - obj1.transform.m[0][2], obj2.transform.m[1][2] - obj1.transform.m[1][2] }; // Get vector from object A to object B
 
 		/*If the normal is in the opposite direction, negate the vector.*/
 		if (AEVec2DotProduct(&dir, &normal) < 0.f) {

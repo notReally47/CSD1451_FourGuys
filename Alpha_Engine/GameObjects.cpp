@@ -1,27 +1,17 @@
 #include "pch.h"
 #include <string>
+//#include <iostream>
 
 namespace GameObjects
 {
 	/*DEFINES*/
-	const unsigned char FLAG_ACTIVE = 0x1; // todo
 	s8 fontId;
-	f64 dt{ 0.0 }, ani{ 1.f / 6.f }; // todo
-	bool interpolate{ true };		 // todo
-	bool glow;
-	/*TODO*/
-	f32 Interpolate(f64& dt, f64 frametime)
-	{
-		interpolate = (dt >= 1.f) ? false : (dt <= .0f) ? true
-			: interpolate;
-		return dt += (interpolate) ? frametime : -frametime;
-	}
-
-	/*
-	 * Set rendering modes, colour tints, blending and transparency
-	 */
-	void RenderSettings(void)
-	{
+	const unsigned char		FLAG_INACTIVE	= 0x0;
+	const unsigned char		FLAG_ACTIVE		= 0x1;		//todo
+	static f64				delta_time		= .0f;
+	
+	/*Set rendering modes, colour tints, blending and transparency*/
+	void RenderSettings(void) {
 		/*SETTINGS*/
 		AEGfxSetRenderMode(AE_GFX_RM_TEXTURE);
 		AEGfxSetTintColor(1.0f, 1.0f, 1.0f, 1.0f);
@@ -111,107 +101,52 @@ namespace GameObjects
 				AEMtx33Trans(&translate, init_trans.x, init_trans.y);
 				AEMtx33Concat(&transform, &translate, &transform);
 				AEGfxSetTransform(transform.m);
+	texture
+	/*Render objects that have textures.*/
+	void RenderObject(ObjectInst &obj) {
+		delta_time += AEFrameRateControllerGetFrameTime();
+		//std::cout << delta_time << std::endl;
+		if (obj.pObj->type == Enum::TYPE::PORTRAIT) {
+			obj.flag = (delta_time > 2.0f) ? (delta_time = .0f, FLAG_INACTIVE) : (delta_time < 1.5f) ? FLAG_ACTIVE : obj.flag;
+			/*Set texture*/
+			(obj.flag) ? AEGfxTextureSet(obj.pObj->pTex, obj.tex_offset.x + 0.25f, obj.tex_offset.y):
+				AEGfxTextureSet(obj.pObj->pTex, obj.tex_offset.x, obj.tex_offset.y);
+		}	
+		else if (obj.pObj->type == Enum::TYPE::PLATFORM) {
+			if (obj.flag == 0x1) {
+				obj.transform.m[1][2] -= 10.f*AEFrameRateControllerGetFrameTime();
+				AEGfxTextureSet(obj.pObj->pTex, obj.tex_offset.x, obj.tex_offset.y-=0.1f*AEFrameRateControllerGetFrameTime());
 			}
-		else if (type == Enum::TYPE::FLOOR)
-		{
 			/*Set texture*/
-			AEGfxTextureSet(obj.pTex, 0, 0);
-			for (int i = 0; i < 9; i++)
-			{
-				for (int j = 0; j < 9; j++)
-				{
-					/*DRAW MESH*/
-					AEGfxMeshDraw(obj.pMesh, AE_GFX_MDM_TRIANGLES);
-
-					/*TRANSFORMATION (TRS)*/
-					AEMtx33Trans(&translate, -32, -16);
-					AEMtx33Concat(&transform, &translate, &transform);
-					AEGfxSetTransform(transform.m);
-				}
-				/*TRANSFORMATION (TRS)*/
-				AEMtx33Trans(&translate, 320, 128);
-				AEMtx33Concat(&transform, &translate, &transform);
-				AEGfxSetTransform(transform.m);
-			}
+			AEGfxTextureSet(obj.pObj->pTex, obj.tex_offset.x, obj.tex_offset.y);
 		}
-		else if (type == Enum::TYPE::DECO)
-		{
-			/*TODO*/
+		else {
 			/*Set texture*/
-			// AEGfxTextureSet(obj.pTex, ani, 0);
-			/*TRANSLATION/POSITION*/
-			/*
-			AEMtx33 translate = { 0 };
-			AEVec2 animate = { obj.pos.x , obj.pos.y + 5.f };
-			AEVec2Lerp(&obj.pos, &obj.pos, &animate, Interpolate(dt, AEFrameRateControllerGetFrameTime()));
-			AEMtx33Trans(&translate, obj.pos.x, obj.pos.y);
-			for (int i = 0; i < 5; i++) {
-				/*DRAW MESH*/
-				// AEGfxMeshDraw(obj.pMesh, AE_GFX_MDM_TRIANGLES);
-				/*TRANSFORMATION (TRS)*/ /*
-				 AEMtx33Trans(&translate, -32, -16);
-				 AEMtx33Concat(&transform, &translate, &transform);
-				 AEGfxSetTransform(transform.m);
-			 }
-			 for (int i = 0; i < 5; i++) {
-				 /*DRAW MESH*/
-				 // AEGfxMeshDraw(obj.pMesh, AE_GFX_MDM_TRIANGLES);
-/*TRANSFORMATION (TRS)*/ /*
- AEMtx33Trans(&translate, 32, -16);
- AEMtx33Concat(&transform, &translate, &transform);
- AEGfxSetTransform(transform.m);
-}
-/*TRANSFORMATION (TRS)*/
-/*
-AEMtx33Trans(&translate, 0, 128);
-AEMtx33Concat(&transform, &translate, &transform);
-AEGfxSetTransform(transform.m);*/
+			AEGfxTextureSet(obj.pObj->pTex, obj.tex_offset.x, obj.tex_offset.y);
 		}
-		else if (type == Enum::TYPE::PLATFORM)
-		{
-			/*TODO*/
-		}
-		else if (type == Enum::TYPE::PORTRAIT)
-		{
-			dt += (interpolate) ? AEFrameRateControllerGetFrameTime() : -AEFrameRateControllerGetFrameTime();
-			interpolate = (dt >= 1.f) ? false : (dt <= .0f) ? true
-				: interpolate;
-			/*Set texture*/
-			(interpolate) ? AEGfxTextureSet(obj.pTex, 0, 0) : AEGfxTextureSet(obj.pTex, 0.25, 0);
-			/*DRAW MESH*/
-			AEGfxMeshDraw(obj.pMesh, AE_GFX_MDM_TRIANGLES);
-		}
-		else if (type == Enum::TYPE::PLAYER)
-		{
-			/*Set texture*/
-			AEGfxTextureSet(obj.pTex, 0, 0);
-			/*DRAW MESH*/
-			AEGfxMeshDraw(obj.pMesh, AE_GFX_MDM_TRIANGLES);
-		}
-		else if (type == Enum::TYPE::pHighlight)
-		{
-			/*DRAW MESH*/
-			AEGfxSetTintColor(1.0f, 1.0f, 1.0f, 1.0f);
-			AEGfxMeshDraw(obj.pMesh, AE_GFX_MDM_TRIANGLES);
-		}
+		
+		/*TRANSFORMATION (TRS)*/
+		AEGfxSetTransform(obj.transform.m);
+		/*DRAW MESH*/
+		AEGfxMeshDraw(obj.pObj->pMesh, AE_GFX_MDM_TRIANGLES);
 	}
 
-	AEVec2* GetVertices(const Object obj)
-	{
+	AEVec2* GetVertices(const ObjectInst obj) {
 		AEVec2* vertices = { new AEVec2[4] };
 		AEVec2 original[4] = {
-			AEVec2{obj.pos.x - obj.width - 10, obj.pos.y + obj.height - 10},
-			AEVec2{obj.pos.x + obj.width - 10, obj.pos.y + obj.height - 10},
-			AEVec2{obj.pos.x + obj.width - 10, obj.pos.y - obj.height - 10},
-			AEVec2{obj.pos.x - obj.width - 10, obj.pos.y - obj.height - 10} };
+			/* object position x +- object width - object position y +- object height */
+			AEVec2{ obj.transform.m[0][2] - obj.transform.m[0][0] - 10, obj.transform.m[1][2] + obj.transform.m[1][1] - 10 },
+			AEVec2{ obj.transform.m[0][2] + obj.transform.m[0][0] - 10, obj.transform.m[1][2] + obj.transform.m[1][1] - 10 },
+			AEVec2{ obj.transform.m[0][2] + obj.transform.m[0][0] - 10, obj.transform.m[1][2] - obj.transform.m[1][1] - 10 },
+			AEVec2{ obj.transform.m[0][2] - obj.transform.m[0][0] - 10, obj.transform.m[1][2] - obj.transform.m[1][1] - 10 }
+		};
 
 		/* Get vertex after rotation. Vertex rotates around the center of the mesh */
-		for (int i = 0; i < 4; i++)
-		{
-			f32 posX = original[i].x - obj.pos.x;
-			f32 posY = original[i].y - obj.pos.y;
-			vertices[i].x = posX * static_cast<f32>(cos(-obj.rotation)) - posY * static_cast<f32>(sin(-obj.rotation)) + obj.pos.x;
-			vertices[i].y = posX * static_cast<f32>(sin(-obj.rotation)) + posY * static_cast<f32>(cos(-obj.rotation)) + obj.pos.y;
+		for (int i = 0; i < 4; i++) {
+			f32 posX = original[i].x - obj.transform.m[0][2];
+			f32 posY = original[i].y - obj.transform.m[1][2];
+			vertices[i].x = posX * static_cast<f32>(cos(-.0f)) - posY * static_cast<f32>(sin(-.0f)) + obj.transform.m[0][2];
+			vertices[i].y = posX * static_cast<f32>(sin(-.0f)) + posY * static_cast<f32>(cos(-.0f)) + obj.transform.m[1][2];
 		}
 
 		return vertices;

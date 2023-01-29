@@ -75,8 +75,8 @@ namespace InputHandler {
 			dir.y--;
 		}
 		/*CONVERSION TO ISOMETRIC*/
-		player.direction.x = dir.x + dir.y;
-		player.direction.y = -0.5f * dir.x + 0.5f * dir.y;
+		player.dir.x = dir.x + dir.y;
+		player.dir.y = -0.5f * dir.x + 0.5f * dir.y;
 		player.input = dir;
 		return !(dir.x == 0 && dir.y == 0);
 	}
