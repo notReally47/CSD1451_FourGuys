@@ -11,14 +11,14 @@ namespace Level_Initializer {
 			if (object.type == vff[i].type) {
 				AEGfxMeshStart();
 				AEGfxTriAdd(
-					-1.0f, -1.0f, 0xFFFF0000, vff[i].uv_01, vff[i].uv_02,
-					1.0f, -1.0f, 0xFFFF0000, vff[i].uv_03, vff[i].uv_04,
-					-1.0f, 1.0f, 0xFFFF0000, .0f, vff[i].uv_05
+					-0.5f, -0.5f, 0xFFFF0000, vff[i].uv_01, vff[i].uv_02,
+					0.5f, -0.5f, 0xFFFF0000, vff[i].uv_03, vff[i].uv_04,
+					-0.5f, 0.5f, 0xFFFF0000, .0f, vff[i].uv_05
 				);
 				AEGfxTriAdd(
-					1.0f, 1.0f, 0xFFFF0000, vff[i].uv_03, vff[i].uv_05,
-					1.0f, -1.0f, 0xFFFF0000, vff[i].uv_03, vff[i].uv_04,
-					-1.0f, 1.0f, 0xFFFF0000, .0f, vff[i].uv_05
+					0.5f, 0.5f, 0xFFFF0000, vff[i].uv_03, vff[i].uv_05,
+					0.5f, -0.5f, 0xFFFF0000, vff[i].uv_03, vff[i].uv_04,
+					-0.5f, 0.5f, 0xFFFF0000, .0f, vff[i].uv_05
 				);
 				object.pMesh = AEGfxMeshEnd();
 			}
@@ -52,7 +52,7 @@ namespace Level_Initializer {
 			object_instance[i].tex_offset = { vff[i].texture_offset_x, vff[i].texture_offset_y };
 			object_instance[i].transform = { vff[i].transform_01, .0f, vff[i].transform_02,
 											.0f, vff[i].transform_03, vff[i].transform_04,
-											.0f, .0f, 1.0f };
+											.0f, .0f, 0.5f };
 		}
 	}// END Init_Object_Instance
 

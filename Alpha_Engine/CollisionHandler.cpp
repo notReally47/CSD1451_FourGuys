@@ -86,7 +86,17 @@ namespace CollisionHandler {
 		return true;
 	}
 
-	double DistanceBetweenPlayerAndPortrait(AEVec2 const portrait_pos, AEVec2 const player_pos){
-		return sqrt(pow(portrait_pos.x - player_pos.x, 2) + pow(portrait_pos.y - player_pos.y, 2));
+	f32 checkBoundary(Character const player) {
+		f32 leftBoarder = -7.f * (f32)AEGetWindowWidth() / 20.f, rightBoarder = 7.f * (f32)AEGetWindowWidth() / 20.f;
+		return leftBoarder > player.pObjInst.transform.m[0][2] ? leftBoarder - player.pObjInst.transform.m[0][2] : player.pObjInst.transform.m[0][2] > 265.f ? rightBoarder - player.pObjInst.transform.m[0][2] : 0.f;
+	}
+
+	bool portraitInteract(ObjectInst const portrait, Character const player) {
+		f32 dist = sqrt(pow(portrait.transform.m[0][0] - player.pObjInst.transform.m[0][0], 2) + pow(portrait.transform.m[1][2] - player.pObjInst.transform.m[1][2], 2));
+
+		if (dist < 55.f)
+			return true;
+		else
+			return false;
 	}
 }
