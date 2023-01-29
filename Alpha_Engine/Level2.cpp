@@ -153,6 +153,8 @@ namespace Level2 {
 
 		/*LEFT AND RIGHT BOUNDARY*/
 		p_player.pObjInst.transform.m[0][2] += checkBoundary(p_player);
+		bool check = checkPlatform(p_player);
+		std::cout << check << std::endl;
 
 		///*Check for any collision*/
 		// for (int i = 0; i < sizeof(objs) / sizeof(Object*); i++) {
