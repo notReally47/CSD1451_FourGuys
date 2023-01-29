@@ -4,26 +4,49 @@
 #include "CollisionHandler.h"
 #include "GSM.h"
 #include "VectorMath.h"
+#include "LoadValues.h"
+#include "LoadTextures.h"
+#include "LevelInitializer.h"
 #include "AnimationHandler.h"
 #include <iostream>
 
-namespace Level2
-{
+namespace Level2 {
+	/*DEFINES*/
+	const unsigned char		FLAG_ACTIVE = 0x1;		//todo
+	const unsigned char		FLAG_INACTIVE = 0x0;
+
 	using namespace GameObjects;
 	Object wall, floor, deco, portraits[4], pHighlight;
 	Character player;
+	ObjectInst objInst[123];
+
 	f32 windowWidth, windowHeight;
-	Object *objs[3]{&wall, &floor, &deco};
-	void Level2_Load()
-	{
-		AE_ASSERT_MESG(player.obj.pTex = AEGfxTextureLoad("../Assets/Sprites/player.png"), "Failed to load texture");
-		AE_ASSERT_MESG(wall.pTex = AEGfxTextureLoad("../Assets/Textures/wall.png"), "Failed to load texture");
-		AE_ASSERT_MESG(deco.pTex = AEGfxTextureLoad("../Assets/Props/candles.png"), "Failed to load texture");
-		AE_ASSERT_MESG(floor.pTex = AEGfxTextureLoad("../Assets/Textures/floor.png"), "Failed to load texture");
-		AE_ASSERT_MESG(portraits[0].pTex = AEGfxTextureLoad("../Assets/Props/smallportraits.png"), "Failed to load texture");
-		// AE_ASSERT_MESG(portraits[1].pTex = AEGfxTextureLoad("../Assets/Props/smallportraits2.png"), "Failed to load texture");
-		// AE_ASSERT_MESG(portraits[2].pTex = AEGfxTextureLoad("../Assets/Props/mediumportraits.png"), "Failed to load texture");
-		// AE_ASSERT_MESG(portraits[3].pTex = AEGfxTextureLoad("../Assets/Props/largeportraits.png"), "Failed to load texture");
+	Object* objs[7]{ &wall, &floor, &deco, &portraits[0], &portraits[1], &portraits[2], &portraits[3]};
+
+	const std::string level_number = "02";
+	std::vector<Load_Values::ValueFromFile> vff;
+	std::vector<Load_Texture::TextureFromFile> tff;
+
+	void Level2_Load() {
+		player.obj.type = Enum::TYPE::PLAYER;
+		wall.type = Enum::TYPE::WALL;
+		floor.type = Enum::TYPE::FLOOR;
+		deco.type = Enum::TYPE::DECO;
+		portraits[0].type = Enum::TYPE::PORTRAIT;
+		portraits[1].type = Enum::TYPE::PORTRAIT2;
+		portraits[2].type = Enum::TYPE::MPORTRAIT;
+		portraits[3].type = Enum::TYPE::LPORTRAIT;
+		vff = Load_Values::Load_Values_From_File(level_number);
+		tff = Load_Texture::Load_Texture_From_File(level_number);
+		Load_Texture::Load_Texture_To_Object(tff, player.obj);
+		Load_Texture::Load_Texture_To_Object(tff, wall);
+		Load_Texture::Load_Texture_To_Object(tff, floor);
+		Load_Texture::Load_Texture_To_Object(tff, deco);
+		Load_Texture::Load_Texture_To_Object(tff, portraits[0]);
+		Load_Texture::Load_Texture_To_Object(tff, portraits[1]);
+		Load_Texture::Load_Texture_To_Object(tff, portraits[2]);
+		Load_Texture::Load_Texture_To_Object(tff, portraits[3]);
+		AE_ASSERT_MESG(fontId = AEGfxCreateFont("Roboto-Regular.ttf", 12), "Failed to load font");
 	}
 
 	void Level2_Init()
@@ -32,32 +55,20 @@ namespace Level2
 		windowHeight = static_cast<f32>(AEGetWindowHeight());
 
 		/*CREATE WALL*/
-		wall.width = 64, wall.height = 128, wall.pos.x = 0, wall.pos.y = 64;
-		AEGfxMeshStart();
-		AEGfxTriAdd(
-			-1.0f, -1.0f, 0xFFFF0000, .0f, 1.0f,
-			1.0f, -1.0f, 0xFFFF0000, 1.0f / 7.0f, 1.0f, // wall_dim = 1.f / 7.f;
-			-1.0f, 1.0f, 0xFFFF0000, .0f, .0f);
-		AEGfxTriAdd(
-			1.0f, 1.0f, 0xFFFF0000, 1.0f / 7.0f, .0f,
-			1.0f, -1.0f, 0xFFFF0000, 1.0f / 7.0f, 1.0f,
-			-1.0f, 1.0f, 0xFFFF0000, .0f, .0f);
-		wall.pMesh = AEGfxMeshEnd();
+		Level_Initializer::Init_Mesh_From_File(vff, wall);
 
 		/*CREATE FLOOR*/
-		floor.width = 48, floor.height = 48, floor.pos.x = 0, floor.pos.y = -16;
-		AEGfxMeshStart();
-		AEGfxTriAdd(
-			-1.0f, -1.0f, 0xFFFF0000, .0f, 1.0f, // left bottom
-			1.0f, -1.0f, 0xFFFF0000, 1.0f, 1.0f, // right bottom
-			-1.0f, 1.0f, 0xFFFF0000, .0f, .5f	 // left top		y = 0.5f
-		);
-		AEGfxTriAdd(
-			1.0f, 1.0f, 0xFFFF0000, 1.0f, .5f,	 // right top	y = 0.5f
-			1.0f, -1.0f, 0xFFFF0000, 1.0f, 1.0f, // right bottom
-			-1.0f, 1.0f, 0xFFFF0000, .0f, .5f	 // left top		y = 0.5f
-		);
-		floor.pMesh = AEGfxMeshEnd();
+		Level_Initializer::Init_Mesh_From_File(vff, floor);
+
+		/*CRAETE PAINTINGS*/
+		Level_Initializer::Init_Mesh_From_File(vff, portraits[0]);
+		Level_Initializer::Init_Mesh_From_File(vff, portraits[1]);
+		Level_Initializer::Init_Mesh_From_File(vff, portraits[2]);
+		Level_Initializer::Init_Mesh_From_File(vff, portraits[3]);
+
+		/*TRANSFORM OBJECTS*/
+		Level_Initializer::Init_Object_Instance(vff, objs, objInst, (sizeof(objInst) / sizeof(objInst[0])));
+
 
 		/*CREATE PLAYER*/
 		player.obj.width = 32, player.obj.height = 38, player.obj.rotation = 0, player.obj.pos.x = 100, player.obj.pos.y = 0;
@@ -91,36 +102,6 @@ namespace Level2
 			-1.0f, 1.0f, 0xFFFF0000, .0f, .0f	// left top		y = 0.5f
 		);
 		deco.pMesh = AEGfxMeshEnd();
-
-		/*CREATE SMALL PORTRAITS*/
-		portraits[0].width = 24.3, portraits[0].height = 40.3, portraits[0].pos.x = -70, portraits[0].pos.y = 0;
-		AEGfxMeshStart();
-		AEGfxTriAdd(
-			-1.0f, -1.0f, 0xFFFF0000, .0f, 1.0f / 3.0f,	 // left bottom
-			1.0f, -1.0f, 0xFFFF0000, 0.25f, 1.0f / 3.0f, // right bottom
-			-1.0f, 1.0f, 0xFFFF0000, .0f, .0f			 // left top		y = 0.5f
-		);
-		AEGfxTriAdd(
-			1.0f, 1.0f, 0xFFFF0000, 0.25f, .0f,			 // right top	y = 0.5f
-			1.0f, -1.0f, 0xFFFF0000, 0.25f, 1.0f / 3.0f, // right bottom
-			-1.0f, 1.0f, 0xFFFF0000, .0f, .0f			 // left top		y = 0.5f
-		);
-		portraits[0].pMesh = AEGfxMeshEnd();
-		/*CREATE PORTRAIT HIGHLIGHTS*/
-		pHighlight.width = portraits[0].width, pHighlight.height = portraits[0].height, pHighlight.pos.x = portraits[0].pos.x, pHighlight.pos.y = portraits[0].pos.y;
-		AEGfxMeshStart();
-		AEGfxTriAdd(
-			-1.0f, -1.0f, 0xFFFF0000, .0f, 1.0f / 3.0f,	 // left bottom
-			1.0f, -1.0f, 0xFFFF0000, 0.25f, 1.0f / 3.0f, // right bottom
-			-1.0f, 1.0f, 0xFFFF0000, .0f, .0f			 // left top		y = 0.5f
-		);
-		AEGfxTriAdd(
-			1.0f, 1.0f, 0xFFFF0000, 0.25f, .0f,			 // right top	y = 0.5f
-			1.0f, -1.0f, 0xFFFF0000, 0.25f, 1.0f / 3.0f, // right bottom
-			-1.0f, 1.0f, 0xFFFF0000, .0f, .0f			 // left top		y = 0.5f
-		);
-		pHighlight.pMesh = AEGfxMeshEnd();
-		glow = false;
 	}
 
 	void Level2_Update()
@@ -173,17 +154,10 @@ namespace Level2
 	{
 
 		RenderSettings();
-		RenderObject(Enum::TYPE::WALL, wall);
-		RenderObject(Enum::TYPE::FLOOR, floor);
-		RenderObject(Enum::TYPE::DECO, deco);
-		RenderObject(Enum::TYPE::PLAYER, player.obj);
-		if (glow)
-		{
-			RenderColorSettings();
-			RenderObject(Enum::TYPE::pHighlight, pHighlight);
-			AEGfxSetRenderMode(AE_GFX_RM_TEXTURE);
-		}
-		RenderObject(Enum::TYPE::PORTRAIT, portraits[0]);
+		for (int i = 0; i < (sizeof(objInst) / sizeof(objInst[0])); i++)
+			RenderObject(objInst[i]);
+		//RenderObject(Enum::TYPE::PLATFORM, *platform->pObj);
+		//RenderObject(Enum::TYPE::PLAYER, player.obj);
 	}
 
 	void Level2_Free()
@@ -193,6 +167,9 @@ namespace Level2
 		AEGfxMeshFree(wall.pMesh);
 		AEGfxMeshFree(deco.pMesh);
 		AEGfxMeshFree(portraits[0].pMesh);
+		AEGfxMeshFree(portraits[1].pMesh);
+		AEGfxMeshFree(portraits[2].pMesh);
+		AEGfxMeshFree(portraits[3].pMesh);
 	}
 
 	void Level2_Unload()
@@ -202,5 +179,10 @@ namespace Level2
 		AEGfxTextureUnload(floor.pTex);
 		AEGfxTextureUnload(player.obj.pTex);
 		AEGfxTextureUnload(portraits[0].pTex);
+		AEGfxTextureUnload(portraits[1].pTex);
+		AEGfxTextureUnload(portraits[2].pTex);
+		AEGfxTextureUnload(portraits[3].pTex);
+		vff.clear();
+		tff.clear();
 	}
 }

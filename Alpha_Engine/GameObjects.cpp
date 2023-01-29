@@ -6,14 +6,14 @@ namespace GameObjects
 	/*DEFINES*/
 	const unsigned char FLAG_ACTIVE = 0x1; // todo
 	s8 fontId;
-	f64 dt{0.0}, ani{1.f / 6.f}; // todo
-	bool interpolate{true};		 // todo
+	f64 dt{ 0.0 }, ani{ 1.f / 6.f }; // todo
+	bool interpolate{ true };		 // todo
 	bool glow;
 	/*TODO*/
-	f32 Interpolate(f64 &dt, f64 frametime)
+	f32 Interpolate(f64& dt, f64 frametime)
 	{
 		interpolate = (dt >= 1.f) ? false : (dt <= .0f) ? true
-														: interpolate;
+			: interpolate;
 		return dt += (interpolate) ? frametime : -frametime;
 	}
 
@@ -39,15 +39,15 @@ namespace GameObjects
 	void RenderObject(unsigned long type, Object obj)
 	{
 		/*SCALING*/
-		AEMtx33 scale = {0};
+		AEMtx33 scale = { 0 };
 		AEMtx33Scale(&scale, obj.width, obj.height);
 
 		/*TRANSLATION/POSITION*/
-		AEMtx33 translate = {0};
+		AEMtx33 translate = { 0 };
 		AEMtx33Trans(&translate, obj.pos.x, obj.pos.y);
 
 		/*TRANSFORMATION (TRS)*/
-		AEMtx33 transform = {0};
+		AEMtx33 transform = { 0 };
 		AEMtx33Concat(&transform, &translate, &scale);
 		AEGfxSetTransform(transform.m);
 
@@ -57,13 +57,13 @@ namespace GameObjects
 				AEVec2 init_trans;
 				switch (i)
 				{
-				/*CORNER WALL*/
+					/*CORNER WALL*/
 				case 0:
 					/*Set texture*/
 					AEGfxTextureSet(obj.pTex, 1.0f / 7.0f * 3.0f, 0);
-					init_trans = {64, -432};
+					init_trans = { 64, -432 };
 					break;
-				/*PLAIN RIGHT WALL*/
+					/*PLAIN RIGHT WALL*/
 				case 1:
 				case 3:
 				case 4:
@@ -71,15 +71,15 @@ namespace GameObjects
 					AEGfxTextureSet(obj.pTex, 1.0f / 7.0f * 4.0f, 0);
 					init_trans.x = (i == 4) ? -320 : 64;
 					init_trans.y = (i == 1) ? -432 : (i == 3) ? -512
-															  : -384;
+						: -384;
 					break;
-				/*COLUMN RIGHT WALL*/
+					/*COLUMN RIGHT WALL*/
 				case 2:
 					/*Set texture*/
 					AEGfxTextureSet(obj.pTex, 1.0f / 7.0f * 5.0f, 0);
-					init_trans = {64, -512};
+					init_trans = { 64, -512 };
 					break;
-				/*PLAIN LEFT WALL*/
+					/*PLAIN LEFT WALL*/
 				case 5:
 				case 7:
 				case 8:
@@ -88,11 +88,11 @@ namespace GameObjects
 					init_trans.x = -64;
 					init_trans.y = (i == 5) ? -432 : -512;
 					break;
-				/*COLUMN LEFT WALL*/
+					/*COLUMN LEFT WALL*/
 				case 6:
 					/*Set texture*/
 					AEGfxTextureSet(obj.pTex, 1.0f / 7.0f, 0);
-					init_trans = {-64, -512};
+					init_trans = { -64, -512 };
 					break;
 				}
 				for (int j = 0; j < 6; j++)
@@ -147,25 +147,25 @@ namespace GameObjects
 			AEMtx33Trans(&translate, obj.pos.x, obj.pos.y);
 			for (int i = 0; i < 5; i++) {
 				/*DRAW MESH*/
-			// AEGfxMeshDraw(obj.pMesh, AE_GFX_MDM_TRIANGLES);
-			/*TRANSFORMATION (TRS)*/ /*
-			 AEMtx33Trans(&translate, -32, -16);
-			 AEMtx33Concat(&transform, &translate, &transform);
-			 AEGfxSetTransform(transform.m);
-		 }
-		 for (int i = 0; i < 5; i++) {
-			 /*DRAW MESH*/
-									 // AEGfxMeshDraw(obj.pMesh, AE_GFX_MDM_TRIANGLES);
-			/*TRANSFORMATION (TRS)*/ /*
-			 AEMtx33Trans(&translate, 32, -16);
-			 AEMtx33Concat(&transform, &translate, &transform);
-			 AEGfxSetTransform(transform.m);
-		 }
-		 /*TRANSFORMATION (TRS)*/
-									 /*
-								 AEMtx33Trans(&translate, 0, 128);
-								 AEMtx33Concat(&transform, &translate, &transform);
-								 AEGfxSetTransform(transform.m);*/
+				// AEGfxMeshDraw(obj.pMesh, AE_GFX_MDM_TRIANGLES);
+				/*TRANSFORMATION (TRS)*/ /*
+				 AEMtx33Trans(&translate, -32, -16);
+				 AEMtx33Concat(&transform, &translate, &transform);
+				 AEGfxSetTransform(transform.m);
+			 }
+			 for (int i = 0; i < 5; i++) {
+				 /*DRAW MESH*/
+				 // AEGfxMeshDraw(obj.pMesh, AE_GFX_MDM_TRIANGLES);
+/*TRANSFORMATION (TRS)*/ /*
+ AEMtx33Trans(&translate, 32, -16);
+ AEMtx33Concat(&transform, &translate, &transform);
+ AEGfxSetTransform(transform.m);
+}
+/*TRANSFORMATION (TRS)*/
+/*
+AEMtx33Trans(&translate, 0, 128);
+AEMtx33Concat(&transform, &translate, &transform);
+AEGfxSetTransform(transform.m);*/
 		}
 		else if (type == Enum::TYPE::PLATFORM)
 		{
@@ -175,7 +175,7 @@ namespace GameObjects
 		{
 			dt += (interpolate) ? AEFrameRateControllerGetFrameTime() : -AEFrameRateControllerGetFrameTime();
 			interpolate = (dt >= 1.f) ? false : (dt <= .0f) ? true
-															: interpolate;
+				: interpolate;
 			/*Set texture*/
 			(interpolate) ? AEGfxTextureSet(obj.pTex, 0, 0) : AEGfxTextureSet(obj.pTex, 0.25, 0);
 			/*DRAW MESH*/
@@ -196,14 +196,14 @@ namespace GameObjects
 		}
 	}
 
-	AEVec2 *GetVertices(const Object obj)
+	AEVec2* GetVertices(const Object obj)
 	{
-		AEVec2 *vertices = {new AEVec2[4]};
+		AEVec2* vertices = { new AEVec2[4] };
 		AEVec2 original[4] = {
 			AEVec2{obj.pos.x - obj.width - 10, obj.pos.y + obj.height - 10},
 			AEVec2{obj.pos.x + obj.width - 10, obj.pos.y + obj.height - 10},
 			AEVec2{obj.pos.x + obj.width - 10, obj.pos.y - obj.height - 10},
-			AEVec2{obj.pos.x - obj.width - 10, obj.pos.y - obj.height - 10}};
+			AEVec2{obj.pos.x - obj.width - 10, obj.pos.y - obj.height - 10} };
 
 		/* Get vertex after rotation. Vertex rotates around the center of the mesh */
 		for (int i = 0; i < 4; i++)
