@@ -150,7 +150,10 @@ namespace Level2
 			//check if player if near portrait
 			for (size_t i{0}; i < sizeof(objInst) / sizeof(objInst[0]); i++)
 			{
-				if (objInst[i].pObj->type == Enum::TYPE::PORTRAIT)
+				if (objInst[i].pObj->type == Enum::TYPE::PORTRAIT 
+				|| objInst[i].pObj->type == Enum::TYPE::PORTRAIT2 
+				|| objInst[i].pObj->type == Enum::TYPE::MPORTRAIT
+				|| objInst[i].pObj->type == Enum::TYPE::LPORTRAIT)
 				{
 					if (DistanceBetweenPlayerAndPortrait(objInst[i].transform.m[0][2],
 														 objInst[i].transform.m[1][2],
@@ -161,7 +164,6 @@ namespace Level2
 						std::cout << objInst[i].flag << " \n";
 
 					}
-					else objInst[i].flag = false;
 				}
 				
 			}
@@ -192,7 +194,10 @@ namespace Level2
 		for (int i = 0; i < (sizeof(objInst) / sizeof(objInst[0])); i++)
 		{
 			RenderObject(objInst[i]);
-			if (objInst[i].pObj->type == Enum::TYPE::PORTRAIT)
+			if (objInst[i].pObj->type == Enum::TYPE::PORTRAIT
+			|| objInst[i].pObj->type == Enum::TYPE::PORTRAIT2 
+			|| objInst[i].pObj->type == Enum::TYPE::MPORTRAIT
+			|| objInst[i].pObj->type == Enum::TYPE::LPORTRAIT)
 			{
 				if (objInst[i].flag)
 					RenderColor(pHighlight, objInst[i].transform.m[0][0], objInst[i].transform.m[1][1], objInst[i].transform.m[0][2], objInst[i].transform.m[1][2]);
