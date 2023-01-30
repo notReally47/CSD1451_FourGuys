@@ -164,7 +164,6 @@ namespace Level2
 						objInst[i].flag = true;
 
 					}
-					else objInst[i].flag = false;
 				}
 				
 			}
