@@ -67,38 +67,6 @@ namespace Level2 {
 		/*TRANSFORM OBJECTS*/
 		Level_Initializer::Init_Object_Instance(vff, objs, objInst, (sizeof(objInst) / sizeof(objInst[0])));
 
-
-		/*DATA TO BE ADD INTO DATA FILES*/
-
-		/*DATA FOR PLATFORM*/
-		/*
-		platform.type = Enum::TYPE::PLATFORM;
-		AEGfxMeshStart();
-		AEGfxTriAdd(
-			-0.5f, -0.5f, 0xFFFF0000, .0f, 1.0f,	// left bottom
-			1.0f, -1.0f, 0xFFFF0000, 1.0f, 1.0f,	// right bottom
-			-1.0f, 1.0f, 0xFFFF0000, .0f, .5f		// left top		y = 0.5f
-		);
-		AEGfxTriAdd(
-			1.0f, 1.0f, 0xFFFF0000, 1.0f, .5f,		// right top	y = 0.5f
-			1.0f, -1.0f, 0xFFFF0000, 1.0f, 1.0f,	// right bottom
-			-1.0f, 1.0f, 0xFFFF0000, .0f, .5f		// left top		y = 0.5f
-		);
-		platform.pMesh = AEGfxMeshEnd();
-		objInst[123].pObj = &platform;
-		objInst[123].flag = FLAG_INACTIVE;
-		objInst[123].tex_offset = { .0f, .0f };
-		objInst[123].transform = { 38.0f, .0f, .0f,
-								.0f, 38.0f, -16.0f,
-								.0f, .0f, 1.0f };
-		objInst[124].pObj = &platform;
-		objInst[124].flag = FLAG_ACTIVE;
-		objInst[124].tex_offset = { .0f, .0f };
-		objInst[124].transform = { 38.0f, .0f, 20.0f,
-								.0f, 38.0f, -80.0f,
-								.0f, .0f, 1.0f };
-		*/
-
 		/*LEFT AND RIGHT BOUNDARIES*/
 
 		/*CREATE PLAYER*/
@@ -155,23 +123,6 @@ namespace Level2 {
 		p_player.pObjInst.transform.m[0][2] += checkBoundary(p_player);
 		bool check = checkPlatform(p_player);
 		std::cout << check << std::endl;
-
-		///*Check for any collision*/
-		// for (int i = 0; i < sizeof(objs) / sizeof(Object*); i++) {
-		//	f32 depth;
-		//	Vector normal;
-		//	if (SAT_Collision(player.obj, *objs[i], depth, normal)) {
-		//		/*Collision resolution: correct by normal vector with length of the depth.*/
-		//		normal.x *= depth;
-		//		normal.y *= depth;
-		//		player.obj.pos.x -= normal.x;
-		//		player.obj.pos.y -= normal.y;
-		//
-		//		/*TODO*/
-		//		// change the player direction based on the normal.
-		//
-		//	}
-		// }
 	}
 	void Level2_Draw()
 	{

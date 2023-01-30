@@ -18,11 +18,7 @@ namespace GameObjects
 		AEGfxSetBlendMode(AE_GFX_BM_BLEND);
 		AEGfxSetTransparency(1.0f);
 	}
-	//void RenderColorSettings(void)
-	//{
-		/*SETTINGS*/
-		//AEGfxSetRenderMode(AE_GFX_RM_COLOR);
-	//}
+
 	/*
 	 * Render objects that have textures.
 	 */
@@ -36,10 +32,6 @@ namespace GameObjects
 				AEGfxTextureSet(obj.pObj->pTex, obj.tex_offset.x, obj.tex_offset.y);
 		}	
 		else if (obj.pObj->type == Enum::TYPE::PLATFORM) {
-			//if (obj.flag == 0x1) {
-				//obj.transform.m[1][2] -= 10.f*AEFrameRateControllerGetFrameTime();
-				//AEGfxTextureSet(obj.pObj->pTex, obj.tex_offset.x, obj.tex_offset.y-=0.1f*AEFrameRateControllerGetFrameTime());
-			//}
 			/*Set texture*/
 			AEGfxTextureSet(obj.pObj->pTex, obj.tex_offset.x, obj.tex_offset.y);
 		}

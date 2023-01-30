@@ -6,7 +6,7 @@ namespace GameObjects
 	/*EXTERN*/
 	extern s8						fontId;
 	extern const unsigned char		FLAG_INACTIVE;
-	extern const unsigned char		FLAG_ACTIVE;		//todo
+	extern const unsigned char		FLAG_ACTIVE;		
 
 	/*GAME OBJECT STRUCTURE*/
 	struct Object {
@@ -21,7 +21,7 @@ namespace GameObjects
 		Object* pObj;
 		unsigned char				flag;
 		AEVec2						tex_offset;
-		AEMtx33						transform;	// {w, 0, x, 0, h, y, 0, 0, 1}
+		AEMtx33						transform;
 	};
 
 	/*CHARACTER STRUCTURE*/
