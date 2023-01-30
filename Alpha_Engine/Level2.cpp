@@ -161,9 +161,9 @@ namespace Level2
 														 p_player.pObjInst.transform.m[0][2],
 														 p_player.pObjInst.transform.m[1][2]) < 55.0)
 					{
-						objInst[i].flag = true;
+						objInst[i].flag = FLAG_ACTIVE;
 
-					}else objInst[i].flag = false;
+					}else objInst[i].flag = FLAG_INACTIVE;
 				}
 				
 			}
@@ -199,7 +199,7 @@ namespace Level2
 			|| objInst[i].pObj->type == Enum::TYPE::MPORTRAIT
 			|| objInst[i].pObj->type == Enum::TYPE::LPORTRAIT)
 			{
-				if (objInst[i].flag)
+				if (objInst[i].flag == FLAG_ACTIVE)
 					RenderColor(pHighlight, objInst[i].transform.m[0][0], objInst[i].transform.m[1][1], objInst[i].transform.m[0][2], objInst[i].transform.m[1][2]);
 			}
 			RenderSettings();

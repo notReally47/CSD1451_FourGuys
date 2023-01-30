@@ -18,7 +18,7 @@ namespace GameObjects
 	/*GAME OBJECT INSTANCE STRUCTURE*/
 	struct ObjectInst {
 		Object*						pObj;
-		bool						flag;
+		unsigned char				flag;
 		AEVec2						tex_offset;
 		AEMtx33						transform;	// {w, 0, x, 0, h, y, 0, 0, 1}
 	};
