@@ -58,10 +58,10 @@ namespace GameObjects
 		AEVec2* vertices = { new AEVec2[4] };
 		AEVec2 original[4] = {
 			/* object position x +- object width - object position y +- object height */
-			AEVec2{ obj.transform.m[0][2] - obj.transform.m[0][0] - 10, obj.transform.m[1][2] + obj.transform.m[1][1] - 10 },
-			AEVec2{ obj.transform.m[0][2] + obj.transform.m[0][0] - 10, obj.transform.m[1][2] + obj.transform.m[1][1] - 10 },
-			AEVec2{ obj.transform.m[0][2] + obj.transform.m[0][0] - 10, obj.transform.m[1][2] - obj.transform.m[1][1] - 10 },
-			AEVec2{ obj.transform.m[0][2] - obj.transform.m[0][0] - 10, obj.transform.m[1][2] - obj.transform.m[1][1] - 10 }
+			AEVec2{ obj.transform.m[0][2] - obj.transform.m[0][0], obj.transform.m[1][2] + obj.transform.m[1][1] },
+			AEVec2{ obj.transform.m[0][2] + obj.transform.m[0][0], obj.transform.m[1][2] + obj.transform.m[1][1] },
+			AEVec2{ obj.transform.m[0][2] + obj.transform.m[0][0], obj.transform.m[1][2] - obj.transform.m[1][1] },
+			AEVec2{ obj.transform.m[0][2] - obj.transform.m[0][0], obj.transform.m[1][2] - obj.transform.m[1][1] }
 		};
 
 		/* Get vertex after rotation. Vertex rotates around the center of the mesh */

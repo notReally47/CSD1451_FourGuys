@@ -86,7 +86,41 @@ namespace CollisionHandler {
 		return true;
 	}
 
-	double DistanceBetweenPlayerAndPortrait(AEVec2 const portrait_pos, AEVec2 const player_pos){
-		return sqrt(pow(portrait_pos.x - player_pos.x, 2) + pow(portrait_pos.y - player_pos.y, 2));
+	f32 checkBoundary(Character const player) {
+		f32 leftBoarder = -7.f * (f32)AEGetWindowWidth() / 20.f, rightBoarder = 7.f * (f32)AEGetWindowWidth() / 20.f;
+		return leftBoarder > player.pObjInst.transform.m[0][2] ? leftBoarder - player.pObjInst.transform.m[0][2] : player.pObjInst.transform.m[0][2] > rightBoarder ? rightBoarder - player.pObjInst.transform.m[0][2] : 0.f;
+	}
+
+	bool checkPlatform(Character const player) {
+		AEVec2 playerPos{ player.pObjInst.transform.m[0][2], player.pObjInst.transform.m[1][2] }, vecC{ -280.f, -150.f }, vecA{ 0, -290.f }, vecB{ 280.f, -150.f }, vecAM, vecAB, vecAC, out;
+		AEVec2Set(&vecAM, playerPos.x - vecA.x, playerPos.y - vecA.y);
+		AEVec2Set(&vecAB, vecB.x - vecA.x, vecB.y - vecA.y);
+		AEVec2Set(&vecAC, vecC.x - vecA.x, vecC.y - vecA.y);
+		f32 projAMAB = AEVec2DotProduct(&vecAM, &vecAB);
+		f32 projAMAC = AEVec2DotProduct(&vecAM, &vecAC);
+		f32 projABAB = AEVec2DotProduct(&vecAB, &vecAB);
+		f32 projADAD = AEVec2DotProduct(&vecAC, &vecAC);
+		std::cout << projAMAB << ' ' << projAMAC << ' ' << projABAB << ' ' << projADAD << std::endl;
+
+		if ((0.f < projAMAB && projAMAB < projABAB) && (0.f < projAMAC && projAMAC < projADAD)) {
+			//AEVec2Set(&out, projAMAB - projABAB, projAMAD - projADAD);
+			return true;
+		}
+		return false;
+		//f32 a, b, c;
+		//a = -(vecB.y - vecA.y);
+		//b = vecB.x - vecA.y;
+		//c = -((a * vecA.x) + (b * vecA.y));
+
+		//return a * playerPos.x + b * playerPos.y + c > 0;
+	}
+
+	bool portraitInteract(ObjectInst const portrait, Character const player) {
+		f32 dist = sqrt(pow(portrait.transform.m[0][0] - player.pObjInst.transform.m[0][0], 2) + pow(portrait.transform.m[1][2] - player.pObjInst.transform.m[1][2], 2));
+
+		if (dist < 55.f)
+			return true;
+		else
+			return false;
 	}
 }
