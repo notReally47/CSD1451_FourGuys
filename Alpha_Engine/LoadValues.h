@@ -11,7 +11,7 @@ namespace Load_Values {
 		GameObjects::Object object;
 		f32 uv_01, uv_02, uv_03, uv_04, uv_05;
 		f32 texture_offset_x, texture_offset_y;
-		f32 transform_01, transform_02, transform_03, transform_04;
+		f32 transform_01, transform_02, transform_03, transform_04; //w, x, h, y
 	};
 
 	vector<ValueFromFile> Load_Values_From_File(const string level_number);

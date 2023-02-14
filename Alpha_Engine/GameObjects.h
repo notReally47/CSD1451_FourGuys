@@ -10,14 +10,14 @@ namespace GameObjects
 	/*GAME OBJECT STRUCTURE*/
 	struct Object {
 		unsigned long				type;
-		AEGfxTexture*				pTex;
-		AEGfxVertexList*			pMesh;
+		AEGfxTexture* pTex;
+		AEGfxVertexList* pMesh;
 	};
 
 	/*TODO*/
 	/*GAME OBJECT INSTANCE STRUCTURE*/
 	struct ObjectInst {
-		Object*						pObj;
+		Object* pObj;
 		unsigned char				flag;
 		AEVec2						tex_offset;
 		AEMtx33						transform;	// {w, 0, x, 0, h, y, 0, 0, 1}
@@ -28,7 +28,7 @@ namespace GameObjects
 		ObjectInst					pObjInst;
 		AEVec2						dir;
 		AEVec2						input;
-		//AEVec2					rotation;
+		f32							rotation;
 		f32							speed;
 		int							spriteIteration;
 	};
@@ -38,4 +38,7 @@ namespace GameObjects
 	void	RenderObject	(ObjectInst &obj);
 	void 	RenderColor(Object &object, f32 width, f32 height, f32 x, f32 y);
 	AEVec2* GetVertices		(const ObjectInst obj);
+	void	RenderSettings(void);
+	void	RenderObject(ObjectInst& obj);
+	AEVec2* GetVertices(const ObjectInst obj);
 }

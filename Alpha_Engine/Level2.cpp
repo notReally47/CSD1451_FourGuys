@@ -17,10 +17,15 @@ namespace Level2
 	ObjectInst objInst[123];
 	f32 windowWidth, windowHeight;
 	Object *objs[]{&wall, &floor, &deco, &portraits[0], &portraits[1], &portraits[2], &portraits[3], &pHighlight};
-
-	const std::string level_number = "02";
+  
+  const std::string level_number = "02";
 	std::vector<Load_Values::ValueFromFile> vff;
 	std::vector<Load_Texture::TextureFromFile> tff;
+  
+#define DEBUG
+#ifdef DEBUG
+#include <iostream>
+#endif // DEBUG
 
 	void Level2_Load()
 	{
@@ -42,7 +47,6 @@ namespace Level2
 		Load_Texture::Load_Texture_To_Object(tff, portraits[1]);
 		Load_Texture::Load_Texture_To_Object(tff, portraits[2]);
 		Load_Texture::Load_Texture_To_Object(tff, portraits[3]);
-		AE_ASSERT_MESG(fontId = AEGfxCreateFont("Roboto-Regular.ttf", 12), "Failed to load font");
 	}
 
 	void Level2_Init()
@@ -71,7 +75,7 @@ namespace Level2
 		platform.type = Enum::TYPE::PLATFORM;
 		AEGfxMeshStart();
 		AEGfxTriAdd(
-			-1.0f, -1.0f, 0xFFFF0000, .0f, 1.0f,	// left bottom
+			-0.5f, -0.5f, 0xFFFF0000, .0f, 1.0f,	// left bottom
 			1.0f, -1.0f, 0xFFFF0000, 1.0f, 1.0f,	// right bottom
 			-1.0f, 1.0f, 0xFFFF0000, .0f, .5f		// left top		y = 0.5f
 		);
@@ -94,26 +98,31 @@ namespace Level2
 								.0f, 38.0f, -80.0f,
 								.0f, .0f, 1.0f };
 		*/
+
+		/*LEFT AND RIGHT BOUNDARIES*/
+
 		/*CREATE PLAYER*/
 		AEGfxMeshStart();
 		AEGfxTriAdd(
-			-1.0f, -1.0f, 0xFFFF0000, .0f, .125f,
-			1.0f, -1.0f, 0xFFFF0000, 1.0f / 11.0f, .125f,
-			-1.0f, 1.0f, 0xFFFF0000, 0.0f, 0.0f);
+			-0.5f, -0.5f, 0xFFFF0000, .0f, .125f,
+			0.5f, -0.5f, 0xFFFF0000, 1.0f / 11.0f, .125f,
+			-0.5f, 0.5f, 0xFFFF0000, 0.0f, 0.0f
+		);
 		AEGfxTriAdd(
-			1.0f, 1.0f, 0xFFFF0000, 1.0f / 11.0f, .0f,
-			1.0f, -1.0f, 0xFFFF0000, 1.0f / 11.0f, .125f,
-			-1.0f, 1.0f, 0xFFFF0000, 0.0f, 0.0f);
+			0.5f, 0.5f, 0xFFFF0000, 1.0f / 11.0f, .0f,
+			0.5f, -0.5f, 0xFFFF0000, 1.0f / 11.0f, .125f,
+			-0.5f, 0.5f, 0xFFFF0000, 0.0f, 0.0f
+		);
 		player.pMesh = AEGfxMeshEnd();
 		p_player.pObjInst.pObj = &player;
 		p_player.pObjInst.flag = FLAG_INACTIVE;
-		p_player.pObjInst.tex_offset = {.0f, .0f};
-		p_player.pObjInst.transform = {38.0f, .0f, -20.0f,
-									   .0f, 38.0f, -20.0f,
-									   .0f, .0f, 1.0f};
-		p_player.dir = {.0f, .0f};
-		p_player.input = {.0f, .0f};
-		// p_player.rotation = { .0f, .0f };
+		p_player.pObjInst.tex_offset = { .0f, .0f };
+		p_player.pObjInst.transform = { 38.0f, .0f, -265.0f,
+									.0f, 38.0f, -140.0f,
+									.0f, .0f, 0.5f };
+		p_player.dir = { .0f, .0f };
+		p_player.input = { .0f, .0f };
+		p_player.rotation = .0f;
 		p_player.speed = 100.0f;
 		p_player.spriteIteration = 0;
 
@@ -148,6 +157,7 @@ namespace Level2
 			AEVec2Scale(&p_player.dir, &p_player.dir, unitSpeed);
 			p_player.pObjInst.transform.m[0][2] += p_player.dir.x;
 			p_player.pObjInst.transform.m[1][2] += p_player.dir.y;
+      
 			//check if player if near portrait
 			for (size_t i{0}; i < sizeof(objInst) / sizeof(objInst[0]); i++)
 			{
@@ -160,16 +170,25 @@ namespace Level2
 														 objInst[i].transform.m[1][2],
 														 p_player.pObjInst.transform.m[0][2],
 														 p_player.pObjInst.transform.m[1][2]) < 55.0)
-					{
 						objInst[i].flag = FLAG_ACTIVE;
-
-					}else objInst[i].flag = FLAG_INACTIVE;
+            
+          else 
+            objInst[i].flag = FLAG_INACTIVE;
 				}
-				
 			}
 		}
 
 		/*ANIMATION*/
+		AEGfxSetCamPosition(0.f, max(p_player.pObjInst.transform.m[1][2], -85.f));
+
+#ifdef DEBUG
+		std::cout << p_player.pObjInst.transform.m[0][2] << ' ' << p_player.pObjInst.transform.m[1][2] << std::endl;
+#endif // DEBUG
+
+		/*LEFT AND RIGHT BOUNDARY*/
+		p_player.pObjInst.transform.m[0][2] += checkBoundary(p_player);
+		bool check = checkPlatform(p_player);
+		std::cout << check << std::endl;
 
 		///*Check for any collision*/
 		// for (int i = 0; i < sizeof(objs) / sizeof(Object*); i++) {
@@ -213,7 +232,7 @@ namespace Level2
 		AEGfxMeshFree(floor.pMesh);
 		AEGfxMeshFree(player.pMesh);
 		AEGfxMeshFree(wall.pMesh);
-		AEGfxMeshFree(deco.pMesh);
+		//AEGfxMeshFree(deco.pMesh);
 		AEGfxMeshFree(portraits[0].pMesh);
 		AEGfxMeshFree(portraits[1].pMesh);
 		AEGfxMeshFree(portraits[2].pMesh);
