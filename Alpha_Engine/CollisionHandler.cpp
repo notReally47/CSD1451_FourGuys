@@ -86,6 +86,11 @@ namespace CollisionHandler {
 		return true;
 	}
 
+
+	double DistanceBetweenPlayerAndPortrait(f32 const portrait_x, f32 const portrait_y, f32 const player_x,f32 const player_y){
+		return sqrt(pow(portrait_x - player_x, 2) + pow(portrait_y - player_y, 2));
+  }
+
 	f32 checkBoundary(Character const player) {
 		f32 leftBoarder = -7.f * (f32)AEGetWindowWidth() / 20.f, rightBoarder = 7.f * (f32)AEGetWindowWidth() / 20.f;
 		return leftBoarder > player.pObjInst.transform.m[0][2] ? leftBoarder - player.pObjInst.transform.m[0][2] : player.pObjInst.transform.m[0][2] > rightBoarder ? rightBoarder - player.pObjInst.transform.m[0][2] : 0.f;

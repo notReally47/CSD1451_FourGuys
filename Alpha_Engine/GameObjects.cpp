@@ -9,7 +9,6 @@ namespace GameObjects
 	const unsigned char		FLAG_INACTIVE	= 0x0;
 	const unsigned char		FLAG_ACTIVE		= 0x1;		//todo
 	static f64				delta_time		= .0f;
-	
 	/*Set rendering modes, colour tints, blending and transparency*/
 	void RenderSettings(void) {
 		/*SETTINGS*/
@@ -52,6 +51,25 @@ namespace GameObjects
 		AEGfxSetTransform(obj.transform.m);
 		/*DRAW MESH*/
 		AEGfxMeshDraw(obj.pObj->pMesh, AE_GFX_MDM_TRIANGLES);
+	}
+	void RenderColor(Object &object, f32 width, f32 height, f32 x, f32 y){
+		/*SETTINGS*/
+		AEGfxSetRenderMode(AE_GFX_RM_COLOR);
+		/*SCALING*/
+		AEMtx33 scale = {0};
+		AEMtx33Scale(&scale, width, height);
+
+		/*TRANSLATION/POSITION*/
+		AEMtx33 translate = {0};
+		AEMtx33Trans(&translate, x, y);
+
+		/*TRANSFORMATION (TRS)*/
+		AEMtx33 transform = {0};
+		AEMtx33Concat(&transform, &translate, &scale);
+		AEGfxSetTransform(transform.m);
+		/*DRAW MESH*/
+		AEGfxSetTintColor(1.0f, 1.0f, 1.0f, 1.0f);
+		AEGfxMeshDraw(object.pMesh, AE_GFX_MDM_TRIANGLES);
 	}
 
 	AEVec2* GetVertices(const ObjectInst obj) {

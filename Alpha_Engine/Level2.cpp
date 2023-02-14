@@ -7,26 +7,28 @@
 #include "LoadTextures.h"
 #include "LevelInitializer.h"
 #include "AnimationHandler.h"
+#include <iostream>
+
+namespace Level2
+{
+	using namespace GameObjects;
+	Object wall, floor, deco, portraits[4], player, pHighlight; // platform,  pHighlight
+	Character p_player;
+	ObjectInst objInst[123];
+	f32 windowWidth, windowHeight;
+	Object *objs[]{&wall, &floor, &deco, &portraits[0], &portraits[1], &portraits[2], &portraits[3], &pHighlight};
+  
+  const std::string level_number = "02";
+	std::vector<Load_Values::ValueFromFile> vff;
+	std::vector<Load_Texture::TextureFromFile> tff;
+  
 #define DEBUG
 #ifdef DEBUG
 #include <iostream>
 #endif // DEBUG
 
-
-namespace Level2 {
-	using namespace	GameObjects;
-	Object	wall, floor, deco, portraits[4], player, left, right; //platform,  pHighlight
-	Character p_player;
-	ObjectInst objInst[123];
-	f32 windowWidth, windowHeight;
-	Object* objs[7]{ &wall, &floor, &deco, &portraits[0], &portraits[1], &portraits[2], &portraits[3] };
-	ObjectInst leftBound, rightBound;
-
-	const std::string level_number = "02";
-	std::vector<Load_Values::ValueFromFile> vff;
-	std::vector<Load_Texture::TextureFromFile> tff;
-
-	void Level2_Load() {
+	void Level2_Load()
+	{
 		player.type = Enum::TYPE::PLAYER;
 		wall.type = Enum::TYPE::WALL;
 		floor.type = Enum::TYPE::FLOOR;
@@ -51,14 +53,13 @@ namespace Level2 {
 	{
 		windowWidth = static_cast<f32>(AEGetWindowWidth());
 		windowHeight = static_cast<f32>(AEGetWindowHeight());
-
 		/*CREATE WALL*/
 		Level_Initializer::Init_Mesh_From_File(vff, wall);
 
 		/*CREATE FLOOR*/
 		Level_Initializer::Init_Mesh_From_File(vff, floor);
 
-		/*CRAETE PAINTINGS*/
+		/*CREATE PAINTINGS*/
 		Level_Initializer::Init_Mesh_From_File(vff, portraits[0]);
 		Level_Initializer::Init_Mesh_From_File(vff, portraits[1]);
 		Level_Initializer::Init_Mesh_From_File(vff, portraits[2]);
@@ -66,7 +67,6 @@ namespace Level2 {
 
 		/*TRANSFORM OBJECTS*/
 		Level_Initializer::Init_Object_Instance(vff, objs, objInst, (sizeof(objInst) / sizeof(objInst[0])));
-
 
 		/*DATA TO BE ADD INTO DATA FILES*/
 
@@ -125,6 +125,20 @@ namespace Level2 {
 		p_player.rotation = .0f;
 		p_player.speed = 100.0f;
 		p_player.spriteIteration = 0;
+
+		/*CREATE PORTRAIT HIGHLIGHTS*/
+		AEGfxMeshStart();
+		AEGfxTriAdd(
+			-1.0f, -1.0f, 0xFFFF0000, .0f, 1.0f / 3.0f,	 // left bottom
+			1.0f, -0.5f, 0xFFFF0000, 0.25f, 1.0f / 3.0f, // right bottom
+			-1.0f, 0.5f, 0xFFFF0000, .0f, .0f			 // left top		y = 0.5f
+		);
+		AEGfxTriAdd(
+			1.0f, 1.0f, 0xFFFF0000, 0.25f, .0f,			 // right top	y = 0.5f
+			1.0f, -0.5f, 0xFFFF0000, 0.25f, 1.0f / 3.0f, // right bottom
+			-1.0f, 0.5f, 0xFFFF0000, .0f, .0f			 // left top		y = 0.5f
+		);
+		pHighlight.pMesh = AEGfxMeshEnd();
 	}
 
 	void Level2_Update()
@@ -136,12 +150,32 @@ namespace Level2 {
 
 		/*UPDATE LOGIC*/
 		/*MOVEMENT*/
-		if (p_player.pObjInst.flag) {
+		if (p_player.pObjInst.flag)
+		{
 			f32 unitSpeed = p_player.speed * static_cast<f32>(AEFrameRateControllerGetFrameTime());
 			AEVec2Normalize(&p_player.dir, &p_player.dir);
 			AEVec2Scale(&p_player.dir, &p_player.dir, unitSpeed);
 			p_player.pObjInst.transform.m[0][2] += p_player.dir.x;
 			p_player.pObjInst.transform.m[1][2] += p_player.dir.y;
+      
+			//check if player if near portrait
+			for (size_t i{0}; i < sizeof(objInst) / sizeof(objInst[0]); i++)
+			{
+				if (objInst[i].pObj->type == Enum::TYPE::PORTRAIT 
+				|| objInst[i].pObj->type == Enum::TYPE::PORTRAIT2 
+				|| objInst[i].pObj->type == Enum::TYPE::MPORTRAIT
+				|| objInst[i].pObj->type == Enum::TYPE::LPORTRAIT)
+				{
+					if (DistanceBetweenPlayerAndPortrait(objInst[i].transform.m[0][2],
+														 objInst[i].transform.m[1][2],
+														 p_player.pObjInst.transform.m[0][2],
+														 p_player.pObjInst.transform.m[1][2]) < 55.0)
+						objInst[i].flag = FLAG_ACTIVE;
+            
+          else 
+            objInst[i].flag = FLAG_INACTIVE;
+				}
+			}
 		}
 
 		/*ANIMATION*/
@@ -177,7 +211,19 @@ namespace Level2 {
 	{
 		RenderSettings();
 		for (int i = 0; i < (sizeof(objInst) / sizeof(objInst[0])); i++)
+		{
 			RenderObject(objInst[i]);
+			if (objInst[i].pObj->type == Enum::TYPE::PORTRAIT
+			|| objInst[i].pObj->type == Enum::TYPE::PORTRAIT2 
+			|| objInst[i].pObj->type == Enum::TYPE::MPORTRAIT
+			|| objInst[i].pObj->type == Enum::TYPE::LPORTRAIT)
+			{
+				if (objInst[i].flag == FLAG_ACTIVE)
+					RenderColor(pHighlight, objInst[i].transform.m[0][0], objInst[i].transform.m[1][1], objInst[i].transform.m[0][2], objInst[i].transform.m[1][2]);
+			}
+			RenderSettings();
+			RenderObject(objInst[i]);
+		}
 		AnimationHandler::AnimateCharacter(p_player);
 	}
 
