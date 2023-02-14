@@ -1,6 +1,6 @@
 #include "pch.h"
 #include <string>
-//#include <iostream>
+#include <iostream>
 
 namespace GameObjects
 {
@@ -28,11 +28,25 @@ namespace GameObjects
 	void RenderObject(ObjectInst &obj) {
 		delta_time += AEFrameRateControllerGetFrameTime();
 		//std::cout << delta_time << std::endl;
-		if (obj.pObj->type == Enum::TYPE::PORTRAIT) {
+		if (obj.pObj->type == Enum::TYPE::PORTRAIT
+			|| obj.pObj->type == Enum::TYPE::PORTRAIT2
+			|| obj.pObj->type == Enum::TYPE::MPORTRAIT
+			|| obj.pObj->type == Enum::TYPE::LPORTRAIT) {
 			//obj.flag = (delta_time > 2.0f) ? (delta_time = .0f, FLAG_INACTIVE) : (delta_time < 1.5f) ? FLAG_ACTIVE : obj.flag;
 			/*Set texture*/
 			//(obj.flag) ? AEGfxTextureSet(obj.pObj->pTex, obj.tex_offset.x + 0.25f, obj.tex_offset.y):
-				AEGfxTextureSet(obj.pObj->pTex, obj.tex_offset.x, obj.tex_offset.y);
+			AEGfxTextureSet(obj.pObj->pTex, obj.tex_offset.x, obj.tex_offset.y);
+			if (obj.flag == FLAG_ACTIVE) {
+				/*TRANSFORMATION (TRS)*/
+				AEMtx33 highlight = obj.transform;
+				highlight.m[0][0] += 5.f;
+				highlight.m[1][1] += 5.f;
+				AEGfxSetTransform(highlight.m);
+				AEGfxSetBlendColor(1.0f, 1.0f, 1.0f, 0.7f);
+				/*DRAW MESH*/
+				AEGfxMeshDraw(obj.pObj->pMesh, AE_GFX_MDM_TRIANGLES);
+				AEGfxSetBlendColor(1.0f, 1.0f, 1.0f, 0.0f);
+			}
 		}	
 		else if (obj.pObj->type == Enum::TYPE::PLATFORM) {
 			//if (obj.flag == 0x1) {
@@ -51,25 +65,6 @@ namespace GameObjects
 		AEGfxSetTransform(obj.transform.m);
 		/*DRAW MESH*/
 		AEGfxMeshDraw(obj.pObj->pMesh, AE_GFX_MDM_TRIANGLES);
-	}
-	void RenderColor(Object &object, f32 width, f32 height, f32 x, f32 y){
-		/*SETTINGS*/
-		AEGfxSetRenderMode(AE_GFX_RM_COLOR);
-		/*SCALING*/
-		AEMtx33 scale = {0};
-		AEMtx33Scale(&scale, width, height);
-
-		/*TRANSLATION/POSITION*/
-		AEMtx33 translate = {0};
-		AEMtx33Trans(&translate, x, y);
-
-		/*TRANSFORMATION (TRS)*/
-		AEMtx33 transform = {0};
-		AEMtx33Concat(&transform, &translate, &scale);
-		AEGfxSetTransform(transform.m);
-		/*DRAW MESH*/
-		AEGfxSetTintColor(1.0f, 1.0f, 1.0f, 1.0f);
-		AEGfxMeshDraw(object.pMesh, AE_GFX_MDM_TRIANGLES);
 	}
 
 	AEVec2* GetVertices(const ObjectInst obj) {

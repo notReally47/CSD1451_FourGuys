@@ -105,7 +105,7 @@ namespace CollisionHandler {
 		f32 projAMAC = AEVec2DotProduct(&vecAM, &vecAC);
 		f32 projABAB = AEVec2DotProduct(&vecAB, &vecAB);
 		f32 projADAD = AEVec2DotProduct(&vecAC, &vecAC);
-		std::cout << projAMAB << ' ' << projAMAC << ' ' << projABAB << ' ' << projADAD << std::endl;
+		//std::cout << projAMAB << ' ' << projAMAC << ' ' << projABAB << ' ' << projADAD << std::endl;
 
 		if ((0.f < projAMAB && projAMAB < projABAB) && (0.f < projAMAC && projAMAC < projADAD)) {
 			//AEVec2Set(&out, projAMAB - projABAB, projAMAD - projADAD);

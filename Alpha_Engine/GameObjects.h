@@ -7,6 +7,7 @@ namespace GameObjects
 	extern s8						fontId;
 	extern const unsigned char		FLAG_INACTIVE;
 	extern const unsigned char		FLAG_ACTIVE;		//todo
+
 	/*GAME OBJECT STRUCTURE*/
 	struct Object {
 		unsigned long				type;
@@ -36,7 +37,6 @@ namespace GameObjects
 	/*FUNCTIONS*/
 	void	RenderSettings	(void);
 	void	RenderObject	(ObjectInst &obj);
-	void 	RenderColor(Object &object, f32 width, f32 height, f32 x, f32 y);
 	AEVec2* GetVertices		(const ObjectInst obj);
 	void	RenderSettings(void);
 	void	RenderObject(ObjectInst& obj);
