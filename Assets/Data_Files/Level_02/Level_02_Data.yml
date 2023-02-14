@@ -1,0 +1,2099 @@
+Level: 02
+Object:
+  Floor:
+    Floor_00:
+      Type: 2
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 1
+        uv_04: 1
+        uv_05: 0.5
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        transformation_01: 76
+        transformation_02: 0
+        transformation_03: 76
+        transformation_04: -16
+
+    Floor_01:
+      Type: 2
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 1
+        uv_04: 1
+        uv_05: 0.5
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        transformation_01: 76
+        transformation_02: -38
+        transformation_03: 76
+        transformation_04: -35
+
+    Floor_02:
+      Type: 2
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 1
+        uv_04: 1
+        uv_05: 0.5
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        transformation_01: 76
+        transformation_02: -76
+        transformation_03: 76
+        transformation_04: -54
+
+    Floor_03:
+      Type: 2
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 1
+        uv_04: 1
+        uv_05: 0.5
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        transformation_01: 76
+        transformation_02: -114
+        transformation_03: 76
+        transformation_04: -73
+
+    Floor_04:
+      Type: 2
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 1
+        uv_04: 1
+        uv_05: 0.5
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        transformation_01: 76
+        transformation_02: -152
+        transformation_03: 76
+        transformation_04: -92
+
+    Floor_05:
+      Type: 2
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 1
+        uv_04: 1
+        uv_05: 0.5
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        transformation_01: 76
+        transformation_02: -190
+        transformation_03: 76
+        transformation_04: -111
+
+    Floor_06:
+      Type: 2
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 1
+        uv_04: 1
+        uv_05: 0.5
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        transformation_01: 76
+        transformation_02: -228
+        transformation_03: 76
+        transformation_04: -130
+
+    Floor_07:
+      Type: 2
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 1
+        uv_04: 1
+        uv_05: 0.5
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        transformation_01: 76
+        transformation_02: -266
+        transformation_03: 76
+        transformation_04: -149
+
+    Floor_08:
+      Type: 2
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 1
+        uv_04: 1
+        uv_05: 0.5
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        transformation_01: 76
+        transformation_02: 38
+        transformation_03: 76
+        transformation_04: -35
+
+    Floor_09:
+      Type: 2
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 1
+        uv_04: 1
+        uv_05: 0.5
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        transformation_01: 76
+        transformation_02: 0
+        transformation_03: 76
+        transformation_04: -54
+
+    Floor_10:
+      Type: 2
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 1
+        uv_04: 1
+        uv_05: 0.5
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        transformation_01: 76
+        transformation_02: -38
+        transformation_03: 76
+        transformation_04: -73
+
+    Floor_11:
+      Type: 2
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 1
+        uv_04: 1
+        uv_05: 0.5
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        transformation_01: 76
+        transformation_02: -76
+        transformation_03: 76
+        transformation_04: -92
+
+    Floor_12:
+      Type: 2
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 1
+        uv_04: 1
+        uv_05: 0.5
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        transformation_01: 76
+        transformation_02: -114
+        transformation_03: 76
+        transformation_04: -111
+
+    Floor_13:
+      Type: 2
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 1
+        uv_04: 1
+        uv_05: 0.5
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        transformation_01: 76
+        transformation_02: -152
+        transformation_03: 76
+        transformation_04: -130
+
+    Floor_14:
+      Type: 2
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 1
+        uv_04: 1
+        uv_05: 0.5
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        transformation_01: 76
+        transformation_02: -190
+        transformation_03: 76
+        transformation_04: -149
+
+    Floor_15:
+      Type: 2
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 1
+        uv_04: 1
+        uv_05: 0.5
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        transformation_01: 76
+        transformation_02: -228
+        transformation_03: 76
+        transformation_04: -168
+
+    Floor_16:
+      Type: 2
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 1
+        uv_04: 1
+        uv_05: 0.5
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        transformation_01: 76
+        transformation_02: 76
+        transformation_03: 76
+        transformation_04: -54
+
+    Floor_17:
+      Type: 2
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 1
+        uv_04: 1
+        uv_05: 0.5
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        transformation_01: 76
+        transformation_02: 38
+        transformation_03: 76
+        transformation_04: -73
+
+    Floor_18:
+      Type: 2
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 1
+        uv_04: 1
+        uv_05: 0.5
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        transformation_01: 76
+        transformation_02: 0
+        transformation_03: 76
+        transformation_04: -92
+
+    Floor_19:
+      Type: 2
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 1
+        uv_04: 1
+        uv_05: 0.5
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        transformation_01: 76
+        transformation_02: -38
+        transformation_03: 76
+        transformation_04: -111
+
+    Floor_20:
+      Type: 2
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 1
+        uv_04: 1
+        uv_05: 0.5
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        transformation_01: 76
+        transformation_02: -76
+        transformation_03: 76
+        transformation_04: -130
+
+    Floor_21:
+      Type: 2
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 1
+        uv_04: 1
+        uv_05: 0.5
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        transformation_01: 76
+        transformation_02: -114
+        transformation_03: 76
+        transformation_04: -149
+
+    Floor_22:
+      Type: 2
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 1
+        uv_04: 1
+        uv_05: 0.5
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        transformation_01: 76
+        transformation_02: -152
+        transformation_03: 76
+        transformation_04: -168
+
+    Floor_23:
+      Type: 2
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 1
+        uv_04: 1
+        uv_05: 0.5
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        transformation_01: 76
+        transformation_02: -190
+        transformation_03: 76
+        transformation_04: -187
+
+    Floor_24:
+      Type: 2
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 1
+        uv_04: 1
+        uv_05: 0.5
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        transformation_01: 76
+        transformation_02: 114
+        transformation_03: 76
+        transformation_04: -73
+
+    Floor_25:
+      Type: 2
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 1
+        uv_04: 1
+        uv_05: 0.5
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        transformation_01: 76
+        transformation_02: 76
+        transformation_03: 76
+        transformation_04: -92
+
+    Floor_26:
+      Type: 2
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 1
+        uv_04: 1
+        uv_05: 0.5
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        transformation_01: 76
+        transformation_02: 38
+        transformation_03: 76
+        transformation_04: -111
+
+    Floor_27:
+      Type: 2
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 1
+        uv_04: 1
+        uv_05: 0.5
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        transformation_01: 76
+        transformation_02: 0
+        transformation_03: 76
+        transformation_04: -130
+
+    Floor_28:
+      Type: 2
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 1
+        uv_04: 1
+        uv_05: 0.5
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        transformation_01: 76
+        transformation_02: -38
+        transformation_03: 76
+        transformation_04: -149
+
+    Floor_29:
+      Type: 2
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 1
+        uv_04: 1
+        uv_05: 0.5
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        transformation_01: 76
+        transformation_02: -76
+        transformation_03: 76
+        transformation_04: -168
+
+    Floor_30:
+      Type: 2
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 1
+        uv_04: 1
+        uv_05: 0.5
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        transformation_01: 76
+        transformation_02: -114
+        transformation_03: 76
+        transformation_04: -187
+
+    Floor_31:
+      Type: 2
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 1
+        uv_04: 1
+        uv_05: 0.5
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        transformation_01: 76
+        transformation_02: -152
+        transformation_03: 76
+        transformation_04: -206
+
+    Floor_32:
+      Type: 2
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 1
+        uv_04: 1
+        uv_05: 0.5
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        transformation_01: 76
+        transformation_02: 152
+        transformation_03: 76
+        transformation_04: -92
+
+    Floor_33:
+      Type: 2
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 1
+        uv_04: 1
+        uv_05: 0.5
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        transformation_01: 76
+        transformation_02: 114
+        transformation_03: 76
+        transformation_04: -111
+
+    Floor_34:
+      Type: 2
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 1
+        uv_04: 1
+        uv_05: 0.5
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        transformation_01: 76
+        transformation_02: 76
+        transformation_03: 76
+        transformation_04: -130
+
+    Floor_35:
+      Type: 2
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 1
+        uv_04: 1
+        uv_05: 0.5
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        transformation_01: 76
+        transformation_02: 38
+        transformation_03: 76
+        transformation_04: -149
+
+    Floor_36:
+      Type: 2
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 1
+        uv_04: 1
+        uv_05: 0.5
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        transformation_01: 76
+        transformation_02: 0
+        transformation_03: 76
+        transformation_04: -168
+
+    Floor_37:
+      Type: 2
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 1
+        uv_04: 1
+        uv_05: 0.5
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        transformation_01: 76
+        transformation_02: -38
+        transformation_03: 76
+        transformation_04: -187
+
+    Floor_38:
+      Type: 2
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 1
+        uv_04: 1
+        uv_05: 0.5
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        transformation_01: 76
+        transformation_02: -76
+        transformation_03: 76
+        transformation_04: -206
+
+    Floor_39:
+      Type: 2
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 1
+        uv_04: 1
+        uv_05: 0.5
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        transformation_01: 76
+        transformation_02: -114
+        transformation_03: 76
+        transformation_04: -225
+
+    Floor_40:
+      Type: 2
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 1
+        uv_04: 1
+        uv_05: 0.5
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        transformation_01: 76
+        transformation_02: 190
+        transformation_03: 76
+        transformation_04: -111
+
+    Floor_41:
+      Type: 2
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 1
+        uv_04: 1
+        uv_05: 0.5
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        transformation_01: 76
+        transformation_02: 152
+        transformation_03: 76
+        transformation_04: -130
+
+    Floor_42:
+      Type: 2
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 1
+        uv_04: 1
+        uv_05: 0.5
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        transformation_01: 76
+        transformation_02: 114
+        transformation_03: 76
+        transformation_04: -149
+
+    Floor_43:
+      Type: 2
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 1
+        uv_04: 1
+        uv_05: 0.5
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        transformation_01: 76
+        transformation_02: 76
+        transformation_03: 76
+        transformation_04: -168
+
+    Floor_44:
+      Type: 2
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 1
+        uv_04: 1
+        uv_05: 0.5
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        transformation_01: 76
+        transformation_02: 38
+        transformation_03: 76
+        transformation_04: -187
+
+    Floor_45:
+      Type: 2
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 1
+        uv_04: 1
+        uv_05: 0.5
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        transformation_01: 76
+        transformation_02: 0
+        transformation_03: 76
+        transformation_04: -206
+
+    Floor_46:
+      Type: 2
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 1
+        uv_04: 1
+        uv_05: 0.5
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        transformation_01: 76
+        transformation_02: -38
+        transformation_03: 76
+        transformation_04: -225
+
+    Floor_47:
+      Type: 2
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 1
+        uv_04: 1
+        uv_05: 0.5
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        transformation_01: 76
+        transformation_02: -76
+        transformation_03: 76
+        transformation_04: -244
+
+    Floor_48:
+      Type: 2
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 1
+        uv_04: 1
+        uv_05: 0.5
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        transformation_01: 76
+        transformation_02: 228
+        transformation_03: 76
+        transformation_04: -130
+
+    Floor_49:
+      Type: 2
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 1
+        uv_04: 1
+        uv_05: 0.5
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        transformation_01: 76
+        transformation_02: 190
+        transformation_03: 76
+        transformation_04: -149
+
+    Floor_50:
+      Type: 2
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 1
+        uv_04: 1
+        uv_05: 0.5
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        transformation_01: 76
+        transformation_02: 152
+        transformation_03: 76
+        transformation_04: -168
+
+    Floor_51:
+      Type: 2
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 1
+        uv_04: 1
+        uv_05: 0.5
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        transformation_01: 76
+        transformation_02: 114
+        transformation_03: 76
+        transformation_04: -187
+
+    Floor_52:
+      Type: 2
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 1
+        uv_04: 1
+        uv_05: 0.5
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        transformation_01: 76
+        transformation_02: 76
+        transformation_03: 76
+        transformation_04: -206
+
+    Floor_53:
+      Type: 2
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 1
+        uv_04: 1
+        uv_05: 0.5
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        transformation_01: 76
+        transformation_02: 38
+        transformation_03: 76
+        transformation_04: -225
+
+    Floor_54:
+      Type: 2
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 1
+        uv_04: 1
+        uv_05: 0.5
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        transformation_01: 76
+        transformation_02: 0
+        transformation_03: 76
+        transformation_04: -244
+
+    Floor_55:
+      Type: 2
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 1
+        uv_04: 1
+        uv_05: 0.5
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        transformation_01: 76
+        transformation_02: -38
+        transformation_03: 76
+        transformation_04: -263
+
+    Floor_56:
+      Type: 2
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 1
+        uv_04: 1
+        uv_05: 0.5
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        transformation_01: 76
+        transformation_02: 266
+        transformation_03: 76
+        transformation_04: -149
+
+    Floor_57:
+      Type: 2
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 1
+        uv_04: 1
+        uv_05: 0.5
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        transformation_01: 76
+        transformation_02: 228
+        transformation_03: 76
+        transformation_04: -168
+
+    Floor_58:
+      Type: 2
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 1
+        uv_04: 1
+        uv_05: 0.5
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        transformation_01: 76
+        transformation_02: 190
+        transformation_03: 76
+        transformation_04: -187
+
+    Floor_59:
+      Type: 2
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 1
+        uv_04: 1
+        uv_05: 0.5
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        transformation_01: 76
+        transformation_02: 152
+        transformation_03: 76
+        transformation_04: -206
+
+    Floor_60:
+      Type: 2
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 1
+        uv_04: 1
+        uv_05: 0.5
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        transformation_01: 76
+        transformation_02: 114
+        transformation_03: 76
+        transformation_04: -225
+
+    Floor_61:
+      Type: 2
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 1
+        uv_04: 1
+        uv_05: 0.5
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        transformation_01: 76
+        transformation_02: 76
+        transformation_03: 76
+        transformation_04: -244
+
+    Floor_62:
+      Type: 2
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 1
+        uv_04: 1
+        uv_05: 0.5
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        transformation_01: 76
+        transformation_02: 38
+        transformation_03: 76
+        transformation_04: -263
+
+    Floor_63:
+      Type: 2
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 1
+        uv_04: 1
+        uv_05: 0.5
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        transformation_01: 76
+        transformation_02: 0
+        transformation_03: 76
+        transformation_04: -282
+
+  LPortrait:
+    LPortrait_00:
+      Type: 7
+      Mesh:
+        uv_01: 0
+        uv_02: 0.5
+        uv_03: 0.25
+        uv_04: 0.5
+        uv_05: 0
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        transformation_01: 80.64
+        transformation_02: -245
+        transformation_03: 79.2
+        transformation_04: 75
+
+    LPortrait_01:
+      Type: 7
+      Mesh:
+        uv_01: 0
+        uv_02: 0.5
+        uv_03: 0.25
+        uv_04: 0.5
+        uv_05: 0
+      Texture_Offset:
+        x_offset: 0.5
+        y_offset: 0.5
+      Transformation:
+        transformation_01: 80.64
+        transformation_02: 80
+        transformation_03: 79.2
+        transformation_04: 75
+
+  MPortrait:
+    MPortrait_00:
+      Type: 6
+      Mesh:
+        uv_01: 0
+        uv_02: 0.333
+        uv_03: 0.25
+        uv_04: 0.333
+        uv_05: 0
+      Texture_Offset:
+        x_offset: 0.5
+        y_offset: 0
+      Transformation:
+        transformation_01: 64.6
+        transformation_02: 240
+        transformation_03: 75.2
+        transformation_04: 80
+
+    MPortrait_01:
+      Type: 6
+      Mesh:
+        uv_01: 0
+        uv_02: 0.333
+        uv_03: 0.25
+        uv_04: 0.333
+        uv_05: 0
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0.333
+      Transformation:
+        transformation_01: 64.6
+        transformation_02: -80
+        transformation_03: 75.2
+        transformation_04: 155
+
+    MPortrait_02:
+      Type: 6
+      Mesh:
+        uv_01: 0
+        uv_02: 0.333
+        uv_03: 0.25
+        uv_04: 0.333
+        uv_05: 0
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0.667
+      Transformation:
+        transformation_01: 64.6
+        transformation_02: -200
+        transformation_03: 75.2
+        transformation_04: 15
+
+  SPortrait:
+    SPortrait_00:
+      Type: 4
+      Mesh:
+        uv_01: 0
+        uv_02: 0.333
+        uv_03: 0.25
+        uv_04: 0.333
+        uv_05: 0
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        transformation_01: 48.6
+        transformation_02: -70
+        transformation_03: 80.6
+        transformation_04: 0
+
+    SPortrait_01:
+      Type: 4
+      Mesh:
+        uv_01: 0
+        uv_02: 0.333
+        uv_03: 0.25
+        uv_04: 0.333
+        uv_05: 0
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0.333
+      Transformation:
+        transformation_01: 48.6
+        transformation_02: -220
+        transformation_03: 80.6
+        transformation_04: 165
+
+    SPortrait_02:
+      Type: 4
+      Mesh:
+        uv_01: 0
+        uv_02: 0.333
+        uv_03: 0.25
+        uv_04: 0.333
+        uv_05: 0
+      Texture_Offset:
+        x_offset: 0.5
+        y_offset: 0.667
+      Transformation:
+        transformation_01: 48.6
+        transformation_02: 185
+        transformation_03: 80.6
+        transformation_04: 185
+
+  SPortrait2:
+    SPortrait2_00:
+      Type: 5
+      Mesh:
+        uv_01: 0
+        uv_02: 0.5
+        uv_03: 0.25
+        uv_04: 0.5
+        uv_05: 0
+      Texture_Offset:
+        x_offset: 0.5
+        y_offset: 0
+      Transformation:
+        transformation_01: 56.6
+        transformation_02: 200
+        transformation_03: 90
+        transformation_04: 20
+
+    SPortrait2_01:
+      Type: 5
+      Mesh:
+        uv_01: 0
+        uv_02: 0.5
+        uv_03: 0.25
+        uv_04: 0.5
+        uv_05: 0
+      Texture_Offset:
+        x_offset: 0.5
+        y_offset: 0.5
+      Transformation:
+        transformation_01: 56.6
+        transformation_02: 75
+        transformation_03: 90
+        transformation_04: 160
+
+  Wall:
+    Wall_00:
+      Type: 1
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 0.142
+        uv_04: 1
+        uv_05: 0
+      Texture_Offset:
+        x_offset: 0.429
+        y_offset: 0
+      Transformation:
+        transformation_01: 128
+        transformation_02: 0
+        transformation_03: 256
+        transformation_04: 64
+
+    Wall_01:
+      Type: 1
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 0.142
+        uv_04: 1
+        uv_05: 0
+      Texture_Offset:
+        x_offset: 0.429
+        y_offset: 0
+      Transformation:
+        transformation_01: 128
+        transformation_02: 0
+        transformation_03: 256
+        transformation_04: 144
+
+    Wall_02:
+      Type: 1
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 0.142
+        uv_04: 1
+        uv_05: 0
+      Texture_Offset:
+        x_offset: 0.429
+        y_offset: 0
+      Transformation:
+        transformation_01: 128
+        transformation_02: 0
+        transformation_03: 256
+        transformation_04: 224
+
+    Wall_03:
+      Type: 1
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 0.142
+        uv_04: 1
+        uv_05: 0
+      Texture_Offset:
+        x_offset: 0.429
+        y_offset: 0
+      Transformation:
+        transformation_01: 128
+        transformation_02: 0
+        transformation_03: 256
+        transformation_04: 304
+
+    Wall_04:
+      Type: 1
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 0.142
+        uv_04: 1
+        uv_05: 0
+      Texture_Offset:
+        x_offset: 0.429
+        y_offset: 0
+      Transformation:
+        transformation_01: 128
+        transformation_02: 0
+        transformation_03: 256
+        transformation_04: 384
+
+    Wall_05:
+      Type: 1
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 0.142
+        uv_04: 1
+        uv_05: 0
+      Texture_Offset:
+        x_offset: 0.571
+        y_offset: 0
+      Transformation:
+        transformation_01: 128
+        transformation_02: 64
+        transformation_03: 256
+        transformation_04: 32
+
+    Wall_06:
+      Type: 1
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 0.142
+        uv_04: 1
+        uv_05: 0
+      Texture_Offset:
+        x_offset: 0.571
+        y_offset: 0
+      Transformation:
+        transformation_01: 128
+        transformation_02: 64
+        transformation_03: 256
+        transformation_04: 112
+
+    Wall_07:
+      Type: 1
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 0.142
+        uv_04: 1
+        uv_05: 0
+      Texture_Offset:
+        x_offset: 0.571
+        y_offset: 0
+      Transformation:
+        transformation_01: 128
+        transformation_02: 64
+        transformation_03: 256
+        transformation_04: 192
+
+    Wall_08:
+      Type: 1
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 0.142
+        uv_04: 1
+        uv_05: 0
+      Texture_Offset:
+        x_offset: 0.571
+        y_offset: 0
+      Transformation:
+        transformation_01: 128
+        transformation_02: 64
+        transformation_03: 256
+        transformation_04: 272
+
+    Wall_09:
+      Type: 1
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 0.142
+        uv_04: 1
+        uv_05: 0
+      Texture_Offset:
+        x_offset: 0.571
+        y_offset: 0
+      Transformation:
+        transformation_01: 128
+        transformation_02: 64
+        transformation_03: 256
+        transformation_04: 352
+
+    Wall_10:
+      Type: 1
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 0.142
+        uv_04: 1
+        uv_05: 0
+      Texture_Offset:
+        x_offset: 0.714
+        y_offset: 0
+      Transformation:
+        transformation_01: 128
+        transformation_02: 128
+        transformation_03: 256
+        transformation_04: 0
+
+    Wall_11:
+      Type: 1
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 0.142
+        uv_04: 1
+        uv_05: 0
+      Texture_Offset:
+        x_offset: 0.714
+        y_offset: 0
+      Transformation:
+        transformation_01: 128
+        transformation_02: 128
+        transformation_03: 256
+        transformation_04: 80
+
+    Wall_12:
+      Type: 1
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 0.142
+        uv_04: 1
+        uv_05: 0
+      Texture_Offset:
+        x_offset: 0.714
+        y_offset: 0
+      Transformation:
+        transformation_01: 128
+        transformation_02: 128
+        transformation_03: 256
+        transformation_04: 160
+
+    Wall_13:
+      Type: 1
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 0.142
+        uv_04: 1
+        uv_05: 0
+      Texture_Offset:
+        x_offset: 0.714
+        y_offset: 0
+      Transformation:
+        transformation_01: 128
+        transformation_02: 128
+        transformation_03: 256
+        transformation_04: 240
+
+    Wall_14:
+      Type: 1
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 0.142
+        uv_04: 1
+        uv_05: 0
+      Texture_Offset:
+        x_offset: 0.714
+        y_offset: 0
+      Transformation:
+        transformation_01: 128
+        transformation_02: 128
+        transformation_03: 256
+        transformation_04: 320
+
+    Wall_15:
+      Type: 1
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 0.142
+        uv_04: 1
+        uv_05: 0
+      Texture_Offset:
+        x_offset: 0.571
+        y_offset: 0
+      Transformation:
+        transformation_01: 128
+        transformation_02: 192
+        transformation_03: 256
+        transformation_04: -32
+
+    Wall_16:
+      Type: 1
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 0.142
+        uv_04: 1
+        uv_05: 0
+      Texture_Offset:
+        x_offset: 0.571
+        y_offset: 0
+      Transformation:
+        transformation_01: 128
+        transformation_02: 192
+        transformation_03: 256
+        transformation_04: 48
+
+    Wall_17:
+      Type: 1
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 0.142
+        uv_04: 1
+        uv_05: 0
+      Texture_Offset:
+        x_offset: 0.571
+        y_offset: 0
+      Transformation:
+        transformation_01: 128
+        transformation_02: 192
+        transformation_03: 256
+        transformation_04: 128
+
+    Wall_18:
+      Type: 1
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 0.142
+        uv_04: 1
+        uv_05: 0
+      Texture_Offset:
+        x_offset: 0.571
+        y_offset: 0
+      Transformation:
+        transformation_01: 128
+        transformation_02: 192
+        transformation_03: 256
+        transformation_04: 208
+
+    Wall_19:
+      Type: 1
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 0.142
+        uv_04: 1
+        uv_05: 0
+      Texture_Offset:
+        x_offset: 0.571
+        y_offset: 0
+      Transformation:
+        transformation_01: 128
+        transformation_02: 192
+        transformation_03: 256
+        transformation_04: 288
+
+    Wall_20:
+      Type: 1
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 0.142
+        uv_04: 1
+        uv_05: 0
+      Texture_Offset:
+        x_offset: 0.571
+        y_offset: 0
+      Transformation:
+        transformation_01: 128
+        transformation_02: 192
+        transformation_03: 256
+        transformation_04: 368
+
+    Wall_21:
+      Type: 1
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 0.142
+        uv_04: 1
+        uv_05: 0
+      Texture_Offset:
+        x_offset: 0.571
+        y_offset: 0
+      Transformation:
+        transformation_01: 128
+        transformation_02: 256
+        transformation_03: 256
+        transformation_04: -64
+
+    Wall_22:
+      Type: 1
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 0.142
+        uv_04: 1
+        uv_05: 0
+      Texture_Offset:
+        x_offset: 0.571
+        y_offset: 0
+      Transformation:
+        transformation_01: 128
+        transformation_02: 256
+        transformation_03: 256
+        transformation_04: 16
+
+    Wall_23:
+      Type: 1
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 0.142
+        uv_04: 1
+        uv_05: 0
+      Texture_Offset:
+        x_offset: 0.571
+        y_offset: 0
+      Transformation:
+        transformation_01: 128
+        transformation_02: 256
+        transformation_03: 256
+        transformation_04: 96
+
+    Wall_24:
+      Type: 1
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 0.142
+        uv_04: 1
+        uv_05: 0
+      Texture_Offset:
+        x_offset: 0.571
+        y_offset: 0
+      Transformation:
+        transformation_01: 128
+        transformation_02: 256
+        transformation_03: 256
+        transformation_04: 176
+
+    Wall_25:
+      Type: 1
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 0.142
+        uv_04: 1
+        uv_05: 0
+      Texture_Offset:
+        x_offset: 0.571
+        y_offset: 0
+      Transformation:
+        transformation_01: 128
+        transformation_02: 256
+        transformation_03: 256
+        transformation_04: 256
+
+    Wall_26:
+      Type: 1
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 0.142
+        uv_04: 1
+        uv_05: 0
+      Texture_Offset:
+        x_offset: 0.571
+        y_offset: 0
+      Transformation:
+        transformation_01: 128
+        transformation_02: 256
+        transformation_03: 256
+        transformation_04: 336
+
+    Wall_27:
+      Type: 1
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 0.142
+        uv_04: 1
+        uv_05: 0
+      Texture_Offset:
+        x_offset: 0.286
+        y_offset: 0
+      Transformation:
+        transformation_01: 128
+        transformation_02: -64
+        transformation_03: 256
+        transformation_04: 32
+
+    Wall_28:
+      Type: 1
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 0.142
+        uv_04: 1
+        uv_05: 0
+      Texture_Offset:
+        x_offset: 0.286
+        y_offset: 0
+      Transformation:
+        transformation_01: 128
+        transformation_02: -64
+        transformation_03: 256
+        transformation_04: 112
+
+    Wall_29:
+      Type: 1
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 0.142
+        uv_04: 1
+        uv_05: 0
+      Texture_Offset:
+        x_offset: 0.286
+        y_offset: 0
+      Transformation:
+        transformation_01: 128
+        transformation_02: -64
+        transformation_03: 256
+        transformation_04: 192
+
+    Wall_30:
+      Type: 1
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 0.142
+        uv_04: 1
+        uv_05: 0
+      Texture_Offset:
+        x_offset: 0.286
+        y_offset: 0
+      Transformation:
+        transformation_01: 128
+        transformation_02: -64
+        transformation_03: 256
+        transformation_04: 272
+
+    Wall_31:
+      Type: 1
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 0.142
+        uv_04: 1
+        uv_05: 0
+      Texture_Offset:
+        x_offset: 0.286
+        y_offset: 0
+      Transformation:
+        transformation_01: 128
+        transformation_02: -64
+        transformation_03: 256
+        transformation_04: 352
+
+    Wall_32:
+      Type: 1
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 0.142
+        uv_04: 1
+        uv_05: 0
+      Texture_Offset:
+        x_offset: 0.143
+        y_offset: 0
+      Transformation:
+        transformation_01: 128
+        transformation_02: -128
+        transformation_03: 256
+        transformation_04: 0
+
+    Wall_33:
+      Type: 1
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 0.142
+        uv_04: 1
+        uv_05: 0
+      Texture_Offset:
+        x_offset: 0.143
+        y_offset: 0
+      Transformation:
+        transformation_01: 128
+        transformation_02: -128
+        transformation_03: 256
+        transformation_04: 80
+
+    Wall_34:
+      Type: 1
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 0.142
+        uv_04: 1
+        uv_05: 0
+      Texture_Offset:
+        x_offset: 0.143
+        y_offset: 0
+      Transformation:
+        transformation_01: 128
+        transformation_02: -128
+        transformation_03: 256
+        transformation_04: 160
+
+    Wall_35:
+      Type: 1
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 0.142
+        uv_04: 1
+        uv_05: 0
+      Texture_Offset:
+        x_offset: 0.143
+        y_offset: 0
+      Transformation:
+        transformation_01: 128
+        transformation_02: -128
+        transformation_03: 256
+        transformation_04: 240
+
+    Wall_36:
+      Type: 1
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 0.142
+        uv_04: 1
+        uv_05: 0
+      Texture_Offset:
+        x_offset: 0.143
+        y_offset: 0
+      Transformation:
+        transformation_01: 128
+        transformation_02: -128
+        transformation_03: 256
+        transformation_04: 320
+
+    Wall_37:
+      Type: 1
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 0.142
+        uv_04: 1
+        uv_05: 0
+      Texture_Offset:
+        x_offset: 0.286
+        y_offset: 0
+      Transformation:
+        transformation_01: 128
+        transformation_02: -192
+        transformation_03: 256
+        transformation_04: -32
+
+    Wall_38:
+      Type: 1
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 0.142
+        uv_04: 1
+        uv_05: 0
+      Texture_Offset:
+        x_offset: 0.286
+        y_offset: 0
+      Transformation:
+        transformation_01: 128
+        transformation_02: -192
+        transformation_03: 256
+        transformation_04: 48
+
+    Wall_39:
+      Type: 1
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 0.142
+        uv_04: 1
+        uv_05: 0
+      Texture_Offset:
+        x_offset: 0.286
+        y_offset: 0
+      Transformation:
+        transformation_01: 128
+        transformation_02: -192
+        transformation_03: 256
+        transformation_04: 128
+
+    Wall_40:
+      Type: 1
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 0.142
+        uv_04: 1
+        uv_05: 0
+      Texture_Offset:
+        x_offset: 0.286
+        y_offset: 0
+      Transformation:
+        transformation_01: 128
+        transformation_02: -192
+        transformation_03: 256
+        transformation_04: 208
+
+    Wall_41:
+      Type: 1
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 0.142
+        uv_04: 1
+        uv_05: 0
+      Texture_Offset:
+        x_offset: 0.286
+        y_offset: 0
+      Transformation:
+        transformation_01: 128
+        transformation_02: -192
+        transformation_03: 256
+        transformation_04: 288
+
+    Wall_42:
+      Type: 1
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 0.142
+        uv_04: 1
+        uv_05: 0
+      Texture_Offset:
+        x_offset: 0.286
+        y_offset: 0
+      Transformation:
+        transformation_01: 128
+        transformation_02: -192
+        transformation_03: 256
+        transformation_04: 368
+
+    Wall_43:
+      Type: 1
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 0.142
+        uv_04: 1
+        uv_05: 0
+      Texture_Offset:
+        x_offset: 0.286
+        y_offset: 0
+      Transformation:
+        transformation_01: 128
+        transformation_02: -256
+        transformation_03: 256
+        transformation_04: -64
+
+    Wall_44:
+      Type: 1
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 0.142
+        uv_04: 1
+        uv_05: 0
+      Texture_Offset:
+        x_offset: 0.286
+        y_offset: 0
+      Transformation:
+        transformation_01: 128
+        transformation_02: -256
+        transformation_03: 256
+        transformation_04: 16
+
+    Wall_45:
+      Type: 1
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 0.142
+        uv_04: 1
+        uv_05: 0
+      Texture_Offset:
+        x_offset: 0.286
+        y_offset: 0
+      Transformation:
+        transformation_01: 128
+        transformation_02: -256
+        transformation_03: 256
+        transformation_04: 96
+
+    Wall_46:
+      Type: 1
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 0.142
+        uv_04: 1
+        uv_05: 0
+      Texture_Offset:
+        x_offset: 0.286
+        y_offset: 0
+      Transformation:
+        transformation_01: 128
+        transformation_02: -256
+        transformation_03: 256
+        transformation_04: 176
+
+    Wall_47:
+      Type: 1
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 0.142
+        uv_04: 1
+        uv_05: 0
+      Texture_Offset:
+        x_offset: 0.286
+        y_offset: 0
+      Transformation:
+        transformation_01: 128
+        transformation_02: -256
+        transformation_03: 256
+        transformation_04: 256
+
+    Wall_48:
+      Type: 1
+      Mesh:
+        uv_01: 0
+        uv_02: 1
+        uv_03: 0.142
+        uv_04: 1
+        uv_05: 0
+      Texture_Offset:
+        x_offset: 0.286
+        y_offset: 0
+      Transformation:
+        transformation_01: 128
+        transformation_02: -256
+        transformation_03: 256
+        transformation_04: 336
+

@@ -1,3 +1,7 @@
+//FILE TO BE DELETED
+
+
+
 #pragma once
 #include "pch.h"
 #include <string>           // For std::string
@@ -15,4 +19,7 @@ namespace Load_Values {
 	};
 
 	vector<ValueFromFile> Load_Values_From_File(const string level_number);
+	vector<ValueFromFile> Load_Values_From_YAML(const string level_number);
+	void Extract_Data_Out(vector<Load_Values::ValueFromFile>& vff, const string level_number);
+	
 }// END namespace Load_Values
