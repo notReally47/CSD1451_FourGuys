@@ -13,28 +13,18 @@ namespace Level1 {
 
 	/*LOAD ASSETS*/
 	void Level1_Load() {
-		//pTex1 = AEGfxTextureLoad("PlanetTexture.png");
-		//AE_ASSERT_MESG(pTex1, "Failed to create texture1!!");
-
-		//pTex2 = AEGfxTextureLoad("YellowTexture.png");
-		//AE_ASSERT_MESG(pTex2, "Failed to create texture2!!");
 	}
 
 	/*INITIALIZE DATA*/
 	void Level1_Init() {
 		obj1X = 0.0f, obj1Y = 0.0f, objtexX = 0.0f, objtexX = 0.0f;
 		counter = 1;
-		////////////////////////////////
-		// Creating the objects (Shapes)
-		// 1 triangle at a time
-		// X, Y, Color, texU, texV
 		AEGfxMeshStart();
 		AEGfxTriAdd(
 			-25.5f, -25.5f, 0xFFFF0000, 0.0f, 0.0f,
 			25.5f, 0.0f, 0xFFFF0000, 0.0f, 0.0f,
 			-25.5f, 25.5f, 0xFFFF0000, 0.0f, 0.0f);
 
-		// Saving the mesh (list of triangles) in pMesh1
 
 		pMesh1 = AEGfxMeshEnd();
 		AE_ASSERT_MESG(pMesh1, "Failed to create mesh 1!!");
@@ -79,29 +69,6 @@ namespace Level1 {
 		ChangeTexture(objtexX, objtexY);
 		MoveCamera(camX, camY);
 		ExitGame(GSM::next);
-
-		/*LOGIC*/
-		//++counter;
-		//if (counter < 120)
-		//	AEGfxTextureSet(pTex1, objtexX, objtexY);		// Same object, different texture
-		//else if (counter < 240)
-		//	AEGfxTextureSet(pTex2, objtexX, objtexY);		// Same object, different texture
-		//else
-		//{
-		//	AEGfxTextureSet(pTex1, objtexX, objtexY);		// Same object, different texture
-		//	counter = 0;
-		//}
-
-		//++counter;
-		//if (counter < 120)
-		//	AEGfxTextureSet(pTex1, objtexX, objtexY);		// Same object, different texture
-		//else if (counter < 240)
-		//	AEGfxTextureSet(pTex2, objtexX, objtexY);		// Same object, different texture
-		//else
-		//{
-		//	AEGfxTextureSet(pTex1, objtexX, objtexY);		// Same object, different texture
-		//	counter = 0;
-		//}
 	}
 
 	void Level1_Draw() {
@@ -163,7 +130,5 @@ namespace Level1 {
 	}
 
 	void Level1_Unload() {
-		//AEGfxTextureUnload(pTex1);
-		//AEGfxTextureUnload(pTex2);
 	}
 }

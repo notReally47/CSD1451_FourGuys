@@ -5,6 +5,7 @@
 #include "GSM.h"
 #include "LoadValues.h"
 #include "LoadTextures.h"
+#include "LoadDataFromFile.h"
 #include "LevelInitializer.h"
 #include "AnimationHandler.h"
 
@@ -23,11 +24,12 @@ namespace Level2
 	Object *objs[]{&wall, &floor, &deco, &portraits[0], &portraits[1], &portraits[2], &portraits[3]};
   
 	const std::string level_number = "02";
-	std::vector<Load_Values::ValueFromFile> vff;
-	std::vector<Load_Texture::TextureFromFile> tff;
-  
-	void Level2_Load()
-	{
+
+	std::vector<Load_Data_From_File::ObjectShape> vOS;
+	std::vector<Load_Data_From_File::ObjectTransform> vOT;
+
+	void Level2_Load() {
+
 		player.type = Enum::TYPE::PLAYER;
 		wall.type = Enum::TYPE::WALL;
 		floor.type = Enum::TYPE::FLOOR;
@@ -36,16 +38,19 @@ namespace Level2
 		portraits[1].type = Enum::TYPE::PORTRAIT2;
 		portraits[2].type = Enum::TYPE::MPORTRAIT;
 		portraits[3].type = Enum::TYPE::LPORTRAIT;
-		vff = Load_Values::Load_Values_From_File(level_number);
-		tff = Load_Texture::Load_Texture_From_File(level_number);
-		Load_Texture::Load_Texture_To_Object(tff, player);
-		Load_Texture::Load_Texture_To_Object(tff, wall);
-		Load_Texture::Load_Texture_To_Object(tff, floor);
-		Load_Texture::Load_Texture_To_Object(tff, deco);
-		Load_Texture::Load_Texture_To_Object(tff, portraits[0]);
-		Load_Texture::Load_Texture_To_Object(tff, portraits[1]);
-		Load_Texture::Load_Texture_To_Object(tff, portraits[2]);
-		Load_Texture::Load_Texture_To_Object(tff, portraits[3]);
+
+		vOS = Load_Data_From_File::Load_Shape_From_YAML(level_number);
+		vOT = Load_Data_From_File::Load_Transform_From_YAML(level_number, vOS);
+		Load_Data_From_File::Load_Texture_To_Object(vOS, player);
+		Load_Data_From_File::Load_Texture_To_Object(vOS, wall);
+		Load_Data_From_File::Load_Texture_To_Object(vOS, floor);
+		Load_Data_From_File::Load_Texture_To_Object(vOS, deco);
+		Load_Data_From_File::Load_Texture_To_Object(vOS, portraits[0]);
+		Load_Data_From_File::Load_Texture_To_Object(vOS, portraits[1]);
+		Load_Data_From_File::Load_Texture_To_Object(vOS, portraits[2]);
+		Load_Data_From_File::Load_Texture_To_Object(vOS, portraits[3]);
+		Load_Data_From_File::Extract_Shape_Data_Out(vOS, level_number);
+		Load_Data_From_File::Extract_Transform_Data_Out(vOT, level_number);
 	}
 
 	void Level2_Init()
@@ -53,19 +58,19 @@ namespace Level2
 		windowWidth = static_cast<f32>(AEGetWindowWidth());
 		windowHeight = static_cast<f32>(AEGetWindowHeight());
 		/*CREATE WALL*/
-		Level_Initializer::Init_Mesh_From_File(vff, wall);
+		Level_Initializer::Init_Mesh(vOS, wall);
 
 		/*CREATE FLOOR*/
-		Level_Initializer::Init_Mesh_From_File(vff, floor);
+		Level_Initializer::Init_Mesh(vOS, floor);
 
-		/*CREATE PAINTINGS*/
-		Level_Initializer::Init_Mesh_From_File(vff, portraits[0]);
-		Level_Initializer::Init_Mesh_From_File(vff, portraits[1]);
-		Level_Initializer::Init_Mesh_From_File(vff, portraits[2]);
-		Level_Initializer::Init_Mesh_From_File(vff, portraits[3]);
+		/*CRAETE PAINTINGS*/
+		Level_Initializer::Init_Mesh(vOS, portraits[0]);
+		Level_Initializer::Init_Mesh(vOS, portraits[1]);
+		Level_Initializer::Init_Mesh(vOS, portraits[2]);
+		Level_Initializer::Init_Mesh(vOS, portraits[3]);
 
 		/*TRANSFORM OBJECTS*/
-		Level_Initializer::Init_Object_Instance(vff, objs, objInst, (sizeof(objInst) / sizeof(objInst[0])));
+		Level_Initializer::Init_Object(vOT, objs, objInst, (sizeof(objInst) / sizeof(objInst[0])));
 
 		/*DATA TO BE ADD INTO DATA FILES*/
 
@@ -164,6 +169,7 @@ namespace Level2
 		/*LEFT AND RIGHT BOUNDARY*/
 		p_player.pObjInst.transform.m[0][2] += checkBoundary(p_player);
 		bool check = checkPlatform(p_player);
+
 		//std::cout << check << std::endl;
 
 		///*Check for any collision*/
@@ -213,7 +219,7 @@ namespace Level2
 		AEGfxTextureUnload(portraits[1].pTex);
 		AEGfxTextureUnload(portraits[2].pTex);
 		AEGfxTextureUnload(portraits[3].pTex);
-		vff.clear();
-		tff.clear();
+		vOS.clear();
+		vOT.clear();
 	}
 }

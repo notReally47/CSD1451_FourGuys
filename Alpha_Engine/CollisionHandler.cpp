@@ -108,16 +108,10 @@ namespace CollisionHandler {
 		//std::cout << projAMAB << ' ' << projAMAC << ' ' << projABAB << ' ' << projADAD << std::endl;
 
 		if ((0.f < projAMAB && projAMAB < projABAB) && (0.f < projAMAC && projAMAC < projADAD)) {
-			//AEVec2Set(&out, projAMAB - projABAB, projAMAD - projADAD);
+
 			return true;
 		}
 		return false;
-		//f32 a, b, c;
-		//a = -(vecB.y - vecA.y);
-		//b = vecB.x - vecA.y;
-		//c = -((a * vecA.x) + (b * vecA.y));
-
-		//return a * playerPos.x + b * playerPos.y + c > 0;
 	}
 
 	bool portraitInteract(ObjectInst const portrait, Character const player) {
