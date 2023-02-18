@@ -1,6 +1,7 @@
 #include "pch.h"
-#include <string>
-#include <iostream>
+#include "AnimationHandler.h"
+//#include <string>
+//#include <iostream>
 
 namespace GameObjects
 {
@@ -14,7 +15,8 @@ namespace GameObjects
 	const unsigned char		FLAG_ALT2_E		= 0x5;
 
 	/*Set rendering modes, colour tints, blending and transparency*/
-	void RenderSettings(void) {
+	void RenderSettings(void) 
+	{
 		/*SETTINGS*/
 		AEGfxSetRenderMode(AE_GFX_RM_TEXTURE);
 		AEGfxSetTintColor(1.0f, 1.0f, 1.0f, 1.0f);
@@ -25,9 +27,10 @@ namespace GameObjects
 	/*
 	 * Render objects that have textures.
 	 */
-	void RenderObject(ObjectInst &obj) {
-		if (obj.pObj->type == Enum::TYPE::PORTRAIT ||
-			obj.pObj->type == Enum::TYPE::LANDSCAPE) {
+	void RenderObject(ObjectInst &obj) 
+	{
+		if (obj.pObj->type == Enum::TYPE::PORTRAIT || obj.pObj->type == Enum::TYPE::LANDSCAPE)
+		{
 			/*Set texture*/
 			AEGfxTextureSet(obj.pObj->pTex, obj.tex_offset.x, obj.tex_offset.y);
 			if (obj.flag == FLAG_ACTIVE) {
@@ -42,11 +45,20 @@ namespace GameObjects
 				AEGfxSetBlendColor(1.0f, 1.0f, 1.0f, 0.0f);
 			}
 		}	
-		else if (obj.pObj->type == Enum::TYPE::PLATFORM) {
+		else if (obj.pObj->type == Enum::TYPE::PLATFORM) 
+		{
 			/*Set texture*/
 			AEGfxTextureSet(obj.pObj->pTex, obj.tex_offset.x, obj.tex_offset.y);
 		}
-		else {
+		else if (obj.pObj->type == Enum::TYPE::WALL)
+		{
+			/*Set texture*/
+			AEGfxTextureSet(obj.pObj->pTex, obj.tex_offset.x, obj.tex_offset.y);
+			//AEGfxSetTransparency(0.5f);
+			
+		}
+		else 
+		{
 			/*Set texture*/
 			AEGfxTextureSet(obj.pObj->pTex, obj.tex_offset.x, obj.tex_offset.y);
 		}
@@ -55,6 +67,8 @@ namespace GameObjects
 		AEGfxSetTransform(obj.transform.m);
 		/*DRAW MESH*/
 		AEGfxMeshDraw(obj.pObj->pMesh, AE_GFX_MDM_TRIANGLES);
+		//AEGfxSetTransparency(1.0f);
+		
 	}
 
 	AEVec2* GetVertices(const ObjectInst obj) {

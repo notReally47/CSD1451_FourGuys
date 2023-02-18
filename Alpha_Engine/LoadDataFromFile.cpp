@@ -21,7 +21,7 @@ namespace Load_Data_From_File {
 
 		// Strings for Filtering through the YAML file
 		string find_object = "Object",
-			object_types = "00_Player 01_Wall 02_Floor 03_Decoration 04_Portrait 05_Landscape 08_Platform",
+			object_types = "00_Player 01_Floor 02_Wall 03_Decoration 04_Portrait 05_Landscape 08_Platform",
 			object_type{ 0 }, object_type_number{ 0 }, object_data_type{ 0 };
 
 		// YAML file to read from
@@ -100,7 +100,7 @@ namespace Load_Data_From_File {
 
 		// Strings for Filtering through the YAML file
 		string find_object = "ObjectInstance",
-			object_types = "00_Player 01_Wall 02_Floor 03_Decoration 04_Portrait 05_Landscape 08_Platform",
+			object_types = "00_Player 01_Floor 02_Wall 03_Decoration 04_Portrait 05_Landscape 08_Platform",
 			object_type{ 0 }, object_type_number{ 0 }, object_data_type{ 0 };
 
 		// YAML file to read from
@@ -237,7 +237,7 @@ namespace Load_Data_From_File {
 		// If Out file successfully opened
 		if (data_file.is_open()) {
 			data_file << "Level: " + level_number << endl;										// First Line is Level Number
-			data_file << "Object:" << endl;														// Second Line is 'Object:'
+			data_file << "ObjectInstance:" << endl;														// Second Line is 'Object:'
 
 			// Iterate through Data Vector
 			for (int i{ 0 }, object_count{ 0 }; i < vOT.size(); i++, object_count++) {
@@ -321,11 +321,11 @@ namespace Load_Data_From_File {
 			data_file << "  " << object_type << ":" << endl;
 		}
 		else if (vOT[index].OS.type == 1) {
-			object_type = "01_Wall";									// Set to Wall
+			object_type = "01_Floor";									// Set to Wall
 			data_file << "  " << object_type << ":" << endl;
 		}
 		else if (vOT[index].OS.type == 2) {
-			object_type = "02_Floor";									// Set to Floor
+			object_type = "02_Wall";									// Set to Floor
 			data_file << "  " << object_type << ":" << endl;
 		}
 		else if (vOT[index].OS.type == 3) {
@@ -355,11 +355,11 @@ namespace Load_Data_From_File {
 			data_file << "  " << object_type << ":" << endl;
 		}
 		else if (vOS[index].type == 1) {
-			object_type = "01_Wall";									// Set to Wall
+			object_type = "01_Floor";									// Set to Wall
 			data_file << "  " << object_type << ":" << endl;
 		}
 		else if (vOS[index].type == 2) {
-			object_type = "02_Floor";									// Set to Floor
+			object_type = "02_Wall";									// Set to Floor
 			data_file << "  " << object_type << ":" << endl;
 		}
 		else if (vOS[index].type == 3) {

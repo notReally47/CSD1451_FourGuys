@@ -11,27 +11,27 @@ Object:
       uv_06: 0
     Texture: "../Assets/Sprites/player.png"
 
-  01_Wall:
+  01_Floor:
     Type: 1
-    Mesh:
-      uv_01: 0
-      uv_02: 1
-      uv_03: 0.142
-      uv_04: 1
-      uv_05: 0
-      uv_06: 0
-    Texture: "../Assets/Textures/wall.png"
-
-  02_Floor:
-    Type: 2
     Mesh:
       uv_01: 0
       uv_02: 1
       uv_03: 1
       uv_04: 1
       uv_05: 0
-      uv_06: 0.5
+      uv_06: 0
     Texture: "../Assets/Textures/floor.png"
+
+  02_Wall:
+    Type: 2
+    Mesh:
+      uv_01: 0
+      uv_02: 1
+      uv_03: 0.1428
+      uv_04: 1
+      uv_05: 0
+      uv_06: 0
+    Texture: "../Assets/Textures/wall.png"
 
   03_Decoration:
     Type: 3

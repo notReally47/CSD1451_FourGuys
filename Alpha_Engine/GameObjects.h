@@ -39,6 +39,7 @@ namespace GameObjects
 		f32							rotation;
 		f32							speed;
 		int							spriteIteration;
+		// width 128, height 152
 	};
 
 	/*FUNCTIONS*/

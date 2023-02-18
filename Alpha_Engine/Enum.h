@@ -22,8 +22,8 @@ namespace Enum {
 
 	enum TYPE {
 		PLAYER,
-		WALL,
 		FLOOR,
+		WALL,
 		DECO,
 		PORTRAIT,
 		LANDSCAPE,

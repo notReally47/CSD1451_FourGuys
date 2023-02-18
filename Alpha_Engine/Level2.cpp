@@ -17,11 +17,11 @@
 namespace Level2
 {
 	using namespace GameObjects;
-	Object player, wall, floor, deco, portrait, landscape; // platform
+	Object player, floor, wall, deco, portrait, landscape; // platform
 	Character p_player;
-	ObjectInst objInst[124];
-	//f32 windowWidth, windowHeight;
-	Object *objs[]{&player, &wall, &floor, &deco, &portrait, &landscape};
+	ObjectInst objInst[85];
+	f32 windowWidth, windowHeight;
+	Object *objs[]{&player, &floor, &wall, &deco, &portrait, &landscape};
   
 	const std::string level_number = "02";
 
@@ -31,15 +31,29 @@ namespace Level2
 	void Level2_Load() {
 		vOS = Load_Data_From_File::Load_Shape_From_YAML(level_number);
 		vOT = Load_Data_From_File::Load_Transform_From_YAML(level_number, vOS);
-		Load_Data_From_File::Load_Shape_To_Object(vOS, objs);
+
+		static int count{ 0 };
+		for (auto &iter : vOT) {
+/*			if (iter.OS.type == Enum::TYPE::PLAYER) {
+				iter.transformation_01 *= 2;
+				iter.transformation_02 *= 2;
+				iter.transformation_03 *= 2;
+				iter.transformation_04 *= 2;
+				iter.transformation_05 *= 2;
+				iter.transformation_06 *= 2;
+			}*/
+		}
+		
 		//Load_Data_From_File::Extract_Shape_Data_Out(vOS, level_number);
 		//Load_Data_From_File::Extract_Transform_Data_Out(vOT, level_number);
+		
+		Load_Data_From_File::Load_Shape_To_Object(vOS, objs);
 	}
 
 	void Level2_Init()
 	{
-		//windowWidth = static_cast<f32>(AEGetWindowWidth());
-		//windowHeight = static_cast<f32>(AEGetWindowHeight());
+		windowWidth = static_cast<f32>(AEGetWindowWidth());
+		windowHeight = static_cast<f32>(AEGetWindowHeight());
 
 		/*TRANSFORM OBJECTS*/
 		Level_Initializer::Init_Object(vOT, objs, objInst, (sizeof(objInst) / sizeof(objInst[0])));
@@ -84,7 +98,7 @@ namespace Level2
 		p_player.dir = { .0f, .0f };
 		p_player.input = { .0f, .0f };
 		p_player.rotation = .0f;
-		p_player.speed = 100.0f;
+		p_player.speed = 200.0f;
 		p_player.spriteIteration = 0;
 
 	}
@@ -115,7 +129,7 @@ namespace Level2
 						p_player.pObjInst.transform.m[1][2]) < 40.0) ? FLAG_ACTIVE : FLAG_INACTIVE;
 		}
 		/*ANIMATION*/
-		AEGfxSetCamPosition(0.f, max(p_player.pObjInst.transform.m[1][2], -85.f));
+		AEGfxSetCamPosition(0.f, max(p_player.pObjInst.transform.m[1][2], -85.0f));
 
 #ifdef DEBUG
 		//std::cout << p_player.pObjInst.transform.m[0][2] << ' ' << p_player.pObjInst.transform.m[1][2] << std::endl;
@@ -147,7 +161,8 @@ namespace Level2
 	void Level2_Draw()
 	{
 		RenderSettings();
-		for (int i = 0; i < (sizeof(objInst) / sizeof(objInst[0])); i++)
+		// Initialise i to 1 to skip player
+		for (int i{ 1 }; i < (sizeof(objInst) / sizeof(objInst[0])); i++)
 			RenderObject(objInst[i]);
 		AnimationHandler::AnimateCharacter(p_player);
 	}
