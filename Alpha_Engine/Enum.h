@@ -26,10 +26,7 @@ namespace Enum {
 		FLOOR,
 		DECO,
 		PORTRAIT,
-		PORTRAIT2,
-		MPORTRAIT,
-		LPORTRAIT,
-		PLATFORM,
-		pHighlight
+		LANDSCAPE,
+		PLATFORM
 	};
 }

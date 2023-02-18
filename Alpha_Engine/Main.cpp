@@ -3,6 +3,7 @@
 #include "Enum.h"
 #include "InputHandler.h"
 #include "SystemHandler.h"
+#include <memory> // debug memory
 #define DEBUG
 
 int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
@@ -16,6 +17,11 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 	using namespace GSM;
 	using namespace Enum;
 	using namespace GameObjects;
+
+	//// Enable run-time memory check for debug builds.
+#if defined(DEBUG) | defined(_DEBUG)
+	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
+#endif
 
 	/*INITIALIZATIONS*/
 	SystemHandler::System_Initialize(hInstance, nCmdShow);

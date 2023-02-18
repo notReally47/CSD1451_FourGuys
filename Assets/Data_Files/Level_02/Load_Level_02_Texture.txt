@@ -1,8 +1,0 @@
-0 ../Assets/Sprites/player.png
-1 ../Assets/Textures/wall.png
-2 ../Assets/Textures/floor.png
-3 ../Assets/Props/candles.png
-4 ../Assets/Props/smallportraits.png
-5 ../Assets/Props/smallportraits2.png
-6 ../Assets/Props/mediumportraits.png
-7 ../Assets/Props/largeportraits.png

@@ -21,7 +21,7 @@ namespace Load_Data_From_File {
 
 		// Strings for Filtering through the YAML file
 		string find_object = "Object",
-			object_types = "00_Player 01_Wall 02_Floor 03_Decoration 04_SPortrait 05_SPortrait2 06_MPortrait 07_LPortrait 08_Platform 09_Highlight",
+			object_types = "00_Player 01_Wall 02_Floor 03_Decoration 04_Portrait 05_Landscape 08_Platform",
 			object_type{ 0 }, object_type_number{ 0 }, object_data_type{ 0 };
 
 		// YAML file to read from
@@ -49,7 +49,7 @@ namespace Load_Data_From_File {
 				for (YAML::Iterator j = i.second().begin(); j != i.second().end(); j++) {
 					j.first() >> object_type;								// Get Object Type String
 
-					// If  Object is matches list of existing object (e.g. 'Wall', 'Floor', 'SPortrait', etc.)
+					// If  Object is matches list of existing object (e.g. 'Wall', 'Floor', 'Portrait', etc.)
 					if (object_types.find(object_type) != string::npos) {
 
 						// Iterate through Specific Object
@@ -80,9 +80,9 @@ namespace Load_Data_From_File {
 						}
 
 						// Print to console for debugging purposes
-						cout << object_type << ' ' << OS->type << ' '
-							<< "Mesh: " << OS->uv_01 << ' ' << OS->uv_02 << ' ' << OS->uv_03 << ' ' << OS->uv_04 << ' ' << OS->uv_05 << ' ' << OS->uv_06 << ' '
-							<< "Texture: " << OS->texture_file << endl;
+						//cout << object_type << ' ' << OS->type << ' '
+							//<< "Mesh: " << OS->uv_01 << ' ' << OS->uv_02 << ' ' << OS->uv_03 << ' ' << OS->uv_04 << ' ' << OS->uv_05 << ' ' << OS->uv_06 << ' '
+							//<< "Texture: " << OS->texture_file << endl;
 
 						// Push into Vector
 						vector_os.push_back(*OS);
@@ -90,6 +90,7 @@ namespace Load_Data_From_File {
 				}
 			}
 		}
+		delete OS;
 		return vector_os;
 	}// END LoadShapeFromYAML
 
@@ -98,8 +99,8 @@ namespace Load_Data_From_File {
 	vector<ObjectTransform> Load_Transform_From_YAML(const string level_number, vector<ObjectShape> vector_OS) {
 
 		// Strings for Filtering through the YAML file
-		string find_object = "Object",
-			object_types = "00_Player 01_Wall 02_Floor 03_Decoration 04_SPortrait 05_SPortrait2 06_MPortrait 07_LPortrait 08_Platform 09_Highlight",
+		string find_object = "ObjectInstance",
+			object_types = "00_Player 01_Wall 02_Floor 03_Decoration 04_Portrait 05_Landscape 08_Platform",
 			object_type{ 0 }, object_type_number{ 0 }, object_data_type{ 0 };
 
 		// YAML file to read from
@@ -126,7 +127,7 @@ namespace Load_Data_From_File {
 				// Iterate through 'Object' List
 				for (YAML::Iterator j = i.second().begin(); j != i.second().end(); j++) {
 					j.first() >> object_type;								// Get Object Type String
-					cout << object_type << endl;
+					//cout << object_type << endl;
 					// If  Object is matches list of existing object (e.g. 'Wall', 'Floor', 'SPortrait', etc.)
 					if (object_types.find(object_type) != string::npos) {
 
@@ -170,12 +171,12 @@ namespace Load_Data_From_File {
 								}
 
 								// Print to console for debugging purposes
-								cout << object_type << ' ' << object_type_number << ' ' << "Type: " << OT->OS.type << ' '
-									<< "Mesh: " << OT->OS.uv_01 << ' ' << OT->OS.uv_02 <<  ' ' << OT->OS.uv_03 << ' ' << OT->OS.uv_04 << ' ' << OT->OS.uv_05 << ' ' << OT->OS.uv_06 << ' '
-									<< "Offset: " << OT->texture_offset_x << ' ' << OT->texture_offset_y << ' '
-									<< "Transform: " << OT->transformation_01 << ' ' << OT->transformation_02 << ' ' << OT->transformation_03 << ' ' << OT->transformation_04 << ' '
-									<< OT->transformation_05 << ' ' << OT->transformation_06 << ' ' << OT->transformation_07 << ' ' << OT->transformation_08 << ' ' << OT->transformation_09 << ' '
-									<< "Texture: " << OT->OS.texture_file  << endl;
+								//cout << object_type << ' ' << object_type_number << ' ' << "Type: " << OT->OS.type << ' '
+									//<< "Mesh: " << OT->OS.uv_01 << ' ' << OT->OS.uv_02 <<  ' ' << OT->OS.uv_03 << ' ' << OT->OS.uv_04 << ' ' << OT->OS.uv_05 << ' ' << OT->OS.uv_06 << ' '
+									//<< "Offset: " << OT->texture_offset_x << ' ' << OT->texture_offset_y << ' '
+									//<< "Transform: " << OT->transformation_01 << ' ' << OT->transformation_02 << ' ' << OT->transformation_03 << ' ' << OT->transformation_04 << ' '
+									//<< OT->transformation_05 << ' ' << OT->transformation_06 << ' ' << OT->transformation_07 << ' ' << OT->transformation_08 << ' ' << OT->transformation_09 << ' '
+									//<< "Texture: " << OT->OS.texture_file  << endl;
 
 								// Push into Vector
 								vector_ot.push_back(*OT);
@@ -185,23 +186,36 @@ namespace Load_Data_From_File {
 				}
 			}
 		}
+		delete OT;
 		return vector_ot;
 	}// END LoadTransformFromYAML
 
 
 
-	void Load_Texture_To_Object(vector<ObjectShape>& vOS, GameObjects::Object& obj) {
-		for (size_t i{ 0 }; i < vOS.size(); i++) {
-			const size_t length = (vOS[i].texture_file).length();
-			char* char_texture_file = new char[length + 1];
-			strcpy_s(char_texture_file, length + 1, (vOS[i].texture_file).c_str());
-			s8* texture_file = char_texture_file;
-			cout << texture_file << endl;
-			if (obj.type == vOS[i].type) {
-				AE_ASSERT_MESG(obj.pTex = AEGfxTextureLoad(texture_file), "Failed to load texture");
-				break;
-			}
+	void Load_Shape_To_Object(vector<ObjectShape>& vOS, GameObjects::Object* objs[]) {
+		for (auto iter : vOS) {
+
+			objs[iter.type]->type = iter.type;
+
+			AE_ASSERT_MESG(objs[iter.type]->pTex = AEGfxTextureLoad(iter.texture_file.c_str()), "Failed to load texture");
+
+			AEGfxMeshStart();
+			AEGfxTriAdd(
+				-0.5f, -0.5f, 0xFFFF0000, iter.uv_01, iter.uv_02,	// bottom left
+				0.5f, -0.5f, 0xFFFF0000, iter.uv_03, iter.uv_04,	// bottom right
+				-0.5f, 0.5f, 0xFFFF0000, iter.uv_05, iter.uv_06		// top left
+			);
+			AEGfxTriAdd(
+				0.5f, 0.5f, 0xFFFF0000, iter.uv_03, iter.uv_06,		// top right
+				0.5f, -0.5f, 0xFFFF0000, iter.uv_03, iter.uv_04,	// bottom right
+				-0.5f, 0.5f, 0xFFFF0000, iter.uv_05, iter.uv_06		// top left
+			);
+			objs[iter.type]->pMesh = AEGfxMeshEnd();
+			
 		}
+
+		vOS.clear();
+
 	}// END LoadTextureToObject
 
 
@@ -319,27 +333,15 @@ namespace Load_Data_From_File {
 			data_file << "  " << object_type << ":" << endl;
 		}
 		else if (vOT[index].OS.type == 4) {
-			object_type = "04_SPortrait";								// Set to SPortrait
+			object_type = "04_Portrait";								// Set to SPortrait
 			data_file << "  " << object_type << ":" << endl;
 		}
 		else if (vOT[index].OS.type == 5) {
-			object_type = "05_SPortrait2";								// Set to SPortrait2
+			object_type = "05_Landscape";								// Set to SPortrait2
 			data_file << "  " << object_type << ":" << endl;
 		}
 		else if (vOT[index].OS.type == 6) {
-			object_type = "06_MPortrait";								// Set to MPortrait
-			data_file << "  " << object_type << ":" << endl;
-		}
-		else if (vOT[index].OS.type == 7) {
-			object_type = "07_LPortrait";								// Set to LPortrait
-			data_file << "  " << object_type << ":" << endl;
-		}
-		else if (vOT[index].OS.type == 8) {
-			object_type = "08_Platform";								// Set to Platform
-			data_file << "  " << object_type << ":" << endl;
-		}
-		else if (vOT[index].OS.type == 9) {
-			object_type = "09_Highlight";								// Set to Highlight
+			object_type = "06_Platform";								// Set to MPortrait
 			data_file << "  " << object_type << ":" << endl;
 		}
 	}// END Set_Object_Transform_Type
@@ -365,27 +367,15 @@ namespace Load_Data_From_File {
 			data_file << "  " << object_type << ":" << endl;
 		}
 		else if (vOS[index].type == 4) {
-			object_type = "04_SPortrait";								// Set to SPortrait
+			object_type = "04_Portrait";								// Set to SPortrait
 			data_file << "  " << object_type << ":" << endl;
 		}
 		else if (vOS[index].type == 5) {
-			object_type = "05_SPortrait2";								// Set to SPortrait2
+			object_type = "05_Landscape";								// Set to SPortrait2
 			data_file << "  " << object_type << ":" << endl;
 		}
 		else if (vOS[index].type == 6) {
-			object_type = "06_MPortrait";								// Set to MPortrait
-			data_file << "  " << object_type << ":" << endl;
-		}
-		else if (vOS[index].type == 7) {
-			object_type = "07_LPortrait";								// Set to LPortrait
-			data_file << "  " << object_type << ":" << endl;
-		}
-		else if (vOS[index].type == 8) {
-			object_type = "08_Platform";								// Set to Platform
-			data_file << "  " << object_type << ":" << endl;
-		}
-		else if (vOS[index].type == 9) {
-			object_type = "09_Highlight";								// Set to Highlight
+			object_type = "06_Platform";								// Set to MPortrait
 			data_file << "  " << object_type << ":" << endl;
 		}
 	}// END Set_Object_Transform_Type

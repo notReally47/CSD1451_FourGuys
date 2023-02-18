@@ -4,9 +4,9 @@ Object:
     Type: 0
     Mesh:
       uv_01: 0
-      uv_02: 0
-      uv_03: 0
-      uv_04: 0
+      uv_02: 0.125
+      uv_03: 0.0909
+      uv_04: 0.125
       uv_05: 0
       uv_06: 0
     Texture: "../Assets/Sprites/player.png"
@@ -44,47 +44,36 @@ Object:
       uv_06: 0
     Texture: "../Assets/Props/candles.png"
 
-  04_SPortrait:
+  04_Portrait:
     Type: 4
     Mesh:
       uv_01: 0
-      uv_02: 0.333
+      uv_02: 0.2
       uv_03: 0.25
-      uv_04: 0.333
+      uv_04: 0.2
       uv_05: 0
       uv_06: 0
-    Texture: "../Assets/Props/smallportraits.png"
+    Texture: "../Assets/Props/portrait.png"
 
-  05_SPortrait2:
+  05_Landscape:
     Type: 5
     Mesh:
       uv_01: 0
-      uv_02: 0.5
+      uv_02: 0.2
       uv_03: 0.25
-      uv_04: 0.5
+      uv_04: 0.2
       uv_05: 0
       uv_06: 0
-    Texture: "../Assets/Props/smallportraits2.png"
+    Texture: "../Assets/Props/landscape.png"
 
-  06_MPortrait:
+  06_Platform:
     Type: 6
     Mesh:
       uv_01: 0
-      uv_02: 0.333
-      uv_03: 0.25
-      uv_04: 0.333
+      uv_02: 1
+      uv_03: 1
+      uv_04: 1
       uv_05: 0
-      uv_06: 0
-    Texture: "../Assets/Props/mediumportraits.png"
-
-  07_LPortrait:
-    Type: 7
-    Mesh:
-      uv_01: 0
-      uv_02: 0.5
-      uv_03: 0.25
-      uv_04: 0.5
-      uv_05: 0
-      uv_06: 0
-    Texture: "../Assets/Props/largeportraits.png"
+      uv_06: 0.5
+    Texture: "../Assets/Textures/stairs.png"
 

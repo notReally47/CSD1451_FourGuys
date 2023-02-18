@@ -1,5 +1,22 @@
 Level: 02
-Object:
+ObjectInstance:
+  00_Player:
+    00_Player_00:
+      Type: 0
+      Texture_Offset:
+        x_offset: 0.429
+        y_offset: 0
+      Transformation:
+        transformation_01: 76
+        transformation_02: 0
+        transformation_03: -265
+        transformation_04: 0
+        transformation_05: 76
+        transformation_06: -140
+        transformation_07: 0
+        transformation_08: 0
+        transformation_09: 0.5
+
   01_Wall:
     01_Wall_00:
       Type: 1
@@ -1810,165 +1827,163 @@ Object:
         transformation_08: 0
         transformation_09: 0.5
 
-  04_SPortrait:
-    04_SPortrait_00:
+  04_Portrait:
+    04_Portrait_00:
       Type: 4
       Texture_Offset:
         x_offset: 0
         y_offset: 0
       Transformation:
-        transformation_01: 48.6
+        transformation_01: 51.3
         transformation_02: 0
         transformation_03: -70
         transformation_04: 0
-        transformation_05: 80.6
+        transformation_05: 84.6
         transformation_06: 0
         transformation_07: 0
         transformation_08: 0
         transformation_09: 0.5
 
-    04_SPortrait_01:
+    04_Portrait_01:
       Type: 4
       Texture_Offset:
         x_offset: 0
-        y_offset: 0.333
+        y_offset: 0.2
       Transformation:
-        transformation_01: 48.6
+        transformation_01: 51.3
         transformation_02: 0
         transformation_03: -220
         transformation_04: 0
-        transformation_05: 80.6
+        transformation_05: 84.6
         transformation_06: 165
         transformation_07: 0
         transformation_08: 0
         transformation_09: 0.5
 
-    04_SPortrait_02:
+    04_Portrait_02:
       Type: 4
       Texture_Offset:
         x_offset: 0.5
-        y_offset: 0.667
+        y_offset: 0.4
       Transformation:
-        transformation_01: 48.6
+        transformation_01: 51.3
         transformation_02: 0
         transformation_03: 185
         transformation_04: 0
-        transformation_05: 80.6
+        transformation_05: 84.6
         transformation_06: 185
         transformation_07: 0
         transformation_08: 0
         transformation_09: 0.5
 
-  05_SPortrait2:
-    05_SPortrait2_00:
-      Type: 5
+    04_Portrait_03:
+      Type: 4
       Texture_Offset:
         x_offset: 0.5
-        y_offset: 0
+        y_offset: 0.6
       Transformation:
-        transformation_01: 56.6
+        transformation_01: 51.3
         transformation_02: 0
         transformation_03: 200
         transformation_04: 0
-        transformation_05: 90
+        transformation_05: 84.6
         transformation_06: 20
         transformation_07: 0
         transformation_08: 0
         transformation_09: 0.5
 
-    05_SPortrait2_01:
-      Type: 5
+    04_Portrait_04:
+      Type: 4
       Texture_Offset:
         x_offset: 0.5
-        y_offset: 0.5
+        y_offset: 0.8
       Transformation:
-        transformation_01: 56.6
+        transformation_01: 51.3
         transformation_02: 0
         transformation_03: 75
         transformation_04: 0
-        transformation_05: 90
+        transformation_05: 84.6
         transformation_06: 160
         transformation_07: 0
         transformation_08: 0
         transformation_09: 0.5
 
-  06_MPortrait:
-    06_MPortrait_00:
-      Type: 6
+  05_Landscape:
+    05_Landscape_00:
+      Type: 5
       Texture_Offset:
         x_offset: 0.5
         y_offset: 0
       Transformation:
-        transformation_01: 64.6
+        transformation_01: 62
         transformation_02: 0
         transformation_03: 240
         transformation_04: 0
-        transformation_05: 75.2
+        transformation_05: 75
         transformation_06: 80
         transformation_07: 0
         transformation_08: 0
         transformation_09: 0.5
 
-    06_MPortrait_01:
-      Type: 6
+    05_Landscape_01:
+      Type: 5
       Texture_Offset:
         x_offset: 0
-        y_offset: 0.333
+        y_offset: 0.2
       Transformation:
-        transformation_01: 64.6
+        transformation_01: 62
         transformation_02: 0
         transformation_03: -80
         transformation_04: 0
-        transformation_05: 75.2
+        transformation_05: 75
         transformation_06: 155
         transformation_07: 0
         transformation_08: 0
         transformation_09: 0.5
 
-    06_MPortrait_02:
-      Type: 6
+    05_Landscape_02:
+      Type: 5
       Texture_Offset:
         x_offset: 0
-        y_offset: 0.667
+        y_offset: 0.4
       Transformation:
-        transformation_01: 64.6
+        transformation_01: 62
         transformation_02: 0
         transformation_03: -200
         transformation_04: 0
-        transformation_05: 75.2
+        transformation_05: 75
         transformation_06: 15
         transformation_07: 0
         transformation_08: 0
         transformation_09: 0.5
 
-  07_LPortrait:
-    07_LPortrait_00:
-      Type: 7
+    05_Landscape_03:
+      Type: 5
       Texture_Offset:
         x_offset: 0
-        y_offset: 0
+        y_offset: 0.6
       Transformation:
-        transformation_01: 80.64
+        transformation_01: 62
         transformation_02: 0
         transformation_03: -245
         transformation_04: 0
-        transformation_05: 79.2
+        transformation_05: 70
         transformation_06: 75
         transformation_07: 0
         transformation_08: 0
         transformation_09: 0.5
 
-    07_LPortrait_01:
-      Type: 7
+    05_Landscape_04:
+      Type: 5
       Texture_Offset:
         x_offset: 0.5
-        y_offset: 0.5
+        y_offset: 0.8
       Transformation:
-        transformation_01: 80.64
+        transformation_01: 62
         transformation_02: 0
         transformation_03: 80
         transformation_04: 0
-        transformation_05: 79.2
+        transformation_05: 70
         transformation_06: 75
         transformation_07: 0
         transformation_08: 0

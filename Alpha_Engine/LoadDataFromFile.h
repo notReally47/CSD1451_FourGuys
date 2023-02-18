@@ -31,7 +31,7 @@ namespace Load_Data_From_File{
 
 	vector<ObjectShape> Load_Shape_From_YAML(const string level_number);
 	vector<ObjectTransform> Load_Transform_From_YAML(const string level_number, vector<ObjectShape> vector_OS);
-	void Load_Texture_To_Object(vector<ObjectShape>& vOS, GameObjects::Object& obj);
+	void Load_Shape_To_Object(vector<ObjectShape>& vOS, GameObjects::Object* objs[]);
 	void Extract_Transform_Data_Out(vector<Load_Data_From_File::ObjectTransform>& vOT, const string level_number);
 	void Extract_Shape_Data_Out(vector<Load_Data_From_File::ObjectShape>& vOS, const string level_number);
 
