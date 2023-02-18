@@ -1,6 +1,6 @@
 #include "pch.h"
 #include <string>
-//#include <iostream>
+#include <iostream>
 
 namespace GameObjects
 {
@@ -9,7 +9,6 @@ namespace GameObjects
 	const unsigned char		FLAG_INACTIVE	= 0x0;
 	const unsigned char		FLAG_ACTIVE		= 0x1;		//todo
 	static f64				delta_time		= .0f;
-	
 	/*Set rendering modes, colour tints, blending and transparency*/
 	void RenderSettings(void) {
 		/*SETTINGS*/
@@ -25,11 +24,25 @@ namespace GameObjects
 	void RenderObject(ObjectInst &obj) {
 		delta_time += AEFrameRateControllerGetFrameTime();
 		//std::cout << delta_time << std::endl;
-		if (obj.pObj->type == Enum::TYPE::PORTRAIT) {
+		if (obj.pObj->type == Enum::TYPE::PORTRAIT
+			|| obj.pObj->type == Enum::TYPE::PORTRAIT2
+			|| obj.pObj->type == Enum::TYPE::MPORTRAIT
+			|| obj.pObj->type == Enum::TYPE::LPORTRAIT) {
 			//obj.flag = (delta_time > 2.0f) ? (delta_time = .0f, FLAG_INACTIVE) : (delta_time < 1.5f) ? FLAG_ACTIVE : obj.flag;
 			/*Set texture*/
 			//(obj.flag) ? AEGfxTextureSet(obj.pObj->pTex, obj.tex_offset.x + 0.25f, obj.tex_offset.y):
-				AEGfxTextureSet(obj.pObj->pTex, obj.tex_offset.x, obj.tex_offset.y);
+			AEGfxTextureSet(obj.pObj->pTex, obj.tex_offset.x, obj.tex_offset.y);
+			if (obj.flag == FLAG_ACTIVE) {
+				/*TRANSFORMATION (TRS)*/
+				AEMtx33 highlight = obj.transform;
+				highlight.m[0][0] += 5.f;
+				highlight.m[1][1] += 5.f;
+				AEGfxSetTransform(highlight.m);
+				AEGfxSetBlendColor(1.0f, 1.0f, 1.0f, 0.7f);
+				/*DRAW MESH*/
+				AEGfxMeshDraw(obj.pObj->pMesh, AE_GFX_MDM_TRIANGLES);
+				AEGfxSetBlendColor(1.0f, 1.0f, 1.0f, 0.0f);
+			}
 		}	
 		else if (obj.pObj->type == Enum::TYPE::PLATFORM) {
 			/*Set texture*/

@@ -8,26 +8,28 @@
 #include "LoadDataFromFile.h"
 #include "LevelInitializer.h"
 #include "AnimationHandler.h"
+
 #define DEBUG
 #ifdef DEBUG
 #include <iostream>
 #endif // DEBUG
 
-
-namespace Level2 {
-	using namespace	GameObjects;
-	Object	wall, floor, deco, portraits[4], player, left, right; //platform,  pHighlight
+namespace Level2
+{
+	using namespace GameObjects;
+	Object wall, floor, deco, portraits[4], player; // platform
 	Character p_player;
 	ObjectInst objInst[123];
 	f32 windowWidth, windowHeight;
-	Object* objs[7]{ &wall, &floor, &deco, &portraits[0], &portraits[1], &portraits[2], &portraits[3] };
-	ObjectInst leftBound, rightBound;
-
+	Object *objs[]{&wall, &floor, &deco, &portraits[0], &portraits[1], &portraits[2], &portraits[3]};
+  
 	const std::string level_number = "02";
+
 	std::vector<Load_Data_From_File::ObjectShape> vOS;
 	std::vector<Load_Data_From_File::ObjectTransform> vOT;
 
 	void Level2_Load() {
+
 		player.type = Enum::TYPE::PLAYER;
 		wall.type = Enum::TYPE::WALL;
 		floor.type = Enum::TYPE::FLOOR;
@@ -55,7 +57,6 @@ namespace Level2 {
 	{
 		windowWidth = static_cast<f32>(AEGetWindowWidth());
 		windowHeight = static_cast<f32>(AEGetWindowHeight());
-
 		/*CREATE WALL*/
 		Level_Initializer::Init_Mesh(vOS, wall);
 
@@ -70,6 +71,37 @@ namespace Level2 {
 
 		/*TRANSFORM OBJECTS*/
 		Level_Initializer::Init_Object(vOT, objs, objInst, (sizeof(objInst) / sizeof(objInst[0])));
+
+		/*DATA TO BE ADD INTO DATA FILES*/
+
+		/*DATA FOR PLATFORM*/
+		/*
+		platform.type = Enum::TYPE::PLATFORM;
+		AEGfxMeshStart();
+		AEGfxTriAdd(
+			-0.5f, -0.5f, 0xFFFF0000, .0f, 1.0f,	// left bottom
+			1.0f, -1.0f, 0xFFFF0000, 1.0f, 1.0f,	// right bottom
+			-1.0f, 1.0f, 0xFFFF0000, .0f, .5f		// left top		y = 0.5f
+		);
+		AEGfxTriAdd(
+			1.0f, 1.0f, 0xFFFF0000, 1.0f, .5f,		// right top	y = 0.5f
+			1.0f, -1.0f, 0xFFFF0000, 1.0f, 1.0f,	// right bottom
+			-1.0f, 1.0f, 0xFFFF0000, .0f, .5f		// left top		y = 0.5f
+		);
+		platform.pMesh = AEGfxMeshEnd();
+		objInst[123].pObj = &platform;
+		objInst[123].flag = FLAG_INACTIVE;
+		objInst[123].tex_offset = { .0f, .0f };
+		objInst[123].transform = { 38.0f, .0f, .0f,
+								.0f, 38.0f, -16.0f,
+								.0f, .0f, 1.0f };
+		objInst[124].pObj = &platform;
+		objInst[124].flag = FLAG_ACTIVE;
+		objInst[124].tex_offset = { .0f, .0f };
+		objInst[124].transform = { 38.0f, .0f, 20.0f,
+								.0f, 38.0f, -80.0f,
+								.0f, .0f, 1.0f };
+		*/
 
 		/*LEFT AND RIGHT BOUNDARIES*/
 
@@ -89,14 +121,15 @@ namespace Level2 {
 		p_player.pObjInst.pObj = &player;
 		p_player.pObjInst.flag = FLAG_INACTIVE;
 		p_player.pObjInst.tex_offset = { .0f, .0f };
-		p_player.pObjInst.transform = { 38.0f, .0f, -265.0f,
-									.0f, 38.0f, -140.0f,
-									.0f, .0f, 0.5f };
+		p_player.pObjInst.transform = { 76.0f, .0f, -265.0f,
+									.0f, 76.0f, -140.0f,
+									.0f, .0f, 0.0f };
 		p_player.dir = { .0f, .0f };
 		p_player.input = { .0f, .0f };
 		p_player.rotation = .0f;
 		p_player.speed = 100.0f;
 		p_player.spriteIteration = 0;
+
 	}
 
 	void Level2_Update()
@@ -108,25 +141,53 @@ namespace Level2 {
 
 		/*UPDATE LOGIC*/
 		/*MOVEMENT*/
-		if (p_player.pObjInst.flag) {
+		if (p_player.pObjInst.flag)
+		{
 			f32 unitSpeed = p_player.speed * static_cast<f32>(AEFrameRateControllerGetFrameTime());
 			AEVec2Normalize(&p_player.dir, &p_player.dir);
 			AEVec2Scale(&p_player.dir, &p_player.dir, unitSpeed);
 			p_player.pObjInst.transform.m[0][2] += p_player.dir.x;
 			p_player.pObjInst.transform.m[1][2] += p_player.dir.y;
+      
+			//check if player if near portrait
+			for (size_t i{ 0 }; i < sizeof(objInst) / sizeof(objInst[0]); i++)
+				if (objInst[i].pObj->type == Enum::TYPE::PORTRAIT
+					|| objInst[i].pObj->type == Enum::TYPE::PORTRAIT2
+					|| objInst[i].pObj->type == Enum::TYPE::MPORTRAIT
+					|| objInst[i].pObj->type == Enum::TYPE::LPORTRAIT)
+					objInst[i].flag = (DistanceBetweenPlayerAndPortrait(objInst[i].transform.m[0][2],
+						objInst[i].transform.m[1][2], p_player.pObjInst.transform.m[0][2],
+						p_player.pObjInst.transform.m[1][2]) < 40.0) ? FLAG_ACTIVE : FLAG_INACTIVE;
 		}
-
 		/*ANIMATION*/
 		AEGfxSetCamPosition(0.f, max(p_player.pObjInst.transform.m[1][2], -85.f));
 
 #ifdef DEBUG
-		std::cout << p_player.pObjInst.transform.m[0][2] << ' ' << p_player.pObjInst.transform.m[1][2] << std::endl;
+		//std::cout << p_player.pObjInst.transform.m[0][2] << ' ' << p_player.pObjInst.transform.m[1][2] << std::endl;
 #endif // DEBUG
 
 		/*LEFT AND RIGHT BOUNDARY*/
 		p_player.pObjInst.transform.m[0][2] += checkBoundary(p_player);
 		bool check = checkPlatform(p_player);
-		std::cout << check << std::endl;
+
+		//std::cout << check << std::endl;
+
+		///*Check for any collision*/
+		// for (int i = 0; i < sizeof(objs) / sizeof(Object*); i++) {
+		//	f32 depth;
+		//	Vector normal;
+		//	if (SAT_Collision(player.obj, *objs[i], depth, normal)) {
+		//		/*Collision resolution: correct by normal vector with length of the depth.*/
+		//		normal.x *= depth;
+		//		normal.y *= depth;
+		//		player.obj.pos.x -= normal.x;
+		//		player.obj.pos.y -= normal.y;
+		//
+		//		/*TODO*/
+		//		// change the player direction based on the normal.
+		//
+		//	}
+		// }
 	}
 	void Level2_Draw()
 	{

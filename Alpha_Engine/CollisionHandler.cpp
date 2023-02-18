@@ -86,6 +86,11 @@ namespace CollisionHandler {
 		return true;
 	}
 
+
+	double DistanceBetweenPlayerAndPortrait(f32 const portrait_x, f32 const portrait_y, f32 const player_x,f32 const player_y){
+		return sqrt(pow(portrait_x - player_x, 2) + pow(portrait_y - player_y, 2));
+  }
+
 	f32 checkBoundary(Character const player) {
 		f32 leftBoarder = -7.f * (f32)AEGetWindowWidth() / 20.f, rightBoarder = 7.f * (f32)AEGetWindowWidth() / 20.f;
 		return leftBoarder > player.pObjInst.transform.m[0][2] ? leftBoarder - player.pObjInst.transform.m[0][2] : player.pObjInst.transform.m[0][2] > rightBoarder ? rightBoarder - player.pObjInst.transform.m[0][2] : 0.f;
@@ -100,7 +105,7 @@ namespace CollisionHandler {
 		f32 projAMAC = AEVec2DotProduct(&vecAM, &vecAC);
 		f32 projABAB = AEVec2DotProduct(&vecAB, &vecAB);
 		f32 projADAD = AEVec2DotProduct(&vecAC, &vecAC);
-		std::cout << projAMAB << ' ' << projAMAC << ' ' << projABAB << ' ' << projADAD << std::endl;
+		//std::cout << projAMAB << ' ' << projAMAC << ' ' << projABAB << ' ' << projADAD << std::endl;
 
 		if ((0.f < projAMAB && projAMAB < projABAB) && (0.f < projAMAC && projAMAC < projADAD)) {
 
