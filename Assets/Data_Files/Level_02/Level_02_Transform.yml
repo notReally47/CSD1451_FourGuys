@@ -9,13 +9,13 @@ ObjectInstance:
       Transformation:
         transformation_01: 153.6
         transformation_02: 0
-        transformation_03: -512
+        transformation_03: -200
         transformation_04: 0
         transformation_05: 182.4
-        transformation_06: 38
+        transformation_06: 0
         transformation_07: 0
         transformation_08: 0
-        transformation_09: 0.5
+        transformation_09: 0
 
   01_Floor:
     01_Floor_00:
@@ -1361,6 +1361,39 @@ ObjectInstance:
         transformation_04: 0
         transformation_05: 140
         transformation_06: 450
+        transformation_07: 0
+        transformation_08: 0
+        transformation_09: 0.5
+
+  06_Platform:
+    06_Platform_00:
+      Type: 6
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        transformation_01: 128
+        transformation_02: 0
+        transformation_03: 0
+        transformation_04: 0
+        transformation_05: 103.5
+        transformation_06: -16
+        transformation_07: 0
+        transformation_08: 0
+        transformation_09: 0.5
+
+    06_Platform_01:
+      Type: 6
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        transformation_01: 128
+        transformation_02: 0
+        transformation_03: 20
+        transformation_04: 0
+        transformation_05: 103.5
+        transformation_06: -80
         transformation_07: 0
         transformation_08: 0
         transformation_09: 0.5

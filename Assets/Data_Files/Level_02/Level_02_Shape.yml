@@ -74,6 +74,6 @@ Object:
       uv_03: 1
       uv_04: 1
       uv_05: 0
-      uv_06: 0.5
+      uv_06: 0
     Texture: "../Assets/Textures/stairs.png"
 
