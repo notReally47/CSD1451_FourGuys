@@ -97,7 +97,7 @@ namespace CollisionHandler {
 	}
 
 	bool checkPlatform(Character const player) {
-		AEVec2 playerPos{ player.pObjInst.transform.m[0][2], player.pObjInst.transform.m[1][2] }, vecC{ -280.f, -150.f }, vecA{ 0, -290.f }, vecB{ 280.f, -150.f }, vecAM, vecAB, vecAC, out;
+		AEVec2 playerPos{ player.pObjInst.transform.m[0][2], player.pObjInst.transform.m[1][2] }, vecC{ -280.f, -150.f }, vecA{ 0, -290.f }, vecB{ 280.f, -150.f }, vecAM, vecAB, vecAC;
 		AEVec2Set(&vecAM, playerPos.x - vecA.x, playerPos.y - vecA.y);
 		AEVec2Set(&vecAB, vecB.x - vecA.x, vecB.y - vecA.y);
 		AEVec2Set(&vecAC, vecC.x - vecA.x, vecC.y - vecA.y);
@@ -115,7 +115,7 @@ namespace CollisionHandler {
 	}
 
 	bool portraitInteract(ObjectInst const portrait, Character const player) {
-		f32 dist = sqrt(pow(portrait.transform.m[0][0] - player.pObjInst.transform.m[0][0], 2) + pow(portrait.transform.m[1][2] - player.pObjInst.transform.m[1][2], 2));
+		f32 dist = static_cast<f32>(sqrt(pow(portrait.transform.m[0][0] - player.pObjInst.transform.m[0][0], 2) + pow(portrait.transform.m[1][2] - player.pObjInst.transform.m[1][2], 2)));
 
 		if (dist < 55.f)
 			return true;

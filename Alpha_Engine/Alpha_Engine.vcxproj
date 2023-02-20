@@ -28,7 +28,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
@@ -45,20 +45,20 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>$(SolutionDir)Extern\AlphaEngine_V3.08\include;$(SolutionDir)Extern\yaml-cpp\include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)Extern\AlphaEngine_V3.08\lib;$(SolutionDir)Extern\yaml-cpp\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)Extern\AlphaEngine_V3.09\include;$(SolutionDir)Extern\yaml-cpp\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)Extern\AlphaEngine_V3.09\lib;$(SolutionDir)Extern\yaml-cpp\lib;$(LibraryPath)</LibraryPath>
     <OutDir>$(SolutionDir)\bin\$(Configuration)-$(Platform)\</OutDir>
     <IntDir>$(SolutionDir)\.tmp\$(Configuration)-$(Platform)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>$(SolutionDir)Extern\AlphaEngine_V3.08\include;$(SolutionDir)Extern\yaml-cpp\include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)Extern\AlphaEngine_V3.08\lib;$(SolutionDir)Extern\yaml-cpp\lib;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(SolutionDir)Extern\AlphaEngine_V3.09\lib;$(SolutionDir)Extern\yaml-cpp\lib;$(LibraryPath)</LibraryPath>
     <OutDir>$(SolutionDir)\bin\$(Configuration)-$(Platform)\</OutDir>
     <IntDir>$(SolutionDir)\.tmp\$(Configuration)-$(Platform)\</IntDir>
+    <IncludePath>$(SolutionDir)Extern\AlphaEngine_V3.09\include;$(SolutionDir)Extern\yaml-cpp\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <WarningLevel>Level3</WarningLevel>
+      <WarningLevel>Level4</WarningLevel>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
@@ -73,13 +73,14 @@
     </Link>
     <PostBuildEvent>
       <Command>xcopy "$(SolutionDir)Assets\*" "$(OutDir)Assets\" /s /r /y /q
-xcopy "$(SolutionDir)Extern\AlphaEngine_V3.08\lib\freetype.dll" "$(OutDir)" /s /r /y /q
-xcopy "$(SolutionDir)Extern\AlphaEngine_V3.08\lib\Alpha_EngineD.dll" "$(OutDir)" /s /r /y /q</Command>
+xcopy "$(SolutionDir)Extern\AlphaEngine_V3.09\lib\freetype.dll" "$(OutDir)" /s /r /y /q
+xcopy "$(SolutionDir)Extern\AlphaEngine_V3.09\lib\Alpha_EngineD.dll" "$(OutDir)" /s /r /y /q
+xcopy "$(SolutionDir)Extern\AlphaEngine_V3.09\lib\fmodL.dll" "$(OutDir)" /s /r /y /q</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <WarningLevel>Level3</WarningLevel>
+      <WarningLevel>Level4</WarningLevel>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
@@ -98,8 +99,9 @@ xcopy "$(SolutionDir)Extern\AlphaEngine_V3.08\lib\Alpha_EngineD.dll" "$(OutDir)"
     </Link>
     <PostBuildEvent>
       <Command>xcopy "$(SolutionDir)Assets\*" "$(OutDir)Assets\" /s /r /y /q
-xcopy "$(SolutionDir)Extern\AlphaEngine_V3.08\lib\freetype.dll" "$(OutDir)" /s /r /y /q
-xcopy "$(SolutionDir)Extern\AlphaEngine_V3.08\lib\Alpha_Engine.dll" "$(OutDir)" /s /r /y /q
+xcopy "$(SolutionDir)Extern\AlphaEngine_V3.09\lib\freetype.dll" "$(OutDir)" /s /r /y /q
+xcopy "$(SolutionDir)Extern\AlphaEngine_V3.09\lib\Alpha_Engine.dll" "$(OutDir)" /s /r /y /q
+xcopy "$(SolutionDir)Extern\AlphaEngine_V3.09\lib\fmod.dll" "$(OutDir)" /s /r /y /q
 </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>

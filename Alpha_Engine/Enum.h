@@ -22,14 +22,11 @@ namespace Enum {
 
 	enum TYPE {
 		PLAYER,
-		WALL,
 		FLOOR,
+		WALL,
 		DECO,
 		PORTRAIT,
-		PORTRAIT2,
-		MPORTRAIT,
-		LPORTRAIT,
-		PLATFORM,
-		pHighlight
+		LANDSCAPE,
+		PLATFORM
 	};
 }

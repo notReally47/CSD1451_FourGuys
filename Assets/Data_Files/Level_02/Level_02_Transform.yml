@@ -1,1975 +1,1366 @@
 Level: 02
-Object:
-  01_Wall:
-    01_Wall_00:
-      Type: 1
+ObjectInstance:
+  00_Player:
+    00_Player_00:
+      Type: 0
       Texture_Offset:
         x_offset: 0.429
         y_offset: 0
       Transformation:
-        transformation_01: 128
+        transformation_01: 153.6
+        transformation_02: 0
+        transformation_03: -512
+        transformation_04: 0
+        transformation_05: 182.4
+        transformation_06: 38
+        transformation_07: 0
+        transformation_08: 0
+        transformation_09: 0.5
+
+  01_Floor:
+    01_Floor_00:
+      Type: 1
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        transformation_01: 256
         transformation_02: 0
         transformation_03: 0
         transformation_04: 0
-        transformation_05: 256
+        transformation_05: 148
+        transformation_06: 256
+        transformation_07: 0
+        transformation_08: 0
+        transformation_09: 0.5
+
+    01_Floor_01:
+      Type: 1
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        transformation_01: 256
+        transformation_02: 0
+        transformation_03: -128
+        transformation_04: 0
+        transformation_05: 148
+        transformation_06: 192
+        transformation_07: 0
+        transformation_08: 0
+        transformation_09: 0.5
+
+    01_Floor_02:
+      Type: 1
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        transformation_01: 256
+        transformation_02: 0
+        transformation_03: -256
+        transformation_04: 0
+        transformation_05: 148
+        transformation_06: 128
+        transformation_07: 0
+        transformation_08: 0
+        transformation_09: 0.5
+
+    01_Floor_03:
+      Type: 1
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        transformation_01: 256
+        transformation_02: 0
+        transformation_03: -384
+        transformation_04: 0
+        transformation_05: 148
         transformation_06: 64
         transformation_07: 0
         transformation_08: 0
         transformation_09: 0.5
 
-    01_Wall_01:
+    01_Floor_04:
       Type: 1
       Texture_Offset:
-        x_offset: 0.429
+        x_offset: 0
         y_offset: 0
       Transformation:
-        transformation_01: 128
+        transformation_01: 256
         transformation_02: 0
-        transformation_03: 0
+        transformation_03: -512
         transformation_04: 0
-        transformation_05: 256
-        transformation_06: 144
+        transformation_05: 148
+        transformation_06: 0
         transformation_07: 0
         transformation_08: 0
         transformation_09: 0.5
 
-    01_Wall_02:
+    01_Floor_05:
       Type: 1
       Texture_Offset:
-        x_offset: 0.429
+        x_offset: 0
         y_offset: 0
       Transformation:
-        transformation_01: 128
+        transformation_01: 256
         transformation_02: 0
-        transformation_03: 0
+        transformation_03: 128
         transformation_04: 0
-        transformation_05: 256
-        transformation_06: 224
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    01_Wall_03:
-      Type: 1
-      Texture_Offset:
-        x_offset: 0.429
-        y_offset: 0
-      Transformation:
-        transformation_01: 128
-        transformation_02: 0
-        transformation_03: 0
-        transformation_04: 0
-        transformation_05: 256
-        transformation_06: 304
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    01_Wall_04:
-      Type: 1
-      Texture_Offset:
-        x_offset: 0.429
-        y_offset: 0
-      Transformation:
-        transformation_01: 128
-        transformation_02: 0
-        transformation_03: 0
-        transformation_04: 0
-        transformation_05: 256
-        transformation_06: 384
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    01_Wall_05:
-      Type: 1
-      Texture_Offset:
-        x_offset: 0.571
-        y_offset: 0
-      Transformation:
-        transformation_01: 128
-        transformation_02: 0
-        transformation_03: 64
-        transformation_04: 0
-        transformation_05: 256
-        transformation_06: 32
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    01_Wall_06:
-      Type: 1
-      Texture_Offset:
-        x_offset: 0.571
-        y_offset: 0
-      Transformation:
-        transformation_01: 128
-        transformation_02: 0
-        transformation_03: 64
-        transformation_04: 0
-        transformation_05: 256
-        transformation_06: 112
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    01_Wall_07:
-      Type: 1
-      Texture_Offset:
-        x_offset: 0.571
-        y_offset: 0
-      Transformation:
-        transformation_01: 128
-        transformation_02: 0
-        transformation_03: 64
-        transformation_04: 0
-        transformation_05: 256
+        transformation_05: 148
         transformation_06: 192
         transformation_07: 0
         transformation_08: 0
         transformation_09: 0.5
 
-    01_Wall_08:
+    01_Floor_06:
       Type: 1
       Texture_Offset:
-        x_offset: 0.571
+        x_offset: 0
         y_offset: 0
       Transformation:
-        transformation_01: 128
+        transformation_01: 256
         transformation_02: 0
-        transformation_03: 64
+        transformation_03: 0
         transformation_04: 0
-        transformation_05: 256
-        transformation_06: 272
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    01_Wall_09:
-      Type: 1
-      Texture_Offset:
-        x_offset: 0.571
-        y_offset: 0
-      Transformation:
-        transformation_01: 128
-        transformation_02: 0
-        transformation_03: 64
-        transformation_04: 0
-        transformation_05: 256
-        transformation_06: 352
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    01_Wall_10:
-      Type: 1
-      Texture_Offset:
-        x_offset: 0.714
-        y_offset: 0
-      Transformation:
-        transformation_01: 128
-        transformation_02: 0
-        transformation_03: 128
-        transformation_04: 0
-        transformation_05: 256
-        transformation_06: 0
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    01_Wall_11:
-      Type: 1
-      Texture_Offset:
-        x_offset: 0.714
-        y_offset: 0
-      Transformation:
-        transformation_01: 128
-        transformation_02: 0
-        transformation_03: 128
-        transformation_04: 0
-        transformation_05: 256
-        transformation_06: 80
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    01_Wall_12:
-      Type: 1
-      Texture_Offset:
-        x_offset: 0.714
-        y_offset: 0
-      Transformation:
-        transformation_01: 128
-        transformation_02: 0
-        transformation_03: 128
-        transformation_04: 0
-        transformation_05: 256
-        transformation_06: 160
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    01_Wall_13:
-      Type: 1
-      Texture_Offset:
-        x_offset: 0.714
-        y_offset: 0
-      Transformation:
-        transformation_01: 128
-        transformation_02: 0
-        transformation_03: 128
-        transformation_04: 0
-        transformation_05: 256
-        transformation_06: 240
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    01_Wall_14:
-      Type: 1
-      Texture_Offset:
-        x_offset: 0.714
-        y_offset: 0
-      Transformation:
-        transformation_01: 128
-        transformation_02: 0
-        transformation_03: 128
-        transformation_04: 0
-        transformation_05: 256
-        transformation_06: 320
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    01_Wall_15:
-      Type: 1
-      Texture_Offset:
-        x_offset: 0.571
-        y_offset: 0
-      Transformation:
-        transformation_01: 128
-        transformation_02: 0
-        transformation_03: 192
-        transformation_04: 0
-        transformation_05: 256
-        transformation_06: -32
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    01_Wall_16:
-      Type: 1
-      Texture_Offset:
-        x_offset: 0.571
-        y_offset: 0
-      Transformation:
-        transformation_01: 128
-        transformation_02: 0
-        transformation_03: 192
-        transformation_04: 0
-        transformation_05: 256
-        transformation_06: 48
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    01_Wall_17:
-      Type: 1
-      Texture_Offset:
-        x_offset: 0.571
-        y_offset: 0
-      Transformation:
-        transformation_01: 128
-        transformation_02: 0
-        transformation_03: 192
-        transformation_04: 0
-        transformation_05: 256
+        transformation_05: 148
         transformation_06: 128
         transformation_07: 0
         transformation_08: 0
         transformation_09: 0.5
 
-    01_Wall_18:
+    01_Floor_07:
       Type: 1
       Texture_Offset:
-        x_offset: 0.571
+        x_offset: 0
         y_offset: 0
       Transformation:
-        transformation_01: 128
-        transformation_02: 0
-        transformation_03: 192
-        transformation_04: 0
-        transformation_05: 256
-        transformation_06: 208
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    01_Wall_19:
-      Type: 1
-      Texture_Offset:
-        x_offset: 0.571
-        y_offset: 0
-      Transformation:
-        transformation_01: 128
-        transformation_02: 0
-        transformation_03: 192
-        transformation_04: 0
-        transformation_05: 256
-        transformation_06: 288
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    01_Wall_20:
-      Type: 1
-      Texture_Offset:
-        x_offset: 0.571
-        y_offset: 0
-      Transformation:
-        transformation_01: 128
-        transformation_02: 0
-        transformation_03: 192
-        transformation_04: 0
-        transformation_05: 256
-        transformation_06: 368
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    01_Wall_21:
-      Type: 1
-      Texture_Offset:
-        x_offset: 0.571
-        y_offset: 0
-      Transformation:
-        transformation_01: 128
-        transformation_02: 0
-        transformation_03: 256
-        transformation_04: 0
-        transformation_05: 256
-        transformation_06: -64
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    01_Wall_22:
-      Type: 1
-      Texture_Offset:
-        x_offset: 0.571
-        y_offset: 0
-      Transformation:
-        transformation_01: 128
-        transformation_02: 0
-        transformation_03: 256
-        transformation_04: 0
-        transformation_05: 256
-        transformation_06: 16
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    01_Wall_23:
-      Type: 1
-      Texture_Offset:
-        x_offset: 0.571
-        y_offset: 0
-      Transformation:
-        transformation_01: 128
-        transformation_02: 0
-        transformation_03: 256
-        transformation_04: 0
-        transformation_05: 256
-        transformation_06: 96
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    01_Wall_24:
-      Type: 1
-      Texture_Offset:
-        x_offset: 0.571
-        y_offset: 0
-      Transformation:
-        transformation_01: 128
-        transformation_02: 0
-        transformation_03: 256
-        transformation_04: 0
-        transformation_05: 256
-        transformation_06: 176
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    01_Wall_25:
-      Type: 1
-      Texture_Offset:
-        x_offset: 0.571
-        y_offset: 0
-      Transformation:
-        transformation_01: 128
-        transformation_02: 0
-        transformation_03: 256
-        transformation_04: 0
-        transformation_05: 256
-        transformation_06: 256
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    01_Wall_26:
-      Type: 1
-      Texture_Offset:
-        x_offset: 0.571
-        y_offset: 0
-      Transformation:
-        transformation_01: 128
-        transformation_02: 0
-        transformation_03: 256
-        transformation_04: 0
-        transformation_05: 256
-        transformation_06: 336
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    01_Wall_27:
-      Type: 1
-      Texture_Offset:
-        x_offset: 0.286
-        y_offset: 0
-      Transformation:
-        transformation_01: 128
-        transformation_02: 0
-        transformation_03: -64
-        transformation_04: 0
-        transformation_05: 256
-        transformation_06: 32
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    01_Wall_28:
-      Type: 1
-      Texture_Offset:
-        x_offset: 0.286
-        y_offset: 0
-      Transformation:
-        transformation_01: 128
-        transformation_02: 0
-        transformation_03: -64
-        transformation_04: 0
-        transformation_05: 256
-        transformation_06: 112
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    01_Wall_29:
-      Type: 1
-      Texture_Offset:
-        x_offset: 0.286
-        y_offset: 0
-      Transformation:
-        transformation_01: 128
-        transformation_02: 0
-        transformation_03: -64
-        transformation_04: 0
-        transformation_05: 256
-        transformation_06: 192
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    01_Wall_30:
-      Type: 1
-      Texture_Offset:
-        x_offset: 0.286
-        y_offset: 0
-      Transformation:
-        transformation_01: 128
-        transformation_02: 0
-        transformation_03: -64
-        transformation_04: 0
-        transformation_05: 256
-        transformation_06: 272
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    01_Wall_31:
-      Type: 1
-      Texture_Offset:
-        x_offset: 0.286
-        y_offset: 0
-      Transformation:
-        transformation_01: 128
-        transformation_02: 0
-        transformation_03: -64
-        transformation_04: 0
-        transformation_05: 256
-        transformation_06: 352
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    01_Wall_32:
-      Type: 1
-      Texture_Offset:
-        x_offset: 0.143
-        y_offset: 0
-      Transformation:
-        transformation_01: 128
+        transformation_01: 256
         transformation_02: 0
         transformation_03: -128
         transformation_04: 0
-        transformation_05: 256
+        transformation_05: 148
+        transformation_06: 64
+        transformation_07: 0
+        transformation_08: 0
+        transformation_09: 0.5
+
+    01_Floor_08:
+      Type: 1
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        transformation_01: 256
+        transformation_02: 0
+        transformation_03: -256
+        transformation_04: 0
+        transformation_05: 148
         transformation_06: 0
         transformation_07: 0
         transformation_08: 0
         transformation_09: 0.5
 
-    01_Wall_33:
+    01_Floor_09:
       Type: 1
       Texture_Offset:
-        x_offset: 0.143
+        x_offset: 0
         y_offset: 0
       Transformation:
-        transformation_01: 128
+        transformation_01: 256
         transformation_02: 0
-        transformation_03: -128
+        transformation_03: -384
         transformation_04: 0
-        transformation_05: 256
-        transformation_06: 80
+        transformation_05: 148
+        transformation_06: -64
         transformation_07: 0
         transformation_08: 0
         transformation_09: 0.5
 
-    01_Wall_34:
+    01_Floor_10:
       Type: 1
       Texture_Offset:
-        x_offset: 0.143
+        x_offset: 0
         y_offset: 0
       Transformation:
-        transformation_01: 128
+        transformation_01: 256
         transformation_02: 0
-        transformation_03: -128
+        transformation_03: 256
         transformation_04: 0
-        transformation_05: 256
-        transformation_06: 160
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    01_Wall_35:
-      Type: 1
-      Texture_Offset:
-        x_offset: 0.143
-        y_offset: 0
-      Transformation:
-        transformation_01: 128
-        transformation_02: 0
-        transformation_03: -128
-        transformation_04: 0
-        transformation_05: 256
-        transformation_06: 240
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    01_Wall_36:
-      Type: 1
-      Texture_Offset:
-        x_offset: 0.143
-        y_offset: 0
-      Transformation:
-        transformation_01: 128
-        transformation_02: 0
-        transformation_03: -128
-        transformation_04: 0
-        transformation_05: 256
-        transformation_06: 320
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    01_Wall_37:
-      Type: 1
-      Texture_Offset:
-        x_offset: 0.286
-        y_offset: 0
-      Transformation:
-        transformation_01: 128
-        transformation_02: 0
-        transformation_03: -192
-        transformation_04: 0
-        transformation_05: 256
-        transformation_06: -32
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    01_Wall_38:
-      Type: 1
-      Texture_Offset:
-        x_offset: 0.286
-        y_offset: 0
-      Transformation:
-        transformation_01: 128
-        transformation_02: 0
-        transformation_03: -192
-        transformation_04: 0
-        transformation_05: 256
-        transformation_06: 48
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    01_Wall_39:
-      Type: 1
-      Texture_Offset:
-        x_offset: 0.286
-        y_offset: 0
-      Transformation:
-        transformation_01: 128
-        transformation_02: 0
-        transformation_03: -192
-        transformation_04: 0
-        transformation_05: 256
+        transformation_05: 148
         transformation_06: 128
         transformation_07: 0
         transformation_08: 0
         transformation_09: 0.5
 
-    01_Wall_40:
+    01_Floor_11:
       Type: 1
-      Texture_Offset:
-        x_offset: 0.286
-        y_offset: 0
-      Transformation:
-        transformation_01: 128
-        transformation_02: 0
-        transformation_03: -192
-        transformation_04: 0
-        transformation_05: 256
-        transformation_06: 208
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    01_Wall_41:
-      Type: 1
-      Texture_Offset:
-        x_offset: 0.286
-        y_offset: 0
-      Transformation:
-        transformation_01: 128
-        transformation_02: 0
-        transformation_03: -192
-        transformation_04: 0
-        transformation_05: 256
-        transformation_06: 288
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    01_Wall_42:
-      Type: 1
-      Texture_Offset:
-        x_offset: 0.286
-        y_offset: 0
-      Transformation:
-        transformation_01: 128
-        transformation_02: 0
-        transformation_03: -192
-        transformation_04: 0
-        transformation_05: 256
-        transformation_06: 368
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    01_Wall_43:
-      Type: 1
-      Texture_Offset:
-        x_offset: 0.286
-        y_offset: 0
-      Transformation:
-        transformation_01: 128
-        transformation_02: 0
-        transformation_03: -256
-        transformation_04: 0
-        transformation_05: 256
-        transformation_06: -64
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    01_Wall_44:
-      Type: 1
-      Texture_Offset:
-        x_offset: 0.286
-        y_offset: 0
-      Transformation:
-        transformation_01: 128
-        transformation_02: 0
-        transformation_03: -256
-        transformation_04: 0
-        transformation_05: 256
-        transformation_06: 16
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    01_Wall_45:
-      Type: 1
-      Texture_Offset:
-        x_offset: 0.286
-        y_offset: 0
-      Transformation:
-        transformation_01: 128
-        transformation_02: 0
-        transformation_03: -256
-        transformation_04: 0
-        transformation_05: 256
-        transformation_06: 96
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    01_Wall_46:
-      Type: 1
-      Texture_Offset:
-        x_offset: 0.286
-        y_offset: 0
-      Transformation:
-        transformation_01: 128
-        transformation_02: 0
-        transformation_03: -256
-        transformation_04: 0
-        transformation_05: 256
-        transformation_06: 176
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    01_Wall_47:
-      Type: 1
-      Texture_Offset:
-        x_offset: 0.286
-        y_offset: 0
-      Transformation:
-        transformation_01: 128
-        transformation_02: 0
-        transformation_03: -256
-        transformation_04: 0
-        transformation_05: 256
-        transformation_06: 256
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    01_Wall_48:
-      Type: 1
-      Texture_Offset:
-        x_offset: 0.286
-        y_offset: 0
-      Transformation:
-        transformation_01: 128
-        transformation_02: 0
-        transformation_03: -256
-        transformation_04: 0
-        transformation_05: 256
-        transformation_06: 336
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-  02_Floor:
-    02_Floor_00:
-      Type: 2
       Texture_Offset:
         x_offset: 0
         y_offset: 0
       Transformation:
-        transformation_01: 76
+        transformation_01: 256
+        transformation_02: 0
+        transformation_03: 128
+        transformation_04: 0
+        transformation_05: 148
+        transformation_06: 64
+        transformation_07: 0
+        transformation_08: 0
+        transformation_09: 0.5
+
+    01_Floor_12:
+      Type: 1
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        transformation_01: 256
         transformation_02: 0
         transformation_03: 0
         transformation_04: 0
-        transformation_05: 76
-        transformation_06: -16
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    02_Floor_01:
-      Type: 2
-      Texture_Offset:
-        x_offset: 0
-        y_offset: 0
-      Transformation:
-        transformation_01: 76
-        transformation_02: 0
-        transformation_03: -38
-        transformation_04: 0
-        transformation_05: 76
-        transformation_06: -35
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    02_Floor_02:
-      Type: 2
-      Texture_Offset:
-        x_offset: 0
-        y_offset: 0
-      Transformation:
-        transformation_01: 76
-        transformation_02: 0
-        transformation_03: -76
-        transformation_04: 0
-        transformation_05: 76
-        transformation_06: -54
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    02_Floor_03:
-      Type: 2
-      Texture_Offset:
-        x_offset: 0
-        y_offset: 0
-      Transformation:
-        transformation_01: 76
-        transformation_02: 0
-        transformation_03: -114
-        transformation_04: 0
-        transformation_05: 76
-        transformation_06: -73
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    02_Floor_04:
-      Type: 2
-      Texture_Offset:
-        x_offset: 0
-        y_offset: 0
-      Transformation:
-        transformation_01: 76
-        transformation_02: 0
-        transformation_03: -152
-        transformation_04: 0
-        transformation_05: 76
-        transformation_06: -92
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    02_Floor_05:
-      Type: 2
-      Texture_Offset:
-        x_offset: 0
-        y_offset: 0
-      Transformation:
-        transformation_01: 76
-        transformation_02: 0
-        transformation_03: -190
-        transformation_04: 0
-        transformation_05: 76
-        transformation_06: -111
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    02_Floor_06:
-      Type: 2
-      Texture_Offset:
-        x_offset: 0
-        y_offset: 0
-      Transformation:
-        transformation_01: 76
-        transformation_02: 0
-        transformation_03: -228
-        transformation_04: 0
-        transformation_05: 76
-        transformation_06: -130
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    02_Floor_07:
-      Type: 2
-      Texture_Offset:
-        x_offset: 0
-        y_offset: 0
-      Transformation:
-        transformation_01: 76
-        transformation_02: 0
-        transformation_03: -266
-        transformation_04: 0
-        transformation_05: 76
-        transformation_06: -149
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    02_Floor_08:
-      Type: 2
-      Texture_Offset:
-        x_offset: 0
-        y_offset: 0
-      Transformation:
-        transformation_01: 76
-        transformation_02: 0
-        transformation_03: 38
-        transformation_04: 0
-        transformation_05: 76
-        transformation_06: -35
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    02_Floor_09:
-      Type: 2
-      Texture_Offset:
-        x_offset: 0
-        y_offset: 0
-      Transformation:
-        transformation_01: 76
-        transformation_02: 0
-        transformation_03: 0
-        transformation_04: 0
-        transformation_05: 76
-        transformation_06: -54
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    02_Floor_10:
-      Type: 2
-      Texture_Offset:
-        x_offset: 0
-        y_offset: 0
-      Transformation:
-        transformation_01: 76
-        transformation_02: 0
-        transformation_03: -38
-        transformation_04: 0
-        transformation_05: 76
-        transformation_06: -73
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    02_Floor_11:
-      Type: 2
-      Texture_Offset:
-        x_offset: 0
-        y_offset: 0
-      Transformation:
-        transformation_01: 76
-        transformation_02: 0
-        transformation_03: -76
-        transformation_04: 0
-        transformation_05: 76
-        transformation_06: -92
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    02_Floor_12:
-      Type: 2
-      Texture_Offset:
-        x_offset: 0
-        y_offset: 0
-      Transformation:
-        transformation_01: 76
-        transformation_02: 0
-        transformation_03: -114
-        transformation_04: 0
-        transformation_05: 76
-        transformation_06: -111
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    02_Floor_13:
-      Type: 2
-      Texture_Offset:
-        x_offset: 0
-        y_offset: 0
-      Transformation:
-        transformation_01: 76
-        transformation_02: 0
-        transformation_03: -152
-        transformation_04: 0
-        transformation_05: 76
-        transformation_06: -130
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    02_Floor_14:
-      Type: 2
-      Texture_Offset:
-        x_offset: 0
-        y_offset: 0
-      Transformation:
-        transformation_01: 76
-        transformation_02: 0
-        transformation_03: -190
-        transformation_04: 0
-        transformation_05: 76
-        transformation_06: -149
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    02_Floor_15:
-      Type: 2
-      Texture_Offset:
-        x_offset: 0
-        y_offset: 0
-      Transformation:
-        transformation_01: 76
-        transformation_02: 0
-        transformation_03: -228
-        transformation_04: 0
-        transformation_05: 76
-        transformation_06: -168
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    02_Floor_16:
-      Type: 2
-      Texture_Offset:
-        x_offset: 0
-        y_offset: 0
-      Transformation:
-        transformation_01: 76
-        transformation_02: 0
-        transformation_03: 76
-        transformation_04: 0
-        transformation_05: 76
-        transformation_06: -54
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    02_Floor_17:
-      Type: 2
-      Texture_Offset:
-        x_offset: 0
-        y_offset: 0
-      Transformation:
-        transformation_01: 76
-        transformation_02: 0
-        transformation_03: 38
-        transformation_04: 0
-        transformation_05: 76
-        transformation_06: -73
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    02_Floor_18:
-      Type: 2
-      Texture_Offset:
-        x_offset: 0
-        y_offset: 0
-      Transformation:
-        transformation_01: 76
-        transformation_02: 0
-        transformation_03: 0
-        transformation_04: 0
-        transformation_05: 76
-        transformation_06: -92
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    02_Floor_19:
-      Type: 2
-      Texture_Offset:
-        x_offset: 0
-        y_offset: 0
-      Transformation:
-        transformation_01: 76
-        transformation_02: 0
-        transformation_03: -38
-        transformation_04: 0
-        transformation_05: 76
-        transformation_06: -111
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    02_Floor_20:
-      Type: 2
-      Texture_Offset:
-        x_offset: 0
-        y_offset: 0
-      Transformation:
-        transformation_01: 76
-        transformation_02: 0
-        transformation_03: -76
-        transformation_04: 0
-        transformation_05: 76
-        transformation_06: -130
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    02_Floor_21:
-      Type: 2
-      Texture_Offset:
-        x_offset: 0
-        y_offset: 0
-      Transformation:
-        transformation_01: 76
-        transformation_02: 0
-        transformation_03: -114
-        transformation_04: 0
-        transformation_05: 76
-        transformation_06: -149
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    02_Floor_22:
-      Type: 2
-      Texture_Offset:
-        x_offset: 0
-        y_offset: 0
-      Transformation:
-        transformation_01: 76
-        transformation_02: 0
-        transformation_03: -152
-        transformation_04: 0
-        transformation_05: 76
-        transformation_06: -168
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    02_Floor_23:
-      Type: 2
-      Texture_Offset:
-        x_offset: 0
-        y_offset: 0
-      Transformation:
-        transformation_01: 76
-        transformation_02: 0
-        transformation_03: -190
-        transformation_04: 0
-        transformation_05: 76
-        transformation_06: -187
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    02_Floor_24:
-      Type: 2
-      Texture_Offset:
-        x_offset: 0
-        y_offset: 0
-      Transformation:
-        transformation_01: 76
-        transformation_02: 0
-        transformation_03: 114
-        transformation_04: 0
-        transformation_05: 76
-        transformation_06: -73
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    02_Floor_25:
-      Type: 2
-      Texture_Offset:
-        x_offset: 0
-        y_offset: 0
-      Transformation:
-        transformation_01: 76
-        transformation_02: 0
-        transformation_03: 76
-        transformation_04: 0
-        transformation_05: 76
-        transformation_06: -92
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    02_Floor_26:
-      Type: 2
-      Texture_Offset:
-        x_offset: 0
-        y_offset: 0
-      Transformation:
-        transformation_01: 76
-        transformation_02: 0
-        transformation_03: 38
-        transformation_04: 0
-        transformation_05: 76
-        transformation_06: -111
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    02_Floor_27:
-      Type: 2
-      Texture_Offset:
-        x_offset: 0
-        y_offset: 0
-      Transformation:
-        transformation_01: 76
-        transformation_02: 0
-        transformation_03: 0
-        transformation_04: 0
-        transformation_05: 76
-        transformation_06: -130
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    02_Floor_28:
-      Type: 2
-      Texture_Offset:
-        x_offset: 0
-        y_offset: 0
-      Transformation:
-        transformation_01: 76
-        transformation_02: 0
-        transformation_03: -38
-        transformation_04: 0
-        transformation_05: 76
-        transformation_06: -149
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    02_Floor_29:
-      Type: 2
-      Texture_Offset:
-        x_offset: 0
-        y_offset: 0
-      Transformation:
-        transformation_01: 76
-        transformation_02: 0
-        transformation_03: -76
-        transformation_04: 0
-        transformation_05: 76
-        transformation_06: -168
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    02_Floor_30:
-      Type: 2
-      Texture_Offset:
-        x_offset: 0
-        y_offset: 0
-      Transformation:
-        transformation_01: 76
-        transformation_02: 0
-        transformation_03: -114
-        transformation_04: 0
-        transformation_05: 76
-        transformation_06: -187
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    02_Floor_31:
-      Type: 2
-      Texture_Offset:
-        x_offset: 0
-        y_offset: 0
-      Transformation:
-        transformation_01: 76
-        transformation_02: 0
-        transformation_03: -152
-        transformation_04: 0
-        transformation_05: 76
-        transformation_06: -206
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    02_Floor_32:
-      Type: 2
-      Texture_Offset:
-        x_offset: 0
-        y_offset: 0
-      Transformation:
-        transformation_01: 76
-        transformation_02: 0
-        transformation_03: 152
-        transformation_04: 0
-        transformation_05: 76
-        transformation_06: -92
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    02_Floor_33:
-      Type: 2
-      Texture_Offset:
-        x_offset: 0
-        y_offset: 0
-      Transformation:
-        transformation_01: 76
-        transformation_02: 0
-        transformation_03: 114
-        transformation_04: 0
-        transformation_05: 76
-        transformation_06: -111
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    02_Floor_34:
-      Type: 2
-      Texture_Offset:
-        x_offset: 0
-        y_offset: 0
-      Transformation:
-        transformation_01: 76
-        transformation_02: 0
-        transformation_03: 76
-        transformation_04: 0
-        transformation_05: 76
-        transformation_06: -130
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    02_Floor_35:
-      Type: 2
-      Texture_Offset:
-        x_offset: 0
-        y_offset: 0
-      Transformation:
-        transformation_01: 76
-        transformation_02: 0
-        transformation_03: 38
-        transformation_04: 0
-        transformation_05: 76
-        transformation_06: -149
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    02_Floor_36:
-      Type: 2
-      Texture_Offset:
-        x_offset: 0
-        y_offset: 0
-      Transformation:
-        transformation_01: 76
-        transformation_02: 0
-        transformation_03: 0
-        transformation_04: 0
-        transformation_05: 76
-        transformation_06: -168
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    02_Floor_37:
-      Type: 2
-      Texture_Offset:
-        x_offset: 0
-        y_offset: 0
-      Transformation:
-        transformation_01: 76
-        transformation_02: 0
-        transformation_03: -38
-        transformation_04: 0
-        transformation_05: 76
-        transformation_06: -187
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    02_Floor_38:
-      Type: 2
-      Texture_Offset:
-        x_offset: 0
-        y_offset: 0
-      Transformation:
-        transformation_01: 76
-        transformation_02: 0
-        transformation_03: -76
-        transformation_04: 0
-        transformation_05: 76
-        transformation_06: -206
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    02_Floor_39:
-      Type: 2
-      Texture_Offset:
-        x_offset: 0
-        y_offset: 0
-      Transformation:
-        transformation_01: 76
-        transformation_02: 0
-        transformation_03: -114
-        transformation_04: 0
-        transformation_05: 76
-        transformation_06: -225
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    02_Floor_40:
-      Type: 2
-      Texture_Offset:
-        x_offset: 0
-        y_offset: 0
-      Transformation:
-        transformation_01: 76
-        transformation_02: 0
-        transformation_03: 190
-        transformation_04: 0
-        transformation_05: 76
-        transformation_06: -111
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    02_Floor_41:
-      Type: 2
-      Texture_Offset:
-        x_offset: 0
-        y_offset: 0
-      Transformation:
-        transformation_01: 76
-        transformation_02: 0
-        transformation_03: 152
-        transformation_04: 0
-        transformation_05: 76
-        transformation_06: -130
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    02_Floor_42:
-      Type: 2
-      Texture_Offset:
-        x_offset: 0
-        y_offset: 0
-      Transformation:
-        transformation_01: 76
-        transformation_02: 0
-        transformation_03: 114
-        transformation_04: 0
-        transformation_05: 76
-        transformation_06: -149
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    02_Floor_43:
-      Type: 2
-      Texture_Offset:
-        x_offset: 0
-        y_offset: 0
-      Transformation:
-        transformation_01: 76
-        transformation_02: 0
-        transformation_03: 76
-        transformation_04: 0
-        transformation_05: 76
-        transformation_06: -168
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    02_Floor_44:
-      Type: 2
-      Texture_Offset:
-        x_offset: 0
-        y_offset: 0
-      Transformation:
-        transformation_01: 76
-        transformation_02: 0
-        transformation_03: 38
-        transformation_04: 0
-        transformation_05: 76
-        transformation_06: -187
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    02_Floor_45:
-      Type: 2
-      Texture_Offset:
-        x_offset: 0
-        y_offset: 0
-      Transformation:
-        transformation_01: 76
-        transformation_02: 0
-        transformation_03: 0
-        transformation_04: 0
-        transformation_05: 76
-        transformation_06: -206
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    02_Floor_46:
-      Type: 2
-      Texture_Offset:
-        x_offset: 0
-        y_offset: 0
-      Transformation:
-        transformation_01: 76
-        transformation_02: 0
-        transformation_03: -38
-        transformation_04: 0
-        transformation_05: 76
-        transformation_06: -225
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    02_Floor_47:
-      Type: 2
-      Texture_Offset:
-        x_offset: 0
-        y_offset: 0
-      Transformation:
-        transformation_01: 76
-        transformation_02: 0
-        transformation_03: -76
-        transformation_04: 0
-        transformation_05: 76
-        transformation_06: -244
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    02_Floor_48:
-      Type: 2
-      Texture_Offset:
-        x_offset: 0
-        y_offset: 0
-      Transformation:
-        transformation_01: 76
-        transformation_02: 0
-        transformation_03: 228
-        transformation_04: 0
-        transformation_05: 76
-        transformation_06: -130
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    02_Floor_49:
-      Type: 2
-      Texture_Offset:
-        x_offset: 0
-        y_offset: 0
-      Transformation:
-        transformation_01: 76
-        transformation_02: 0
-        transformation_03: 190
-        transformation_04: 0
-        transformation_05: 76
-        transformation_06: -149
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    02_Floor_50:
-      Type: 2
-      Texture_Offset:
-        x_offset: 0
-        y_offset: 0
-      Transformation:
-        transformation_01: 76
-        transformation_02: 0
-        transformation_03: 152
-        transformation_04: 0
-        transformation_05: 76
-        transformation_06: -168
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    02_Floor_51:
-      Type: 2
-      Texture_Offset:
-        x_offset: 0
-        y_offset: 0
-      Transformation:
-        transformation_01: 76
-        transformation_02: 0
-        transformation_03: 114
-        transformation_04: 0
-        transformation_05: 76
-        transformation_06: -187
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    02_Floor_52:
-      Type: 2
-      Texture_Offset:
-        x_offset: 0
-        y_offset: 0
-      Transformation:
-        transformation_01: 76
-        transformation_02: 0
-        transformation_03: 76
-        transformation_04: 0
-        transformation_05: 76
-        transformation_06: -206
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    02_Floor_53:
-      Type: 2
-      Texture_Offset:
-        x_offset: 0
-        y_offset: 0
-      Transformation:
-        transformation_01: 76
-        transformation_02: 0
-        transformation_03: 38
-        transformation_04: 0
-        transformation_05: 76
-        transformation_06: -225
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    02_Floor_54:
-      Type: 2
-      Texture_Offset:
-        x_offset: 0
-        y_offset: 0
-      Transformation:
-        transformation_01: 76
-        transformation_02: 0
-        transformation_03: 0
-        transformation_04: 0
-        transformation_05: 76
-        transformation_06: -244
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    02_Floor_55:
-      Type: 2
-      Texture_Offset:
-        x_offset: 0
-        y_offset: 0
-      Transformation:
-        transformation_01: 76
-        transformation_02: 0
-        transformation_03: -38
-        transformation_04: 0
-        transformation_05: 76
-        transformation_06: -263
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    02_Floor_56:
-      Type: 2
-      Texture_Offset:
-        x_offset: 0
-        y_offset: 0
-      Transformation:
-        transformation_01: 76
-        transformation_02: 0
-        transformation_03: 266
-        transformation_04: 0
-        transformation_05: 76
-        transformation_06: -149
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    02_Floor_57:
-      Type: 2
-      Texture_Offset:
-        x_offset: 0
-        y_offset: 0
-      Transformation:
-        transformation_01: 76
-        transformation_02: 0
-        transformation_03: 228
-        transformation_04: 0
-        transformation_05: 76
-        transformation_06: -168
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    02_Floor_58:
-      Type: 2
-      Texture_Offset:
-        x_offset: 0
-        y_offset: 0
-      Transformation:
-        transformation_01: 76
-        transformation_02: 0
-        transformation_03: 190
-        transformation_04: 0
-        transformation_05: 76
-        transformation_06: -187
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    02_Floor_59:
-      Type: 2
-      Texture_Offset:
-        x_offset: 0
-        y_offset: 0
-      Transformation:
-        transformation_01: 76
-        transformation_02: 0
-        transformation_03: 152
-        transformation_04: 0
-        transformation_05: 76
-        transformation_06: -206
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    02_Floor_60:
-      Type: 2
-      Texture_Offset:
-        x_offset: 0
-        y_offset: 0
-      Transformation:
-        transformation_01: 76
-        transformation_02: 0
-        transformation_03: 114
-        transformation_04: 0
-        transformation_05: 76
-        transformation_06: -225
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    02_Floor_61:
-      Type: 2
-      Texture_Offset:
-        x_offset: 0
-        y_offset: 0
-      Transformation:
-        transformation_01: 76
-        transformation_02: 0
-        transformation_03: 76
-        transformation_04: 0
-        transformation_05: 76
-        transformation_06: -244
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    02_Floor_62:
-      Type: 2
-      Texture_Offset:
-        x_offset: 0
-        y_offset: 0
-      Transformation:
-        transformation_01: 76
-        transformation_02: 0
-        transformation_03: 38
-        transformation_04: 0
-        transformation_05: 76
-        transformation_06: -263
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    02_Floor_63:
-      Type: 2
-      Texture_Offset:
-        x_offset: 0
-        y_offset: 0
-      Transformation:
-        transformation_01: 76
-        transformation_02: 0
-        transformation_03: 0
-        transformation_04: 0
-        transformation_05: 76
-        transformation_06: -282
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-  04_SPortrait:
-    04_SPortrait_00:
-      Type: 4
-      Texture_Offset:
-        x_offset: 0
-        y_offset: 0
-      Transformation:
-        transformation_01: 48.6
-        transformation_02: 0
-        transformation_03: -70
-        transformation_04: 0
-        transformation_05: 80.6
+        transformation_05: 148
         transformation_06: 0
         transformation_07: 0
         transformation_08: 0
         transformation_09: 0.5
 
-    04_SPortrait_01:
+    01_Floor_13:
+      Type: 1
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        transformation_01: 256
+        transformation_02: 0
+        transformation_03: -128
+        transformation_04: 0
+        transformation_05: 148
+        transformation_06: -64
+        transformation_07: 0
+        transformation_08: 0
+        transformation_09: 0.5
+
+    01_Floor_14:
+      Type: 1
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        transformation_01: 256
+        transformation_02: 0
+        transformation_03: -256
+        transformation_04: 0
+        transformation_05: 148
+        transformation_06: -128
+        transformation_07: 0
+        transformation_08: 0
+        transformation_09: 0.5
+
+    01_Floor_15:
+      Type: 1
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        transformation_01: 256
+        transformation_02: 0
+        transformation_03: 384
+        transformation_04: 0
+        transformation_05: 148
+        transformation_06: 64
+        transformation_07: 0
+        transformation_08: 0
+        transformation_09: 0.5
+
+    01_Floor_16:
+      Type: 1
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        transformation_01: 256
+        transformation_02: 0
+        transformation_03: 256
+        transformation_04: 0
+        transformation_05: 148
+        transformation_06: 0
+        transformation_07: 0
+        transformation_08: 0
+        transformation_09: 0.5
+
+    01_Floor_17:
+      Type: 1
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        transformation_01: 256
+        transformation_02: 0
+        transformation_03: 128
+        transformation_04: 0
+        transformation_05: 148
+        transformation_06: -64
+        transformation_07: 0
+        transformation_08: 0
+        transformation_09: 0.5
+
+    01_Floor_18:
+      Type: 1
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        transformation_01: 256
+        transformation_02: 0
+        transformation_03: 0
+        transformation_04: 0
+        transformation_05: 148
+        transformation_06: -128
+        transformation_07: 0
+        transformation_08: 0
+        transformation_09: 0.5
+
+    01_Floor_19:
+      Type: 1
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        transformation_01: 256
+        transformation_02: 0
+        transformation_03: -128
+        transformation_04: 0
+        transformation_05: 148
+        transformation_06: -192
+        transformation_07: 0
+        transformation_08: 0
+        transformation_09: 0.5
+
+    01_Floor_20:
+      Type: 1
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        transformation_01: 256
+        transformation_02: 0
+        transformation_03: 512
+        transformation_04: 0
+        transformation_05: 148
+        transformation_06: 0
+        transformation_07: 0
+        transformation_08: 0
+        transformation_09: 0.5
+
+    01_Floor_21:
+      Type: 1
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        transformation_01: 256
+        transformation_02: 0
+        transformation_03: 384
+        transformation_04: 0
+        transformation_05: 148
+        transformation_06: -64
+        transformation_07: 0
+        transformation_08: 0
+        transformation_09: 0.5
+
+    01_Floor_22:
+      Type: 1
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        transformation_01: 256
+        transformation_02: 0
+        transformation_03: 256
+        transformation_04: 0
+        transformation_05: 148
+        transformation_06: -128
+        transformation_07: 0
+        transformation_08: 0
+        transformation_09: 0.5
+
+    01_Floor_23:
+      Type: 1
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        transformation_01: 256
+        transformation_02: 0
+        transformation_03: 128
+        transformation_04: 0
+        transformation_05: 148
+        transformation_06: -192
+        transformation_07: 0
+        transformation_08: 0
+        transformation_09: 0.5
+
+    01_Floor_24:
+      Type: 1
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        transformation_01: 256
+        transformation_02: 0
+        transformation_03: 0
+        transformation_04: 0
+        transformation_05: 148
+        transformation_06: -256
+        transformation_07: 0
+        transformation_08: 0
+        transformation_09: 0.5
+
+  02_Wall:
+    02_Wall_00:
+      Type: 2
+      Texture_Offset:
+        x_offset: 0.4284
+        y_offset: 0
+      Transformation:
+        transformation_01: 256
+        transformation_02: 0
+        transformation_03: 0
+        transformation_04: 0
+        transformation_05: 288
+        transformation_06: 326
+        transformation_07: 0
+        transformation_08: 0
+        transformation_09: 0.5
+
+    02_Wall_01:
+      Type: 2
+      Texture_Offset:
+        x_offset: 0.4284
+        y_offset: 0
+      Transformation:
+        transformation_01: 256
+        transformation_02: 0
+        transformation_03: 2
+        transformation_04: 0
+        transformation_05: 288
+        transformation_06: 481
+        transformation_07: 0
+        transformation_08: 0
+        transformation_09: 0.5
+
+    02_Wall_02:
+      Type: 2
+      Texture_Offset:
+        x_offset: 0.4284
+        y_offset: 0
+      Transformation:
+        transformation_01: 256
+        transformation_02: 0
+        transformation_03: 4
+        transformation_04: 0
+        transformation_05: 288
+        transformation_06: 636
+        transformation_07: 0
+        transformation_08: 0
+        transformation_09: 0.5
+
+    02_Wall_03:
+      Type: 2
+      Texture_Offset:
+        x_offset: 0.4284
+        y_offset: 0
+      Transformation:
+        transformation_01: 256
+        transformation_02: 0
+        transformation_03: 6
+        transformation_04: 0
+        transformation_05: 288
+        transformation_06: 791
+        transformation_07: 0
+        transformation_08: 0
+        transformation_09: 0.5
+
+    02_Wall_04:
+      Type: 2
+      Texture_Offset:
+        x_offset: 0.4284
+        y_offset: 0
+      Transformation:
+        transformation_01: 256
+        transformation_02: 0
+        transformation_03: 8
+        transformation_04: 0
+        transformation_05: 288
+        transformation_06: 946
+        transformation_07: 0
+        transformation_08: 0
+        transformation_09: 0.5
+
+    02_Wall_05:
+      Type: 2
+      Texture_Offset:
+        x_offset: 0.5712
+        y_offset: 0
+      Transformation:
+        transformation_01: 256
+        transformation_02: 0
+        transformation_03: 128
+        transformation_04: 0
+        transformation_05: 288
+        transformation_06: 262
+        transformation_07: 0
+        transformation_08: 0
+        transformation_09: 0.5
+
+    02_Wall_06:
+      Type: 2
+      Texture_Offset:
+        x_offset: 0.5712
+        y_offset: 0
+      Transformation:
+        transformation_01: 256
+        transformation_02: 0
+        transformation_03: 130
+        transformation_04: 0
+        transformation_05: 288
+        transformation_06: 417
+        transformation_07: 0
+        transformation_08: 0
+        transformation_09: 0.5
+
+    02_Wall_07:
+      Type: 2
+      Texture_Offset:
+        x_offset: 0.5712
+        y_offset: 0
+      Transformation:
+        transformation_01: 256
+        transformation_02: 0
+        transformation_03: 132
+        transformation_04: 0
+        transformation_05: 288
+        transformation_06: 572
+        transformation_07: 0
+        transformation_08: 0
+        transformation_09: 0.5
+
+    02_Wall_08:
+      Type: 2
+      Texture_Offset:
+        x_offset: 0.5712
+        y_offset: 0
+      Transformation:
+        transformation_01: 256
+        transformation_02: 0
+        transformation_03: 134
+        transformation_04: 0
+        transformation_05: 288
+        transformation_06: 727
+        transformation_07: 0
+        transformation_08: 0
+        transformation_09: 0.5
+
+    02_Wall_09:
+      Type: 2
+      Texture_Offset:
+        x_offset: 0.5712
+        y_offset: 0
+      Transformation:
+        transformation_01: 256
+        transformation_02: 0
+        transformation_03: 136
+        transformation_04: 0
+        transformation_05: 288
+        transformation_06: 882
+        transformation_07: 0
+        transformation_08: 0
+        transformation_09: 0.5
+
+    02_Wall_10:
+      Type: 2
+      Texture_Offset:
+        x_offset: 0.714
+        y_offset: 0
+      Transformation:
+        transformation_01: 256
+        transformation_02: 0
+        transformation_03: 256
+        transformation_04: 0
+        transformation_05: 288
+        transformation_06: 198
+        transformation_07: 0
+        transformation_08: 0
+        transformation_09: 0.5
+
+    02_Wall_11:
+      Type: 2
+      Texture_Offset:
+        x_offset: 0.714
+        y_offset: 0
+      Transformation:
+        transformation_01: 256
+        transformation_02: 0
+        transformation_03: 258
+        transformation_04: 0
+        transformation_05: 288
+        transformation_06: 353
+        transformation_07: 0
+        transformation_08: 0
+        transformation_09: 0.5
+
+    02_Wall_12:
+      Type: 2
+      Texture_Offset:
+        x_offset: 0.714
+        y_offset: 0
+      Transformation:
+        transformation_01: 256
+        transformation_02: 0
+        transformation_03: 260
+        transformation_04: 0
+        transformation_05: 288
+        transformation_06: 508
+        transformation_07: 0
+        transformation_08: 0
+        transformation_09: 0.5
+
+    02_Wall_13:
+      Type: 2
+      Texture_Offset:
+        x_offset: 0.714
+        y_offset: 0
+      Transformation:
+        transformation_01: 256
+        transformation_02: 0
+        transformation_03: 262
+        transformation_04: 0
+        transformation_05: 288
+        transformation_06: 663
+        transformation_07: 0
+        transformation_08: 0
+        transformation_09: 0.5
+
+    02_Wall_14:
+      Type: 2
+      Texture_Offset:
+        x_offset: 0.714
+        y_offset: 0
+      Transformation:
+        transformation_01: 256
+        transformation_02: 0
+        transformation_03: 264
+        transformation_04: 0
+        transformation_05: 288
+        transformation_06: 818
+        transformation_07: 0
+        transformation_08: 0
+        transformation_09: 0.5
+
+    02_Wall_15:
+      Type: 2
+      Texture_Offset:
+        x_offset: 0.5712
+        y_offset: 0
+      Transformation:
+        transformation_01: 256
+        transformation_02: 0
+        transformation_03: 384
+        transformation_04: 0
+        transformation_05: 288
+        transformation_06: 134
+        transformation_07: 0
+        transformation_08: 0
+        transformation_09: 0.5
+
+    02_Wall_16:
+      Type: 2
+      Texture_Offset:
+        x_offset: 0.5712
+        y_offset: 0
+      Transformation:
+        transformation_01: 256
+        transformation_02: 0
+        transformation_03: 386
+        transformation_04: 0
+        transformation_05: 288
+        transformation_06: 289
+        transformation_07: 0
+        transformation_08: 0
+        transformation_09: 0.5
+
+    02_Wall_17:
+      Type: 2
+      Texture_Offset:
+        x_offset: 0.5712
+        y_offset: 0
+      Transformation:
+        transformation_01: 256
+        transformation_02: 0
+        transformation_03: 388
+        transformation_04: 0
+        transformation_05: 288
+        transformation_06: 444
+        transformation_07: 0
+        transformation_08: 0
+        transformation_09: 0.5
+
+    02_Wall_18:
+      Type: 2
+      Texture_Offset:
+        x_offset: 0.5712
+        y_offset: 0
+      Transformation:
+        transformation_01: 256
+        transformation_02: 0
+        transformation_03: 390
+        transformation_04: 0
+        transformation_05: 288
+        transformation_06: 599
+        transformation_07: 0
+        transformation_08: 0
+        transformation_09: 0.5
+
+    02_Wall_19:
+      Type: 2
+      Texture_Offset:
+        x_offset: 0.5712
+        y_offset: 0
+      Transformation:
+        transformation_01: 256
+        transformation_02: 0
+        transformation_03: 392
+        transformation_04: 0
+        transformation_05: 288
+        transformation_06: 754
+        transformation_07: 0
+        transformation_08: 0
+        transformation_09: 0.5
+
+    02_Wall_20:
+      Type: 2
+      Texture_Offset:
+        x_offset: 0.5712
+        y_offset: 0
+      Transformation:
+        transformation_01: 256
+        transformation_02: 0
+        transformation_03: 394
+        transformation_04: 0
+        transformation_05: 288
+        transformation_06: 909
+        transformation_07: 0
+        transformation_08: 0
+        transformation_09: 0.5
+
+    02_Wall_21:
+      Type: 2
+      Texture_Offset:
+        x_offset: 0.5712
+        y_offset: 0
+      Transformation:
+        transformation_01: 256
+        transformation_02: 0
+        transformation_03: 512
+        transformation_04: 0
+        transformation_05: 288
+        transformation_06: 70
+        transformation_07: 0
+        transformation_08: 0
+        transformation_09: 0.5
+
+    02_Wall_22:
+      Type: 2
+      Texture_Offset:
+        x_offset: 0.5712
+        y_offset: 0
+      Transformation:
+        transformation_01: 256
+        transformation_02: 0
+        transformation_03: 514
+        transformation_04: 0
+        transformation_05: 288
+        transformation_06: 225
+        transformation_07: 0
+        transformation_08: 0
+        transformation_09: 0.5
+
+    02_Wall_23:
+      Type: 2
+      Texture_Offset:
+        x_offset: 0.5712
+        y_offset: 0
+      Transformation:
+        transformation_01: 256
+        transformation_02: 0
+        transformation_03: 516
+        transformation_04: 0
+        transformation_05: 288
+        transformation_06: 380
+        transformation_07: 0
+        transformation_08: 0
+        transformation_09: 0.5
+
+    02_Wall_24:
+      Type: 2
+      Texture_Offset:
+        x_offset: 0.5712
+        y_offset: 0
+      Transformation:
+        transformation_01: 256
+        transformation_02: 0
+        transformation_03: 518
+        transformation_04: 0
+        transformation_05: 288
+        transformation_06: 535
+        transformation_07: 0
+        transformation_08: 0
+        transformation_09: 0.5
+
+    02_Wall_25:
+      Type: 2
+      Texture_Offset:
+        x_offset: 0.5712
+        y_offset: 0
+      Transformation:
+        transformation_01: 256
+        transformation_02: 0
+        transformation_03: 520
+        transformation_04: 0
+        transformation_05: 288
+        transformation_06: 690
+        transformation_07: 0
+        transformation_08: 0
+        transformation_09: 0.5
+
+    02_Wall_26:
+      Type: 2
+      Texture_Offset:
+        x_offset: 0.5712
+        y_offset: 0
+      Transformation:
+        transformation_01: 256
+        transformation_02: 0
+        transformation_03: 522
+        transformation_04: 0
+        transformation_05: 288
+        transformation_06: 845
+        transformation_07: 0
+        transformation_08: 0
+        transformation_09: 0.5
+
+    02_Wall_27:
+      Type: 2
+      Texture_Offset:
+        x_offset: 0.2856
+        y_offset: 0
+      Transformation:
+        transformation_01: 256
+        transformation_02: 0
+        transformation_03: -128
+        transformation_04: 0
+        transformation_05: 288
+        transformation_06: 262
+        transformation_07: 0
+        transformation_08: 0
+        transformation_09: 0.5
+
+    02_Wall_28:
+      Type: 2
+      Texture_Offset:
+        x_offset: 0.2856
+        y_offset: 0
+      Transformation:
+        transformation_01: 256
+        transformation_02: 0
+        transformation_03: -126
+        transformation_04: 0
+        transformation_05: 288
+        transformation_06: 417
+        transformation_07: 0
+        transformation_08: 0
+        transformation_09: 0.5
+
+    02_Wall_29:
+      Type: 2
+      Texture_Offset:
+        x_offset: 0.2856
+        y_offset: 0
+      Transformation:
+        transformation_01: 256
+        transformation_02: 0
+        transformation_03: -124
+        transformation_04: 0
+        transformation_05: 288
+        transformation_06: 572
+        transformation_07: 0
+        transformation_08: 0
+        transformation_09: 0.5
+
+    02_Wall_30:
+      Type: 2
+      Texture_Offset:
+        x_offset: 0.2856
+        y_offset: 0
+      Transformation:
+        transformation_01: 256
+        transformation_02: 0
+        transformation_03: -122
+        transformation_04: 0
+        transformation_05: 288
+        transformation_06: 727
+        transformation_07: 0
+        transformation_08: 0
+        transformation_09: 0.5
+
+    02_Wall_31:
+      Type: 2
+      Texture_Offset:
+        x_offset: 0.2856
+        y_offset: 0
+      Transformation:
+        transformation_01: 256
+        transformation_02: 0
+        transformation_03: -120
+        transformation_04: 0
+        transformation_05: 288
+        transformation_06: 882
+        transformation_07: 0
+        transformation_08: 0
+        transformation_09: 0.5
+
+    02_Wall_32:
+      Type: 2
+      Texture_Offset:
+        x_offset: 0.1428
+        y_offset: 0
+      Transformation:
+        transformation_01: 256
+        transformation_02: 0
+        transformation_03: -256
+        transformation_04: 0
+        transformation_05: 288
+        transformation_06: 198
+        transformation_07: 0
+        transformation_08: 0
+        transformation_09: 0.5
+
+    02_Wall_33:
+      Type: 2
+      Texture_Offset:
+        x_offset: 0.1428
+        y_offset: 0
+      Transformation:
+        transformation_01: 256
+        transformation_02: 0
+        transformation_03: -254
+        transformation_04: 0
+        transformation_05: 288
+        transformation_06: 353
+        transformation_07: 0
+        transformation_08: 0
+        transformation_09: 0.5
+
+    02_Wall_34:
+      Type: 2
+      Texture_Offset:
+        x_offset: 0.1428
+        y_offset: 0
+      Transformation:
+        transformation_01: 256
+        transformation_02: 0
+        transformation_03: -252
+        transformation_04: 0
+        transformation_05: 288
+        transformation_06: 508
+        transformation_07: 0
+        transformation_08: 0
+        transformation_09: 0.5
+
+    02_Wall_35:
+      Type: 2
+      Texture_Offset:
+        x_offset: 0.1428
+        y_offset: 0
+      Transformation:
+        transformation_01: 256
+        transformation_02: 0
+        transformation_03: -250
+        transformation_04: 0
+        transformation_05: 288
+        transformation_06: 663
+        transformation_07: 0
+        transformation_08: 0
+        transformation_09: 0.5
+
+    02_Wall_36:
+      Type: 2
+      Texture_Offset:
+        x_offset: 0.1428
+        y_offset: 0
+      Transformation:
+        transformation_01: 256
+        transformation_02: 0
+        transformation_03: -248
+        transformation_04: 0
+        transformation_05: 288
+        transformation_06: 818
+        transformation_07: 0
+        transformation_08: 0
+        transformation_09: 0.5
+
+    02_Wall_37:
+      Type: 2
+      Texture_Offset:
+        x_offset: 0.2856
+        y_offset: 0
+      Transformation:
+        transformation_01: 256
+        transformation_02: 0
+        transformation_03: -384
+        transformation_04: 0
+        transformation_05: 288
+        transformation_06: 134
+        transformation_07: 0
+        transformation_08: 0
+        transformation_09: 0.5
+
+    02_Wall_38:
+      Type: 2
+      Texture_Offset:
+        x_offset: 0.2856
+        y_offset: 0
+      Transformation:
+        transformation_01: 256
+        transformation_02: 0
+        transformation_03: -382
+        transformation_04: 0
+        transformation_05: 288
+        transformation_06: 289
+        transformation_07: 0
+        transformation_08: 0
+        transformation_09: 0.5
+
+    02_Wall_39:
+      Type: 2
+      Texture_Offset:
+        x_offset: 0.2856
+        y_offset: 0
+      Transformation:
+        transformation_01: 256
+        transformation_02: 0
+        transformation_03: -380
+        transformation_04: 0
+        transformation_05: 288
+        transformation_06: 444
+        transformation_07: 0
+        transformation_08: 0
+        transformation_09: 0.5
+
+    02_Wall_40:
+      Type: 2
+      Texture_Offset:
+        x_offset: 0.2856
+        y_offset: 0
+      Transformation:
+        transformation_01: 256
+        transformation_02: 0
+        transformation_03: -378
+        transformation_04: 0
+        transformation_05: 288
+        transformation_06: 599
+        transformation_07: 0
+        transformation_08: 0
+        transformation_09: 0.5
+
+    02_Wall_41:
+      Type: 2
+      Texture_Offset:
+        x_offset: 0.2856
+        y_offset: 0
+      Transformation:
+        transformation_01: 256
+        transformation_02: 0
+        transformation_03: -376
+        transformation_04: 0
+        transformation_05: 288
+        transformation_06: 754
+        transformation_07: 0
+        transformation_08: 0
+        transformation_09: 0.5
+
+    02_Wall_42:
+      Type: 2
+      Texture_Offset:
+        x_offset: 0.2856
+        y_offset: 0
+      Transformation:
+        transformation_01: 256
+        transformation_02: 0
+        transformation_03: -374
+        transformation_04: 0
+        transformation_05: 288
+        transformation_06: 909
+        transformation_07: 0
+        transformation_08: 0
+        transformation_09: 0.5
+
+    02_Wall_43:
+      Type: 2
+      Texture_Offset:
+        x_offset: 0.2856
+        y_offset: 0
+      Transformation:
+        transformation_01: 256
+        transformation_02: 0
+        transformation_03: -512
+        transformation_04: 0
+        transformation_05: 288
+        transformation_06: 70
+        transformation_07: 0
+        transformation_08: 0
+        transformation_09: 0.5
+
+    02_Wall_44:
+      Type: 2
+      Texture_Offset:
+        x_offset: 0.2856
+        y_offset: 0
+      Transformation:
+        transformation_01: 256
+        transformation_02: 0
+        transformation_03: -510
+        transformation_04: 0
+        transformation_05: 288
+        transformation_06: 225
+        transformation_07: 0
+        transformation_08: 0
+        transformation_09: 0.5
+
+    02_Wall_45:
+      Type: 2
+      Texture_Offset:
+        x_offset: 0.2856
+        y_offset: 0
+      Transformation:
+        transformation_01: 256
+        transformation_02: 0
+        transformation_03: -508
+        transformation_04: 0
+        transformation_05: 288
+        transformation_06: 380
+        transformation_07: 0
+        transformation_08: 0
+        transformation_09: 0.5
+
+    02_Wall_46:
+      Type: 2
+      Texture_Offset:
+        x_offset: 0.2856
+        y_offset: 0
+      Transformation:
+        transformation_01: 256
+        transformation_02: 0
+        transformation_03: -506
+        transformation_04: 0
+        transformation_05: 288
+        transformation_06: 535
+        transformation_07: 0
+        transformation_08: 0
+        transformation_09: 0.5
+
+    02_Wall_47:
+      Type: 2
+      Texture_Offset:
+        x_offset: 0.2856
+        y_offset: 0
+      Transformation:
+        transformation_01: 256
+        transformation_02: 0
+        transformation_03: -504
+        transformation_04: 0
+        transformation_05: 288
+        transformation_06: 690
+        transformation_07: 0
+        transformation_08: 0
+        transformation_09: 0.5
+
+    02_Wall_48:
+      Type: 2
+      Texture_Offset:
+        x_offset: 0.2856
+        y_offset: 0
+      Transformation:
+        transformation_01: 256
+        transformation_02: 0
+        transformation_03: -502
+        transformation_04: 0
+        transformation_05: 288
+        transformation_06: 845
+        transformation_07: 0
+        transformation_08: 0
+        transformation_09: 0.5
+
+  04_Portrait:
+    04_Portrait_00:
       Type: 4
       Texture_Offset:
         x_offset: 0
-        y_offset: 0.333
+        y_offset: 0
       Transformation:
-        transformation_01: 48.6
+        transformation_01: 102.6
         transformation_02: 0
-        transformation_03: -220
+        transformation_03: -140
         transformation_04: 0
-        transformation_05: 80.6
-        transformation_06: 165
+        transformation_05: 169.2
+        transformation_06: 300
         transformation_07: 0
         transformation_08: 0
         transformation_09: 0.5
 
-    04_SPortrait_02:
+    04_Portrait_01:
+      Type: 4
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0.2
+      Transformation:
+        transformation_01: 102.6
+        transformation_02: 0
+        transformation_03: -440
+        transformation_04: 0
+        transformation_05: 169.2
+        transformation_06: 630
+        transformation_07: 0
+        transformation_08: 0
+        transformation_09: 0.5
+
+    04_Portrait_02:
       Type: 4
       Texture_Offset:
         x_offset: 0.5
-        y_offset: 0.667
+        y_offset: 0.4
       Transformation:
-        transformation_01: 48.6
+        transformation_01: 102.6
         transformation_02: 0
-        transformation_03: 185
+        transformation_03: 370
         transformation_04: 0
-        transformation_05: 80.6
-        transformation_06: 185
+        transformation_05: 169.2
+        transformation_06: 670
         transformation_07: 0
         transformation_08: 0
         transformation_09: 0.5
 
-  05_SPortrait2:
-    05_SPortrait2_00:
+    04_Portrait_03:
+      Type: 4
+      Texture_Offset:
+        x_offset: 0.5
+        y_offset: 0.6
+      Transformation:
+        transformation_01: 102.6
+        transformation_02: 0
+        transformation_03: 400
+        transformation_04: 0
+        transformation_05: 169.2
+        transformation_06: 340
+        transformation_07: 0
+        transformation_08: 0
+        transformation_09: 0.5
+
+    04_Portrait_04:
+      Type: 4
+      Texture_Offset:
+        x_offset: 0.5
+        y_offset: 0.8
+      Transformation:
+        transformation_01: 102.6
+        transformation_02: 0
+        transformation_03: 150
+        transformation_04: 0
+        transformation_05: 169.2
+        transformation_06: 620
+        transformation_07: 0
+        transformation_08: 0
+        transformation_09: 0.5
+
+  05_Landscape:
+    05_Landscape_00:
       Type: 5
       Texture_Offset:
         x_offset: 0.5
         y_offset: 0
       Transformation:
-        transformation_01: 56.6
+        transformation_01: 124
         transformation_02: 0
-        transformation_03: 200
+        transformation_03: 480
         transformation_04: 0
-        transformation_05: 90
-        transformation_06: 20
+        transformation_05: 150
+        transformation_06: 460
         transformation_07: 0
         transformation_08: 0
         transformation_09: 0.5
 
-    05_SPortrait2_01:
+    05_Landscape_01:
+      Type: 5
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0.2
+      Transformation:
+        transformation_01: 124
+        transformation_02: 0
+        transformation_03: -160
+        transformation_04: 0
+        transformation_05: 150
+        transformation_06: 610
+        transformation_07: 0
+        transformation_08: 0
+        transformation_09: 0.5
+
+    05_Landscape_02:
+      Type: 5
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0.4
+      Transformation:
+        transformation_01: 124
+        transformation_02: 0
+        transformation_03: -400
+        transformation_04: 0
+        transformation_05: 150
+        transformation_06: 330
+        transformation_07: 0
+        transformation_08: 0
+        transformation_09: 0.5
+
+    05_Landscape_03:
+      Type: 5
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0.6
+      Transformation:
+        transformation_01: 124
+        transformation_02: 0
+        transformation_03: -490
+        transformation_04: 0
+        transformation_05: 140
+        transformation_06: 450
+        transformation_07: 0
+        transformation_08: 0
+        transformation_09: 0.5
+
+    05_Landscape_04:
       Type: 5
       Texture_Offset:
         x_offset: 0.5
-        y_offset: 0.5
+        y_offset: 0.8
       Transformation:
-        transformation_01: 56.6
+        transformation_01: 124
         transformation_02: 0
-        transformation_03: 75
+        transformation_03: 160
         transformation_04: 0
-        transformation_05: 90
-        transformation_06: 160
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-  06_MPortrait:
-    06_MPortrait_00:
-      Type: 6
-      Texture_Offset:
-        x_offset: 0.5
-        y_offset: 0
-      Transformation:
-        transformation_01: 64.6
-        transformation_02: 0
-        transformation_03: 240
-        transformation_04: 0
-        transformation_05: 75.2
-        transformation_06: 80
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    06_MPortrait_01:
-      Type: 6
-      Texture_Offset:
-        x_offset: 0
-        y_offset: 0.333
-      Transformation:
-        transformation_01: 64.6
-        transformation_02: 0
-        transformation_03: -80
-        transformation_04: 0
-        transformation_05: 75.2
-        transformation_06: 155
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    06_MPortrait_02:
-      Type: 6
-      Texture_Offset:
-        x_offset: 0
-        y_offset: 0.667
-      Transformation:
-        transformation_01: 64.6
-        transformation_02: 0
-        transformation_03: -200
-        transformation_04: 0
-        transformation_05: 75.2
-        transformation_06: 15
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-  07_LPortrait:
-    07_LPortrait_00:
-      Type: 7
-      Texture_Offset:
-        x_offset: 0
-        y_offset: 0
-      Transformation:
-        transformation_01: 80.64
-        transformation_02: 0
-        transformation_03: -245
-        transformation_04: 0
-        transformation_05: 79.2
-        transformation_06: 75
-        transformation_07: 0
-        transformation_08: 0
-        transformation_09: 0.5
-
-    07_LPortrait_01:
-      Type: 7
-      Texture_Offset:
-        x_offset: 0.5
-        y_offset: 0.5
-      Transformation:
-        transformation_01: 80.64
-        transformation_02: 0
-        transformation_03: 80
-        transformation_04: 0
-        transformation_05: 79.2
-        transformation_06: 75
+        transformation_05: 140
+        transformation_06: 450
         transformation_07: 0
         transformation_08: 0
         transformation_09: 0.5

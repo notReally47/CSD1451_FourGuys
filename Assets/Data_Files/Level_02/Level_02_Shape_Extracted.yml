@@ -4,34 +4,34 @@ Object:
     Type: 0
     Mesh:
       uv_01: 0
-      uv_02: 0
-      uv_03: 0
-      uv_04: 0
+      uv_02: 0.125
+      uv_03: 0.0909
+      uv_04: 0.125
       uv_05: 0
       uv_06: 0
     Texture: "../Assets/Sprites/player.png"
 
-  01_Wall:
+  01_Floor:
     Type: 1
-    Mesh:
-      uv_01: 0
-      uv_02: 1
-      uv_03: 0.142
-      uv_04: 1
-      uv_05: 0
-      uv_06: 0
-    Texture: "../Assets/Textures/wall.png"
-
-  02_Floor:
-    Type: 2
     Mesh:
       uv_01: 0
       uv_02: 1
       uv_03: 1
       uv_04: 1
       uv_05: 0
-      uv_06: 0.5
+      uv_06: 0
     Texture: "../Assets/Textures/floor.png"
+
+  02_Wall:
+    Type: 2
+    Mesh:
+      uv_01: 0
+      uv_02: 1
+      uv_03: 0.1428
+      uv_04: 1
+      uv_05: 0
+      uv_06: 0
+    Texture: "../Assets/Textures/wall.png"
 
   03_Decoration:
     Type: 3
@@ -44,47 +44,25 @@ Object:
       uv_06: 0
     Texture: "../Assets/Props/candles.png"
 
-  04_SPortrait:
+  04_Portrait:
     Type: 4
     Mesh:
       uv_01: 0
-      uv_02: 0.333
+      uv_02: 0.2
       uv_03: 0.25
-      uv_04: 0.333
+      uv_04: 0.2
       uv_05: 0
       uv_06: 0
-    Texture: "../Assets/Props/smallportraits.png"
+    Texture: "../Assets/Props/portrait.png"
 
-  05_SPortrait2:
+  05_Landscape:
     Type: 5
     Mesh:
       uv_01: 0
-      uv_02: 0.5
+      uv_02: 0.2
       uv_03: 0.25
-      uv_04: 0.5
+      uv_04: 0.2
       uv_05: 0
       uv_06: 0
-    Texture: "../Assets/Props/smallportraits2.png"
-
-  06_MPortrait:
-    Type: 6
-    Mesh:
-      uv_01: 0
-      uv_02: 0.333
-      uv_03: 0.25
-      uv_04: 0.333
-      uv_05: 0
-      uv_06: 0
-    Texture: "../Assets/Props/mediumportraits.png"
-
-  07_LPortrait:
-    Type: 7
-    Mesh:
-      uv_01: 0
-      uv_02: 0.5
-      uv_03: 0.25
-      uv_04: 0.5
-      uv_05: 0
-      uv_06: 0
-    Texture: "../Assets/Props/largeportraits.png"
+    Texture: "../Assets/Props/landscape.png"
 

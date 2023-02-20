@@ -50,7 +50,7 @@ namespace Load_Values {
 		
 		// Strings for Filtering through the YAML file
 		string find_object = "Object", 
-			object_types = "Player Wall Floor Decoration SPortrait2 Sportrait MPortrait LPortrait Platform Highlight", 
+			object_types = "Player Wall Floor Decoration Portrait Landscape Platform", 
 			object_type{ 0 }, object_type_number{ 0 }, object_data_type{ 0 };
 
 		// YAML file to read from
@@ -124,10 +124,10 @@ namespace Load_Values {
 								}
 
 								// Print to console for debugging purposes
-								cout << object_type << ' ' << object_type_number << ' ' << "Type: " << vff->type << ' ' 
-									<< "Mesh: " << vff->uv_01 << ' ' << vff->uv_02 << ' ' << vff->uv_03 << ' ' << vff->uv_04 << ' ' << vff->uv_05 << ' ' 
-									<< "Offset: " << vff->texture_offset_x << ' ' << vff->texture_offset_y << ' ' 
-									<< "Transform: " << vff->transform_01 << ' ' << vff->transform_02 << ' ' << vff->transform_03 << ' ' << vff->transform_04 << endl;
+								//cout << object_type << ' ' << object_type_number << ' ' << "Type: " << vff->type << ' ' 
+									//<< "Mesh: " << vff->uv_01 << ' ' << vff->uv_02 << ' ' << vff->uv_03 << ' ' << vff->uv_04 << ' ' << vff->uv_05 << ' ' 
+									//<< "Offset: " << vff->texture_offset_x << ' ' << vff->texture_offset_y << ' ' 
+									//<< "Transform: " << vff->transform_01 << ' ' << vff->transform_02 << ' ' << vff->transform_03 << ' ' << vff->transform_04 << endl;
 
 								// Push into Vector
 								vector_vff.push_back(*vff);
@@ -208,27 +208,15 @@ namespace Load_Values {
 			data_file << "  " << object_type << ":" << endl;
 		}
 		else if (vff[index].type == 4) {
-			object_type = "SPortrait";								// Set to SPortrait
+			object_type = "Portrait";								// Set to SPortrait
 			data_file << "  " << object_type << ":" << endl;
 		}
 		else if (vff[index].type == 5) {
-			object_type = "SPortrait2";								// Set to SPortrait2
+			object_type = "Landscape";								// Set to SPortrait2
 			data_file << "  " << object_type << ":" << endl;
 		}
 		else if (vff[index].type == 6) {
-			object_type = "MPortrait";								// Set to MPortrait
-			data_file << "  " << object_type << ":" << endl;
-		}
-		else if (vff[index].type == 7) {
-			object_type = "LPortrait";								// Set to LPortrait
-			data_file << "  " << object_type << ":" << endl;
-		}
-		else if (vff[index].type == 8) {
-			object_type = "Platform";								// Set to Platform
-			data_file << "  " << object_type << ":" << endl;
-		}
-		else if (vff[index].type == 9) {
-			object_type = "Highlight";								// Set to Highlight
+			object_type = "Platform";								// Set to MPortrait
 			data_file << "  " << object_type << ":" << endl;
 		}
 	}// END set_object_type
