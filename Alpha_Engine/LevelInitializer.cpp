@@ -31,9 +31,9 @@ namespace Level_Initializer {
 			object_instance[i].tex_offset = { vOT[i].texture_offset_x, vOT[i].texture_offset_y };
 
 			// Set ObjectInstance Transformation
-			object_instance[i].transform = { vOT[i].transformation_01, vOT[i].transformation_02, vOT[i].transformation_03,
-											vOT[i].transformation_04, vOT[i].transformation_05, vOT[i].transformation_06,
-											vOT[i].transformation_07, vOT[i].transformation_08, vOT[i].transformation_09 };
+			object_instance[i].transform = { vOT[i].scale_x, vOT[i].shear_x, vOT[i].position_x,
+											vOT[i].scale_y, vOT[i].shear_y, vOT[i].position_y,
+											vOT[i].width, vOT[i].length, vOT[i].height };
 
 		}// END For-Loop
 

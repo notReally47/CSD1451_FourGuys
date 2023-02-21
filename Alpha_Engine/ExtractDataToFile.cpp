@@ -111,7 +111,7 @@ namespace Extract_Data_To_File {
 
 
 	void Set_Object_Transform_Type(vector<Load_Data_From_File::ObjectTransform>& vOT, string& object_type, int& object_count, int& index, ofstream& data_file) {
-		object_count = 0;											// Reset Object Count
+		object_count = 0;												// Reset Object Count
 		if (vOT[index].OS.type == 0) {
 			object_type = "00_Player";									// Set to Player
 			data_file << "  " << object_type << ":" << endl;
@@ -145,7 +145,7 @@ namespace Extract_Data_To_File {
 
 
 	void Set_Object_Shape_Type(vector<Load_Data_From_File::ObjectShape>& vOS, string& object_type, int& object_count, int& index, ofstream& data_file) {
-		object_count = 0;											// Reset Object Count
+		object_count = 0;												// Reset Object Count
 		if (vOS[index].type == 0) {
 			object_type = "00_Player";									// Set to Player
 			data_file << "  " << object_type << ":" << endl;
@@ -179,6 +179,7 @@ namespace Extract_Data_To_File {
 
 
 	void Print_To_Transform_YAML(vector<Load_Data_From_File::ObjectTransform>& vOT, Load_Data_From_File::PlayerProperties sPP, string& object_type, stringstream& object_type_number, int& index, ofstream& data_file) {
+		
 		// Print data of object to file
 		data_file << "    " << object_type << "_" << object_type_number.str() << ":" << endl;
 		object_type_number.str(string());
@@ -188,15 +189,19 @@ namespace Extract_Data_To_File {
 		data_file << "        " << "x_offset: " << vOT[index].texture_offset_x << endl;
 		data_file << "        " << "y_offset: " << vOT[index].texture_offset_y << endl;
 		data_file << "      " << "Transformation:" << endl;
-		data_file << "        " << "transformation_01: " << vOT[index].transformation_01 << endl;
-		data_file << "        " << "transformation_02: " << vOT[index].transformation_02 << endl;
-		data_file << "        " << "transformation_03: " << vOT[index].transformation_03 << endl;
-		data_file << "        " << "transformation_04: " << vOT[index].transformation_04 << endl;
-		data_file << "        " << "transformation_05: " << vOT[index].transformation_05 << endl;
-		data_file << "        " << "transformation_06: " << vOT[index].transformation_06 << endl;
-		data_file << "        " << "transformation_07: " << vOT[index].transformation_07 << endl;
-		data_file << "        " << "transformation_08: " << vOT[index].transformation_08 << endl;
-		data_file << "        " << "transformation_09: " << vOT[index].transformation_09 << endl;
+		data_file << "        " << "scale_x: " << vOT[index].scale_x << endl;
+		data_file << "        " << "shear_x: " << vOT[index].shear_x << endl;
+		data_file << "        " << "position_x: " << vOT[index].position_x << endl;
+		data_file << "        " << "scale_y: " << vOT[index].scale_y << endl;
+		data_file << "        " << "shear_y: " << vOT[index].shear_y << endl;
+		data_file << "        " << "position_y: " << vOT[index].position_y << endl;
+		data_file << "        " << "width: " << vOT[index].width << endl;
+		data_file << "        " << "length: " << vOT[index].length << endl;
+		data_file << "        " << "height: " << vOT[index].height << endl;
+		data_file << "      " << "Elapsed: " << vOT[index].elapsed << endl;
+		data_file << "      " << "Z_Axis: " << vOT[index].z_axis << endl;
+
+		// Player Stats
 		if (vOT[index].OS.type == Enum::TYPE::PLAYER) {
 			data_file << "      " << "Direction:" << endl;
 			data_file << "        " << "direction_x: " << sPP.direction.x << endl;
@@ -208,12 +213,15 @@ namespace Extract_Data_To_File {
 			data_file << "      " << "Speed: " << sPP.speed << endl;
 			data_file << "      " << "Sprite_Iteration: " << sPP.sprite_iteration << endl;
 		}
+
 		data_file << endl;
+
 	}// END Print_To_Transform_YAML
 
 
 
 	void Print_To_Shape_YAML(vector<Load_Data_From_File::ObjectShape>& vOS, string& object_type, stringstream& object_type_number, int& index, ofstream& data_file) {
+		
 		// Print data of object to file
 		object_type_number.str(string());
 		data_file << "    " << "Type: " << vOS[index].type << endl;
@@ -225,6 +233,7 @@ namespace Extract_Data_To_File {
 		data_file << "      " << "uv_05: " << vOS[index].uv_05 << endl;
 		data_file << "      " << "uv_06: " << vOS[index].uv_06 << endl;
 		data_file << "    " << "Texture: " << "\"" << vOS[index].texture_file << "\"" << endl << endl;
+
 	}// END Print_To_Shape_YAML
 
 

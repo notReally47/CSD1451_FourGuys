@@ -22,9 +22,11 @@ namespace Load_Data_From_File{
 		ObjectShape OS;
 		unsigned char flag;
 		f32 texture_offset_x, texture_offset_y;
-		f32 transformation_01, transformation_02, transformation_03,
-			transformation_04, transformation_05, transformation_06,
-			transformation_07, transformation_08, transformation_09;
+		f32 scale_x, shear_x, position_x,
+			shear_y, scale_y, position_y,
+			width, length, height;
+		f32 elapsed;
+		f32 z_axis;
 	};
 
 

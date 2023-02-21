@@ -18,10 +18,12 @@ namespace Load_Data_From_File {
 			object_types = "00_Player 01_Floor 02_Wall 03_Decoration 04_Portrait 05_Landscape 08_Platform",
 			object_type{ 0 }, object_type_number{ 0 }, object_data_type{ 0 };
 
-		string file_name{ "../Assets/Data_Files/Level_" + level_number + "/Level_" + level_number + "_Shape.yml" };
 		// YAML file to read from
-		ifstream ifs(file_name);
 
+		string file_name{ "../Assets/Data_Files/Level_" + level_number + "/Level_" + level_number + "_Shape.yml" };
+		ifstream ifs(file_name.c_str());
+		if (!ifs.good())
+			ifs.open("./Assets/Data_Files/Level_" + level_number + "/Level_" + level_number + "_Shape.yml");
 
 		// Vector to load data into
 		vector<ObjectShape> vector_os;
@@ -83,6 +85,7 @@ namespace Load_Data_From_File {
 		}
 
 		delete OS;
+		ifs.close();
 		return vector_os;
 
 	}// END LoadShapeFromYAML
@@ -96,9 +99,12 @@ namespace Load_Data_From_File {
 			object_types = "00_Player 01_Floor 02_Wall 03_Decoration 04_Portrait 05_Landscape 08_Platform",
 			object_type{ 0 }, object_type_number{ 0 }, object_data_type{ 0 };
 
-		string file_name{ "../Assets/Data_Files/Level_" + level_number + "/Level_" + level_number + "_Transform.yml" };
 		// YAML file to read from
+		string file_name{ "../Assets/Data_Files/Level_" + level_number + "/Level_" + level_number + "_Transform.yml" };
 		ifstream ifs(file_name.c_str());
+
+		if (!ifs.good())
+			ifs.open("./Assets/Data_Files/Level_" + level_number + "/Level_" + level_number + "_Transform.yml");
 
 		// Vector to load data into
 		vector<ObjectTransform> vector_ot;
@@ -157,15 +163,25 @@ namespace Load_Data_From_File {
 
 									// If Node is "Transformation"
 									if (object_data_type == "Transformation") {
-										l.second()["transformation_01"] >> OT->transformation_01;
-										l.second()["transformation_02"] >> OT->transformation_02;
-										l.second()["transformation_03"] >> OT->transformation_03;
-										l.second()["transformation_04"] >> OT->transformation_04;
-										l.second()["transformation_05"] >> OT->transformation_05;
-										l.second()["transformation_06"] >> OT->transformation_06;
-										l.second()["transformation_07"] >> OT->transformation_07;
-										l.second()["transformation_08"] >> OT->transformation_08;
-										l.second()["transformation_09"] >> OT->transformation_09;
+										l.second()["scale_x"] >> OT->scale_x;
+										l.second()["shear_x"] >> OT->shear_x;
+										l.second()["position_x"] >> OT->position_x;
+										l.second()["scale_y"] >> OT->scale_y;
+										l.second()["shear_y"] >> OT->shear_y;
+										l.second()["position_y"] >> OT->position_y;
+										l.second()["width"] >> OT->width;
+										l.second()["length"] >> OT->length;
+										l.second()["height"] >> OT->height;
+									}
+
+									// If Node is "Elapsed"
+									if (object_data_type == "Elapsed") {
+										l.second() >> OT->elapsed;
+									}
+
+									// If Node is "Z_Axis"
+									if (object_data_type == "Z_Axis") {
+										l.second() >> OT->z_axis;
 									}
 								}
 
@@ -179,6 +195,7 @@ namespace Load_Data_From_File {
 		}
 
 		delete OT;
+		ifs.close();
 		return vector_ot;
 
 	}// END LoadTransformFromYAML
@@ -191,9 +208,12 @@ namespace Load_Data_From_File {
 			object_types = "00_Player",
 			object_type{ 0 }, object_type_number{ 0 }, object_data_type{ 0 };
 
-		string file_name{ "../Assets/Data_Files/Level_" + level_number + "/Level_" + level_number + "_Transform.yml" };
 		// YAML file to read from
+		string file_name{ "../Assets/Data_Files/Level_" + level_number + "/Level_" + level_number + "_Transform.yml" };
 		ifstream ifs(file_name.c_str());
+
+		if (!ifs.good())
+			ifs.open("./Assets/Data_Files/Level_" + level_number + "/Level_" + level_number + "_Transform.yml");
 
 		// Struct to load data into
 		PlayerProperties* PP = new PlayerProperties;
@@ -264,6 +284,7 @@ namespace Load_Data_From_File {
 			}
 		}
 
+		ifs.close();
 		return PP;
 
 	}// END Load_Player_Stats_From_YAML
@@ -301,6 +322,7 @@ namespace Load_Data_From_File {
 
 		// Clear ObjectShape Vector
 		vOS.clear();
+
 
 	}// END LoadTextureToObject
 

@@ -45,7 +45,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>$(SolutionDir)Extern\AlphaEngine_V3.09\include;$(SolutionDir)Extern\yaml-cpp\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)Extern\AlphaEngine_V3.09\include;$(SolutionDir)Extern\yaml-cpp\include;$(SolutionDir)Assets</IncludePath>
     <LibraryPath>$(SolutionDir)Extern\AlphaEngine_V3.09\lib;$(SolutionDir)Extern\yaml-cpp\lib;$(LibraryPath)</LibraryPath>
     <OutDir>$(SolutionDir)\bin\$(Configuration)-$(Platform)\</OutDir>
     <IntDir>$(SolutionDir)\.tmp\$(Configuration)-$(Platform)\</IntDir>
@@ -54,7 +54,7 @@
     <LibraryPath>$(SolutionDir)Extern\AlphaEngine_V3.09\lib;$(SolutionDir)Extern\yaml-cpp\lib;$(LibraryPath)</LibraryPath>
     <OutDir>$(SolutionDir)\bin\$(Configuration)-$(Platform)\</OutDir>
     <IntDir>$(SolutionDir)\.tmp\$(Configuration)-$(Platform)\</IntDir>
-    <IncludePath>$(SolutionDir)Extern\AlphaEngine_V3.09\include;$(SolutionDir)Extern\yaml-cpp\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)Extern\AlphaEngine_V3.09\include;$(SolutionDir)Extern\yaml-cpp\include;$(SolutionDir)Assets</IncludePath>
     <LinkIncremental>
     </LinkIncremental>
   </PropertyGroup>
