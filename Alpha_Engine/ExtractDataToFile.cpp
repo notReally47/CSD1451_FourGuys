@@ -1,11 +1,9 @@
 #include <string>					// For std::string
 #include <sstream>					// For std::stringstream
-#include <iomanip>			
 #include <fstream>					// For std::istream/std::ostream
 #include <vector>					// For std::vector
 #include <iostream>					// For std::cout debugging
-#include "pch.h"					// For Precompiled Header Files
-#include "ExtractDataToFile.h"		
+#include "DataFiles.h"				// For ObjectTransform, ObjectShape & PlayerProperties
 
 namespace Extract_Data_To_File {
 

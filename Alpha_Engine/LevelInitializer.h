@@ -1,7 +1,6 @@
 #pragma once
 #include <vector>				// For std::vector
-#include "DataFiles.h"			// For Load_Data_From_File::
-#include "pch.h"				// For Character
+#include "DataFiles.h"			// For Load_Data_From_File:: & GameObjects::
 
 namespace Level_Initializer {
 

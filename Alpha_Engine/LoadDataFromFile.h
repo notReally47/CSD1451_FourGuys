@@ -1,7 +1,7 @@
 #pragma once
-#include "pch.h"			// For Precompiled Header Files
 #include <string>           // For std::string
 #include <vector>           // For std::vector
+#include "DataFiles.h"		// For Precompiled Header Files
 
 namespace Load_Data_From_File{
 

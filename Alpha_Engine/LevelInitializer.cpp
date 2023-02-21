@@ -1,6 +1,5 @@
 #include <vector>				// For std::vector	
-#include "pch.h"	
-#include "LevelInitializer.h"	// For Load_Data_From_File::
+#include "DataFiles.h"			// For Load_Data_From_File:: & GameObjects::
 
 namespace Level_Initializer {
 	using namespace std;

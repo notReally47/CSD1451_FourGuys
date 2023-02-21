@@ -2,8 +2,7 @@
 #include <fstream>					// For std::istream/std::ostream
 #include <vector>					// For std::vector
 #include <iostream>					// For std::cout debugging
-#include "pch.h"					// For Precompiled Header Files
-#include "LoadDataFromFile.h"		// For structs
+#include "DataFiles.h"				// For ObjectTransform, ObjectShape & PlayerProperties
 #include "yaml-cpp/yaml.h"			// For Parsing YAML Files
 
 namespace Load_Data_From_File {

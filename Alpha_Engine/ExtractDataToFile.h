@@ -1,9 +1,8 @@
 #pragma once
-#include "pch.h"					// For Precompiled Header Files
 #include <string>					// For std::string
 #include <fstream>					// For std::istream/std::ostream
 #include <vector>					// For std::vector
-#include "LoadDataFromFile.h"		// For ObjectTransform & ObjectShape
+#include "DataFiles.h"				// For ObjectTransform, ObjectShape & PlayerProperties
 
 namespace Extract_Data_To_File{
 
