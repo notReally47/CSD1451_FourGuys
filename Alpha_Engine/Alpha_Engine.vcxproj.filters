@@ -48,16 +48,13 @@
     <ClCompile Include="AnimationHandler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="LoadValues.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="LevelInitializer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="LoadTextures.cpp">
+    <ClCompile Include="LoadDataFromFile.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="LoadDataFromFile.cpp">
+    <ClCompile Include="ExtractDataToFile.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -95,16 +92,16 @@
     <ClInclude Include="AnimationHandler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="LoadValues.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="LevelInitializer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="LoadTextures.h">
+    <ClInclude Include="LoadDataFromFile.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="LoadDataFromFile.h">
+    <ClInclude Include="ExtractDataToFile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DataFiles.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

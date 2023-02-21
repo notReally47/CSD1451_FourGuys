@@ -25,9 +25,9 @@ namespace GameObjects
 		Object*						pObj;
 		unsigned char				flag;
 		AEVec2						tex_offset;
-		/*  [0][0] width,   [0][1] 0,       [0][2] pos x,
-			[1][0] 0,		[1][1] height,	[1][2] pos y,
-			[2][0] elapsed, [2][1] 0,		[2][2] pos z*/
+		/*  [0][0] scale_x,   [0][1] 0(shearx),       [0][2] pos x,
+			[1][0] 0(sheary),		[1][1] scale_y,	[1][2] pos y,
+			[2][0] width, [2][1] length,		[2][2] height*/
 		AEMtx33						transform;
 	};
 

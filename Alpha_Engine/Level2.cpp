@@ -3,10 +3,7 @@
 #include "InputHandler.h"
 #include "CollisionHandler.h"
 #include "GSM.h"
-#include "LoadValues.h"
-#include "LoadTextures.h"
-#include "LoadDataFromFile.h"
-#include "LevelInitializer.h"
+#include "DataFiles.h"
 #include "AnimationHandler.h"
 
 #define DEBUG
@@ -27,10 +24,13 @@ namespace Level2
 
 	std::vector<Load_Data_From_File::ObjectShape> vOS;
 	std::vector<Load_Data_From_File::ObjectTransform> vOT;
+	Load_Data_From_File::PlayerProperties* sPP;
 
 	void Level2_Load() {
 		vOS = Load_Data_From_File::Load_Shape_From_YAML(level_number);
 		vOT = Load_Data_From_File::Load_Transform_From_YAML(level_number, vOS);
+		sPP = Load_Data_From_File::Load_Player_Stats_From_YAML(level_number);
+
 
 		//static int count{ 0 };
 		//for (auto &iter : vOT) {
@@ -44,8 +44,8 @@ namespace Level2
 			}*/
 		//}
 		
-		//Load_Data_From_File::Extract_Shape_Data_Out(vOS, level_number);
-		//Load_Data_From_File::Extract_Transform_Data_Out(vOT, level_number);
+		//Extract_Data_To_File::Extract_Shape_Data_Out(vOS, level_number);
+		//Extract_Data_To_File::Extract_Transform_Data_Out(vOT, *sPP, level_number);
 		
 		Load_Data_From_File::Load_Shape_To_Object(vOS, objs);
 	}
@@ -55,18 +55,13 @@ namespace Level2
 		windowWidth = static_cast<f32>(AEGetWindowWidth());
 		windowHeight = static_cast<f32>(AEGetWindowHeight());
 
+
+
 		/*TRANSFORM OBJECTS*/
 		Level_Initializer::Init_Object(vOT, objs, objInst, (sizeof(objInst) / sizeof(objInst[0])));
 
 		/*CREATE PLAYER*/
-		p_player.pObjInst = objInst[0];
-		p_player.pObjInst.pObj = &player;
-
-		p_player.dir = { .0f, .0f };
-		p_player.input = { .0f, .0f };
-		p_player.rotation = .0f;
-		p_player.speed = 200.0f;
-		p_player.spriteIteration = 0;
+		Level_Initializer::Init_Player(sPP, p_player, &player, objInst[0]);
 
 	}
 
