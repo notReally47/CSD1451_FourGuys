@@ -8,6 +8,9 @@ namespace Level_Initializer {
 	void Init_Object(vector<Load_Data_From_File::ObjectTransform>& vOT, GameObjects::Object* object[], GameObjects::ObjectInst object_instance[], size_t object_instance_size) {
 		
 		// Loop Through ObjectInstances
+		// Scale
+		f32 s = 1920.0f / static_cast<f32>(AEGetWindowWidth());
+
 		for (size_t i{ 0 }; i < object_instance_size; i++) {
 
 			//Set Object to OnjectInstance

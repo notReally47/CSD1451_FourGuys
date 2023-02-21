@@ -14,11 +14,11 @@
 namespace Level2
 {
 	using namespace GameObjects;
-	Object player, floor, wall, deco, portrait, landscape; // platform
+	Object player, floor, wall, deco, portrait, landscape, platform; // 
 	Character p_player;
 	ObjectInst objInst[85];
 	f32 windowWidth, windowHeight;
-	Object *objs[]{&player, &floor, &wall, &deco, &portrait, &landscape};
+	Object *objs[]{&player, &floor, &wall, &deco, &portrait, &landscape, &platform};
   
 	const std::string level_number = "02";
 
@@ -31,17 +31,18 @@ namespace Level2
 		vOT = Load_Data_From_File::Load_Transform_From_YAML(level_number, vOS);
 		sPP = Load_Data_From_File::Load_Player_Stats_From_YAML(level_number);
 
-		static int count{ 0 };
-		for (auto &iter : vOT) {
-		//if (iter.OS.type == Enum::TYPE::PLAYER) {
-				iter.scale_x /= 2;
-				iter.shear_x /= 2;
-				iter.position_x /= 2;
-				iter.scale_y /= 2;
-				iter.shear_y /= 2;
-				iter.position_y /= 2;
-			//}
-		}
+
+		//static int count{ 0 };
+		//for (auto &iter : vOT) {
+/*			if (iter.OS.type == Enum::TYPE::PLAYER) {
+				iter.transformation_01 *= 2;
+				iter.transformation_02 *= 2;
+				iter.transformation_03 *= 2;
+				iter.transformation_04 *= 2;
+				iter.transformation_05 *= 2;
+				iter.transformation_06 *= 2;
+			}*/
+		//}
 		
 		//Extract_Data_To_File::Extract_Shape_Data_Out(vOS, level_number);
 		//Extract_Data_To_File::Extract_Transform_Data_Out(vOT, *sPP, level_number);
@@ -58,43 +59,6 @@ namespace Level2
 
 		/*TRANSFORM OBJECTS*/
 		Level_Initializer::Init_Object(vOT, objs, objInst, (sizeof(objInst) / sizeof(objInst[0])));
-
-
-
-		/*DATA TO BE ADD INTO DATA FILES*/
-
-		/*DATA FOR PLATFORM*/
-		/*
-		platform.type = Enum::TYPE::PLATFORM;
-		AEGfxMeshStart();
-		AEGfxTriAdd(
-			-0.5f, -0.5f, 0xFFFF0000, .0f, 1.0f,	// left bottom
-			1.0f, -1.0f, 0xFFFF0000, 1.0f, 1.0f,	// right bottom
-			-1.0f, 1.0f, 0xFFFF0000, .0f, .5f		// left top		y = 0.5f
-		);
-		AEGfxTriAdd(
-			1.0f, 1.0f, 0xFFFF0000, 1.0f, .5f,		// right top	y = 0.5f
-			1.0f, -1.0f, 0xFFFF0000, 1.0f, 1.0f,	// right bottom
-			-1.0f, 1.0f, 0xFFFF0000, .0f, .5f		// left top		y = 0.5f
-		);
-		platform.pMesh = AEGfxMeshEnd();
-		objInst[123].pObj = &platform;
-		objInst[123].flag = FLAG_INACTIVE;
-		objInst[123].tex_offset = { .0f, .0f };
-		objInst[123].transform = { 38.0f, .0f, .0f,
-								.0f, 38.0f, -16.0f,
-								.0f, .0f, 1.0f };
-		objInst[124].pObj = &platform;
-		objInst[124].flag = FLAG_ACTIVE;
-		objInst[124].tex_offset = { .0f, .0f };
-		objInst[124].transform = { 38.0f, .0f, 20.0f,
-								.0f, 38.0f, -80.0f,
-								.0f, .0f, 1.0f };
-		*/
-
-		/*LEFT AND RIGHT BOUNDARIES*/
-
-
 
 		/*CREATE PLAYER*/
 		Level_Initializer::Init_Player(sPP, p_player, &player, objInst[0]);
@@ -134,7 +98,6 @@ namespace Level2
 #endif // DEBUG
 
 		/*LEFT AND RIGHT BOUNDARY*/
-		p_player.pObjInst.transform.m[0][2] += checkBoundary(p_player);
 		bool check = checkPlatform(p_player);
 
 		//std::cout << check << std::endl;
@@ -173,6 +136,7 @@ namespace Level2
 		AEGfxMeshFree(deco.pMesh);
 		AEGfxMeshFree(portrait.pMesh);
 		AEGfxMeshFree(landscape.pMesh);
+		AEGfxMeshFree(platform.pMesh);
 	}
 
 	void Level2_Unload()
@@ -183,5 +147,6 @@ namespace Level2
 		AEGfxTextureUnload(deco.pTex);
 		AEGfxTextureUnload(portrait.pTex);
 		AEGfxTextureUnload(landscape.pTex);
+		AEGfxTextureUnload(platform.pTex);
 	}
 }

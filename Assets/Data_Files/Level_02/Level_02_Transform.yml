@@ -1651,7 +1651,7 @@ ObjectInstance:
       
     06_Platform_01:
       Type: 6
-      Flag: 0      
+      Flag: 0
       Texture_Offset:
         x_offset: 0
         y_offset: 0

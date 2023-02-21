@@ -29,6 +29,7 @@ namespace GameObjects
 	 */
 	void RenderObject(ObjectInst &obj) 
 	{
+		f32 dt = static_cast<f32>(AEFrameRateControllerGetFrameTime());
 		if (obj.pObj->type == Enum::TYPE::PORTRAIT || obj.pObj->type == Enum::TYPE::LANDSCAPE)
 		{
 			/*Set texture*/
@@ -47,6 +48,30 @@ namespace GameObjects
 		}	
 		else if (obj.pObj->type == Enum::TYPE::PLATFORM) 
 		{
+			if (obj.flag == FLAG_ALT1_S) {
+				obj.transform.m[2][0] += dt;
+				obj.transform.m[0][2] -= dt * 10.f;
+				obj.transform.m[1][2] += dt * 5.f;
+				obj.flag = (obj.transform.m[2][0] > 5.f) ? (obj.transform.m[2][0] = .0f, FLAG_ALT1_E) : obj.flag;
+			}
+			else if (obj.flag == FLAG_ALT1_E) {
+				obj.transform.m[2][0] += dt;
+				obj.transform.m[0][2] += dt * 10.f;
+				obj.transform.m[1][2] -= dt * 5.f;
+				obj.flag = (obj.transform.m[2][0] > 5.f) ? (obj.transform.m[2][0] = .0f, FLAG_ALT1_S) : obj.flag;
+			}
+			else if (obj.flag == FLAG_ALT2_S) {
+				obj.transform.m[2][0] += dt;
+				obj.transform.m[0][2] -= dt * 10.f;
+				obj.transform.m[1][2] -= dt * 5.f;
+				obj.flag = (obj.transform.m[2][0] > 5.f) ? (obj.transform.m[2][0] = .0f, FLAG_ALT2_E) : obj.flag;
+			}
+			else if (obj.flag == FLAG_ALT2_E) {
+				obj.transform.m[2][0] += dt;
+				obj.transform.m[0][2] += dt * 10.f;
+				obj.transform.m[1][2] += dt * 5.f;
+				obj.flag = (obj.transform.m[2][0] > 5.f) ? (obj.transform.m[2][0] = .0f, FLAG_ALT2_S) : obj.flag;
+			}
 			/*Set texture*/
 			AEGfxTextureSet(obj.pObj->pTex, obj.tex_offset.x, obj.tex_offset.y);
 		}
