@@ -1,8 +1,6 @@
-#include<iostream>
 #include <vector>				// For std::vector	
 #include "pch.h"	
-#include "LoadValues.h"			// For Load_Values::
-#include "LoadDataFromFile.h"	// For Load_Data_From_File::
+#include "LevelInitializer.h"	// For Load_Data_From_File::
 
 namespace Level_Initializer {
 	using namespace std;
@@ -28,7 +26,7 @@ namespace Level_Initializer {
 			else if (vOT[i].OS.type == Enum::TYPE::LANDSCAPE) {
 				object_instance[i].pObj = object[Enum::TYPE::LANDSCAPE];
 			}
-			object_instance[i].flag = GameObjects::FLAG_INACTIVE;
+			object_instance[i].flag = vOT[i].flag;
 			object_instance[i].tex_offset = { vOT[i].texture_offset_x, vOT[i].texture_offset_y };
 			object_instance[i].transform = { vOT[i].transformation_01, vOT[i].transformation_02, vOT[i].transformation_03,
 											vOT[i].transformation_04, vOT[i].transformation_05, vOT[i].transformation_06,
@@ -36,6 +34,22 @@ namespace Level_Initializer {
 		}
 		vOT.clear();
 	}// END Init_Object
+
+
+
+	void Init_Player(Load_Data_From_File::PlayerProperties* sPP, GameObjects::Character& p_player, GameObjects::Object* object, GameObjects::ObjectInst object_instance) {
+		p_player.pObjInst = object_instance;
+		p_player.pObjInst.pObj = object;
+
+		p_player.dir = (*sPP).direction;
+		p_player.input = (*sPP).input;
+		p_player.rotation = (*sPP).rotation;
+		p_player.speed = (*sPP).speed;
+		p_player.spriteIteration = (*sPP).sprite_iteration;
+
+		delete sPP;
+
+	}// END Init_Player
 
 
 

@@ -1,7 +1,6 @@
 #pragma once
 #include "pch.h"			// For Precompiled Header Files
 #include <string>           // For std::string
-#include <fstream>          // For std::istream/std::ostream
 #include <vector>           // For std::vector
 
 namespace Load_Data_From_File{
@@ -21,6 +20,7 @@ namespace Load_Data_From_File{
 
 	struct ObjectTransform {
 		ObjectShape OS;
+		unsigned char flag;
 		f32 texture_offset_x, texture_offset_y;
 		f32 transformation_01, transformation_02, transformation_03,
 			transformation_04, transformation_05, transformation_06,
@@ -29,11 +29,18 @@ namespace Load_Data_From_File{
 
 
 
+	struct PlayerProperties {
+		AEVec2 direction, input;
+		f32 rotation, speed;
+		int sprite_iteration;
+	};
+
+
+
 	vector<ObjectShape> Load_Shape_From_YAML(const string level_number);
 	vector<ObjectTransform> Load_Transform_From_YAML(const string level_number, vector<ObjectShape> vector_OS);
+	PlayerProperties* Load_Player_Stats_From_YAML(const string level_number);
 	void Load_Shape_To_Object(vector<ObjectShape>& vOS, GameObjects::Object* objs[]);
-	void Extract_Transform_Data_Out(vector<Load_Data_From_File::ObjectTransform>& vOT, const string level_number);
-	void Extract_Shape_Data_Out(vector<Load_Data_From_File::ObjectShape>& vOS, const string level_number);
 
 
 

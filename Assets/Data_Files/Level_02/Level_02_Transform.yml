@@ -3,6 +3,7 @@ ObjectInstance:
   00_Player:
     00_Player_00:
       Type: 0
+      Flag: 0
       Texture_Offset:
         x_offset: 0.429
         y_offset: 0
@@ -16,10 +17,20 @@ ObjectInstance:
         transformation_07: 0
         transformation_08: 0
         transformation_09: 0.5
+      Direction:
+        direction_x: 0
+        direction_y: 0
+      Input:
+        input_x: 0
+        input_y: 0
+      Rotation: 0
+      Speed: 200
+      Sprite_Iteration: 0
 
   01_Floor:
     01_Floor_00:
       Type: 1
+      Flag: 0
       Texture_Offset:
         x_offset: 0
         y_offset: 0
@@ -36,6 +47,7 @@ ObjectInstance:
 
     01_Floor_01:
       Type: 1
+      Flag: 0
       Texture_Offset:
         x_offset: 0
         y_offset: 0
@@ -52,6 +64,7 @@ ObjectInstance:
 
     01_Floor_02:
       Type: 1
+      Flag: 0
       Texture_Offset:
         x_offset: 0
         y_offset: 0
@@ -68,6 +81,7 @@ ObjectInstance:
 
     01_Floor_03:
       Type: 1
+      Flag: 0
       Texture_Offset:
         x_offset: 0
         y_offset: 0
@@ -84,6 +98,7 @@ ObjectInstance:
 
     01_Floor_04:
       Type: 1
+      Flag: 0
       Texture_Offset:
         x_offset: 0
         y_offset: 0
@@ -100,6 +115,7 @@ ObjectInstance:
 
     01_Floor_05:
       Type: 1
+      Flag: 0
       Texture_Offset:
         x_offset: 0
         y_offset: 0
@@ -116,6 +132,7 @@ ObjectInstance:
 
     01_Floor_06:
       Type: 1
+      Flag: 0
       Texture_Offset:
         x_offset: 0
         y_offset: 0
@@ -132,6 +149,7 @@ ObjectInstance:
 
     01_Floor_07:
       Type: 1
+      Flag: 0
       Texture_Offset:
         x_offset: 0
         y_offset: 0
@@ -148,6 +166,7 @@ ObjectInstance:
 
     01_Floor_08:
       Type: 1
+      Flag: 0
       Texture_Offset:
         x_offset: 0
         y_offset: 0
@@ -164,6 +183,7 @@ ObjectInstance:
 
     01_Floor_09:
       Type: 1
+      Flag: 0
       Texture_Offset:
         x_offset: 0
         y_offset: 0
@@ -180,6 +200,7 @@ ObjectInstance:
 
     01_Floor_10:
       Type: 1
+      Flag: 0
       Texture_Offset:
         x_offset: 0
         y_offset: 0
@@ -196,6 +217,7 @@ ObjectInstance:
 
     01_Floor_11:
       Type: 1
+      Flag: 0
       Texture_Offset:
         x_offset: 0
         y_offset: 0
@@ -212,6 +234,7 @@ ObjectInstance:
 
     01_Floor_12:
       Type: 1
+      Flag: 0
       Texture_Offset:
         x_offset: 0
         y_offset: 0
@@ -228,6 +251,7 @@ ObjectInstance:
 
     01_Floor_13:
       Type: 1
+      Flag: 0
       Texture_Offset:
         x_offset: 0
         y_offset: 0
@@ -244,6 +268,7 @@ ObjectInstance:
 
     01_Floor_14:
       Type: 1
+      Flag: 0
       Texture_Offset:
         x_offset: 0
         y_offset: 0
@@ -260,6 +285,7 @@ ObjectInstance:
 
     01_Floor_15:
       Type: 1
+      Flag: 0
       Texture_Offset:
         x_offset: 0
         y_offset: 0
@@ -276,6 +302,7 @@ ObjectInstance:
 
     01_Floor_16:
       Type: 1
+      Flag: 0
       Texture_Offset:
         x_offset: 0
         y_offset: 0
@@ -292,6 +319,7 @@ ObjectInstance:
 
     01_Floor_17:
       Type: 1
+      Flag: 0
       Texture_Offset:
         x_offset: 0
         y_offset: 0
@@ -308,6 +336,7 @@ ObjectInstance:
 
     01_Floor_18:
       Type: 1
+      Flag: 0
       Texture_Offset:
         x_offset: 0
         y_offset: 0
@@ -324,6 +353,7 @@ ObjectInstance:
 
     01_Floor_19:
       Type: 1
+      Flag: 0
       Texture_Offset:
         x_offset: 0
         y_offset: 0
@@ -340,6 +370,7 @@ ObjectInstance:
 
     01_Floor_20:
       Type: 1
+      Flag: 0
       Texture_Offset:
         x_offset: 0
         y_offset: 0
@@ -356,6 +387,7 @@ ObjectInstance:
 
     01_Floor_21:
       Type: 1
+      Flag: 0
       Texture_Offset:
         x_offset: 0
         y_offset: 0
@@ -372,6 +404,7 @@ ObjectInstance:
 
     01_Floor_22:
       Type: 1
+      Flag: 0
       Texture_Offset:
         x_offset: 0
         y_offset: 0
@@ -388,6 +421,7 @@ ObjectInstance:
 
     01_Floor_23:
       Type: 1
+      Flag: 0
       Texture_Offset:
         x_offset: 0
         y_offset: 0
@@ -404,6 +438,7 @@ ObjectInstance:
 
     01_Floor_24:
       Type: 1
+      Flag: 0
       Texture_Offset:
         x_offset: 0
         y_offset: 0
@@ -421,6 +456,7 @@ ObjectInstance:
   02_Wall:
     02_Wall_00:
       Type: 2
+      Flag: 0
       Texture_Offset:
         x_offset: 0.4284
         y_offset: 0
@@ -437,6 +473,7 @@ ObjectInstance:
 
     02_Wall_01:
       Type: 2
+      Flag: 0
       Texture_Offset:
         x_offset: 0.4284
         y_offset: 0
@@ -453,6 +490,7 @@ ObjectInstance:
 
     02_Wall_02:
       Type: 2
+      Flag: 0
       Texture_Offset:
         x_offset: 0.4284
         y_offset: 0
@@ -469,6 +507,7 @@ ObjectInstance:
 
     02_Wall_03:
       Type: 2
+      Flag: 0
       Texture_Offset:
         x_offset: 0.4284
         y_offset: 0
@@ -485,6 +524,7 @@ ObjectInstance:
 
     02_Wall_04:
       Type: 2
+      Flag: 0
       Texture_Offset:
         x_offset: 0.4284
         y_offset: 0
@@ -501,6 +541,7 @@ ObjectInstance:
 
     02_Wall_05:
       Type: 2
+      Flag: 0
       Texture_Offset:
         x_offset: 0.5712
         y_offset: 0
@@ -517,6 +558,7 @@ ObjectInstance:
 
     02_Wall_06:
       Type: 2
+      Flag: 0
       Texture_Offset:
         x_offset: 0.5712
         y_offset: 0
@@ -533,6 +575,7 @@ ObjectInstance:
 
     02_Wall_07:
       Type: 2
+      Flag: 0
       Texture_Offset:
         x_offset: 0.5712
         y_offset: 0
@@ -549,6 +592,7 @@ ObjectInstance:
 
     02_Wall_08:
       Type: 2
+      Flag: 0
       Texture_Offset:
         x_offset: 0.5712
         y_offset: 0
@@ -565,6 +609,7 @@ ObjectInstance:
 
     02_Wall_09:
       Type: 2
+      Flag: 0
       Texture_Offset:
         x_offset: 0.5712
         y_offset: 0
@@ -581,6 +626,7 @@ ObjectInstance:
 
     02_Wall_10:
       Type: 2
+      Flag: 0
       Texture_Offset:
         x_offset: 0.714
         y_offset: 0
@@ -597,6 +643,7 @@ ObjectInstance:
 
     02_Wall_11:
       Type: 2
+      Flag: 0
       Texture_Offset:
         x_offset: 0.714
         y_offset: 0
@@ -613,6 +660,7 @@ ObjectInstance:
 
     02_Wall_12:
       Type: 2
+      Flag: 0
       Texture_Offset:
         x_offset: 0.714
         y_offset: 0
@@ -629,6 +677,7 @@ ObjectInstance:
 
     02_Wall_13:
       Type: 2
+      Flag: 0
       Texture_Offset:
         x_offset: 0.714
         y_offset: 0
@@ -645,6 +694,7 @@ ObjectInstance:
 
     02_Wall_14:
       Type: 2
+      Flag: 0
       Texture_Offset:
         x_offset: 0.714
         y_offset: 0
@@ -661,6 +711,7 @@ ObjectInstance:
 
     02_Wall_15:
       Type: 2
+      Flag: 0
       Texture_Offset:
         x_offset: 0.5712
         y_offset: 0
@@ -677,6 +728,7 @@ ObjectInstance:
 
     02_Wall_16:
       Type: 2
+      Flag: 0
       Texture_Offset:
         x_offset: 0.5712
         y_offset: 0
@@ -693,6 +745,7 @@ ObjectInstance:
 
     02_Wall_17:
       Type: 2
+      Flag: 0
       Texture_Offset:
         x_offset: 0.5712
         y_offset: 0
@@ -709,6 +762,7 @@ ObjectInstance:
 
     02_Wall_18:
       Type: 2
+      Flag: 0
       Texture_Offset:
         x_offset: 0.5712
         y_offset: 0
@@ -725,6 +779,7 @@ ObjectInstance:
 
     02_Wall_19:
       Type: 2
+      Flag: 0
       Texture_Offset:
         x_offset: 0.5712
         y_offset: 0
@@ -741,6 +796,7 @@ ObjectInstance:
 
     02_Wall_20:
       Type: 2
+      Flag: 0
       Texture_Offset:
         x_offset: 0.5712
         y_offset: 0
@@ -757,6 +813,7 @@ ObjectInstance:
 
     02_Wall_21:
       Type: 2
+      Flag: 0
       Texture_Offset:
         x_offset: 0.5712
         y_offset: 0
@@ -773,6 +830,7 @@ ObjectInstance:
 
     02_Wall_22:
       Type: 2
+      Flag: 0
       Texture_Offset:
         x_offset: 0.5712
         y_offset: 0
@@ -789,6 +847,7 @@ ObjectInstance:
 
     02_Wall_23:
       Type: 2
+      Flag: 0
       Texture_Offset:
         x_offset: 0.5712
         y_offset: 0
@@ -805,6 +864,7 @@ ObjectInstance:
 
     02_Wall_24:
       Type: 2
+      Flag: 0
       Texture_Offset:
         x_offset: 0.5712
         y_offset: 0
@@ -821,6 +881,7 @@ ObjectInstance:
 
     02_Wall_25:
       Type: 2
+      Flag: 0
       Texture_Offset:
         x_offset: 0.5712
         y_offset: 0
@@ -837,6 +898,7 @@ ObjectInstance:
 
     02_Wall_26:
       Type: 2
+      Flag: 0
       Texture_Offset:
         x_offset: 0.5712
         y_offset: 0
@@ -853,6 +915,7 @@ ObjectInstance:
 
     02_Wall_27:
       Type: 2
+      Flag: 0
       Texture_Offset:
         x_offset: 0.2856
         y_offset: 0
@@ -869,6 +932,7 @@ ObjectInstance:
 
     02_Wall_28:
       Type: 2
+      Flag: 0
       Texture_Offset:
         x_offset: 0.2856
         y_offset: 0
@@ -885,6 +949,7 @@ ObjectInstance:
 
     02_Wall_29:
       Type: 2
+      Flag: 0
       Texture_Offset:
         x_offset: 0.2856
         y_offset: 0
@@ -901,6 +966,7 @@ ObjectInstance:
 
     02_Wall_30:
       Type: 2
+      Flag: 0
       Texture_Offset:
         x_offset: 0.2856
         y_offset: 0
@@ -917,6 +983,7 @@ ObjectInstance:
 
     02_Wall_31:
       Type: 2
+      Flag: 0
       Texture_Offset:
         x_offset: 0.2856
         y_offset: 0
@@ -933,6 +1000,7 @@ ObjectInstance:
 
     02_Wall_32:
       Type: 2
+      Flag: 0
       Texture_Offset:
         x_offset: 0.1428
         y_offset: 0
@@ -949,6 +1017,7 @@ ObjectInstance:
 
     02_Wall_33:
       Type: 2
+      Flag: 0
       Texture_Offset:
         x_offset: 0.1428
         y_offset: 0
@@ -965,6 +1034,7 @@ ObjectInstance:
 
     02_Wall_34:
       Type: 2
+      Flag: 0
       Texture_Offset:
         x_offset: 0.1428
         y_offset: 0
@@ -981,6 +1051,7 @@ ObjectInstance:
 
     02_Wall_35:
       Type: 2
+      Flag: 0
       Texture_Offset:
         x_offset: 0.1428
         y_offset: 0
@@ -997,6 +1068,7 @@ ObjectInstance:
 
     02_Wall_36:
       Type: 2
+      Flag: 0
       Texture_Offset:
         x_offset: 0.1428
         y_offset: 0
@@ -1013,6 +1085,7 @@ ObjectInstance:
 
     02_Wall_37:
       Type: 2
+      Flag: 0
       Texture_Offset:
         x_offset: 0.2856
         y_offset: 0
@@ -1029,6 +1102,7 @@ ObjectInstance:
 
     02_Wall_38:
       Type: 2
+      Flag: 0
       Texture_Offset:
         x_offset: 0.2856
         y_offset: 0
@@ -1045,6 +1119,7 @@ ObjectInstance:
 
     02_Wall_39:
       Type: 2
+      Flag: 0
       Texture_Offset:
         x_offset: 0.2856
         y_offset: 0
@@ -1061,6 +1136,7 @@ ObjectInstance:
 
     02_Wall_40:
       Type: 2
+      Flag: 0
       Texture_Offset:
         x_offset: 0.2856
         y_offset: 0
@@ -1077,6 +1153,7 @@ ObjectInstance:
 
     02_Wall_41:
       Type: 2
+      Flag: 0
       Texture_Offset:
         x_offset: 0.2856
         y_offset: 0
@@ -1093,6 +1170,7 @@ ObjectInstance:
 
     02_Wall_42:
       Type: 2
+      Flag: 0
       Texture_Offset:
         x_offset: 0.2856
         y_offset: 0
@@ -1109,6 +1187,7 @@ ObjectInstance:
 
     02_Wall_43:
       Type: 2
+      Flag: 0
       Texture_Offset:
         x_offset: 0.2856
         y_offset: 0
@@ -1125,6 +1204,7 @@ ObjectInstance:
 
     02_Wall_44:
       Type: 2
+      Flag: 0
       Texture_Offset:
         x_offset: 0.2856
         y_offset: 0
@@ -1141,6 +1221,7 @@ ObjectInstance:
 
     02_Wall_45:
       Type: 2
+      Flag: 0
       Texture_Offset:
         x_offset: 0.2856
         y_offset: 0
@@ -1157,6 +1238,7 @@ ObjectInstance:
 
     02_Wall_46:
       Type: 2
+      Flag: 0
       Texture_Offset:
         x_offset: 0.2856
         y_offset: 0
@@ -1173,6 +1255,7 @@ ObjectInstance:
 
     02_Wall_47:
       Type: 2
+      Flag: 0
       Texture_Offset:
         x_offset: 0.2856
         y_offset: 0
@@ -1189,6 +1272,7 @@ ObjectInstance:
 
     02_Wall_48:
       Type: 2
+      Flag: 0
       Texture_Offset:
         x_offset: 0.2856
         y_offset: 0
@@ -1206,6 +1290,7 @@ ObjectInstance:
   04_Portrait:
     04_Portrait_00:
       Type: 4
+      Flag: 0
       Texture_Offset:
         x_offset: 0
         y_offset: 0
@@ -1222,6 +1307,7 @@ ObjectInstance:
 
     04_Portrait_01:
       Type: 4
+      Flag: 0
       Texture_Offset:
         x_offset: 0
         y_offset: 0.2
@@ -1238,6 +1324,7 @@ ObjectInstance:
 
     04_Portrait_02:
       Type: 4
+      Flag: 0
       Texture_Offset:
         x_offset: 0.5
         y_offset: 0.4
@@ -1254,6 +1341,7 @@ ObjectInstance:
 
     04_Portrait_03:
       Type: 4
+      Flag: 0
       Texture_Offset:
         x_offset: 0.5
         y_offset: 0.6
@@ -1270,6 +1358,7 @@ ObjectInstance:
 
     04_Portrait_04:
       Type: 4
+      Flag: 0
       Texture_Offset:
         x_offset: 0.5
         y_offset: 0.8
@@ -1287,6 +1376,7 @@ ObjectInstance:
   05_Landscape:
     05_Landscape_00:
       Type: 5
+      Flag: 0
       Texture_Offset:
         x_offset: 0.5
         y_offset: 0
@@ -1303,6 +1393,7 @@ ObjectInstance:
 
     05_Landscape_01:
       Type: 5
+      Flag: 0
       Texture_Offset:
         x_offset: 0
         y_offset: 0.2
@@ -1319,6 +1410,7 @@ ObjectInstance:
 
     05_Landscape_02:
       Type: 5
+      Flag: 0
       Texture_Offset:
         x_offset: 0
         y_offset: 0.4
@@ -1335,6 +1427,7 @@ ObjectInstance:
 
     05_Landscape_03:
       Type: 5
+      Flag: 0
       Texture_Offset:
         x_offset: 0
         y_offset: 0.6
@@ -1351,6 +1444,7 @@ ObjectInstance:
 
     05_Landscape_04:
       Type: 5
+      Flag: 0
       Texture_Offset:
         x_offset: 0.5
         y_offset: 0.8

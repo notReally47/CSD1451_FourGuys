@@ -108,6 +108,7 @@ xcopy "$(SolutionDir)Extern\AlphaEngine_V3.09\lib\fmod.dll" "$(OutDir)" /s /r /y
   <ItemGroup>
     <ClCompile Include="AnimationHandler.cpp" />
     <ClCompile Include="CollisionHandler.cpp" />
+    <ClCompile Include="ExtractDataToFile.cpp" />
     <ClCompile Include="GameObjects.cpp" />
     <ClCompile Include="GSM.cpp" />
     <ClCompile Include="InputHandler.cpp" />
@@ -115,8 +116,6 @@ xcopy "$(SolutionDir)Extern\AlphaEngine_V3.09\lib\fmod.dll" "$(OutDir)" /s /r /y
     <ClCompile Include="Level2.cpp" />
     <ClCompile Include="LevelInitializer.cpp" />
     <ClCompile Include="LoadDataFromFile.cpp" />
-    <ClCompile Include="LoadTextures.cpp" />
-    <ClCompile Include="LoadValues.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MainMenu.cpp" />
     <ClCompile Include="pch.cpp" />
@@ -125,6 +124,8 @@ xcopy "$(SolutionDir)Extern\AlphaEngine_V3.09\lib\fmod.dll" "$(OutDir)" /s /r /y
   <ItemGroup>
     <ClInclude Include="AnimationHandler.h" />
     <ClInclude Include="CollisionHandler.h" />
+    <ClInclude Include="DataFiles.h" />
+    <ClInclude Include="ExtractDataToFile.h" />
     <ClInclude Include="GameObjects.h" />
     <ClInclude Include="GSM.h" />
     <ClInclude Include="Enum.h" />
@@ -133,8 +134,6 @@ xcopy "$(SolutionDir)Extern\AlphaEngine_V3.09\lib\fmod.dll" "$(OutDir)" /s /r /y
     <ClInclude Include="Level2.h" />
     <ClInclude Include="LevelInitializer.h" />
     <ClInclude Include="LoadDataFromFile.h" />
-    <ClInclude Include="LoadTextures.h" />
-    <ClInclude Include="LoadValues.h" />
     <ClInclude Include="MainMenu.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="SystemHandler.h" />
