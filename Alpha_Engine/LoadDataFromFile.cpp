@@ -3,7 +3,7 @@
 #include <vector>					// For std::vector
 #include <iostream>					// For std::cout debugging
 #include "DataFiles.h"				// For ObjectTransform, ObjectShape & PlayerProperties
-#include "yaml-cpp/yaml.h"			// For Parsing YAML Files
+#include <yaml-cpp/yaml.h>			// For Parsing YAML Files
 
 namespace Load_Data_From_File {
 
@@ -18,15 +18,17 @@ namespace Load_Data_From_File {
 			object_types = "00_Player 01_Floor 02_Wall 03_Decoration 04_Portrait 05_Landscape 08_Platform",
 			object_type{ 0 }, object_type_number{ 0 }, object_data_type{ 0 };
 
+		string file_name{ "../Assets/Data_Files/Level_" + level_number + "/Level_" + level_number + "_Shape.yml" };
 		// YAML file to read from
-		ifstream file_name("../Assets/Data_Files/Level_" + level_number + "/Level_" + level_number + "_Shape.yml");
+		ifstream ifs(file_name);
+
 
 		// Vector to load data into
 		vector<ObjectShape> vector_os;
 		ObjectShape* OS = new ObjectShape;
 
 		// Parse YAML File
-		YAML::Parser parser(file_name);
+		YAML::Parser parser(ifs);
 		YAML::Node yaml_document;
 		parser.GetNextDocument(yaml_document);
 
@@ -94,15 +96,16 @@ namespace Load_Data_From_File {
 			object_types = "00_Player 01_Floor 02_Wall 03_Decoration 04_Portrait 05_Landscape 08_Platform",
 			object_type{ 0 }, object_type_number{ 0 }, object_data_type{ 0 };
 
+		string file_name{ "../Assets/Data_Files/Level_" + level_number + "/Level_" + level_number + "_Transform.yml" };
 		// YAML file to read from
-		ifstream file_name("../Assets/Data_Files/Level_" + level_number + "/Level_" + level_number + "_Transform.yml");
+		ifstream ifs(file_name.c_str());
 
 		// Vector to load data into
 		vector<ObjectTransform> vector_ot;
 		ObjectTransform* OT = new ObjectTransform;
 
 		// Parse YAML File
-		YAML::Parser parser(file_name);
+		YAML::Parser parser(ifs);
 		YAML::Node yaml_document;
 		parser.GetNextDocument(yaml_document);
 
@@ -188,14 +191,15 @@ namespace Load_Data_From_File {
 			object_types = "00_Player",
 			object_type{ 0 }, object_type_number{ 0 }, object_data_type{ 0 };
 
+		string file_name{ "../Assets/Data_Files/Level_" + level_number + "/Level_" + level_number + "_Transform.yml" };
 		// YAML file to read from
-		ifstream file_name("../Assets/Data_Files/Level_" + level_number + "/Level_" + level_number + "_Transform.yml");
+		ifstream ifs(file_name.c_str());
 
 		// Struct to load data into
 		PlayerProperties* PP = new PlayerProperties;
 
 		// Parse YAML File
-		YAML::Parser parser(file_name);
+		YAML::Parser parser(ifs);
 		YAML::Node yaml_document;
 		parser.GetNextDocument(yaml_document);
 
@@ -267,13 +271,17 @@ namespace Load_Data_From_File {
 
 
 	void Load_Shape_To_Object(vector<ObjectShape>& vOS, GameObjects::Object* objs[]) {
-
+		
+		// Iterate through ObjectShape Vector
 		for (auto iter : vOS) {
 
+			// Set Object Type
 			objs[iter.type]->type = iter.type;
 
+			// Set Object Texture and assert message if failed
 			AE_ASSERT_MESG(objs[iter.type]->pTex = AEGfxTextureLoad(iter.texture_file.c_str()), "Failed to load texture");
 
+			// Start creating mesh for object
 			AEGfxMeshStart();
 			AEGfxTriAdd(
 				-0.5f, -0.5f, 0xFFFF0000, iter.uv_01, iter.uv_02,	// bottom left
@@ -285,10 +293,13 @@ namespace Load_Data_From_File {
 				0.5f, -0.5f, 0xFFFF0000, iter.uv_03, iter.uv_04,	// bottom right
 				-0.5f, 0.5f, 0xFFFF0000, iter.uv_05, iter.uv_06		// top left
 			);
+
+			// Set Object Mesh
 			objs[iter.type]->pMesh = AEGfxMeshEnd();
 			
 		}
 
+		// Clear ObjectShape Vector
 		vOS.clear();
 
 	}// END LoadTextureToObject

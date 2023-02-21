@@ -25,7 +25,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
 	/*INITIALIZATIONS*/
 	SystemHandler::System_Initialize(hInstance, nCmdShow);
-	AE_ASSERT_MESG(fontId = AEGfxCreateFont("Roboto-Regular.ttf", 12), "Failed to load font");
+	//AE_ASSERT_MESG(fontId = AEGfxCreateFont("Roboto-Regular.ttf", 12), "Failed to load font");
 	GSM_Init(current);
 
 	/*GAME LOOP*/

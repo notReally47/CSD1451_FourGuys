@@ -1,6 +1,5 @@
 #pragma once
 #include <string>					// For std::string
-#include <fstream>					// For std::istream/std::ostream
 #include <vector>					// For std::vector
 #include "DataFiles.h"				// For ObjectTransform, ObjectShape & PlayerProperties
 
