@@ -267,6 +267,7 @@ namespace Load_Data_From_File {
 
 
 	void Load_Shape_To_Object(vector<ObjectShape>& vOS, GameObjects::Object* objs[]) {
+
 		for (auto iter : vOS) {
 
 			objs[iter.type]->type = iter.type;

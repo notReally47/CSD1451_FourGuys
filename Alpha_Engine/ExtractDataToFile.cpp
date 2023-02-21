@@ -163,15 +163,15 @@ namespace Extract_Data_To_File {
 			data_file << "  " << object_type << ":" << endl;
 		}
 		else if (vOS[index].type == 4) {
-			object_type = "04_Portrait";								// Set to SPortrait
+			object_type = "04_Portrait";								// Set to Portrait
 			data_file << "  " << object_type << ":" << endl;
 		}
 		else if (vOS[index].type == 5) {
-			object_type = "05_Landscape";								// Set to SPortrait2
+			object_type = "05_Landscape";								// Set to Landscape
 			data_file << "  " << object_type << ":" << endl;
 		}
 		else if (vOS[index].type == 6) {
-			object_type = "06_Platform";								// Set to MPortrait
+			object_type = "06_Platform";								// Set to Platform
 			data_file << "  " << object_type << ":" << endl;
 		}
 	}// END Set_Object_Transform_Type
