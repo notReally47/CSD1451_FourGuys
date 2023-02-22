@@ -7,6 +7,7 @@ namespace InputHandler
 	void MoveCamera(float&, float&);
 	void ExitGame(int&);
 	bool playerMovement(GameObjects::Character& player);
+	bool PlayerJump(GameObjects::Character& player);
 	bool buttonClick(s32 mouseX, s32 mouseY, float buttonX, float buttonY);
 }
 
