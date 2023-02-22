@@ -33,16 +33,16 @@ namespace Level2
 
 
 		//static int count{ 0 };
-		//for (auto &iter : vOT) {
-/*			if (iter.OS.type == Enum::TYPE::PLAYER) {
-				iter.transformation_01 *= 2;
-				iter.transformation_02 *= 2;
-				iter.transformation_03 *= 2;
-				iter.transformation_04 *= 2;
-				iter.transformation_05 *= 2;
-				iter.transformation_06 *= 2;
-			}*/
-		//}
+		for (auto &iter : vOT) {
+//			if (iter.OS.type == Enum::TYPE::PLAYER) {
+				iter.scale_x /= 2;
+				iter.shear_x /= 2;
+				iter.position_x /= 2;
+				iter.scale_y /= 2;
+				iter.shear_y /= 2;
+				iter.position_y /= 2;
+			//}*/
+		}
 		
 		//Extract_Data_To_File::Extract_Shape_Data_Out(vOS, level_number);
 		//Extract_Data_To_File::Extract_Transform_Data_Out(vOT, *sPP, level_number);

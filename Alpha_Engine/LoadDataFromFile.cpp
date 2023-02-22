@@ -14,31 +14,34 @@ namespace Load_Data_From_File {
 	vector<ObjectShape> Load_Shape_From_YAML(const string level_number) {
 
 		// Strings for Filtering through the YAML file
-		string find_object = "Object",
-			object_types = "00_Player 01_Floor 02_Wall 03_Decoration 04_Portrait 05_Landscape 06_Platform",
-			object_type{ 0 }, object_type_number{ 0 }, object_data_type{ 0 };
+		string 
+			find_object				{ "Object" },
+			object_types			{ "00_Player 01_Floor 02_Wall 03_Decoration 04_Portrait 05_Landscape 08_Platform" },
+			object_type				{ 0 }, 
+			object_type_number		{ 0 }, 
+			object_data_type		{ 0 };
 
 		// YAML file to read from
-
-		string file_name{ "../Assets/Data_Files/Level_" + level_number + "/Level_" + level_number + "_Shape.yml" };
-		ifstream ifs(file_name.c_str());
+		string file_name			{ "./Assets/Data_Files/Level_" + level_number + "/Level_" + level_number + "_Shape.yml" };
+		ifstream ifs(file_name);
 		if (!ifs.good())
-			ifs.open("./Assets/Data_Files/Level_" + level_number + "/Level_" + level_number + "_Shape.yml");
+			ifs.open("." + file_name);
 
 		// Vector to load data into
-		vector<ObjectShape> vector_os;
-		ObjectShape* OS = new ObjectShape;
+		vector<ObjectShape>		vector_os;
+		ObjectShape*			OS			= new ObjectShape;
 
 		// Parse YAML File
-		YAML::Parser parser(ifs);
-		YAML::Node yaml_document;
+		YAML::Parser			parser(ifs);
+		YAML::Node				yaml_document;
 		parser.GetNextDocument(yaml_document);
 
 		// Iterate through YAML File
 		for (YAML::Iterator i = yaml_document.begin(); i != yaml_document.end(); i++) {
-			string key;
+			string		key		{ 0 };
+			long		type	{ 0 };
+
 			i.first() >> key;
-			long type{ 0 };
 
 			// If key is 'Object'
 			if (key == find_object) {
@@ -52,7 +55,7 @@ namespace Load_Data_From_File {
 
 						// Iterate through Specific Object
 						for (YAML::Iterator k = j.second().begin(); k != j.second().end(); k++) {
-							k.first() >> object_data_type;			// Get the Data Type String
+							k.first() >> object_data_type;					// Get the Data Type String
 
 							// If Node is "Type"
 							if (object_data_type == "Type") {
@@ -95,31 +98,33 @@ namespace Load_Data_From_File {
 	vector<ObjectTransform> Load_Transform_From_YAML(const string level_number, vector<ObjectShape> vector_OS) {
 
 		// Strings for Filtering through the YAML file
-		string find_object = "ObjectInstance",
-			object_types = "00_Player 01_Floor 02_Wall 03_Decoration 04_Portrait 05_Landscape 06_Platform",
-			object_type{ 0 }, object_type_number{ 0 }, object_data_type{ 0 };
+		string 
+			find_object				{ "ObjectInstance" },
+			object_types			{ "00_Player 01_Floor 02_Wall 03_Decoration 04_Portrait 05_Landscape 08_Platform" },
+			object_type				{ 0 }, 
+			object_type_number		{ 0 }, 
+			object_data_type		{ 0 };
 
 		// YAML file to read from
-		string file_name{ "../Assets/Data_Files/Level_" + level_number + "/Level_" + level_number + "_Transform.yml" };
-		ifstream ifs(file_name.c_str());
-
+		string file_name			{ "./Assets/Data_Files/Level_" + level_number + "/Level_" + level_number + "_Transform.yml" };
+		ifstream ifs(file_name);
 		if (!ifs.good())
-			ifs.open("./Assets/Data_Files/Level_" + level_number + "/Level_" + level_number + "_Transform.yml");
+			ifs.open("." + file_name);
 
 		// Vector to load data into
-		vector<ObjectTransform> vector_ot;
-		ObjectTransform* OT = new ObjectTransform;
+		vector<ObjectTransform>	vector_ot;
+		ObjectTransform*		OT			= new ObjectTransform;
 
 		// Parse YAML File
-		YAML::Parser parser(ifs);
-		YAML::Node yaml_document;
+		YAML::Parser			parser(ifs);
+		YAML::Node				yaml_document;
 		parser.GetNextDocument(yaml_document);
 
 		// Iterate through YAML File
 		for (YAML::Iterator i = yaml_document.begin(); i != yaml_document.end(); i++) {
-			string key;
+			string		key		{ 0 };
+			long		type	{ 0 };
 			i.first() >> key;
-			long type{ 0 };
 
 			// If key is 'Object'
 			if (key == find_object) {
@@ -157,21 +162,21 @@ namespace Load_Data_From_File {
 
 									// If Node is "Texture_Offset"
 									if (object_data_type == "Texture_Offset") {
-										l.second()["x_offset"] >> OT->texture_offset_x;
-										l.second()["y_offset"] >> OT->texture_offset_y;
+										l.second()["x_offset"]		>> OT->texture_offset_x;
+										l.second()["y_offset"]		>> OT->texture_offset_y;
 									}
 
 									// If Node is "Transformation"
 									if (object_data_type == "Transformation") {
-										l.second()["scale_x"] >> OT->scale_x;
-										l.second()["shear_x"] >> OT->shear_x;
-										l.second()["position_x"] >> OT->position_x;
-										l.second()["scale_y"] >> OT->scale_y;
-										l.second()["shear_y"] >> OT->shear_y;
-										l.second()["position_y"] >> OT->position_y;
-										l.second()["width"] >> OT->width;
-										l.second()["length"] >> OT->length;
-										l.second()["height"] >> OT->height;
+										l.second()["scale_x"]		>> OT->scale_x;
+										l.second()["shear_x"]		>> OT->shear_x;
+										l.second()["position_x"]	>> OT->position_x;
+										l.second()["scale_y"]		>> OT->scale_y;
+										l.second()["shear_y"]		>> OT->shear_y;
+										l.second()["position_y"]	>> OT->position_y;
+										l.second()["width"]			>> OT->width;
+										l.second()["length"]		>> OT->length;
+										l.second()["height"]		>> OT->height;
 									}
 
 									// If Node is "Elapsed"
@@ -204,16 +209,18 @@ namespace Load_Data_From_File {
 
 	PlayerProperties* Load_Player_Stats_From_YAML(const string level_number) {
 		// Strings for Filtering through the YAML file
-		string find_object = "ObjectInstance",
-			object_types = "00_Player",
-			object_type{ 0 }, object_type_number{ 0 }, object_data_type{ 0 };
+		string 
+			find_object				{ "ObjectInstance" },
+			object_types			{ "00_Player" },
+			object_type				{ 0 }, 
+			object_type_number		{ 0 }, 
+			object_data_type		{ 0 };
 
 		// YAML file to read from
-		string file_name{ "../Assets/Data_Files/Level_" + level_number + "/Level_" + level_number + "_Transform.yml" };
-		ifstream ifs(file_name.c_str());
-
+		string file_name			{ "./Assets/Data_Files/Level_" + level_number + "/Level_" + level_number + "_Transform.yml" };
+		ifstream ifs(file_name);
 		if (!ifs.good())
-			ifs.open("./Assets/Data_Files/Level_" + level_number + "/Level_" + level_number + "_Transform.yml");
+			ifs.open("." + file_name);
 
 		// Struct to load data into
 		PlayerProperties* PP = new PlayerProperties;
@@ -252,14 +259,14 @@ namespace Load_Data_From_File {
 
 									// If Node is "Direction"
 									if (object_data_type == "Direction") {
-										l.second()["direction_x"] >> PP->direction.x;
-										l.second()["direction_y"] >> PP->direction.y;
+										l.second()["direction_x"]	>> PP->direction.x;
+										l.second()["direction_y"]	>> PP->direction.y;
 									}
 
 									// If Node is "Input"
 									if (object_data_type == "Input") {
-										l.second()["input_x"] >> PP->input.x;
-										l.second()["input_y"] >> PP->input.y;
+										l.second()["input_x"]		>> PP->input.x;
+										l.second()["input_y"]		>> PP->input.y;
 									}
 
 									// If Node is "Rotation"

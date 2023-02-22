@@ -45,7 +45,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>$(SolutionDir)Extern\AlphaEngine_V3.09\include;$(SolutionDir)Extern\yaml-cpp\include;$(SolutionDir)Assets</IncludePath>
+    <IncludePath>$(SolutionDir)Extern\AlphaEngine_V3.09\include;$(SolutionDir)Extern\yaml-cpp\include</IncludePath>
     <LibraryPath>$(SolutionDir)Extern\AlphaEngine_V3.09\lib;$(SolutionDir)Extern\yaml-cpp\lib;$(LibraryPath)</LibraryPath>
     <OutDir>$(SolutionDir)\bin\$(Configuration)-$(Platform)\</OutDir>
     <IntDir>$(SolutionDir)\.tmp\$(Configuration)-$(Platform)\</IntDir>
@@ -54,7 +54,7 @@
     <LibraryPath>$(SolutionDir)Extern\AlphaEngine_V3.09\lib;$(SolutionDir)Extern\yaml-cpp\lib;$(LibraryPath)</LibraryPath>
     <OutDir>$(SolutionDir)\bin\$(Configuration)-$(Platform)\</OutDir>
     <IntDir>$(SolutionDir)\.tmp\$(Configuration)-$(Platform)\</IntDir>
-    <IncludePath>$(SolutionDir)Extern\AlphaEngine_V3.09\include;$(SolutionDir)Extern\yaml-cpp\include;$(SolutionDir)Assets</IncludePath>
+    <IncludePath>$(SolutionDir)Extern\AlphaEngine_V3.09\include;$(SolutionDir)Extern\yaml-cpp\include</IncludePath>
     <LinkIncremental>
     </LinkIncremental>
   </PropertyGroup>
@@ -79,7 +79,8 @@
       <Command>xcopy "$(SolutionDir)Assets\*" "$(OutDir)Assets\" /s /r /y /q
 xcopy "$(SolutionDir)Extern\AlphaEngine_V3.09\lib\freetype.dll" "$(OutDir)" /s /r /y /q
 xcopy "$(SolutionDir)Extern\AlphaEngine_V3.09\lib\Alpha_EngineD.dll" "$(OutDir)" /s /r /y /q
-xcopy "$(SolutionDir)Extern\AlphaEngine_V3.09\lib\fmodL.dll" "$(OutDir)" /s /r /y /q</Command>
+xcopy "$(SolutionDir)Extern\AlphaEngine_V3.09\lib\fmodL.dll" "$(OutDir)" /s /r /y /q
+xcopy "$(SolutionDir)Extern\yaml-cpp\lib\Debug\yaml-cpp.dll" "$(OutDir)" /s /r /y /q</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -108,7 +109,7 @@ xcopy "$(SolutionDir)Extern\AlphaEngine_V3.09\lib\fmodL.dll" "$(OutDir)" /s /r /
 xcopy "$(SolutionDir)Extern\AlphaEngine_V3.09\lib\freetype.dll" "$(OutDir)" /s /r /y /q
 xcopy "$(SolutionDir)Extern\AlphaEngine_V3.09\lib\Alpha_Engine.dll" "$(OutDir)" /s /r /y /q
 xcopy "$(SolutionDir)Extern\AlphaEngine_V3.09\lib\fmod.dll" "$(OutDir)" /s /r /y /q
-</Command>
+xcopy "$(SolutionDir)Extern\yaml-cpp\lib\yaml-cpp.dll" "$(OutDir)" /s /r /y /q</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
