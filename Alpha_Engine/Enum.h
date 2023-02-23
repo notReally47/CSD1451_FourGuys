@@ -27,6 +27,7 @@ namespace Enum {
 		DECO,
 		PORTRAIT,
 		LANDSCAPE,
-		PLATFORM
+		PLATFORM,
+		BUTTON
 	};
 }

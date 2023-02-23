@@ -86,8 +86,18 @@ namespace CollisionHandler {
 	}
 
 
-	double GetDistance(f32 const portrait_x, f32 const portrait_y, f32 const player_x, f32 const player_y) {
-		return sqrt(pow(portrait_x - player_x, 2) + pow(portrait_y - player_y, 2));
+double GetDistance(f32 const object_x, f32 const object_y, f32 width, f32 height, f32 const player_x, f32 const player_y)
+	{
+		// distance between point and rec by https://stackoverflow.com/questions/5254838/calculating-distance-between-a-point-and-a-rectangular-box-nearest-point
+		f32 minX = object_x - width / 2;
+		f32 maxX = object_x + width / 2;
+		f32 minY = object_y - height / 2;
+		f32 maxY = object_y + height / 2;
+		f32 dx = (minX - player_x) > (player_x - maxX) ? (minX - player_x) : (player_x - maxX);
+		dx = (dx > 0.f) ? dx : 0.f;
+		f32 dy = (minY - player_y) > (player_y - maxY) ? (minY - player_y) : (player_y - maxY);
+		dy = (dy > 0.f) ? dy : 0.f;
+		return sqrt(pow(dx, 2) + pow(dy, 2));
 	}
 
 	bool portraitInteract(ObjectInst const portrait, Character const player) {

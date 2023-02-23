@@ -82,15 +82,19 @@ namespace Level2
 		PhysicsHandler::MovePlayer(p_player);
 
 		//check if player if near portrait
-		for (size_t i{ 0 }; i < sizeof(objInst) / sizeof(objInst[0]); i++)
+		for (size_t i{0}; i < sizeof(objInst) / sizeof(objInst[0]); i++)
 		{
 			if (objInst[i].pObj->type == Enum::TYPE::PORTRAIT ||
 				objInst[i].pObj->type == Enum::TYPE::LANDSCAPE)
 			{
 				objInst[i].flag = (CollisionHandler::GetDistance(objInst[i].transform.m[0][2],
-					objInst[i].transform.m[1][2], p_player.pObjInst.transform.m[0][2],
-					p_player.pObjInst.transform.m[1][2]) < 40.0)
-					? FLAG_ACTIVE : FLAG_INACTIVE;
+																 objInst[i].transform.m[1][2], objInst[i].transform.m[0][0], objInst[i].transform.m[1][1], p_player.pObjInst.transform.m[0][2],
+																 p_player.pObjInst.transform.m[1][2]) < 40.0)
+									  ? FLAG_ACTIVE
+									  : FLAG_INACTIVE;
+			}
+			if (objInst[i].pObj->type == Enum::TYPE::WALL)
+			{
 			}
 		}
 

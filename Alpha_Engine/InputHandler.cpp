@@ -101,14 +101,13 @@ namespace InputHandler {
 		return player.pObjInst.transform.m[2][2] > 0;
 	}
 
-	bool buttonClick(s32 mouseX, s32 mouseY, float buttonX, float buttonY) {
+	bool buttonClick(float buttonX, float buttonY)
+	{
+		s32 mouseX, mouseY;
 		AEInputGetCursorPosition(&mouseX, &mouseY);
-		if (AEInputCheckReleased(AEVK_LBUTTON) && mouseX <= static_cast<s32>(buttonX + 100.f) && mouseX >= static_cast<s32>(buttonX)
-			&& mouseY <= static_cast<s32>(buttonY + 50.f) && mouseY >= static_cast<s32>(buttonY))
-		{
-			std::cout << "true\n";
+		if (AEInputCheckReleased(AEVK_LBUTTON) && mouseX <= static_cast<s32>(AEGetWindowWidth() / 2 + (buttonX + 50.f)) && mouseX >= static_cast<s32>(AEGetWindowWidth() / 2 + (buttonX - 50.f)) && mouseY <= static_cast<s32>(AEGetWindowHeight() / 2 + (buttonY + 25.f)) && mouseY >= static_cast<s32>(AEGetWindowHeight() / 2 + (buttonY - 25.f)))
 			return true;
-		}
 		return false;
 	}
+
 }

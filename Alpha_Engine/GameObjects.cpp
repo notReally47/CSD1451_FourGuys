@@ -82,6 +82,10 @@ namespace GameObjects
 			//AEGfxSetTransparency(0.5f);
 			
 		}
+		// else if (obj.pObj->type == Enum::TYPE::BUTTON)
+		// {
+		// 	AEGfxTextureSet(obj.pObj->pTex, obj.tex_offset.x, obj.tex_offset.y);
+		// }
 		else 
 		{
 			/*Set texture*/
