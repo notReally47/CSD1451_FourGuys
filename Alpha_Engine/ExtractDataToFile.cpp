@@ -130,10 +130,7 @@ namespace Extract_Data_To_File {
 			data_file << "      "		<< "Input:"														<< endl;
 			data_file << "        "		<< "input_x: "			<< p_player.input.x						<< endl;
 			data_file << "        "		<< "input_y: "			<< p_player.input.y						<< endl;
-			data_file << "      "		<< "Is_Moving: "		<< p_player.isMoving					<< endl;
-			data_file << "      "		<< "Is_Jumping: "		<< p_player.isJumping					<< endl;
 			data_file << "      "		<< "Z_Velocity: "		<< p_player.zVel						<< endl;
-			data_file << "      "		<< "Speed: "			<< p_player.speed						<< endl;
 			data_file << "      "		<< "Sprite_Iteration: " << p_player.spriteIteration				<< endl;
 		}
 

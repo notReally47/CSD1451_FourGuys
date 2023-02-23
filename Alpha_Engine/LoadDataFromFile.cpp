@@ -315,30 +315,9 @@ namespace Load_Data_From_File {
 										l.second()["input_y"]		>> sCHARACTER->input.y;
 									}
 
-									// If Node is "Is_Moving"
-									if (object_data_type == "Is_Moving") {
-										int is_moving{ 0 };
-										l.second() >> is_moving;
-										sCHARACTER->isMoving = is_moving;
-									}
-
-
-									// If Node is "Is_Jumping"
-									if (object_data_type == "Is_Jumping") {
-										int is_jumping{ 0 };
-										l.second() >> is_jumping;
-										sCHARACTER->isJumping = is_jumping;
-									}
-
-
 									// If Node is "Z_Velocity"
 									if (object_data_type == "Z_Velocity") {
 										l.second() >> sCHARACTER->zVel;
-									}
-
-									// If Node is "Speed"
-									if (object_data_type == "Speed") {
-										l.second() >> sCHARACTER->speed;
 									}
 
 									// If Node is "Sprite_Iteration"

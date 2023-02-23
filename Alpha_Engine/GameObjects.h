@@ -24,31 +24,17 @@ namespace GameObjects
 		AEVec2						tex_offset;
 		AEMtx33						transform;
 
-		// Scale of Object Instance in width
-		f32& GetScaleX() { return this->transform.m[0][0]; } // check if this is used anywhere
-
-		// Position X in world screen coordinates
-		f32& GetPosX() { return this->transform.m[0][2]; }
-
-		f32 GetPosX() const { return this->transform.m[0][2]; }
-
-		// Scale of Object Instance in height
-		f32& GetScaleY() { return this->transform.m[1][1]; }
-
-		// Position Y in world screen coordinates
-		f32& GetPosY() { return this->transform.m[1][2]; }
-
-		f32 GetPosY() const { return this->transform.m[1][2]; }
-
-		// Elapsed time of animation
-		f32& GetElapsed() { return this->transform.m[2][1]; }
-
-		// Elevation of the Object Instance
-		f32& GetPosZ() { return this->transform.m[2][2]; }
-
-		f32 GetPosZ() const { return this->transform.m[2][2]; }
-
-		AEVec2 GetPosXY() { return {this->GetPosX(), this->GetPosY()}; }
+		f32& GetScaleX(); // check if this is used anywhere
+		f32& GetPosX();
+		f32 GetPosX() const;
+		f32& GetScaleY();
+		f32& GetPosY();
+		f32 GetPosY() const;
+		f32& GetElapsed();
+		f32& GetPlayerSpeed();
+		f32& GetPosZ();
+		f32 GetPosZ() const;
+		AEVec2 GetPosXY();
 	};
 
 	/*CHARACTER STRUCTURE*/
@@ -56,12 +42,8 @@ namespace GameObjects
 		ObjectInst*					pObjInst;
 		AEVec2						dir;
 		AEVec2						input;
-		bool						isMoving;
-		bool						isJumping;
 		f32							zVel;
-		f32							speed;
 		int							spriteIteration;
-		// width 128, height 152
 	};
 
 	/*FUNCTIONS*/

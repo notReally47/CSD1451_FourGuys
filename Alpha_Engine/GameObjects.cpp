@@ -8,6 +8,36 @@ namespace GameObjects
 	/*DEFINES*/
 	s8 fontId;
 
+	// Scale of Object Instance in width
+	f32& ObjectInst::GetScaleX() { return this->transform.m[0][0]; } // check if this is used anywhere
+
+	// Position X in world screen coordinates
+	f32& ObjectInst::GetPosX() { return this->transform.m[0][2]; }
+
+	f32 ObjectInst::GetPosX() const { return this->transform.m[0][2]; }
+
+	// Scale of Object Instance in height
+	f32& ObjectInst::GetScaleY() { return this->transform.m[1][1]; }
+
+	// Position Y in world screen coordinates
+	f32& ObjectInst::GetPosY() { return this->transform.m[1][2]; }
+
+	f32 ObjectInst::GetPosY() const { return this->transform.m[1][2]; }
+
+	// Elapsed time of animation
+	f32& ObjectInst::GetElapsed() { return this->transform.m[2][0]; }
+
+	// Speed of the player's movement
+	f32& ObjectInst::GetPlayerSpeed() { return this->transform.m[2][1]; }
+
+	// Elevation of the Object Instance
+	f32& ObjectInst::GetPosZ() { return this->transform.m[2][2]; }
+
+	f32 ObjectInst::GetPosZ() const { return this->transform.m[2][2]; }
+
+	AEVec2 ObjectInst::GetPosXY() { return { this->GetPosX(), this->GetPosY() }; }
+
+
 	/*Set rendering modes, colour tints, blending and transparency*/
 	void RenderSettings(void) 
 	{

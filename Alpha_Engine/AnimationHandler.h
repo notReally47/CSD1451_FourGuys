@@ -3,8 +3,8 @@
 
 namespace AnimationHandler {
 	using namespace GameObjects;
-	void setTextureOffsetY(Character&);
-	void setTextureOffsetX(Character&);
-	bool checkDirection(Character, int, int);
+	void setTextureOffsetY(ObjectInst&, AEVec2&);
+	void setTextureOffsetX(ObjectInst&, int&);
+	bool checkDirection(AEVec2&, int, int);
 	void AnimateCharacter(Character&);
 }
