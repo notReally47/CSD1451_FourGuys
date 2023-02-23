@@ -11,21 +11,21 @@ ObjectInstance:
         scale_x: 153.6
         shear_x: 0
         position_x: -512
-        scale_y: 0
-        shear_y: 182.4
+        shear_y: 0
+        scale_y: 182.4
         position_y: 38
-        width: 0
-        length: 0
-        height: 0.5
-      Elapsed: 0
-      Z_Axis: 0
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
       Direction:
         direction_x: 0
         direction_y: 0
       Input:
         input_x: 0
         input_y: 0
-      Rotation: 0
+      Is_Moving: 0
+      Is_Jumping: 0
+      Z_Velocity: 0
       Speed: 200
       Sprite_Iteration: 0
 
@@ -40,14 +40,12 @@ ObjectInstance:
         scale_x: 256
         shear_x: 0
         position_x: 0
-        scale_y: 0
-        shear_y: 148
+        shear_y: 0
+        scale_y: 148
         position_y: 256
-        width: 0
-        length: 0
-        height: 0.5
-      Elapsed: 0
-      Z_Axis: 0
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
 
     01_Floor_01:
       Type: 1
@@ -59,14 +57,12 @@ ObjectInstance:
         scale_x: 256
         shear_x: 0
         position_x: -128
-        scale_y: 0
-        shear_y: 148
+        shear_y: 0
+        scale_y: 148
         position_y: 192
-        width: 0
-        length: 0
-        height: 0.5
-      Elapsed: 0
-      Z_Axis: 0
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
 
     01_Floor_02:
       Type: 1
@@ -78,14 +74,12 @@ ObjectInstance:
         scale_x: 256
         shear_x: 0
         position_x: -256
-        scale_y: 0
-        shear_y: 148
+        shear_y: 0
+        scale_y: 148
         position_y: 128
-        width: 0
-        length: 0
-        height: 0.5
-      Elapsed: 0
-      Z_Axis: 0
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
 
     01_Floor_03:
       Type: 1
@@ -97,14 +91,12 @@ ObjectInstance:
         scale_x: 256
         shear_x: 0
         position_x: -384
-        scale_y: 0
-        shear_y: 148
+        shear_y: 0
+        scale_y: 148
         position_y: 64
-        width: 0
-        length: 0
-        height: 0.5
-      Elapsed: 0
-      Z_Axis: 0
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
 
     01_Floor_04:
       Type: 1
@@ -116,14 +108,12 @@ ObjectInstance:
         scale_x: 256
         shear_x: 0
         position_x: -512
-        scale_y: 0
-        shear_y: 148
+        shear_y: 0
+        scale_y: 148
         position_y: 0
-        width: 0
-        length: 0
-        height: 0.5
-      Elapsed: 0
-      Z_Axis: 0
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
 
     01_Floor_05:
       Type: 1
@@ -135,14 +125,12 @@ ObjectInstance:
         scale_x: 256
         shear_x: 0
         position_x: 128
-        scale_y: 0
-        shear_y: 148
+        shear_y: 0
+        scale_y: 148
         position_y: 192
-        width: 0
-        length: 0
-        height: 0.5
-      Elapsed: 0
-      Z_Axis: 0
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
 
     01_Floor_06:
       Type: 1
@@ -154,14 +142,12 @@ ObjectInstance:
         scale_x: 256
         shear_x: 0
         position_x: 0
-        scale_y: 0
-        shear_y: 148
+        shear_y: 0
+        scale_y: 148
         position_y: 128
-        width: 0
-        length: 0
-        height: 0.5
-      Elapsed: 0
-      Z_Axis: 0
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
 
     01_Floor_07:
       Type: 1
@@ -173,14 +159,12 @@ ObjectInstance:
         scale_x: 256
         shear_x: 0
         position_x: -128
-        scale_y: 0
-        shear_y: 148
+        shear_y: 0
+        scale_y: 148
         position_y: 64
-        width: 0
-        length: 0
-        height: 0.5
-      Elapsed: 0
-      Z_Axis: 0
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
 
     01_Floor_08:
       Type: 1
@@ -192,14 +176,12 @@ ObjectInstance:
         scale_x: 256
         shear_x: 0
         position_x: -256
-        scale_y: 0
-        shear_y: 148
+        shear_y: 0
+        scale_y: 148
         position_y: 0
-        width: 0
-        length: 0
-        height: 0.5
-      Elapsed: 0
-      Z_Axis: 0
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
 
     01_Floor_09:
       Type: 1
@@ -211,14 +193,12 @@ ObjectInstance:
         scale_x: 256
         shear_x: 0
         position_x: -384
-        scale_y: 0
-        shear_y: 148
+        shear_y: 0
+        scale_y: 148
         position_y: -64
-        width: 0
-        length: 0
-        height: 0.5
-      Elapsed: 0
-      Z_Axis: 0
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
 
     01_Floor_10:
       Type: 1
@@ -230,14 +210,12 @@ ObjectInstance:
         scale_x: 256
         shear_x: 0
         position_x: 256
-        scale_y: 0
-        shear_y: 148
+        shear_y: 0
+        scale_y: 148
         position_y: 128
-        width: 0
-        length: 0
-        height: 0.5
-      Elapsed: 0
-      Z_Axis: 0
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
 
     01_Floor_11:
       Type: 1
@@ -249,14 +227,12 @@ ObjectInstance:
         scale_x: 256
         shear_x: 0
         position_x: 128
-        scale_y: 0
-        shear_y: 148
+        shear_y: 0
+        scale_y: 148
         position_y: 64
-        width: 0
-        length: 0
-        height: 0.5
-      Elapsed: 0
-      Z_Axis: 0
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
 
     01_Floor_12:
       Type: 1
@@ -268,14 +244,12 @@ ObjectInstance:
         scale_x: 256
         shear_x: 0
         position_x: 0
-        scale_y: 0
-        shear_y: 148
+        shear_y: 0
+        scale_y: 148
         position_y: 0
-        width: 0
-        length: 0
-        height: 0.5
-      Elapsed: 0
-      Z_Axis: 0
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
 
     01_Floor_13:
       Type: 1
@@ -287,14 +261,12 @@ ObjectInstance:
         scale_x: 256
         shear_x: 0
         position_x: -128
-        scale_y: 0
-        shear_y: 148
+        shear_y: 0
+        scale_y: 148
         position_y: -64
-        width: 0
-        length: 0
-        height: 0.5
-      Elapsed: 0
-      Z_Axis: 0
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
 
     01_Floor_14:
       Type: 1
@@ -306,14 +278,12 @@ ObjectInstance:
         scale_x: 256
         shear_x: 0
         position_x: -256
-        scale_y: 0
-        shear_y: 148
+        shear_y: 0
+        scale_y: 148
         position_y: -128
-        width: 0
-        length: 0
-        height: 0.5
-      Elapsed: 0
-      Z_Axis: 0
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
 
     01_Floor_15:
       Type: 1
@@ -325,14 +295,12 @@ ObjectInstance:
         scale_x: 256
         shear_x: 0
         position_x: 384
-        scale_y: 0
-        shear_y: 148
+        shear_y: 0
+        scale_y: 148
         position_y: 64
-        width: 0
-        length: 0
-        height: 0.5
-      Elapsed: 0
-      Z_Axis: 0
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
 
     01_Floor_16:
       Type: 1
@@ -344,14 +312,12 @@ ObjectInstance:
         scale_x: 256
         shear_x: 0
         position_x: 256
-        scale_y: 0
-        shear_y: 148
+        shear_y: 0
+        scale_y: 148
         position_y: 0
-        width: 0
-        length: 0
-        height: 0.5
-      Elapsed: 0
-      Z_Axis: 0
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
 
     01_Floor_17:
       Type: 1
@@ -363,14 +329,12 @@ ObjectInstance:
         scale_x: 256
         shear_x: 0
         position_x: 128
-        scale_y: 0
-        shear_y: 148
+        shear_y: 0
+        scale_y: 148
         position_y: -64
-        width: 0
-        length: 0
-        height: 0.5
-      Elapsed: 0
-      Z_Axis: 0
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
 
     01_Floor_18:
       Type: 1
@@ -382,14 +346,12 @@ ObjectInstance:
         scale_x: 256
         shear_x: 0
         position_x: 0
-        scale_y: 0
-        shear_y: 148
+        shear_y: 0
+        scale_y: 148
         position_y: -128
-        width: 0
-        length: 0
-        height: 0.5
-      Elapsed: 0
-      Z_Axis: 0
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
 
     01_Floor_19:
       Type: 1
@@ -401,14 +363,12 @@ ObjectInstance:
         scale_x: 256
         shear_x: 0
         position_x: -128
-        scale_y: 0
-        shear_y: 148
+        shear_y: 0
+        scale_y: 148
         position_y: -192
-        width: 0
-        length: 0
-        height: 0.5
-      Elapsed: 0
-      Z_Axis: 0
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
 
     01_Floor_20:
       Type: 1
@@ -420,14 +380,12 @@ ObjectInstance:
         scale_x: 256
         shear_x: 0
         position_x: 512
-        scale_y: 0
-        shear_y: 148
+        shear_y: 0
+        scale_y: 148
         position_y: 0
-        width: 0
-        length: 0
-        height: 0.5
-      Elapsed: 0
-      Z_Axis: 0
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
 
     01_Floor_21:
       Type: 1
@@ -439,14 +397,12 @@ ObjectInstance:
         scale_x: 256
         shear_x: 0
         position_x: 384
-        scale_y: 0
-        shear_y: 148
+        shear_y: 0
+        scale_y: 148
         position_y: -64
-        width: 0
-        length: 0
-        height: 0.5
-      Elapsed: 0
-      Z_Axis: 0
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
 
     01_Floor_22:
       Type: 1
@@ -458,14 +414,12 @@ ObjectInstance:
         scale_x: 256
         shear_x: 0
         position_x: 256
-        scale_y: 0
-        shear_y: 148
+        shear_y: 0
+        scale_y: 148
         position_y: -128
-        width: 0
-        length: 0
-        height: 0.5
-      Elapsed: 0
-      Z_Axis: 0
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
 
     01_Floor_23:
       Type: 1
@@ -477,14 +431,12 @@ ObjectInstance:
         scale_x: 256
         shear_x: 0
         position_x: 128
-        scale_y: 0
-        shear_y: 148
+        shear_y: 0
+        scale_y: 148
         position_y: -192
-        width: 0
-        length: 0
-        height: 0.5
-      Elapsed: 0
-      Z_Axis: 0
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
 
     01_Floor_24:
       Type: 1
@@ -496,14 +448,12 @@ ObjectInstance:
         scale_x: 256
         shear_x: 0
         position_x: 0
-        scale_y: 0
-        shear_y: 148
+        shear_y: 0
+        scale_y: 148
         position_y: -256
-        width: 0
-        length: 0
-        height: 0.5
-      Elapsed: 0
-      Z_Axis: 0
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
 
   02_Wall:
     02_Wall_00:
@@ -516,14 +466,12 @@ ObjectInstance:
         scale_x: 256
         shear_x: 0
         position_x: 0
-        scale_y: 0
-        shear_y: 288
+        shear_y: 0
+        scale_y: 288
         position_y: 326
-        width: 0
-        length: 0
-        height: 0.5
-      Elapsed: 0
-      Z_Axis: 0
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
 
     02_Wall_01:
       Type: 2
@@ -535,14 +483,12 @@ ObjectInstance:
         scale_x: 256
         shear_x: 0
         position_x: 2
-        scale_y: 0
-        shear_y: 288
+        shear_y: 0
+        scale_y: 288
         position_y: 481
-        width: 0
-        length: 0
-        height: 0.5
-      Elapsed: 0
-      Z_Axis: 0
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
 
     02_Wall_02:
       Type: 2
@@ -554,14 +500,12 @@ ObjectInstance:
         scale_x: 256
         shear_x: 0
         position_x: 4
-        scale_y: 0
-        shear_y: 288
+        shear_y: 0
+        scale_y: 288
         position_y: 636
-        width: 0
-        length: 0
-        height: 0.5
-      Elapsed: 0
-      Z_Axis: 0
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
 
     02_Wall_03:
       Type: 2
@@ -573,14 +517,12 @@ ObjectInstance:
         scale_x: 256
         shear_x: 0
         position_x: 6
-        scale_y: 0
-        shear_y: 288
+        shear_y: 0
+        scale_y: 288
         position_y: 791
-        width: 0
-        length: 0
-        height: 0.5
-      Elapsed: 0
-      Z_Axis: 0
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
 
     02_Wall_04:
       Type: 2
@@ -592,14 +534,12 @@ ObjectInstance:
         scale_x: 256
         shear_x: 0
         position_x: 8
-        scale_y: 0
-        shear_y: 288
+        shear_y: 0
+        scale_y: 288
         position_y: 946
-        width: 0
-        length: 0
-        height: 0.5
-      Elapsed: 0
-      Z_Axis: 0
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
 
     02_Wall_05:
       Type: 2
@@ -611,14 +551,12 @@ ObjectInstance:
         scale_x: 256
         shear_x: 0
         position_x: 128
-        scale_y: 0
-        shear_y: 288
+        shear_y: 0
+        scale_y: 288
         position_y: 262
-        width: 0
-        length: 0
-        height: 0.5
-      Elapsed: 0
-      Z_Axis: 0
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
 
     02_Wall_06:
       Type: 2
@@ -630,14 +568,12 @@ ObjectInstance:
         scale_x: 256
         shear_x: 0
         position_x: 130
-        scale_y: 0
-        shear_y: 288
+        shear_y: 0
+        scale_y: 288
         position_y: 417
-        width: 0
-        length: 0
-        height: 0.5
-      Elapsed: 0
-      Z_Axis: 0
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
 
     02_Wall_07:
       Type: 2
@@ -649,14 +585,12 @@ ObjectInstance:
         scale_x: 256
         shear_x: 0
         position_x: 132
-        scale_y: 0
-        shear_y: 288
+        shear_y: 0
+        scale_y: 288
         position_y: 572
-        width: 0
-        length: 0
-        height: 0.5
-      Elapsed: 0
-      Z_Axis: 0
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
 
     02_Wall_08:
       Type: 2
@@ -668,14 +602,12 @@ ObjectInstance:
         scale_x: 256
         shear_x: 0
         position_x: 134
-        scale_y: 0
-        shear_y: 288
+        shear_y: 0
+        scale_y: 288
         position_y: 727
-        width: 0
-        length: 0
-        height: 0.5
-      Elapsed: 0
-      Z_Axis: 0
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
 
     02_Wall_09:
       Type: 2
@@ -687,14 +619,12 @@ ObjectInstance:
         scale_x: 256
         shear_x: 0
         position_x: 136
-        scale_y: 0
-        shear_y: 288
+        shear_y: 0
+        scale_y: 288
         position_y: 882
-        width: 0
-        length: 0
-        height: 0.5
-      Elapsed: 0
-      Z_Axis: 0
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
 
     02_Wall_10:
       Type: 2
@@ -706,14 +636,12 @@ ObjectInstance:
         scale_x: 256
         shear_x: 0
         position_x: 256
-        scale_y: 0
-        shear_y: 288
+        shear_y: 0
+        scale_y: 288
         position_y: 198
-        width: 0
-        length: 0
-        height: 0.5
-      Elapsed: 0
-      Z_Axis: 0
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
 
     02_Wall_11:
       Type: 2
@@ -725,14 +653,12 @@ ObjectInstance:
         scale_x: 256
         shear_x: 0
         position_x: 258
-        scale_y: 0
-        shear_y: 288
+        shear_y: 0
+        scale_y: 288
         position_y: 353
-        width: 0
-        length: 0
-        height: 0.5
-      Elapsed: 0
-      Z_Axis: 0
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
 
     02_Wall_12:
       Type: 2
@@ -744,14 +670,12 @@ ObjectInstance:
         scale_x: 256
         shear_x: 0
         position_x: 260
-        scale_y: 0
-        shear_y: 288
+        shear_y: 0
+        scale_y: 288
         position_y: 508
-        width: 0
-        length: 0
-        height: 0.5
-      Elapsed: 0
-      Z_Axis: 0
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
 
     02_Wall_13:
       Type: 2
@@ -763,14 +687,12 @@ ObjectInstance:
         scale_x: 256
         shear_x: 0
         position_x: 262
-        scale_y: 0
-        shear_y: 288
+        shear_y: 0
+        scale_y: 288
         position_y: 663
-        width: 0
-        length: 0
-        height: 0.5
-      Elapsed: 0
-      Z_Axis: 0
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
 
     02_Wall_14:
       Type: 2
@@ -782,14 +704,12 @@ ObjectInstance:
         scale_x: 256
         shear_x: 0
         position_x: 264
-        scale_y: 0
-        shear_y: 288
+        shear_y: 0
+        scale_y: 288
         position_y: 818
-        width: 0
-        length: 0
-        height: 0.5
-      Elapsed: 0
-      Z_Axis: 0
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
 
     02_Wall_15:
       Type: 2
@@ -801,14 +721,12 @@ ObjectInstance:
         scale_x: 256
         shear_x: 0
         position_x: 384
-        scale_y: 0
-        shear_y: 288
+        shear_y: 0
+        scale_y: 288
         position_y: 134
-        width: 0
-        length: 0
-        height: 0.5
-      Elapsed: 0
-      Z_Axis: 0
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
 
     02_Wall_16:
       Type: 2
@@ -820,14 +738,12 @@ ObjectInstance:
         scale_x: 256
         shear_x: 0
         position_x: 386
-        scale_y: 0
-        shear_y: 288
+        shear_y: 0
+        scale_y: 288
         position_y: 289
-        width: 0
-        length: 0
-        height: 0.5
-      Elapsed: 0
-      Z_Axis: 0
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
 
     02_Wall_17:
       Type: 2
@@ -839,14 +755,12 @@ ObjectInstance:
         scale_x: 256
         shear_x: 0
         position_x: 388
-        scale_y: 0
-        shear_y: 288
+        shear_y: 0
+        scale_y: 288
         position_y: 444
-        width: 0
-        length: 0
-        height: 0.5
-      Elapsed: 0
-      Z_Axis: 0
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
 
     02_Wall_18:
       Type: 2
@@ -858,14 +772,12 @@ ObjectInstance:
         scale_x: 256
         shear_x: 0
         position_x: 390
-        scale_y: 0
-        shear_y: 288
+        shear_y: 0
+        scale_y: 288
         position_y: 599
-        width: 0
-        length: 0
-        height: 0.5
-      Elapsed: 0
-      Z_Axis: 0
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
 
     02_Wall_19:
       Type: 2
@@ -877,14 +789,12 @@ ObjectInstance:
         scale_x: 256
         shear_x: 0
         position_x: 392
-        scale_y: 0
-        shear_y: 288
+        shear_y: 0
+        scale_y: 288
         position_y: 754
-        width: 0
-        length: 0
-        height: 0.5
-      Elapsed: 0
-      Z_Axis: 0
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
 
     02_Wall_20:
       Type: 2
@@ -896,14 +806,12 @@ ObjectInstance:
         scale_x: 256
         shear_x: 0
         position_x: 394
-        scale_y: 0
-        shear_y: 288
+        shear_y: 0
+        scale_y: 288
         position_y: 909
-        width: 0
-        length: 0
-        height: 0.5
-      Elapsed: 0
-      Z_Axis: 0
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
 
     02_Wall_21:
       Type: 2
@@ -915,14 +823,12 @@ ObjectInstance:
         scale_x: 256
         shear_x: 0
         position_x: 512
-        scale_y: 0
-        shear_y: 288
+        shear_y: 0
+        scale_y: 288
         position_y: 70
-        width: 0
-        length: 0
-        height: 0.5
-      Elapsed: 0
-      Z_Axis: 0
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
 
     02_Wall_22:
       Type: 2
@@ -934,14 +840,12 @@ ObjectInstance:
         scale_x: 256
         shear_x: 0
         position_x: 514
-        scale_y: 0
-        shear_y: 288
+        shear_y: 0
+        scale_y: 288
         position_y: 225
-        width: 0
-        length: 0
-        height: 0.5
-      Elapsed: 0
-      Z_Axis: 0
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
 
     02_Wall_23:
       Type: 2
@@ -953,14 +857,12 @@ ObjectInstance:
         scale_x: 256
         shear_x: 0
         position_x: 516
-        scale_y: 0
-        shear_y: 288
+        shear_y: 0
+        scale_y: 288
         position_y: 380
-        width: 0
-        length: 0
-        height: 0.5
-      Elapsed: 0
-      Z_Axis: 0
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
 
     02_Wall_24:
       Type: 2
@@ -972,14 +874,12 @@ ObjectInstance:
         scale_x: 256
         shear_x: 0
         position_x: 518
-        scale_y: 0
-        shear_y: 288
+        shear_y: 0
+        scale_y: 288
         position_y: 535
-        width: 0
-        length: 0
-        height: 0.5
-      Elapsed: 0
-      Z_Axis: 0
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
 
     02_Wall_25:
       Type: 2
@@ -991,14 +891,12 @@ ObjectInstance:
         scale_x: 256
         shear_x: 0
         position_x: 520
-        scale_y: 0
-        shear_y: 288
+        shear_y: 0
+        scale_y: 288
         position_y: 690
-        width: 0
-        length: 0
-        height: 0.5
-      Elapsed: 0
-      Z_Axis: 0
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
 
     02_Wall_26:
       Type: 2
@@ -1010,14 +908,12 @@ ObjectInstance:
         scale_x: 256
         shear_x: 0
         position_x: 522
-        scale_y: 0
-        shear_y: 288
+        shear_y: 0
+        scale_y: 288
         position_y: 845
-        width: 0
-        length: 0
-        height: 0.5
-      Elapsed: 0
-      Z_Axis: 0
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
 
     02_Wall_27:
       Type: 2
@@ -1029,14 +925,12 @@ ObjectInstance:
         scale_x: 256
         shear_x: 0
         position_x: -128
-        scale_y: 0
-        shear_y: 288
+        shear_y: 0
+        scale_y: 288
         position_y: 262
-        width: 0
-        length: 0
-        height: 0.5
-      Elapsed: 0
-      Z_Axis: 0
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
 
     02_Wall_28:
       Type: 2
@@ -1048,14 +942,12 @@ ObjectInstance:
         scale_x: 256
         shear_x: 0
         position_x: -126
-        scale_y: 0
-        shear_y: 288
+        shear_y: 0
+        scale_y: 288
         position_y: 417
-        width: 0
-        length: 0
-        height: 0.5
-      Elapsed: 0
-      Z_Axis: 0
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
 
     02_Wall_29:
       Type: 2
@@ -1067,14 +959,12 @@ ObjectInstance:
         scale_x: 256
         shear_x: 0
         position_x: -124
-        scale_y: 0
-        shear_y: 288
+        shear_y: 0
+        scale_y: 288
         position_y: 572
-        width: 0
-        length: 0
-        height: 0.5
-      Elapsed: 0
-      Z_Axis: 0
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
 
     02_Wall_30:
       Type: 2
@@ -1086,14 +976,12 @@ ObjectInstance:
         scale_x: 256
         shear_x: 0
         position_x: -122
-        scale_y: 0
-        shear_y: 288
+        shear_y: 0
+        scale_y: 288
         position_y: 727
-        width: 0
-        length: 0
-        height: 0.5
-      Elapsed: 0
-      Z_Axis: 0
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
 
     02_Wall_31:
       Type: 2
@@ -1105,14 +993,12 @@ ObjectInstance:
         scale_x: 256
         shear_x: 0
         position_x: -120
-        scale_y: 0
-        shear_y: 288
+        shear_y: 0
+        scale_y: 288
         position_y: 882
-        width: 0
-        length: 0
-        height: 0.5
-      Elapsed: 0
-      Z_Axis: 0
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
 
     02_Wall_32:
       Type: 2
@@ -1124,14 +1010,12 @@ ObjectInstance:
         scale_x: 256
         shear_x: 0
         position_x: -256
-        scale_y: 0
-        shear_y: 288
+        shear_y: 0
+        scale_y: 288
         position_y: 198
-        width: 0
-        length: 0
-        height: 0.5
-      Elapsed: 0
-      Z_Axis: 0
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
 
     02_Wall_33:
       Type: 2
@@ -1143,14 +1027,12 @@ ObjectInstance:
         scale_x: 256
         shear_x: 0
         position_x: -254
-        scale_y: 0
-        shear_y: 288
+        shear_y: 0
+        scale_y: 288
         position_y: 353
-        width: 0
-        length: 0
-        height: 0.5
-      Elapsed: 0
-      Z_Axis: 0
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
 
     02_Wall_34:
       Type: 2
@@ -1162,14 +1044,12 @@ ObjectInstance:
         scale_x: 256
         shear_x: 0
         position_x: -252
-        scale_y: 0
-        shear_y: 288
+        shear_y: 0
+        scale_y: 288
         position_y: 508
-        width: 0
-        length: 0
-        height: 0.5
-      Elapsed: 0
-      Z_Axis: 0
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
 
     02_Wall_35:
       Type: 2
@@ -1181,14 +1061,12 @@ ObjectInstance:
         scale_x: 256
         shear_x: 0
         position_x: -250
-        scale_y: 0
-        shear_y: 288
+        shear_y: 0
+        scale_y: 288
         position_y: 663
-        width: 0
-        length: 0
-        height: 0.5
-      Elapsed: 0
-      Z_Axis: 0
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
 
     02_Wall_36:
       Type: 2
@@ -1200,14 +1078,12 @@ ObjectInstance:
         scale_x: 256
         shear_x: 0
         position_x: -248
-        scale_y: 0
-        shear_y: 288
+        shear_y: 0
+        scale_y: 288
         position_y: 818
-        width: 0
-        length: 0
-        height: 0.5
-      Elapsed: 0
-      Z_Axis: 0
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
 
     02_Wall_37:
       Type: 2
@@ -1219,14 +1095,12 @@ ObjectInstance:
         scale_x: 256
         shear_x: 0
         position_x: -384
-        scale_y: 0
-        shear_y: 288
+        shear_y: 0
+        scale_y: 288
         position_y: 134
-        width: 0
-        length: 0
-        height: 0.5
-      Elapsed: 0
-      Z_Axis: 0
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
 
     02_Wall_38:
       Type: 2
@@ -1238,14 +1112,12 @@ ObjectInstance:
         scale_x: 256
         shear_x: 0
         position_x: -382
-        scale_y: 0
-        shear_y: 288
+        shear_y: 0
+        scale_y: 288
         position_y: 289
-        width: 0
-        length: 0
-        height: 0.5
-      Elapsed: 0
-      Z_Axis: 0
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
 
     02_Wall_39:
       Type: 2
@@ -1257,14 +1129,12 @@ ObjectInstance:
         scale_x: 256
         shear_x: 0
         position_x: -380
-        scale_y: 0
-        shear_y: 288
+        shear_y: 0
+        scale_y: 288
         position_y: 444
-        width: 0
-        length: 0
-        height: 0.5
-      Elapsed: 0
-      Z_Axis: 0
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
 
     02_Wall_40:
       Type: 2
@@ -1276,14 +1146,12 @@ ObjectInstance:
         scale_x: 256
         shear_x: 0
         position_x: -378
-        scale_y: 0
-        shear_y: 288
+        shear_y: 0
+        scale_y: 288
         position_y: 599
-        width: 0
-        length: 0
-        height: 0.5
-      Elapsed: 0
-      Z_Axis: 0
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
 
     02_Wall_41:
       Type: 2
@@ -1295,14 +1163,12 @@ ObjectInstance:
         scale_x: 256
         shear_x: 0
         position_x: -376
-        scale_y: 0
-        shear_y: 288
+        shear_y: 0
+        scale_y: 288
         position_y: 754
-        width: 0
-        length: 0
-        height: 0.5
-      Elapsed: 0
-      Z_Axis: 0
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
 
     02_Wall_42:
       Type: 2
@@ -1314,14 +1180,12 @@ ObjectInstance:
         scale_x: 256
         shear_x: 0
         position_x: -374
-        scale_y: 0
-        shear_y: 288
+        shear_y: 0
+        scale_y: 288
         position_y: 909
-        width: 0
-        length: 0
-        height: 0.5
-      Elapsed: 0
-      Z_Axis: 0
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
 
     02_Wall_43:
       Type: 2
@@ -1333,14 +1197,12 @@ ObjectInstance:
         scale_x: 256
         shear_x: 0
         position_x: -512
-        scale_y: 0
-        shear_y: 288
+        shear_y: 0
+        scale_y: 288
         position_y: 70
-        width: 0
-        length: 0
-        height: 0.5
-      Elapsed: 0
-      Z_Axis: 0
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
 
     02_Wall_44:
       Type: 2
@@ -1352,14 +1214,12 @@ ObjectInstance:
         scale_x: 256
         shear_x: 0
         position_x: -510
-        scale_y: 0
-        shear_y: 288
+        shear_y: 0
+        scale_y: 288
         position_y: 225
-        width: 0
-        length: 0
-        height: 0.5
-      Elapsed: 0
-      Z_Axis: 0
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
 
     02_Wall_45:
       Type: 2
@@ -1371,14 +1231,12 @@ ObjectInstance:
         scale_x: 256
         shear_x: 0
         position_x: -508
-        scale_y: 0
-        shear_y: 288
+        shear_y: 0
+        scale_y: 288
         position_y: 380
-        width: 0
-        length: 0
-        height: 0.5
-      Elapsed: 0
-      Z_Axis: 0
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
 
     02_Wall_46:
       Type: 2
@@ -1390,14 +1248,12 @@ ObjectInstance:
         scale_x: 256
         shear_x: 0
         position_x: -506
-        scale_y: 0
-        shear_y: 288
+        shear_y: 0
+        scale_y: 288
         position_y: 535
-        width: 0
-        length: 0
-        height: 0.5
-      Elapsed: 0
-      Z_Axis: 0
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
 
     02_Wall_47:
       Type: 2
@@ -1409,14 +1265,12 @@ ObjectInstance:
         scale_x: 256
         shear_x: 0
         position_x: -504
-        scale_y: 0
-        shear_y: 288
+        shear_y: 0
+        scale_y: 288
         position_y: 690
-        width: 0
-        length: 0
-        height: 0.5
-      Elapsed: 0
-      Z_Axis: 0
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
 
     02_Wall_48:
       Type: 2
@@ -1428,14 +1282,12 @@ ObjectInstance:
         scale_x: 256
         shear_x: 0
         position_x: -502
-        scale_y: 0
-        shear_y: 288
+        shear_y: 0
+        scale_y: 288
         position_y: 845
-        width: 0
-        length: 0
-        height: 0.5
-      Elapsed: 0
-      Z_Axis: 0
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
 
   04_Portrait:
     04_Portrait_00:
@@ -1448,14 +1300,12 @@ ObjectInstance:
         scale_x: 102.6
         shear_x: 0
         position_x: -140
-        scale_y: 0
-        shear_y: 169.2
+        shear_y: 0
+        scale_y: 169.2
         position_y: 300
-        width: 0
-        length: 0
-        height: 0.5
-      Elapsed: 0
-      Z_Axis: 0
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
 
     04_Portrait_01:
       Type: 4
@@ -1467,14 +1317,12 @@ ObjectInstance:
         scale_x: 102.6
         shear_x: 0
         position_x: -440
-        scale_y: 0
-        shear_y: 169.2
+        shear_y: 0
+        scale_y: 169.2
         position_y: 630
-        width: 0
-        length: 0
-        height: 0.5
-      Elapsed: 0
-      Z_Axis: 0
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
 
     04_Portrait_02:
       Type: 4
@@ -1486,14 +1334,12 @@ ObjectInstance:
         scale_x: 102.6
         shear_x: 0
         position_x: 370
-        scale_y: 0
-        shear_y: 169.2
+        shear_y: 0
+        scale_y: 169.2
         position_y: 670
-        width: 0
-        length: 0
-        height: 0.5
-      Elapsed: 0
-      Z_Axis: 0
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
 
     04_Portrait_03:
       Type: 4
@@ -1505,14 +1351,12 @@ ObjectInstance:
         scale_x: 102.6
         shear_x: 0
         position_x: 400
-        scale_y: 0
-        shear_y: 169.2
+        shear_y: 0
+        scale_y: 169.2
         position_y: 340
-        width: 0
-        length: 0
-        height: 0.5
-      Elapsed: 0
-      Z_Axis: 0
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
 
     04_Portrait_04:
       Type: 4
@@ -1524,14 +1368,12 @@ ObjectInstance:
         scale_x: 102.6
         shear_x: 0
         position_x: 150
-        scale_y: 0
-        shear_y: 169.2
+        shear_y: 0
+        scale_y: 169.2
         position_y: 620
-        width: 0
-        length: 0
-        height: 0.5
-      Elapsed: 0
-      Z_Axis: 0
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
 
   05_Landscape:
     05_Landscape_00:
@@ -1544,14 +1386,12 @@ ObjectInstance:
         scale_x: 124
         shear_x: 0
         position_x: 480
-        scale_y: 0
-        shear_y: 150
+        shear_y: 0
+        scale_y: 150
         position_y: 460
-        width: 0
-        length: 0
-        height: 0.5
-      Elapsed: 0
-      Z_Axis: 0
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
 
     05_Landscape_01:
       Type: 5
@@ -1563,14 +1403,12 @@ ObjectInstance:
         scale_x: 124
         shear_x: 0
         position_x: -160
-        scale_y: 0
-        shear_y: 150
+        shear_y: 0
+        scale_y: 150
         position_y: 610
-        width: 0
-        length: 0
-        height: 0.5
-      Elapsed: 0
-      Z_Axis: 0
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
 
     05_Landscape_02:
       Type: 5
@@ -1582,14 +1420,12 @@ ObjectInstance:
         scale_x: 124
         shear_x: 0
         position_x: -400
-        scale_y: 0
-        shear_y: 150
+        shear_y: 0
+        scale_y: 150
         position_y: 330
-        width: 0
-        length: 0
-        height: 0.5
-      Elapsed: 0
-      Z_Axis: 0
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
 
     05_Landscape_03:
       Type: 5
@@ -1601,14 +1437,12 @@ ObjectInstance:
         scale_x: 124
         shear_x: 0
         position_x: -490
-        scale_y: 0
-        shear_y: 140
+        shear_y: 0
+        scale_y: 140
         position_y: 450
-        width: 0
-        length: 0
-        height: 0.5
-      Elapsed: 0
-      Z_Axis: 0
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
 
     05_Landscape_04:
       Type: 5
@@ -1620,14 +1454,12 @@ ObjectInstance:
         scale_x: 124
         shear_x: 0
         position_x: 160
-        scale_y: 0
-        shear_y: 140
+        shear_y: 0
+        scale_y: 140
         position_y: 450
-        width: 0
-        length: 0
-        height: 0.5
-      Elapsed: 0
-      Z_Axis: 0
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
 
   06_Platform:
     06_Platform_00:
@@ -1640,18 +1472,16 @@ ObjectInstance:
         scale_x: 128
         shear_x: 0
         position_x: 0
-        scale_y: 0
-        shear_y: 103.5
+        shear_y: 0
+        scale_y: 103.5
         position_y: -16
-        width: 0
-        length: 0
-        height: 0.5
-      Elapsed: 0
-      Z_Axis: 0
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
       
     06_Platform_01:
       Type: 6
-      Flag: 0      
+      Flag: 0
       Texture_Offset:
         x_offset: 0
         y_offset: 0
@@ -1659,11 +1489,9 @@ ObjectInstance:
         scale_x: 128
         shear_x: 0
         position_x: 20
-        scale_y: 0
-        shear_y: 103.5
+        shear_y: 0
+        scale_y: 103.5
         position_y: -80
-        width: 0
-        length: 0
-        height: 0.5
-      Elapsed: 0
-      Z_Axis: 0
+        elapsed: 0
+        empty: 0
+        position_z: 0.5

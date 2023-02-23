@@ -17,27 +17,20 @@ namespace Level2
 	const static f32 MIN_CAM_HEIGHT = -65.f;
 
 	using namespace GameObjects;
-	Object player, floor, wall, deco, portrait, landscape, platform;
 	Character p_player;
-	ObjectInst objInst[87];
 	f32 windowWidth, windowHeight;
-	Object* objs[]{ &player, &floor, &wall, &deco, &portrait, &landscape, &platform };
-
 	const std::string level_number = "02";
 
-	std::vector<Load_Data_From_File::ObjectShape> vOS;
-	std::vector<Load_Data_From_File::ObjectTransform> vOT;
-	Load_Data_From_File::PlayerProperties* sPP;
+	std::vector<Object> vOBJ;
+	std::vector<ObjectInst> vOBJ_INST;
+	Character* sCHARACTER;
 
 	void Level2_Load() {
-		vOS = Load_Data_From_File::Load_Shape_From_YAML(level_number);
-		vOT = Load_Data_From_File::Load_Transform_From_YAML(level_number, vOS);
-		sPP = Load_Data_From_File::Load_Player_Stats_From_YAML(level_number);
 
-		//Extract_Data_To_File::Extract_Shape_Data_Out(vOS, level_number);
-		//Extract_Data_To_File::Extract_Transform_Data_Out(vOT, *sPP, level_number);
+		vOBJ = Load_Data_From_File::Load_Shape_From_YAML(level_number);
+		vOBJ_INST = Load_Data_From_File::Load_Transform_From_YAML(level_number, vOBJ);
+		sCHARACTER = Load_Data_From_File::Load_Player_Stats_From_YAML(level_number);
 
-		Load_Data_From_File::Load_Shape_To_Object(vOS, objs);
 	}
 
 	void Level2_Init()
@@ -45,11 +38,15 @@ namespace Level2
 		windowWidth = static_cast<f32>(AEGetWindowWidth());
 		windowHeight = static_cast<f32>(AEGetWindowHeight());
 
-		/*TRANSFORM OBJECTS*/
-		Level_Initializer::Init_Object(vOT, objs, objInst, (sizeof(objInst) / sizeof(objInst[0])));
-
 		/*CREATE PLAYER*/
-		Level_Initializer::Init_Player(sPP, p_player, &player, &objInst[0]);
+		Level_Initializer::Init_Player(&vOBJ_INST[0], sCHARACTER, p_player);
+
+		/*SCALE OBJECTS*/
+		Level_Initializer::Option_Change(vOBJ_INST);
+
+		/*Extract Using Vector vOBJ_INST & p_player*/
+		//Extract_Data_To_File::Extract_Transform_Data_Out(vOBJ_INST, p_player, level_number);
+
 	}
 
 	void Level2_Update()
@@ -60,20 +57,19 @@ namespace Level2
 
 		p_player.pObjInst->flag = (InputHandler::PlayerJump(p_player)) ?
 			p_player.pObjInst->flag | JUMPING : p_player.pObjInst->flag & ~JUMPING;
-		p_player.pObjInst->flag = (InputHandler::PlayerMovement(p_player)) ? 
+		p_player.pObjInst->flag = (InputHandler::PlayerMovement(p_player)) ?
 			p_player.pObjInst->flag | ACTIVE : p_player.pObjInst->flag & ~ACTIVE;
 
 		/*MOVEMENT*/
-		PhysicsHandler::MovePlayer(p_player);
 
 		//check if player if near portrait
-		for (size_t i{ 0 }; i < sizeof(objInst) / sizeof(objInst[0]); i++)
+		for (size_t i{ 0 }; i < vOBJ_INST.size(); i++)
 		{
-			if (objInst[i].pObj->type == PORTRAIT ||
-				objInst[i].pObj->type == LANDSCAPE)
+			if (vOBJ_INST[i].pObj->type == PORTRAIT ||
+				vOBJ_INST[i].pObj->type == LANDSCAPE)
 			{
-				objInst[i].flag = (CollisionHandler::GetDistance(objInst[i].GetPosX(),
-					objInst[i].GetPosY(), p_player.pObjInst->GetPosX(),
+				vOBJ_INST[i].flag = (CollisionHandler::GetDistance(vOBJ_INST[i].GetPosX(),
+					vOBJ_INST[i].GetPosY(), p_player.pObjInst->GetPosX(),
 					p_player.pObjInst->GetPosY()) < 40.0)
 					? static_cast<unsigned long>(ACTIVE) : IDLE;
 			}
@@ -89,31 +85,22 @@ namespace Level2
 	{
 		RenderSettings();
 		// Initialise i to 1 to skip player
-		for (int i{ 1 }; i < (sizeof(objInst) / sizeof(objInst[0])); i++)
-			RenderObject(objInst[i]);
-
+		for (int i{ 1 }; i < vOBJ_INST.size(); i++)
+			RenderObject(vOBJ_INST[i]);
 		AnimationHandler::AnimateCharacter(p_player);
 	}
 
 	void Level2_Free()
 	{
-		AEGfxMeshFree(player.pMesh);
-		AEGfxMeshFree(wall.pMesh);
-		AEGfxMeshFree(floor.pMesh);
-		AEGfxMeshFree(deco.pMesh);
-		AEGfxMeshFree(portrait.pMesh);
-		AEGfxMeshFree(landscape.pMesh);
-		AEGfxMeshFree(platform.pMesh);
+		for (size_t i{ 0 }; i < vOBJ.size(); i++)
+			AEGfxMeshFree(vOBJ[i].pMesh);
 	}
 
 	void Level2_Unload()
 	{
-		AEGfxTextureUnload(player.pTex);
-		AEGfxTextureUnload(wall.pTex);
-		AEGfxTextureUnload(floor.pTex);
-		AEGfxTextureUnload(deco.pTex);
-		AEGfxTextureUnload(portrait.pTex);
-		AEGfxTextureUnload(landscape.pTex);
-		AEGfxTextureUnload(platform.pTex);
+		for (size_t i{ 0 }; i < vOBJ.size(); i++)
+			AEGfxTextureUnload(vOBJ[i].pTex);
+		vOBJ.clear();
+		vOBJ_INST.clear();
 	}
 }
