@@ -5,18 +5,12 @@ namespace GameObjects
 {
 	/*EXTERN*/
 	extern s8						fontId;
-	extern const unsigned char		FLAG_INACTIVE;
-	extern const unsigned char		FLAG_ACTIVE;
-	extern const unsigned char		FLAG_ALT1_S;
-	extern const unsigned char		FLAG_ALT1_E;
-	extern const unsigned char		FLAG_ALT2_S;
-	extern const unsigned char		FLAG_ALT2_E;
 
 	/*GAME OBJECT STRUCTURE*/
 	struct Object {
-		unsigned long				type;
 		AEGfxTexture*				pTex;
 		AEGfxVertexList*			pMesh;
+		unsigned long				type;
 		f32							width;
 		f32							length;
 		f32							height;
@@ -28,22 +22,40 @@ namespace GameObjects
 		Object*						pObj;
 		unsigned long				flag;
 		AEVec2						tex_offset;
-		/*  
-			[0][0] scale_x,		[0][1] 0(shearx),	[0][2] world x,
-			[1][0] 0(sheary),	[1][1] scale_y,		[1][2] world y,
-			[2][0] e,			[2][1] 0,			[2][2] world z
-		*/
 		AEMtx33						transform;
-		//f32							elevation;
+
+		// Scale of Object Instance in width
+		f32& GetScaleX() { return this->transform.m[0][0]; } // check if this is used anywhere
+
+		// Position X in world screen coordinates
+		f32& GetPosX() { return this->transform.m[0][2]; }
+
+		f32 GetPosX() const { return this->transform.m[0][2]; }
+
+		// Scale of Object Instance in height
+		f32& GetScaleY() { return this->transform.m[1][1]; }
+
+		// Position Y in world screen coordinates
+		f32& GetPosY() { return this->transform.m[1][2]; }
+
+		f32 GetPosY() const { return this->transform.m[1][2]; }
+
+		// Elapsed time of animation
+		f32& GetElapsed() { return this->transform.m[2][1]; }
+
+		// Elevation of the Object Instance
+		f32& GetPosZ() { return this->transform.m[2][2]; }
+
+		f32 GetPosZ() const { return this->transform.m[2][2]; }
+
+		AEVec2 GetPosXY() { return {this->GetPosX(), this->GetPosY()}; }
 	};
 
 	/*CHARACTER STRUCTURE*/
 	struct Character {
-		ObjectInst					pObjInst;
+		ObjectInst*					pObjInst;
 		AEVec2						dir;
 		AEVec2						input;
-		bool						isMoving;
-		bool						isJumping;
 		f32							rotation;
 		f32							zVel;
 		f32							speed;
@@ -57,8 +69,8 @@ namespace GameObjects
 
 	/*GET VERTICES*/
 	//AEVec2* GetVertices(const ObjectInst obj);
-	AEVec2* GetVerticesXY(const ObjectInst obj, int& count);
-	AEVec2* GetVerticesYZ(const ObjectInst obj, int& count);
-	AEVec2* GetVerticesXZ(const ObjectInst obj, int& count);
+	AEVec2* GetVerticesXY(const ObjectInst& obj, int& count);
+	AEVec2* GetVerticesYZ(const ObjectInst& obj, int& count);
+	AEVec2* GetVerticesXZ(const ObjectInst& obj, int& count);
 	AEMtx33 ConvertIsometric(const ObjectInst& obj);
 }

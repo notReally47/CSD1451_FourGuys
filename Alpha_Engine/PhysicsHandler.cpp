@@ -5,16 +5,16 @@
 
 namespace PhysicsHandler {
 	void MovePlayer(GameObjects::Character& player) {
-		AEVec2 pos{ player.pObjInst.transform.m[0][2], player.pObjInst.transform.m[1][2] };
-		if (player.pObjInst.flag)
+		AEVec2 pos{ player.pObjInst->GetPosXY() };
+		if (player.pObjInst->flag & Enum::FLAG::ACTIVE)
 		{
 			f32 unitSpeed = player.speed * static_cast<f32>(AEFrameRateControllerGetFrameTime());
 			AEVec2Normalize(&player.dir, &player.dir);
 			AEVec2Scale(&player.dir, &player.dir, unitSpeed);
 			AEVec2Add(&pos, &pos, &player.dir);
 
-			player.pObjInst.transform.m[0][2] = pos.x;
-			player.pObjInst.transform.m[1][2] = pos.y;
+			player.pObjInst->GetPosX() = pos.x;
+			player.pObjInst->GetPosY() = pos.y;
 		}
 	}
 }

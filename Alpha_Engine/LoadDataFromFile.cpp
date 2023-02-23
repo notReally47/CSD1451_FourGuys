@@ -16,7 +16,7 @@ namespace Load_Data_From_File {
 		// Strings for Filtering through the YAML file
 		string 
 			find_object				{ "Object" },
-			object_types			{ "00_Player 01_Floor 02_Wall 03_Decoration 04_Portrait 05_Landscape 08_Platform" },
+			object_types			{ "00_Player 01_Floor 02_Wall 03_Decoration 04_Portrait 05_Landscape 06_Platform" },
 			object_type				{ 0 }, 
 			object_type_number		{ 0 }, 
 			object_data_type		{ 0 };
@@ -100,7 +100,7 @@ namespace Load_Data_From_File {
 		// Strings for Filtering through the YAML file
 		string 
 			find_object				{ "ObjectInstance" },
-			object_types			{ "00_Player 01_Floor 02_Wall 03_Decoration 04_Portrait 05_Landscape 08_Platform" },
+			object_types			{ "00_Player 01_Floor 02_Wall 03_Decoration 04_Portrait 05_Landscape 06_Platform" },
 			object_type				{ 0 }, 
 			object_type_number		{ 0 }, 
 			object_data_type		{ 0 };

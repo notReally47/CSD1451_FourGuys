@@ -20,7 +20,7 @@ namespace Enum {
 		LEFT
 	};
 
-	enum TYPE {
+	enum TYPE : unsigned long {
 		PLAYER,
 		FLOOR,
 		WALL,
@@ -28,5 +28,16 @@ namespace Enum {
 		PORTRAIT,
 		LANDSCAPE,
 		PLATFORM
+	};
+
+	enum FLAG : unsigned long {
+		IDLE,
+		ACTIVE,
+		JUMPING,
+		ISO_UP,
+		ISO_DOWN,
+		ISO_LEFT,
+		ISO_RIGHT,
+		DOOR
 	};
 }

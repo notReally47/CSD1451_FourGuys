@@ -26,6 +26,8 @@ namespace Level_Initializer {
 				object_instance[i].pObj = object[Enum::TYPE::PORTRAIT];
 			else if (vOT[i].OS.type == Enum::TYPE::LANDSCAPE)
 				object_instance[i].pObj = object[Enum::TYPE::LANDSCAPE];
+			else if (vOT[i].OS.type == Enum::TYPE::PLATFORM)
+				object_instance[i].pObj = object[Enum::TYPE::PLATFORM];
 
 			// Set ObjectInstance Flag
 			object_instance[i].flag = vOT[i].flag;
@@ -46,10 +48,10 @@ namespace Level_Initializer {
 
 
 
-	void Init_Player(Load_Data_From_File::PlayerProperties* sPP, GameObjects::Character& p_player, GameObjects::Object* object, GameObjects::ObjectInst object_instance) {
+	void Init_Player(Load_Data_From_File::PlayerProperties* sPP, GameObjects::Character& p_player, GameObjects::Object* object, GameObjects::ObjectInst* object_instance) {
 		
 		p_player.pObjInst = object_instance;					// Set Player ObjectInstance
-		p_player.pObjInst.pObj = object;						// Set Player Object to Player ObjectInstance
+		p_player.pObjInst->pObj = object;						// Set Player Object to Player ObjectInstance
 
 		p_player.dir = (*sPP).direction;						// Set Player Direction
 		p_player.input = (*sPP).input;							// Set Player Input

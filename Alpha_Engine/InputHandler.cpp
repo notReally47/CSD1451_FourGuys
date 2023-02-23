@@ -64,8 +64,8 @@ namespace InputHandler {
 			next = Enum::GS_QUIT;
 	}
 
-	bool playerMovement(Character& player) {
-		AEVec2 dir = AEVec2{};
+	bool PlayerMovement(Character& player) {
+		AEVec2 dir{ .0f,.0f };
 		if (AEInputCheckCurr(AEVK_A)) {
 			dir.x--;
 		}
@@ -78,27 +78,24 @@ namespace InputHandler {
 		if (AEInputCheckCurr(AEVK_S)) {
 			dir.y--;
 		}
-		/*DEPRECIATED -> ISOMETRIC CONVERSION WILL BE IN A DIFFERENT PART OF THE CODE*/
-		///*CONVERSION TO ISOMETRIC*/
-		//player.dir.x = dir.x + dir.y;
-		//player.dir.y = -0.5f * dir.x + 0.5f * dir.y;
+
 		player.input = dir;
 		player.dir = dir;
 		return dir.x || dir.y;
 	}
 
-	bool PlayerJump(GameObjects::Character& player) {
+	bool PlayerJump(Character& player) {
 		player.zVel = GRAVITY * (f32)AEFrameRateControllerGetFrameTime() + player.zVel;
 
-		if (AEInputCheckTriggered(AEVK_SPACE) && player.pObjInst.transform.m[2][2] == 0) {
+		if (AEInputCheckTriggered(AEVK_SPACE) && player.pObjInst->GetPosZ() == 0) {
 			player.zVel = sqrt(2 * -GRAVITY * (JUMP_HEIGHT));
 		}
 
-		player.pObjInst.transform.m[2][2] = player.zVel * (f32)AEFrameRateControllerGetFrameTime() + player.pObjInst.transform.m[2][2];
-		if (player.pObjInst.transform.m[2][2] < 0)
-			player.pObjInst.transform.m[2][2] = 0;
+		player.pObjInst->GetPosZ() = player.zVel * (f32)AEFrameRateControllerGetFrameTime() + player.pObjInst->GetPosZ();
+		if (player.pObjInst->GetPosZ() < 0)
+			player.pObjInst->GetPosZ() = 0;
 
-		return player.pObjInst.transform.m[2][2] > 0;
+		return player.pObjInst->GetPosZ() > 0;
 	}
 
 	bool buttonClick(s32 mouseX, s32 mouseY, float buttonX, float buttonY) {
