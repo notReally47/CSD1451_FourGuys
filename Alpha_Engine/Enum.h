@@ -1,7 +1,9 @@
 #pragma once
 
-namespace Enum {
-	enum GAME_STATES {
+namespace Enum
+{
+	enum GAME_STATES
+	{
 		GS_RESTART,
 		GS_LEVEL1,
 		GS_LEVEL2,
@@ -9,24 +11,28 @@ namespace Enum {
 		GS_QUIT = -1
 	};
 
-	enum CHARACTER_STATES {
+	enum CHARACTER_STATES
+	{
 		CS_IDLE,
 		CS_MOVING
 	};
 
-	enum DIRECTION {
+	enum DIRECTION
+	{
 		NONE,
 		RIGHT,
 		LEFT
 	};
 
-	enum TYPE {
+	enum TYPE
+	{
 		PLAYER,
 		FLOOR,
 		WALL,
 		DECO,
 		PORTRAIT,
 		LANDSCAPE,
-		PLATFORM
+		PLATFORM,
+		BUTTON
 	};
 }

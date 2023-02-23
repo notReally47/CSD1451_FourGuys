@@ -87,13 +87,13 @@ namespace Level2
 			p_player.pObjInst.transform.m[0][2] += p_player.dir.x;
 			p_player.pObjInst.transform.m[1][2] += p_player.dir.y;
       
-			//check if player if near portrait
+			//check if player near portrait
 			for (size_t i{ 0 }; i < sizeof(objInst) / sizeof(objInst[0]); i++)
 				if (objInst[i].pObj->type == Enum::TYPE::PORTRAIT ||
 					objInst[i].pObj->type == Enum::TYPE::LANDSCAPE)
 					objInst[i].flag = (DistanceBetweenPlayerAndPortrait(objInst[i].transform.m[0][2],
 						objInst[i].transform.m[1][2], p_player.pObjInst.transform.m[0][2],
-						p_player.pObjInst.transform.m[1][2]) < 40.0) ? FLAG_ACTIVE : FLAG_INACTIVE;
+						p_player.pObjInst.transform.m[1][2]) < 100.0) ? FLAG_ACTIVE : FLAG_INACTIVE;
 		}
 		/*ANIMATION*/
 		AEGfxSetCamPosition(0.f, max(p_player.pObjInst.transform.m[1][2], -85.0f));

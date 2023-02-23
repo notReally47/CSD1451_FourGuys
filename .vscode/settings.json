@@ -47,6 +47,7 @@
         "iomanip": "cpp",
         "xlocmon": "cpp",
         "xloctime": "cpp",
-        "vector": "cpp"
+        "vector": "cpp",
+        "ranges": "cpp"
     }
 }
