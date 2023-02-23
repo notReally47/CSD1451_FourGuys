@@ -48,6 +48,15 @@
         "xlocmon": "cpp",
         "xloctime": "cpp",
         "vector": "cpp",
-        "ranges": "cpp"
+        "ranges": "cpp",
+        "algorithm": "cpp",
+        "deque": "cpp",
+        "list": "cpp",
+        "map": "cpp",
+        "set": "cpp",
+        "span": "cpp",
+        "sstream": "cpp",
+        "stack": "cpp",
+        "xtree": "cpp"
     }
 }
