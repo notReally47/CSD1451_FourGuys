@@ -17,18 +17,24 @@ namespace GameObjects
 		unsigned long				type;
 		AEGfxTexture*				pTex;
 		AEGfxVertexList*			pMesh;
+		f32							width;
+		f32							length;
+		f32							height;
 	};
 
 	/*TODO*/
 	/*GAME OBJECT INSTANCE STRUCTURE*/
 	struct ObjectInst {
 		Object*						pObj;
-		unsigned char				flag;
+		unsigned long				flag;
 		AEVec2						tex_offset;
-		/*  [0][0] scale_x,   [0][1] 0(shearx),       [0][2] pos x,
-			[1][0] 0(sheary),		[1][1] scale_y,	[1][2] pos y,
-			[2][0] width, [2][1] length,		[2][2] height*/
+		/*  
+			[0][0] scale_x,		[0][1] 0(shearx),	[0][2] world x,
+			[1][0] 0(sheary),	[1][1] scale_y,		[1][2] world y,
+			[2][0] e,			[2][1] 0,			[2][2] world z
+		*/
 		AEMtx33						transform;
+		//f32							elevation;
 	};
 
 	/*CHARACTER STRUCTURE*/
@@ -36,7 +42,10 @@ namespace GameObjects
 		ObjectInst					pObjInst;
 		AEVec2						dir;
 		AEVec2						input;
+		bool						isMoving;
+		bool						isJumping;
 		f32							rotation;
+		f32							zVel;
 		f32							speed;
 		int							spriteIteration;
 		// width 128, height 152
@@ -45,5 +54,11 @@ namespace GameObjects
 	/*FUNCTIONS*/
 	void	RenderSettings(void);
 	void	RenderObject(ObjectInst& obj);
-	AEVec2* GetVertices(const ObjectInst obj);
+
+	/*GET VERTICES*/
+	//AEVec2* GetVertices(const ObjectInst obj);
+	AEVec2* GetVerticesXY(const ObjectInst obj, int& count);
+	AEVec2* GetVerticesYZ(const ObjectInst obj, int& count);
+	AEVec2* GetVerticesXZ(const ObjectInst obj, int& count);
+	AEMtx33 ConvertIsometric(const ObjectInst& obj);
 }

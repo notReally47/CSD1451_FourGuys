@@ -6,9 +6,12 @@
 #include "GameObjects.h"
 
 namespace InputHandler {
+	const static f32 GRAVITY		= -1000.f;
+	const static f32 JUMP_HEIGHT	= 50.f;
+
 	using namespace GameObjects;
 
-	void MoveObject(float &obj1Y, float &obj1X) {
+	void MoveObject(float& obj1Y, float& obj1X) {
 		if (AEInputCheckCurr(AEVK_1))
 			AEGfxSetBlendMode(AE_GFX_BM_NONE);
 		else if (AEInputCheckCurr(AEVK_2))
@@ -28,7 +31,7 @@ namespace InputHandler {
 			obj1X += 3.0f;
 	}
 
-	void ChangeTexture(float &objtexX, float &objtexY) {
+	void ChangeTexture(float& objtexX, float& objtexY) {
 		// Texture offset
 		if (AEInputCheckCurr(AEVK_L))
 			objtexX -= 0.01f;
@@ -41,7 +44,7 @@ namespace InputHandler {
 			objtexY -= 0.01f;
 	}
 
-	void MoveCamera(float &camX, float &camY) {
+	void MoveCamera(float& camX, float& camY) {
 		// Move the camera
 		AEGfxGetCamPosition(&camX, &camY);
 		if (AEInputCheckCurr(AEVK_W))
@@ -56,13 +59,13 @@ namespace InputHandler {
 			AEGfxSetCamPosition(camX + 2, camY);
 	}
 
-	void ExitGame(int &next) {
+	void ExitGame(int& next) {
 		if (AEInputCheckTriggered(AEVK_ESCAPE))
 			next = Enum::GS_QUIT;
 	}
 
-	bool playerMovement(Character &player) {
-		AEVec2 dir = AEVec2{ 0,0 };
+	bool playerMovement(Character& player) {
+		AEVec2 dir = AEVec2{};
 		if (AEInputCheckCurr(AEVK_A)) {
 			dir.x--;
 		}
@@ -75,16 +78,33 @@ namespace InputHandler {
 		if (AEInputCheckCurr(AEVK_S)) {
 			dir.y--;
 		}
-		/*CONVERSION TO ISOMETRIC*/
-		player.dir.x = dir.x + dir.y;
-		player.dir.y = -0.5f * dir.x + 0.5f * dir.y;
+		/*DEPRECIATED -> ISOMETRIC CONVERSION WILL BE IN A DIFFERENT PART OF THE CODE*/
+		///*CONVERSION TO ISOMETRIC*/
+		//player.dir.x = dir.x + dir.y;
+		//player.dir.y = -0.5f * dir.x + 0.5f * dir.y;
 		player.input = dir;
-		return !(dir.x == 0 && dir.y == 0);
+		player.dir = dir;
+		return dir.x || dir.y;
 	}
+
+	bool PlayerJump(GameObjects::Character& player) {
+		player.zVel = GRAVITY * (f32)AEFrameRateControllerGetFrameTime() + player.zVel;
+
+		if (AEInputCheckTriggered(AEVK_SPACE) && player.pObjInst.transform.m[2][2] == 0) {
+			player.zVel = sqrt(2 * -GRAVITY * (JUMP_HEIGHT));
+		}
+
+		player.pObjInst.transform.m[2][2] = player.zVel * (f32)AEFrameRateControllerGetFrameTime() + player.pObjInst.transform.m[2][2];
+		if (player.pObjInst.transform.m[2][2] < 0)
+			player.pObjInst.transform.m[2][2] = 0;
+
+		return player.pObjInst.transform.m[2][2] > 0;
+	}
+
 	bool buttonClick(s32 mouseX, s32 mouseY, float buttonX, float buttonY) {
 		AEInputGetCursorPosition(&mouseX, &mouseY);
-		if (AEInputCheckReleased(AEVK_LBUTTON)&& mouseX <=static_cast<s32>(buttonX + 100.f) && mouseX >= static_cast<s32>(buttonX)
-		&& mouseY <= static_cast<s32>(buttonY + 50.f) && mouseY >= static_cast<s32>(buttonY))
+		if (AEInputCheckReleased(AEVK_LBUTTON) && mouseX <= static_cast<s32>(buttonX + 100.f) && mouseX >= static_cast<s32>(buttonX)
+			&& mouseY <= static_cast<s32>(buttonY + 50.f) && mouseY >= static_cast<s32>(buttonY))
 		{
 			std::cout << "true\n";
 			return true;

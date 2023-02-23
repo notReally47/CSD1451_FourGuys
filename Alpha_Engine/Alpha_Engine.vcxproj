@@ -126,6 +126,7 @@ xcopy "$(SolutionDir)Extern\yaml-cpp\lib\yaml-cpp.dll" "$(OutDir)" /s /r /y /q</
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MainMenu.cpp" />
     <ClCompile Include="pch.cpp" />
+    <ClCompile Include="PhysicsHandler.cpp" />
     <ClCompile Include="SystemHandler.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -143,6 +144,7 @@ xcopy "$(SolutionDir)Extern\yaml-cpp\lib\yaml-cpp.dll" "$(OutDir)" /s /r /y /q</
     <ClInclude Include="LoadDataFromFile.h" />
     <ClInclude Include="MainMenu.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="PhysicsHandler.h" />
     <ClInclude Include="SystemHandler.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
