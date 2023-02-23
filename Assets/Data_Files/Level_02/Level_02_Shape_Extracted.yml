@@ -10,6 +10,9 @@ Object:
       uv_05: 0
       uv_06: 0
     Texture: "../Assets/Sprites/player.png"
+    Width: 0
+    Length: 0
+    Height: 0
 
   01_Floor:
     Type: 1
@@ -21,6 +24,9 @@ Object:
       uv_05: 0
       uv_06: 0
     Texture: "../Assets/Textures/floor.png"
+    Width: 0
+    Length: 0
+    Height: 0
 
   02_Wall:
     Type: 2
@@ -32,6 +38,9 @@ Object:
       uv_05: 0
       uv_06: 0
     Texture: "../Assets/Textures/wall.png"
+    Width: 0
+    Length: 0
+    Height: 0
 
   03_Decoration:
     Type: 3
@@ -43,6 +52,9 @@ Object:
       uv_05: 0
       uv_06: 0
     Texture: "../Assets/Props/candles.png"
+    Width: 0
+    Length: 0
+    Height: 0
 
   04_Portrait:
     Type: 4
@@ -54,6 +66,9 @@ Object:
       uv_05: 0
       uv_06: 0
     Texture: "../Assets/Props/portrait.png"
+    Width: 0
+    Length: 0
+    Height: 0
 
   05_Landscape:
     Type: 5
@@ -65,6 +80,9 @@ Object:
       uv_05: 0
       uv_06: 0
     Texture: "../Assets/Props/landscape.png"
+    Width: 0
+    Length: 0
+    Height: 0
 
   06_Platform:
     Type: 6
@@ -74,6 +92,8 @@ Object:
       uv_03: 1
       uv_04: 1
       uv_05: 0
-      uv_06: 0.5
+      uv_06: 0
     Texture: "../Assets/Textures/stairs.png"
-    
+    Width: 0
+    Length: 0
+    Height: 0

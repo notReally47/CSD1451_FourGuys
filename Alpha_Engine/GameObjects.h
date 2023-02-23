@@ -56,7 +56,8 @@ namespace GameObjects
 		ObjectInst*					pObjInst;
 		AEVec2						dir;
 		AEVec2						input;
-		f32							rotation;
+		bool						isMoving;
+		bool						isJumping;
 		f32							zVel;
 		f32							speed;
 		int							spriteIteration;

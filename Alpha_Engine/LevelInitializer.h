@@ -1,6 +1,6 @@
 #pragma once
 #include <vector>				// For std::vector
-#include "DataFiles.h"			// For Load_Data_From_File:: & GameObjects::
+#include "DataFiles.h"			// For GameObjects::
 
 namespace Level_Initializer {
 
@@ -8,8 +8,8 @@ namespace Level_Initializer {
 
 
 
-	void Init_Object(vector<Load_Data_From_File::ObjectTransform>& vOT, GameObjects::Object* object[], GameObjects::ObjectInst object_instance[], size_t object_instance_size);
-	void Init_Player(Load_Data_From_File::PlayerProperties* PP, GameObjects::Character& p_player, GameObjects::Object* object, GameObjects::ObjectInst* object_instance);
+	void Init_Object_From_Vector	(vector<GameObjects::ObjectInst> vOBJ_INST, GameObjects::ObjectInst object_instance[], size_t object_instance_size);
+	void Init_Player				(GameObjects::ObjectInst OBJ_INST, GameObjects::Character* sCHARACTER, GameObjects::Character& p_player);
 
 
 
