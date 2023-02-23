@@ -10,23 +10,20 @@ Object_Instance:
       Transformation:
         scale_x: 153.6
         shear_x: 0
-        position_x: 0
+        position_x: 10
         shear_y: 0
         scale_y: 182.4
-        position_y: 0
+        position_y: 10
         elapsed: 0
-        empty: 0
-        position_z: 0.5
+        empty: 200
+        position_z: 0
       Direction:
         direction_x: 0
         direction_y: 0
       Input:
         input_x: 0
         input_y: 0
-      Is_Moving: 0
-      Is_Jumping: 0
       Z_Velocity: 0
-      Speed: 200
       Sprite_Iteration: 0
 
   01_Floor:
@@ -45,7 +42,7 @@ Object_Instance:
         position_y: 256
         elapsed: 0
         empty: 0
-        position_z: 0.5
+        position_z: 0
 
     01_Floor_01:
       Type: 1
@@ -62,7 +59,7 @@ Object_Instance:
         position_y: 192
         elapsed: 0
         empty: 0
-        position_z: 0.5
+        position_z: 0
 
     01_Floor_02:
       Type: 1
@@ -79,7 +76,7 @@ Object_Instance:
         position_y: 128
         elapsed: 0
         empty: 0
-        position_z: 0.5
+        position_z: 0
 
     01_Floor_03:
       Type: 1
@@ -96,7 +93,7 @@ Object_Instance:
         position_y: 64
         elapsed: 0
         empty: 0
-        position_z: 0.5
+        position_z: 0
 
     01_Floor_04:
       Type: 1
@@ -113,7 +110,7 @@ Object_Instance:
         position_y: 0
         elapsed: 0
         empty: 0
-        position_z: 0.5
+        position_z: 0
 
     01_Floor_05:
       Type: 1
@@ -130,7 +127,7 @@ Object_Instance:
         position_y: 192
         elapsed: 0
         empty: 0
-        position_z: 0.5
+        position_z: 0
 
     01_Floor_06:
       Type: 1
@@ -147,7 +144,7 @@ Object_Instance:
         position_y: 128
         elapsed: 0
         empty: 0
-        position_z: 0.5
+        position_z: 0
 
     01_Floor_07:
       Type: 1
@@ -164,7 +161,7 @@ Object_Instance:
         position_y: 64
         elapsed: 0
         empty: 0
-        position_z: 0.5
+        position_z: 0
 
     01_Floor_08:
       Type: 1
@@ -181,7 +178,7 @@ Object_Instance:
         position_y: 0
         elapsed: 0
         empty: 0
-        position_z: 0.5
+        position_z: 0
 
     01_Floor_09:
       Type: 1
@@ -198,7 +195,7 @@ Object_Instance:
         position_y: -64
         elapsed: 0
         empty: 0
-        position_z: 0.5
+        position_z: 0
 
     01_Floor_10:
       Type: 1
@@ -215,7 +212,7 @@ Object_Instance:
         position_y: 128
         elapsed: 0
         empty: 0
-        position_z: 0.5
+        position_z: 0
 
     01_Floor_11:
       Type: 1
@@ -232,7 +229,7 @@ Object_Instance:
         position_y: 64
         elapsed: 0
         empty: 0
-        position_z: 0.5
+        position_z: 0
 
     01_Floor_12:
       Type: 1
@@ -249,7 +246,7 @@ Object_Instance:
         position_y: 0
         elapsed: 0
         empty: 0
-        position_z: 0.5
+        position_z: 0
 
     01_Floor_13:
       Type: 1
@@ -266,7 +263,7 @@ Object_Instance:
         position_y: -64
         elapsed: 0
         empty: 0
-        position_z: 0.5
+        position_z: 0
 
     01_Floor_14:
       Type: 1
@@ -283,7 +280,7 @@ Object_Instance:
         position_y: -128
         elapsed: 0
         empty: 0
-        position_z: 0.5
+        position_z: 0
 
     01_Floor_15:
       Type: 1
@@ -300,7 +297,7 @@ Object_Instance:
         position_y: 64
         elapsed: 0
         empty: 0
-        position_z: 0.5
+        position_z: 0
 
     01_Floor_16:
       Type: 1
@@ -317,7 +314,7 @@ Object_Instance:
         position_y: 0
         elapsed: 0
         empty: 0
-        position_z: 0.5
+        position_z: 0
 
     01_Floor_17:
       Type: 1
@@ -334,7 +331,7 @@ Object_Instance:
         position_y: -64
         elapsed: 0
         empty: 0
-        position_z: 0.5
+        position_z: 0
 
     01_Floor_18:
       Type: 1
@@ -351,7 +348,7 @@ Object_Instance:
         position_y: -128
         elapsed: 0
         empty: 0
-        position_z: 0.5
+        position_z: 0
 
     01_Floor_19:
       Type: 1
@@ -368,7 +365,7 @@ Object_Instance:
         position_y: -192
         elapsed: 0
         empty: 0
-        position_z: 0.5
+        position_z: 0
 
     01_Floor_20:
       Type: 1
@@ -385,7 +382,7 @@ Object_Instance:
         position_y: 0
         elapsed: 0
         empty: 0
-        position_z: 0.5
+        position_z: 0
 
     01_Floor_21:
       Type: 1
@@ -402,7 +399,7 @@ Object_Instance:
         position_y: -64
         elapsed: 0
         empty: 0
-        position_z: 0.5
+        position_z: 0
 
     01_Floor_22:
       Type: 1
@@ -419,7 +416,7 @@ Object_Instance:
         position_y: -128
         elapsed: 0
         empty: 0
-        position_z: 0.5
+        position_z: 0
 
     01_Floor_23:
       Type: 1
@@ -436,7 +433,7 @@ Object_Instance:
         position_y: -192
         elapsed: 0
         empty: 0
-        position_z: 0.5
+        position_z: 0
 
     01_Floor_24:
       Type: 1
@@ -453,7 +450,7 @@ Object_Instance:
         position_y: -256
         elapsed: 0
         empty: 0
-        position_z: 0.5
+        position_z: 0
 
   02_Wall:
     02_Wall_00:
@@ -471,7 +468,7 @@ Object_Instance:
         position_y: 326
         elapsed: 0
         empty: 0
-        position_z: 0.5
+        position_z: 0
 
     02_Wall_01:
       Type: 2
@@ -488,7 +485,7 @@ Object_Instance:
         position_y: 481
         elapsed: 0
         empty: 0
-        position_z: 0.5
+        position_z: 0
 
     02_Wall_02:
       Type: 2
@@ -505,7 +502,7 @@ Object_Instance:
         position_y: 636
         elapsed: 0
         empty: 0
-        position_z: 0.5
+        position_z: 0
 
     02_Wall_03:
       Type: 2
@@ -522,7 +519,7 @@ Object_Instance:
         position_y: 791
         elapsed: 0
         empty: 0
-        position_z: 0.5
+        position_z: 0
 
     02_Wall_04:
       Type: 2
@@ -539,7 +536,7 @@ Object_Instance:
         position_y: 946
         elapsed: 0
         empty: 0
-        position_z: 0.5
+        position_z: 0
 
     02_Wall_05:
       Type: 2
@@ -556,7 +553,7 @@ Object_Instance:
         position_y: 262
         elapsed: 0
         empty: 0
-        position_z: 0.5
+        position_z: 0
 
     02_Wall_06:
       Type: 2
@@ -573,7 +570,7 @@ Object_Instance:
         position_y: 417
         elapsed: 0
         empty: 0
-        position_z: 0.5
+        position_z: 0
 
     02_Wall_07:
       Type: 2
@@ -590,7 +587,7 @@ Object_Instance:
         position_y: 572
         elapsed: 0
         empty: 0
-        position_z: 0.5
+        position_z: 0
 
     02_Wall_08:
       Type: 2
@@ -607,7 +604,7 @@ Object_Instance:
         position_y: 727
         elapsed: 0
         empty: 0
-        position_z: 0.5
+        position_z: 0
 
     02_Wall_09:
       Type: 2
@@ -624,7 +621,7 @@ Object_Instance:
         position_y: 882
         elapsed: 0
         empty: 0
-        position_z: 0.5
+        position_z: 0
 
     02_Wall_10:
       Type: 2
@@ -641,7 +638,7 @@ Object_Instance:
         position_y: 198
         elapsed: 0
         empty: 0
-        position_z: 0.5
+        position_z: 0
 
     02_Wall_11:
       Type: 2
@@ -658,7 +655,7 @@ Object_Instance:
         position_y: 353
         elapsed: 0
         empty: 0
-        position_z: 0.5
+        position_z: 0
 
     02_Wall_12:
       Type: 2
@@ -675,7 +672,7 @@ Object_Instance:
         position_y: 508
         elapsed: 0
         empty: 0
-        position_z: 0.5
+        position_z: 0
 
     02_Wall_13:
       Type: 2
@@ -692,7 +689,7 @@ Object_Instance:
         position_y: 663
         elapsed: 0
         empty: 0
-        position_z: 0.5
+        position_z: 0
 
     02_Wall_14:
       Type: 2
@@ -709,7 +706,7 @@ Object_Instance:
         position_y: 818
         elapsed: 0
         empty: 0
-        position_z: 0.5
+        position_z: 0
 
     02_Wall_15:
       Type: 2
@@ -726,7 +723,7 @@ Object_Instance:
         position_y: 134
         elapsed: 0
         empty: 0
-        position_z: 0.5
+        position_z: 0
 
     02_Wall_16:
       Type: 2
@@ -743,7 +740,7 @@ Object_Instance:
         position_y: 289
         elapsed: 0
         empty: 0
-        position_z: 0.5
+        position_z: 0
 
     02_Wall_17:
       Type: 2
@@ -760,7 +757,7 @@ Object_Instance:
         position_y: 444
         elapsed: 0
         empty: 0
-        position_z: 0.5
+        position_z: 0
 
     02_Wall_18:
       Type: 2
@@ -777,7 +774,7 @@ Object_Instance:
         position_y: 599
         elapsed: 0
         empty: 0
-        position_z: 0.5
+        position_z: 0
 
     02_Wall_19:
       Type: 2
@@ -794,7 +791,7 @@ Object_Instance:
         position_y: 754
         elapsed: 0
         empty: 0
-        position_z: 0.5
+        position_z: 0
 
     02_Wall_20:
       Type: 2
@@ -811,7 +808,7 @@ Object_Instance:
         position_y: 909
         elapsed: 0
         empty: 0
-        position_z: 0.5
+        position_z: 0
 
     02_Wall_21:
       Type: 2
@@ -828,7 +825,7 @@ Object_Instance:
         position_y: 70
         elapsed: 0
         empty: 0
-        position_z: 0.5
+        position_z: 0
 
     02_Wall_22:
       Type: 2
@@ -845,7 +842,7 @@ Object_Instance:
         position_y: 225
         elapsed: 0
         empty: 0
-        position_z: 0.5
+        position_z: 0
 
     02_Wall_23:
       Type: 2
@@ -862,7 +859,7 @@ Object_Instance:
         position_y: 380
         elapsed: 0
         empty: 0
-        position_z: 0.5
+        position_z: 0
 
     02_Wall_24:
       Type: 2
@@ -879,7 +876,7 @@ Object_Instance:
         position_y: 535
         elapsed: 0
         empty: 0
-        position_z: 0.5
+        position_z: 0
 
     02_Wall_25:
       Type: 2
@@ -896,7 +893,7 @@ Object_Instance:
         position_y: 690
         elapsed: 0
         empty: 0
-        position_z: 0.5
+        position_z: 0
 
     02_Wall_26:
       Type: 2
@@ -913,7 +910,7 @@ Object_Instance:
         position_y: 845
         elapsed: 0
         empty: 0
-        position_z: 0.5
+        position_z: 0
 
     02_Wall_27:
       Type: 2
@@ -930,7 +927,7 @@ Object_Instance:
         position_y: 262
         elapsed: 0
         empty: 0
-        position_z: 0.5
+        position_z: 0
 
     02_Wall_28:
       Type: 2
@@ -947,7 +944,7 @@ Object_Instance:
         position_y: 417
         elapsed: 0
         empty: 0
-        position_z: 0.5
+        position_z: 0
 
     02_Wall_29:
       Type: 2
@@ -964,7 +961,7 @@ Object_Instance:
         position_y: 572
         elapsed: 0
         empty: 0
-        position_z: 0.5
+        position_z: 0
 
     02_Wall_30:
       Type: 2
@@ -981,7 +978,7 @@ Object_Instance:
         position_y: 727
         elapsed: 0
         empty: 0
-        position_z: 0.5
+        position_z: 0
 
     02_Wall_31:
       Type: 2
@@ -998,7 +995,7 @@ Object_Instance:
         position_y: 882
         elapsed: 0
         empty: 0
-        position_z: 0.5
+        position_z: 0
 
     02_Wall_32:
       Type: 2
@@ -1015,7 +1012,7 @@ Object_Instance:
         position_y: 198
         elapsed: 0
         empty: 0
-        position_z: 0.5
+        position_z: 0
 
     02_Wall_33:
       Type: 2
@@ -1032,7 +1029,7 @@ Object_Instance:
         position_y: 353
         elapsed: 0
         empty: 0
-        position_z: 0.5
+        position_z: 0
 
     02_Wall_34:
       Type: 2
@@ -1049,7 +1046,7 @@ Object_Instance:
         position_y: 508
         elapsed: 0
         empty: 0
-        position_z: 0.5
+        position_z: 0
 
     02_Wall_35:
       Type: 2
@@ -1066,7 +1063,7 @@ Object_Instance:
         position_y: 663
         elapsed: 0
         empty: 0
-        position_z: 0.5
+        position_z: 0
 
     02_Wall_36:
       Type: 2
@@ -1083,7 +1080,7 @@ Object_Instance:
         position_y: 818
         elapsed: 0
         empty: 0
-        position_z: 0.5
+        position_z: 0
 
     02_Wall_37:
       Type: 2
@@ -1100,7 +1097,7 @@ Object_Instance:
         position_y: 134
         elapsed: 0
         empty: 0
-        position_z: 0.5
+        position_z: 0
 
     02_Wall_38:
       Type: 2
@@ -1117,7 +1114,7 @@ Object_Instance:
         position_y: 289
         elapsed: 0
         empty: 0
-        position_z: 0.5
+        position_z: 0
 
     02_Wall_39:
       Type: 2
@@ -1134,7 +1131,7 @@ Object_Instance:
         position_y: 444
         elapsed: 0
         empty: 0
-        position_z: 0.5
+        position_z: 0
 
     02_Wall_40:
       Type: 2
@@ -1151,7 +1148,7 @@ Object_Instance:
         position_y: 599
         elapsed: 0
         empty: 0
-        position_z: 0.5
+        position_z: 0
 
     02_Wall_41:
       Type: 2
@@ -1168,7 +1165,7 @@ Object_Instance:
         position_y: 754
         elapsed: 0
         empty: 0
-        position_z: 0.5
+        position_z: 0
 
     02_Wall_42:
       Type: 2
@@ -1185,7 +1182,7 @@ Object_Instance:
         position_y: 909
         elapsed: 0
         empty: 0
-        position_z: 0.5
+        position_z: 0
 
     02_Wall_43:
       Type: 2
@@ -1202,7 +1199,7 @@ Object_Instance:
         position_y: 70
         elapsed: 0
         empty: 0
-        position_z: 0.5
+        position_z: 0
 
     02_Wall_44:
       Type: 2
@@ -1219,7 +1216,7 @@ Object_Instance:
         position_y: 225
         elapsed: 0
         empty: 0
-        position_z: 0.5
+        position_z: 0
 
     02_Wall_45:
       Type: 2
@@ -1236,7 +1233,7 @@ Object_Instance:
         position_y: 380
         elapsed: 0
         empty: 0
-        position_z: 0.5
+        position_z: 0
 
     02_Wall_46:
       Type: 2
@@ -1253,7 +1250,7 @@ Object_Instance:
         position_y: 535
         elapsed: 0
         empty: 0
-        position_z: 0.5
+        position_z: 0
 
     02_Wall_47:
       Type: 2
@@ -1270,7 +1267,7 @@ Object_Instance:
         position_y: 690
         elapsed: 0
         empty: 0
-        position_z: 0.5
+        position_z: 0
 
     02_Wall_48:
       Type: 2
@@ -1287,7 +1284,7 @@ Object_Instance:
         position_y: 845
         elapsed: 0
         empty: 0
-        position_z: 0.5
+        position_z: 0
 
   04_Portrait:
     04_Portrait_00:
@@ -1305,7 +1302,7 @@ Object_Instance:
         position_y: 300
         elapsed: 0
         empty: 0
-        position_z: 0.5
+        position_z: 0
 
     04_Portrait_01:
       Type: 4
@@ -1322,7 +1319,7 @@ Object_Instance:
         position_y: 630
         elapsed: 0
         empty: 0
-        position_z: 0.5
+        position_z: 0
 
     04_Portrait_02:
       Type: 4
@@ -1339,7 +1336,7 @@ Object_Instance:
         position_y: 670
         elapsed: 0
         empty: 0
-        position_z: 0.5
+        position_z: 0
 
     04_Portrait_03:
       Type: 4
@@ -1356,7 +1353,7 @@ Object_Instance:
         position_y: 340
         elapsed: 0
         empty: 0
-        position_z: 0.5
+        position_z: 0
 
     04_Portrait_04:
       Type: 4
@@ -1373,7 +1370,7 @@ Object_Instance:
         position_y: 620
         elapsed: 0
         empty: 0
-        position_z: 0.5
+        position_z: 0
 
   05_Landscape:
     05_Landscape_00:
@@ -1391,7 +1388,7 @@ Object_Instance:
         position_y: 460
         elapsed: 0
         empty: 0
-        position_z: 0.5
+        position_z: 0
 
     05_Landscape_01:
       Type: 5
@@ -1408,7 +1405,7 @@ Object_Instance:
         position_y: 610
         elapsed: 0
         empty: 0
-        position_z: 0.5
+        position_z: 0
 
     05_Landscape_02:
       Type: 5
@@ -1425,7 +1422,7 @@ Object_Instance:
         position_y: 330
         elapsed: 0
         empty: 0
-        position_z: 0.5
+        position_z: 0
 
     05_Landscape_03:
       Type: 5
@@ -1442,7 +1439,7 @@ Object_Instance:
         position_y: 450
         elapsed: 0
         empty: 0
-        position_z: 0.5
+        position_z: 0
 
     05_Landscape_04:
       Type: 5
@@ -1459,12 +1456,12 @@ Object_Instance:
         position_y: 450
         elapsed: 0
         empty: 0
-        position_z: 0.5
+        position_z: 0
 
   06_Platform:
     06_Platform_00:
       Type: 6
-      Flag: 0      
+      Flag: 0
       Texture_Offset:
         x_offset: 0
         y_offset: 0
@@ -1477,8 +1474,8 @@ Object_Instance:
         position_y: -16
         elapsed: 0
         empty: 0
-        position_z: 0.5
-      
+        position_z: 0
+
     06_Platform_01:
       Type: 6
       Flag: 0
@@ -1494,4 +1491,5 @@ Object_Instance:
         position_y: -80
         elapsed: 0
         empty: 0
-        position_z: 0.5
+        position_z: 0
+

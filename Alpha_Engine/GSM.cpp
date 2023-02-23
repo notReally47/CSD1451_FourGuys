@@ -6,7 +6,7 @@
 
 namespace GSM {
 	int current{ Enum::GS_LEVEL2 }, previous{ 0 }, next{ 0 };
-	f64 gameTime;
+	f32 gameTime;
 	FP fpLoad = nullptr, fpInit = nullptr, fpUpdate = nullptr, fpDraw = nullptr, fpFree = nullptr, fpUnload = nullptr;
 
 	void GSM_Init(int start) {

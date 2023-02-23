@@ -16,13 +16,16 @@ namespace GameObjects
 		f32							height;
 	};
 
-	/*TODO*/
 	/*GAME OBJECT INSTANCE STRUCTURE*/
 	struct ObjectInst {
+		/*PUBLIC DATA*/
+
 		Object*						pObj;
 		unsigned long				flag;
 		AEVec2						tex_offset;
 		AEMtx33						transform;
+
+		/*MEMBER FUNCTIONS*/
 
 		f32& GetScaleX(); // check if this is used anywhere
 		f32& GetPosX();
@@ -35,6 +38,7 @@ namespace GameObjects
 		f32& GetPosZ();
 		f32 GetPosZ() const;
 		AEVec2 GetPosXY();
+		void RenderObject();
 	};
 
 	/*CHARACTER STRUCTURE*/
@@ -44,14 +48,19 @@ namespace GameObjects
 		AEVec2						input;
 		f32							zVel;
 		int							spriteIteration;
+
+		int checkDirection();
+		AEVec2& GetOffset();
+		void SetOffsetY();
+		void SetOffsetX();
+		void AnimateCharacter();
+		void MoveCharacter();
 	};
 
 	/*FUNCTIONS*/
-	void	RenderSettings(void);
-	void	RenderObject(ObjectInst& obj);
+	void RenderSettings();
 
 	/*GET VERTICES*/
-	//AEVec2* GetVertices(const ObjectInst obj);
 	AEVec2* GetVerticesXY(const ObjectInst& obj, int& count);
 	AEVec2* GetVerticesYZ(const ObjectInst& obj, int& count);
 	AEVec2* GetVerticesXZ(const ObjectInst& obj, int& count);

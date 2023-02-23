@@ -2,10 +2,9 @@
 #include "pch.h"
 #include "InputHandler.h"
 #include "CollisionHandler.h"
+#include "PhysicsHandler.h"
 #include "GSM.h"
 #include "DataFiles.h"
-#include "AnimationHandler.h"
-#include "PhysicsHandler.h"
 
 #define DEBUG
 #ifdef DEBUG
@@ -39,6 +38,14 @@ namespace Level2
 		/*SCALE OBJECTS*/
 		Level_Initializer::Option_Change(vOBJ_INST);
 
+		/*DO NOT DELETE*/
+		/*
+		for (auto& it : vOBJ_INST) {
+			AEVec2 a{ it.GetPosY() + (it.GetPosX() / 2.0f ), it.GetPosY() - (it.GetPosX() / 2.0f) };
+			it.GetPosX() = -a.x;
+			it.GetPosY() = a.y;
+		}*/
+
 		/*Extract Using Vector vOBJ_INST & p_player*/
 		//Extract_Data_To_File::Extract_Transform_Data_Out(vOBJ_INST, p_player, level_number);
 	}
@@ -55,6 +62,8 @@ namespace Level2
 		flag = (InputHandler::PlayerMovement(p_player)) ? flag | ACTIVE : flag & ~ACTIVE;
 
 		/*MOVEMENT*/
+		//PhysicsHandler::Move::MoveCharacter();
+		p_player.MoveCharacter();
 
 		//check if player if near portrait
 		for (size_t i{ 0 }; i < vOBJ_INST.size(); i++)
@@ -78,14 +87,15 @@ namespace Level2
 		RenderSettings();
 		// Initialise i to 1 to skip player
 		for (int i{ 1 }; i < vOBJ_INST.size(); i++)
-			RenderObject(vOBJ_INST[i]);
-		AnimationHandler::AnimateCharacter(p_player);
+			vOBJ_INST[i].RenderObject();
+		p_player.AnimateCharacter();
 	}
 
 	void Level2_Free()
 	{
 		for (size_t i{ 0 }; i < vOBJ.size(); i++)
 			AEGfxMeshFree(vOBJ[i].pMesh);
+		vOBJ_INST.clear();
 	}
 
 	void Level2_Unload()
@@ -93,6 +103,6 @@ namespace Level2
 		for (size_t i{ 0 }; i < vOBJ.size(); i++)
 			AEGfxTextureUnload(vOBJ[i].pTex);
 		vOBJ.clear();
-		vOBJ_INST.clear();
+
 	}
 }

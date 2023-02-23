@@ -9,15 +9,15 @@ namespace Enum {
 		GS_QUIT = -1
 	};
 
-	enum CHARACTER_STATES {
-		CS_IDLE,
-		CS_MOVING
-	};
-
-	enum DIRECTION {
-		NONE,
+	enum DIRECTION : int {
+		UPRIGHT,
 		RIGHT,
-		LEFT
+		DOWNRIGHT,
+		DOWN,
+		DOWNLEFT,
+		LEFT,
+		UPLEFT,
+		UP
 	};
 
 	enum TYPE : unsigned long {
