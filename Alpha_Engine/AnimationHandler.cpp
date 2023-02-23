@@ -1,8 +1,10 @@
 #include "pch.h"
 #include "AnimationHandler.h"
 #include "GSM.h"
+#include <iostream>
 
 namespace AnimationHandler {
+	const static f32 JUMP_SPRITE = 0.3636f;
 	using namespace GameObjects;
 
 	/*Get direction the player is facing and set according to the spritesheet row.*/
@@ -35,7 +37,11 @@ namespace AnimationHandler {
 
 	/*Iterates through the spritesheets columns if the player is moving*/
 	void setTextureOffsetX(Character& player) {
-		if (player.pObjInst.flag) {
+		if (player.isJumping) {
+			player.pObjInst.tex_offset.x = JUMP_SPRITE;
+		}
+
+		else if (player.pObjInst.flag) {
 			if (GSM::gameTime >= 0.1f) {
 				player.spriteIteration = (++player.spriteIteration % 10) ? player.spriteIteration : 1;
 				GSM::gameTime = .0f;
@@ -63,8 +69,7 @@ namespace AnimationHandler {
 			player.pObjInst.tex_offset.x,
 			player.pObjInst.tex_offset.y);
 
-		/*TRANSFORMATION (TRS)*/
-		AEGfxSetTransform(player.pObjInst.transform.m);
+		AEGfxSetTransform(GameObjects::ConvertIsometric(player.pObjInst).m);
 
 		/*DRAW MESH*/
 		AEGfxMeshDraw(player.pObjInst.pObj->pMesh, AE_GFX_MDM_TRIANGLES);

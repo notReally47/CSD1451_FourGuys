@@ -45,7 +45,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>$(SolutionDir)Extern\AlphaEngine_V3.09\include;$(SolutionDir)Extern\yaml-cpp\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)Extern\AlphaEngine_V3.09\include;$(SolutionDir)Extern\yaml-cpp\include</IncludePath>
     <LibraryPath>$(SolutionDir)Extern\AlphaEngine_V3.09\lib;$(SolutionDir)Extern\yaml-cpp\lib;$(LibraryPath)</LibraryPath>
     <OutDir>$(SolutionDir)\bin\$(Configuration)-$(Platform)\</OutDir>
     <IntDir>$(SolutionDir)\.tmp\$(Configuration)-$(Platform)\</IntDir>
@@ -54,7 +54,9 @@
     <LibraryPath>$(SolutionDir)Extern\AlphaEngine_V3.09\lib;$(SolutionDir)Extern\yaml-cpp\lib;$(LibraryPath)</LibraryPath>
     <OutDir>$(SolutionDir)\bin\$(Configuration)-$(Platform)\</OutDir>
     <IntDir>$(SolutionDir)\.tmp\$(Configuration)-$(Platform)\</IntDir>
-    <IncludePath>$(SolutionDir)Extern\AlphaEngine_V3.09\include;$(SolutionDir)Extern\yaml-cpp\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)Extern\AlphaEngine_V3.09\include;$(SolutionDir)Extern\yaml-cpp\include</IncludePath>
+    <LinkIncremental>
+    </LinkIncremental>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -63,11 +65,13 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PreprocessToFile>false</PreprocessToFile>
+      <AdditionalIncludeDirectories>
+      </AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>Alpha_EngineD.lib;libyaml-cppmdd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Alpha_EngineD.lib;yaml-cpp.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>
       </AdditionalLibraryDirectories>
     </Link>
@@ -75,7 +79,8 @@
       <Command>xcopy "$(SolutionDir)Assets\*" "$(OutDir)Assets\" /s /r /y /q
 xcopy "$(SolutionDir)Extern\AlphaEngine_V3.09\lib\freetype.dll" "$(OutDir)" /s /r /y /q
 xcopy "$(SolutionDir)Extern\AlphaEngine_V3.09\lib\Alpha_EngineD.dll" "$(OutDir)" /s /r /y /q
-xcopy "$(SolutionDir)Extern\AlphaEngine_V3.09\lib\fmodL.dll" "$(OutDir)" /s /r /y /q</Command>
+xcopy "$(SolutionDir)Extern\AlphaEngine_V3.09\lib\fmodL.dll" "$(OutDir)" /s /r /y /q
+xcopy "$(SolutionDir)Extern\yaml-cpp\lib\Debug\yaml-cpp.dll" "$(OutDir)" /s /r /y /q</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -87,13 +92,15 @@ xcopy "$(SolutionDir)Extern\AlphaEngine_V3.09\lib\fmodL.dll" "$(OutDir)" /s /r /
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PreprocessToFile>false</PreprocessToFile>
+      <AdditionalIncludeDirectories>
+      </AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>Alpha_EngineD.lib;libyaml-cppmdd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Alpha_Engine.lib;yaml-cpp.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>
       </AdditionalLibraryDirectories>
     </Link>
@@ -102,12 +109,13 @@ xcopy "$(SolutionDir)Extern\AlphaEngine_V3.09\lib\fmodL.dll" "$(OutDir)" /s /r /
 xcopy "$(SolutionDir)Extern\AlphaEngine_V3.09\lib\freetype.dll" "$(OutDir)" /s /r /y /q
 xcopy "$(SolutionDir)Extern\AlphaEngine_V3.09\lib\Alpha_Engine.dll" "$(OutDir)" /s /r /y /q
 xcopy "$(SolutionDir)Extern\AlphaEngine_V3.09\lib\fmod.dll" "$(OutDir)" /s /r /y /q
-</Command>
+xcopy "$(SolutionDir)Extern\yaml-cpp\lib\yaml-cpp.dll" "$(OutDir)" /s /r /y /q</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AnimationHandler.cpp" />
     <ClCompile Include="CollisionHandler.cpp" />
+    <ClCompile Include="ExtractDataToFile.cpp" />
     <ClCompile Include="GameObjects.cpp" />
     <ClCompile Include="GSM.cpp" />
     <ClCompile Include="InputHandler.cpp" />
@@ -115,16 +123,17 @@ xcopy "$(SolutionDir)Extern\AlphaEngine_V3.09\lib\fmod.dll" "$(OutDir)" /s /r /y
     <ClCompile Include="Level2.cpp" />
     <ClCompile Include="LevelInitializer.cpp" />
     <ClCompile Include="LoadDataFromFile.cpp" />
-    <ClCompile Include="LoadTextures.cpp" />
-    <ClCompile Include="LoadValues.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MainMenu.cpp" />
     <ClCompile Include="pch.cpp" />
+    <ClCompile Include="PhysicsHandler.cpp" />
     <ClCompile Include="SystemHandler.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AnimationHandler.h" />
     <ClInclude Include="CollisionHandler.h" />
+    <ClInclude Include="DataFiles.h" />
+    <ClInclude Include="ExtractDataToFile.h" />
     <ClInclude Include="GameObjects.h" />
     <ClInclude Include="GSM.h" />
     <ClInclude Include="Enum.h" />
@@ -133,10 +142,9 @@ xcopy "$(SolutionDir)Extern\AlphaEngine_V3.09\lib\fmod.dll" "$(OutDir)" /s /r /y
     <ClInclude Include="Level2.h" />
     <ClInclude Include="LevelInitializer.h" />
     <ClInclude Include="LoadDataFromFile.h" />
-    <ClInclude Include="LoadTextures.h" />
-    <ClInclude Include="LoadValues.h" />
     <ClInclude Include="MainMenu.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="PhysicsHandler.h" />
     <ClInclude Include="SystemHandler.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

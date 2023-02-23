@@ -8,5 +8,6 @@ namespace InputHandler
 	void ExitGame(int&);
 	bool playerMovement(GameObjects::Character& player);
 	bool buttonClick(float buttonX, float buttonY);
+	bool PlayerJump(GameObjects::Character& player);
 }
 

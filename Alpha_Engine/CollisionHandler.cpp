@@ -7,18 +7,17 @@
 namespace CollisionHandler {
 
 	/*SAT COLLISION*/
-	bool SAT_Collision(ObjectInst obj1, ObjectInst obj2, f32& depth, AEVec2& normal) {
+	bool SAT_Collision(ObjectInst obj1, ObjectInst obj2, f32& depth, AEVec2& normal, AEVec2* (*GetVertices)(ObjectInst, int&)) {
+		int lenA{};
+		int lenB{};
+
 		/*Get vertices of the 2 objects*/
-		AEVec2* verticesA = GetVertices(obj1);
-		AEVec2* verticesB = GetVertices(obj2);
+		AEVec2* verticesA = GetVertices(obj1, lenA);
+		AEVec2* verticesB = GetVertices(obj2, lenB);
 
 		/*Initialize/reset normal and depth*/
 		normal = AEVec2{ 0,0 };
 		depth = static_cast<f32>((std::numeric_limits<float>::max)());
-
-		/*Number of vertices*/
-		int lenA = 4;/**(&verticesA + 1) - verticesA;*/
-		int lenB = 4;/**(&verticesB + 1) - verticesB;*/
 
 		/*Check for all intersections*/
 		bool out = (CheckIntersect(verticesA, verticesB, lenA, lenB, depth, normal) && CheckIntersect(verticesB, verticesA, lenB, lenA, depth, normal));
@@ -87,31 +86,8 @@ namespace CollisionHandler {
 	}
 
 
-	double DistanceBetweenPlayerAndPortrait(f32 const portrait_x, f32 const portrait_y, f32 const player_x,f32 const player_y){
+	double GetDistance(f32 const portrait_x, f32 const portrait_y, f32 const player_x, f32 const player_y) {
 		return sqrt(pow(portrait_x - player_x, 2) + pow(portrait_y - player_y, 2));
-  }
-
-	f32 checkBoundary(Character const player) {
-		f32 leftBoarder = -7.f * (f32)AEGetWindowWidth() / 20.f, rightBoarder = 7.f * (f32)AEGetWindowWidth() / 20.f;
-		return leftBoarder > player.pObjInst.transform.m[0][2] ? leftBoarder - player.pObjInst.transform.m[0][2] : player.pObjInst.transform.m[0][2] > rightBoarder ? rightBoarder - player.pObjInst.transform.m[0][2] : 0.f;
-	}
-
-	bool checkPlatform(Character const player) {
-		AEVec2 playerPos{ player.pObjInst.transform.m[0][2], player.pObjInst.transform.m[1][2] }, vecC{ -280.f, -150.f }, vecA{ 0, -290.f }, vecB{ 280.f, -150.f }, vecAM, vecAB, vecAC;
-		AEVec2Set(&vecAM, playerPos.x - vecA.x, playerPos.y - vecA.y);
-		AEVec2Set(&vecAB, vecB.x - vecA.x, vecB.y - vecA.y);
-		AEVec2Set(&vecAC, vecC.x - vecA.x, vecC.y - vecA.y);
-		f32 projAMAB = AEVec2DotProduct(&vecAM, &vecAB);
-		f32 projAMAC = AEVec2DotProduct(&vecAM, &vecAC);
-		f32 projABAB = AEVec2DotProduct(&vecAB, &vecAB);
-		f32 projADAD = AEVec2DotProduct(&vecAC, &vecAC);
-		//std::cout << projAMAB << ' ' << projAMAC << ' ' << projABAB << ' ' << projADAD << std::endl;
-
-		if ((0.f < projAMAB && projAMAB < projABAB) && (0.f < projAMAC && projAMAC < projADAD)) {
-
-			return true;
-		}
-		return false;
 	}
 
 	bool portraitInteract(ObjectInst const portrait, Character const player) {

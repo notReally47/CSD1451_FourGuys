@@ -97,31 +97,93 @@ namespace GameObjects
 		}
 
 		/*TRANSFORMATION (TRS)*/
+		//TODO
+		//AEMtx33 trans;
+		//trans.m = obj.transform.m;
+		//m[0][2] = //iso convert x;
+		//m[1][2] = //iso convert y + z;
+
 		AEGfxSetTransform(obj.transform.m);
 		/*DRAW MESH*/
 		AEGfxMeshDraw(obj.pObj->pMesh, AE_GFX_MDM_TRIANGLES);
 		// AEGfxSetTransparency(1.0f);
 	}
 
-	AEVec2 *GetVertices(const ObjectInst obj)
-	{
-		AEVec2 *vertices = {new AEVec2[4]};
-		AEVec2 original[4] = {
-			/* object position x +- object width - object position y +- object height */
-			AEVec2{obj.transform.m[0][2] - obj.transform.m[0][0], obj.transform.m[1][2] + obj.transform.m[1][1]},
-			AEVec2{obj.transform.m[0][2] + obj.transform.m[0][0], obj.transform.m[1][2] + obj.transform.m[1][1]},
-			AEVec2{obj.transform.m[0][2] + obj.transform.m[0][0], obj.transform.m[1][2] - obj.transform.m[1][1]},
-			AEVec2{obj.transform.m[0][2] - obj.transform.m[0][0], obj.transform.m[1][2] - obj.transform.m[1][1]}};
+	//AEVec2* GetVertices(const ObjectInst obj) {
+	//	AEVec2* vertices = { new AEVec2[4] };
+	//	AEVec2 original[4] = {
+	//		/* object position x +- object width - object position y +- object height */
+	//		AEVec2{ obj.transform.m[0][2] - obj.transform.m[0][0], obj.transform.m[1][2] + obj.transform.m[1][1] },
+	//		AEVec2{ obj.transform.m[0][2] + obj.transform.m[0][0], obj.transform.m[1][2] + obj.transform.m[1][1] },
+	//		AEVec2{ obj.transform.m[0][2] + obj.transform.m[0][0], obj.transform.m[1][2] - obj.transform.m[1][1] },
+	//		AEVec2{ obj.transform.m[0][2] - obj.transform.m[0][0], obj.transform.m[1][2] - obj.transform.m[1][1] }
+	//	};
 
-		/* Get vertex after rotation. Vertex rotates around the center of the mesh */
-		for (int i = 0; i < 4; i++)
-		{
-			f32 posX = original[i].x - obj.transform.m[0][2];
-			f32 posY = original[i].y - obj.transform.m[1][2];
-			vertices[i].x = posX * static_cast<f32>(cos(-.0f)) - posY * static_cast<f32>(sin(-.0f)) + obj.transform.m[0][2];
-			vertices[i].y = posX * static_cast<f32>(sin(-.0f)) + posY * static_cast<f32>(cos(-.0f)) + obj.transform.m[1][2];
+	//	/* Get vertex after rotation. Vertex rotates around the center of the mesh */
+	//	for (int i = 0; i < 4; i++) {
+	//		f32 posX = original[i].x - obj.transform.m[0][2];
+	//		f32 posY = original[i].y - obj.transform.m[1][2];
+	//		vertices[i].x = posX * static_cast<f32>(cos(-.0f)) - posY * static_cast<f32>(sin(-.0f)) + obj.transform.m[0][2];
+	//		vertices[i].y = posX * static_cast<f32>(sin(-.0f)) + posY * static_cast<f32>(cos(-.0f)) + obj.transform.m[1][2];
+	//	}
+
+	//	return vertices;
+	//}
+
+	AEVec2* GetVerticesXY(const ObjectInst obj, int& count) {
+		count = 4;
+		AEVec2* xyCoords = { new AEVec2[count] };
+		xyCoords[0] = AEVec2{ obj.transform.m[0][2] - obj.pObj->width / 2, obj.transform.m[1][2] + obj.pObj->length / 2 }; //top right
+		xyCoords[1] = AEVec2{ obj.transform.m[0][2] + obj.pObj->width / 2, obj.transform.m[1][2] + obj.pObj->length / 2 }; //top left
+		xyCoords[2] = AEVec2{ obj.transform.m[0][2] - obj.pObj->width / 2, obj.transform.m[1][2] - obj.pObj->length / 2 }; //bot right
+		xyCoords[3] = AEVec2{ obj.transform.m[0][2] + obj.pObj->width / 2, obj.transform.m[1][2] - obj.pObj->length / 2 }; //bot left
+
+		//TODO: Any rotatation 
+		return xyCoords;
+	}
+
+	AEVec2* GetVerticesYZ(const ObjectInst obj, int& count) {
+		count = 4;
+		AEVec2* yzCoords = { new AEVec2[count] };
+		yzCoords[0] = AEVec2{ obj.transform.m[1][2] - obj.pObj->width / 2, obj.transform.m[2][2] + obj.pObj->height / 2 }; //top right
+		yzCoords[1] = AEVec2{ obj.transform.m[1][2] + obj.pObj->width / 2, obj.transform.m[2][2] + obj.pObj->height / 2 }; //top left
+		yzCoords[2] = AEVec2{ obj.transform.m[1][2] - obj.pObj->width / 2, obj.transform.m[2][2] - obj.pObj->height / 2 }; //bot right
+		yzCoords[3] = AEVec2{ obj.transform.m[1][2] + obj.pObj->width / 2, obj.transform.m[2][2] - obj.pObj->height / 2 }; //bot left
+
+		//TODO: Any rotatation 
+		return yzCoords;
+	}
+
+	AEVec2* GetVerticesXZ(const ObjectInst obj, int& count) {
+		if (1) { //TODO: Change to check if not a staircase
+			count = 4;
+			AEVec2* xzCoords = { new AEVec2[count] };
+			xzCoords[0] = AEVec2{ obj.transform.m[0][2] - obj.pObj->width / 2, obj.transform.m[2][2] + obj.pObj->height / 2 }; // top right
+			xzCoords[1] = AEVec2{ obj.transform.m[0][2] + obj.pObj->width / 2, obj.transform.m[2][2] + obj.pObj->height / 2 }; // top left
+			xzCoords[2] = AEVec2{ obj.transform.m[0][2] - obj.pObj->width / 2, obj.transform.m[2][2] - obj.pObj->height / 2 }; // bot right
+			xzCoords[3] = AEVec2{ obj.transform.m[0][2] + obj.pObj->width / 2, obj.transform.m[2][2] - obj.pObj->height / 2 }; // bot left
+			return xzCoords;
 		}
+		else {
+			count = 3;
+			AEVec2* xzCoords = { new AEVec2[count] };
+			xzCoords[0] = AEVec2{ obj.transform.m[0][2] - obj.pObj->width / 3,
+									obj.transform.m[2][2] - obj.pObj->height / 3 };		// bot left
 
-		return vertices;
+			xzCoords[1] = AEVec2{ obj.transform.m[0][2] - obj.pObj->width / 3,
+									obj.transform.m[2][2] + (2 * obj.pObj->height) / 3 }; // top left
+
+			xzCoords[2] = AEVec2{ obj.transform.m[0][2] + (2 * obj.pObj->width) / 3,
+									obj.transform.m[2][2] - obj.pObj->height / 3 };		// bot right
+
+			return xzCoords;
+		}
+	}
+
+	AEMtx33 ConvertIsometric(const ObjectInst& obj) {
+		AEMtx33 transform = obj.transform;
+		transform.m[0][2] = obj.transform.m[0][2] + obj.transform.m[1][2];
+		transform.m[1][2] = -0.5f * obj.transform.m[0][2] + 0.5f * obj.transform.m[1][2] + obj.transform.m[2][2];
+		return transform;
 	}
 }
