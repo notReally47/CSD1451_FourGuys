@@ -19,7 +19,6 @@ namespace Level2
 	using namespace GameObjects;
 	Character p_player;
 	f32 windowWidth, windowHeight;
-  
 	const std::string level_number = "02";
 
 	std::vector<Object> vOBJ;
@@ -27,22 +26,11 @@ namespace Level2
 	Character* sCHARACTER;
 
 	void Level2_Load() {
+
 		vOBJ = Load_Data_From_File::Load_Shape_From_YAML(level_number);
 		vOBJ_INST = Load_Data_From_File::Load_Transform_From_YAML(level_number, vOBJ);
 		sCHARACTER = Load_Data_From_File::Load_Player_Stats_From_YAML(level_number);
 
-
-		for (auto &iter : vOBJ_INST) {
-			//if (iter.OS.type == Enum::TYPE::PLAYER) {
-				iter.transform.m[0][0] /= 2;
-				iter.transform.m[0][1] /= 2;
-				iter.transform.m[0][2] /= 2;
-				iter.transform.m[1][0] /= 2;
-				iter.transform.m[1][1] /= 2;
-				iter.transform.m[1][2] /= 2;
-			//}
-		}
-		
 	}
 
 	void Level2_Init()
@@ -50,12 +38,11 @@ namespace Level2
 		windowWidth = static_cast<f32>(AEGetWindowWidth());
 		windowHeight = static_cast<f32>(AEGetWindowHeight());
 
-		/*TRANSFORM OBJECTS*/
-		//Level_Initializer::Init_Object_From_Vector(vOBJ_INST, objInst, (sizeof(objInst) / sizeof(objInst[0])));
-
-
 		/*CREATE PLAYER*/
 		Level_Initializer::Init_Player(&vOBJ_INST[0], sCHARACTER, p_player);
+
+		/*SCALE OBJECTS*/
+		Level_Initializer::Option_Change(vOBJ_INST);
 
 		/*Extract Using Vector vOBJ_INST & p_player*/
 		//Extract_Data_To_File::Extract_Transform_Data_Out(vOBJ_INST, p_player, level_number);
@@ -74,7 +61,6 @@ namespace Level2
 			p_player.pObjInst->flag | ACTIVE : p_player.pObjInst->flag & ~ACTIVE;
 
 		/*MOVEMENT*/
-		PhysicsHandler::MovePlayer(p_player);
 
 		//check if player if near portrait
 		for (size_t i{ 0 }; i < vOBJ_INST.size(); i++)

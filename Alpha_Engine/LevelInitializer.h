@@ -8,7 +8,7 @@ namespace Level_Initializer {
 
 
 
-	void Init_Object_From_Vector	(vector<GameObjects::ObjectInst> vOBJ_INST, GameObjects::ObjectInst object_instance[], size_t object_instance_size);
+	void Option_Change				(vector<GameObjects::ObjectInst>& vOBJ_INST);
 	void Init_Player				(GameObjects::ObjectInst* OBJ_INST, GameObjects::Character* sCHARACTER, GameObjects::Character& p_player);
 
 

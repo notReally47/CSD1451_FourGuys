@@ -3,7 +3,7 @@
 #include <vector>					// For std::vector
 #include "DataFiles.h"				// For ObjectTransform, ObjectShape & PlayerProperties
 
-namespace Extract_Data_To_File{
+namespace Extract_Data_To_File {
 
 	using namespace std;
 

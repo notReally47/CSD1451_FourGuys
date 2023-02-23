@@ -2,8 +2,9 @@
 #include <fstream>					// For std::istream/std::ostream
 #include <vector>					// For std::vector
 #include <iostream>					// For std::cout debugging
-#include "DataFiles.h"				// For ObjectTransform, ObjectShape & PlayerProperties
 #include <yaml-cpp/yaml.h>			// For Parsing YAML Files
+#include "DataFiles.h"				// For GameObjects::
+
 
 namespace Load_Data_From_File {
 
@@ -203,9 +204,8 @@ namespace Load_Data_From_File {
 									if (object_data_type == "Type") {
 										l.second() >> type;
 										for (int m{ 0 }; m < vector_OBJ.size(); m++)
-											if (vector_OBJ[m].type == type) {
+											if (vector_OBJ[m].type == type)
 												OBJ_INST->pObj = &vector_OBJ[m];
-											}
 									}
 
 									// If Node is "Flag"
@@ -223,6 +223,7 @@ namespace Load_Data_From_File {
 
 									// If Node is "Transformation"
 									if (object_data_type == "Transformation") {
+										
 										l.second()["scale_x"]		>> OBJ_INST->transform.m[0][0];
 										l.second()["shear_x"]		>> OBJ_INST->transform.m[0][1];
 										l.second()["position_x"]	>> OBJ_INST->transform.m[0][2];
