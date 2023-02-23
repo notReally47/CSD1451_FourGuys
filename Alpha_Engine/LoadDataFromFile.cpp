@@ -210,7 +210,9 @@ namespace Load_Data_From_File {
 
 									// If Node is "Flag"
 									if (object_data_type == "Flag") {
-										l.second() >> OBJ_INST->flag;
+										long flag{ 0 };
+										l.second() >> flag;
+										OBJ_INST->flag = static_cast<unsigned long>(flag);
 									}
 
 									// If Node is "Texture_Offset"

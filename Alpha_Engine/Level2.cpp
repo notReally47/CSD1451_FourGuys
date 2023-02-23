@@ -55,7 +55,7 @@ namespace Level2
 
 
 		/*CREATE PLAYER*/
-		Level_Initializer::Init_Player(vOBJ_INST[0], sCHARACTER, p_player);
+		Level_Initializer::Init_Player(&vOBJ_INST[0], sCHARACTER, p_player);
 
 		/*Extract Using Vector vOBJ_INST & p_player*/
 		//Extract_Data_To_File::Extract_Transform_Data_Out(vOBJ_INST, p_player, level_number);
@@ -70,25 +70,23 @@ namespace Level2
 
 		p_player.pObjInst->flag = (InputHandler::PlayerJump(p_player)) ?
 			p_player.pObjInst->flag | JUMPING : p_player.pObjInst->flag & ~JUMPING;
-		p_player.pObjInst->flag = (InputHandler::PlayerMovement(p_player)) ? 
+		p_player.pObjInst->flag = (InputHandler::PlayerMovement(p_player)) ?
 			p_player.pObjInst->flag | ACTIVE : p_player.pObjInst->flag & ~ACTIVE;
 
 		/*MOVEMENT*/
-		if (p_player.pObjInst.flag)
+		PhysicsHandler::MovePlayer(p_player);
+
+		//check if player if near portrait
+		for (size_t i{ 0 }; i < vOBJ_INST.size(); i++)
 		{
-			f32 unitSpeed = p_player.speed * static_cast<f32>(AEFrameRateControllerGetFrameTime());
-			AEVec2Normalize(&p_player.dir, &p_player.dir);
-			AEVec2Scale(&p_player.dir, &p_player.dir, unitSpeed);
-			p_player.pObjInst.transform.m[0][2] += p_player.dir.x;
-			p_player.pObjInst.transform.m[1][2] += p_player.dir.y;
-      
-			//check if player if near portrait
-			for (size_t i{ 0 }; i < vOBJ_INST.size(); i++)
-				if (vOBJ_INST[i].pObj->type == Enum::TYPE::PORTRAIT ||
-					vOBJ_INST[i].pObj->type == Enum::TYPE::LANDSCAPE)
-					vOBJ_INST[i].flag = (DistanceBetweenPlayerAndPortrait(vOBJ_INST[i].transform.m[0][2],
-						vOBJ_INST[i].transform.m[1][2], p_player.pObjInst.transform.m[0][2],
-						p_player.pObjInst.transform.m[1][2]) < 40.0) ? FLAG_ACTIVE : FLAG_INACTIVE;
+			if (vOBJ_INST[i].pObj->type == PORTRAIT ||
+				vOBJ_INST[i].pObj->type == LANDSCAPE)
+			{
+				vOBJ_INST[i].flag = (CollisionHandler::GetDistance(vOBJ_INST[i].GetPosX(),
+					vOBJ_INST[i].GetPosY(), p_player.pObjInst->GetPosX(),
+					p_player.pObjInst->GetPosY()) < 40.0)
+					? static_cast<unsigned long>(ACTIVE) : IDLE;
+			}
 		}
 
 		/*COLLISIONS*/

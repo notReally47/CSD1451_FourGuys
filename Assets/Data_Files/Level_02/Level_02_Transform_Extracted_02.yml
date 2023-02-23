@@ -1,0 +1,1463 @@
+Level: 02
+Object_Instance:
+  00_Player:
+    00_Player_00:
+      Type: 0
+      Flag: 0
+      Texture_Offset:
+        x_offset: 0.429
+        y_offset: 0
+      Transformation:
+        scale_x: 76.8
+        shear_x: 0
+        position_x: -256
+        shear_y: 0
+        scale_y: 91.2
+        position_y: 19
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
+      Direction:
+        direction_x: 0
+        direction_y: 0
+      Input:
+        input_x: 0
+        input_y: 0
+      Is_Moving: 0
+      Is_Jumping: 0
+      Z_Velocity: 0
+      Speed: 200
+      Sprite_Iteration: 0
+
+  01_Floor:
+    01_Floor_00:
+      Type: 1
+      Flag: 0
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        scale_x: 128
+        shear_x: 0
+        position_x: 0
+        shear_y: 0
+        scale_y: 74
+        position_y: 128
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
+
+    01_Floor_01:
+      Type: 1
+      Flag: 0
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        scale_x: 128
+        shear_x: 0
+        position_x: -64
+        shear_y: 0
+        scale_y: 74
+        position_y: 96
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
+
+    01_Floor_02:
+      Type: 1
+      Flag: 0
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        scale_x: 128
+        shear_x: 0
+        position_x: -128
+        shear_y: 0
+        scale_y: 74
+        position_y: 64
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
+
+    01_Floor_03:
+      Type: 1
+      Flag: 0
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        scale_x: 128
+        shear_x: 0
+        position_x: -192
+        shear_y: 0
+        scale_y: 74
+        position_y: 32
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
+
+    01_Floor_04:
+      Type: 1
+      Flag: 0
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        scale_x: 128
+        shear_x: 0
+        position_x: -256
+        shear_y: 0
+        scale_y: 74
+        position_y: 0
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
+
+    01_Floor_05:
+      Type: 1
+      Flag: 0
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        scale_x: 128
+        shear_x: 0
+        position_x: 64
+        shear_y: 0
+        scale_y: 74
+        position_y: 96
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
+
+    01_Floor_06:
+      Type: 1
+      Flag: 0
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        scale_x: 128
+        shear_x: 0
+        position_x: 0
+        shear_y: 0
+        scale_y: 74
+        position_y: 64
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
+
+    01_Floor_07:
+      Type: 1
+      Flag: 0
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        scale_x: 128
+        shear_x: 0
+        position_x: -64
+        shear_y: 0
+        scale_y: 74
+        position_y: 32
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
+
+    01_Floor_08:
+      Type: 1
+      Flag: 0
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        scale_x: 128
+        shear_x: 0
+        position_x: -128
+        shear_y: 0
+        scale_y: 74
+        position_y: 0
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
+
+    01_Floor_09:
+      Type: 1
+      Flag: 0
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        scale_x: 128
+        shear_x: 0
+        position_x: -192
+        shear_y: 0
+        scale_y: 74
+        position_y: -32
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
+
+    01_Floor_10:
+      Type: 1
+      Flag: 0
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        scale_x: 128
+        shear_x: 0
+        position_x: 128
+        shear_y: 0
+        scale_y: 74
+        position_y: 64
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
+
+    01_Floor_11:
+      Type: 1
+      Flag: 0
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        scale_x: 128
+        shear_x: 0
+        position_x: 64
+        shear_y: 0
+        scale_y: 74
+        position_y: 32
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
+
+    01_Floor_12:
+      Type: 1
+      Flag: 0
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        scale_x: 128
+        shear_x: 0
+        position_x: 0
+        shear_y: 0
+        scale_y: 74
+        position_y: 0
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
+
+    01_Floor_13:
+      Type: 1
+      Flag: 0
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        scale_x: 128
+        shear_x: 0
+        position_x: -64
+        shear_y: 0
+        scale_y: 74
+        position_y: -32
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
+
+    01_Floor_14:
+      Type: 1
+      Flag: 0
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        scale_x: 128
+        shear_x: 0
+        position_x: -128
+        shear_y: 0
+        scale_y: 74
+        position_y: -64
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
+
+    01_Floor_15:
+      Type: 1
+      Flag: 0
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        scale_x: 128
+        shear_x: 0
+        position_x: 192
+        shear_y: 0
+        scale_y: 74
+        position_y: 32
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
+
+    01_Floor_16:
+      Type: 1
+      Flag: 0
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        scale_x: 128
+        shear_x: 0
+        position_x: 128
+        shear_y: 0
+        scale_y: 74
+        position_y: 0
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
+
+    01_Floor_17:
+      Type: 1
+      Flag: 0
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        scale_x: 128
+        shear_x: 0
+        position_x: 64
+        shear_y: 0
+        scale_y: 74
+        position_y: -32
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
+
+    01_Floor_18:
+      Type: 1
+      Flag: 0
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        scale_x: 128
+        shear_x: 0
+        position_x: 0
+        shear_y: 0
+        scale_y: 74
+        position_y: -64
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
+
+    01_Floor_19:
+      Type: 1
+      Flag: 0
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        scale_x: 128
+        shear_x: 0
+        position_x: -64
+        shear_y: 0
+        scale_y: 74
+        position_y: -96
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
+
+    01_Floor_20:
+      Type: 1
+      Flag: 0
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        scale_x: 128
+        shear_x: 0
+        position_x: 256
+        shear_y: 0
+        scale_y: 74
+        position_y: 0
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
+
+    01_Floor_21:
+      Type: 1
+      Flag: 0
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        scale_x: 128
+        shear_x: 0
+        position_x: 192
+        shear_y: 0
+        scale_y: 74
+        position_y: -32
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
+
+    01_Floor_22:
+      Type: 1
+      Flag: 0
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        scale_x: 128
+        shear_x: 0
+        position_x: 128
+        shear_y: 0
+        scale_y: 74
+        position_y: -64
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
+
+    01_Floor_23:
+      Type: 1
+      Flag: 0
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        scale_x: 128
+        shear_x: 0
+        position_x: 64
+        shear_y: 0
+        scale_y: 74
+        position_y: -96
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
+
+    01_Floor_24:
+      Type: 1
+      Flag: 0
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        scale_x: 128
+        shear_x: 0
+        position_x: 0
+        shear_y: 0
+        scale_y: 74
+        position_y: -128
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
+
+  02_Wall:
+    02_Wall_00:
+      Type: 2
+      Flag: 0
+      Texture_Offset:
+        x_offset: 0.4284
+        y_offset: 0
+      Transformation:
+        scale_x: 128
+        shear_x: 0
+        position_x: 0
+        shear_y: 0
+        scale_y: 144
+        position_y: 163
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
+
+    02_Wall_01:
+      Type: 2
+      Flag: 0
+      Texture_Offset:
+        x_offset: 0.4284
+        y_offset: 0
+      Transformation:
+        scale_x: 128
+        shear_x: 0
+        position_x: 1
+        shear_y: 0
+        scale_y: 144
+        position_y: 240.5
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
+
+    02_Wall_02:
+      Type: 2
+      Flag: 0
+      Texture_Offset:
+        x_offset: 0.4284
+        y_offset: 0
+      Transformation:
+        scale_x: 128
+        shear_x: 0
+        position_x: 2
+        shear_y: 0
+        scale_y: 144
+        position_y: 318
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
+
+    02_Wall_03:
+      Type: 2
+      Flag: 0
+      Texture_Offset:
+        x_offset: 0.4284
+        y_offset: 0
+      Transformation:
+        scale_x: 128
+        shear_x: 0
+        position_x: 3
+        shear_y: 0
+        scale_y: 144
+        position_y: 395.5
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
+
+    02_Wall_04:
+      Type: 2
+      Flag: 0
+      Texture_Offset:
+        x_offset: 0.4284
+        y_offset: 0
+      Transformation:
+        scale_x: 128
+        shear_x: 0
+        position_x: 4
+        shear_y: 0
+        scale_y: 144
+        position_y: 473
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
+
+    02_Wall_05:
+      Type: 2
+      Flag: 0
+      Texture_Offset:
+        x_offset: 0.5712
+        y_offset: 0
+      Transformation:
+        scale_x: 128
+        shear_x: 0
+        position_x: 64
+        shear_y: 0
+        scale_y: 144
+        position_y: 131
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
+
+    02_Wall_06:
+      Type: 2
+      Flag: 0
+      Texture_Offset:
+        x_offset: 0.5712
+        y_offset: 0
+      Transformation:
+        scale_x: 128
+        shear_x: 0
+        position_x: 65
+        shear_y: 0
+        scale_y: 144
+        position_y: 208.5
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
+
+    02_Wall_07:
+      Type: 2
+      Flag: 0
+      Texture_Offset:
+        x_offset: 0.5712
+        y_offset: 0
+      Transformation:
+        scale_x: 128
+        shear_x: 0
+        position_x: 66
+        shear_y: 0
+        scale_y: 144
+        position_y: 286
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
+
+    02_Wall_08:
+      Type: 2
+      Flag: 0
+      Texture_Offset:
+        x_offset: 0.5712
+        y_offset: 0
+      Transformation:
+        scale_x: 128
+        shear_x: 0
+        position_x: 67
+        shear_y: 0
+        scale_y: 144
+        position_y: 363.5
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
+
+    02_Wall_09:
+      Type: 2
+      Flag: 0
+      Texture_Offset:
+        x_offset: 0.5712
+        y_offset: 0
+      Transformation:
+        scale_x: 128
+        shear_x: 0
+        position_x: 68
+        shear_y: 0
+        scale_y: 144
+        position_y: 441
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
+
+    02_Wall_10:
+      Type: 2
+      Flag: 0
+      Texture_Offset:
+        x_offset: 0.714
+        y_offset: 0
+      Transformation:
+        scale_x: 128
+        shear_x: 0
+        position_x: 128
+        shear_y: 0
+        scale_y: 144
+        position_y: 99
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
+
+    02_Wall_11:
+      Type: 2
+      Flag: 0
+      Texture_Offset:
+        x_offset: 0.714
+        y_offset: 0
+      Transformation:
+        scale_x: 128
+        shear_x: 0
+        position_x: 129
+        shear_y: 0
+        scale_y: 144
+        position_y: 176.5
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
+
+    02_Wall_12:
+      Type: 2
+      Flag: 0
+      Texture_Offset:
+        x_offset: 0.714
+        y_offset: 0
+      Transformation:
+        scale_x: 128
+        shear_x: 0
+        position_x: 130
+        shear_y: 0
+        scale_y: 144
+        position_y: 254
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
+
+    02_Wall_13:
+      Type: 2
+      Flag: 0
+      Texture_Offset:
+        x_offset: 0.714
+        y_offset: 0
+      Transformation:
+        scale_x: 128
+        shear_x: 0
+        position_x: 131
+        shear_y: 0
+        scale_y: 144
+        position_y: 331.5
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
+
+    02_Wall_14:
+      Type: 2
+      Flag: 0
+      Texture_Offset:
+        x_offset: 0.714
+        y_offset: 0
+      Transformation:
+        scale_x: 128
+        shear_x: 0
+        position_x: 132
+        shear_y: 0
+        scale_y: 144
+        position_y: 409
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
+
+    02_Wall_15:
+      Type: 2
+      Flag: 0
+      Texture_Offset:
+        x_offset: 0.5712
+        y_offset: 0
+      Transformation:
+        scale_x: 128
+        shear_x: 0
+        position_x: 192
+        shear_y: 0
+        scale_y: 144
+        position_y: 67
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
+
+    02_Wall_16:
+      Type: 2
+      Flag: 0
+      Texture_Offset:
+        x_offset: 0.5712
+        y_offset: 0
+      Transformation:
+        scale_x: 128
+        shear_x: 0
+        position_x: 193
+        shear_y: 0
+        scale_y: 144
+        position_y: 144.5
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
+
+    02_Wall_17:
+      Type: 2
+      Flag: 0
+      Texture_Offset:
+        x_offset: 0.5712
+        y_offset: 0
+      Transformation:
+        scale_x: 128
+        shear_x: 0
+        position_x: 194
+        shear_y: 0
+        scale_y: 144
+        position_y: 222
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
+
+    02_Wall_18:
+      Type: 2
+      Flag: 0
+      Texture_Offset:
+        x_offset: 0.5712
+        y_offset: 0
+      Transformation:
+        scale_x: 128
+        shear_x: 0
+        position_x: 195
+        shear_y: 0
+        scale_y: 144
+        position_y: 299.5
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
+
+    02_Wall_19:
+      Type: 2
+      Flag: 0
+      Texture_Offset:
+        x_offset: 0.5712
+        y_offset: 0
+      Transformation:
+        scale_x: 128
+        shear_x: 0
+        position_x: 196
+        shear_y: 0
+        scale_y: 144
+        position_y: 377
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
+
+    02_Wall_20:
+      Type: 2
+      Flag: 0
+      Texture_Offset:
+        x_offset: 0.5712
+        y_offset: 0
+      Transformation:
+        scale_x: 128
+        shear_x: 0
+        position_x: 197
+        shear_y: 0
+        scale_y: 144
+        position_y: 454.5
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
+
+    02_Wall_21:
+      Type: 2
+      Flag: 0
+      Texture_Offset:
+        x_offset: 0.5712
+        y_offset: 0
+      Transformation:
+        scale_x: 128
+        shear_x: 0
+        position_x: 256
+        shear_y: 0
+        scale_y: 144
+        position_y: 35
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
+
+    02_Wall_22:
+      Type: 2
+      Flag: 0
+      Texture_Offset:
+        x_offset: 0.5712
+        y_offset: 0
+      Transformation:
+        scale_x: 128
+        shear_x: 0
+        position_x: 257
+        shear_y: 0
+        scale_y: 144
+        position_y: 112.5
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
+
+    02_Wall_23:
+      Type: 2
+      Flag: 0
+      Texture_Offset:
+        x_offset: 0.5712
+        y_offset: 0
+      Transformation:
+        scale_x: 128
+        shear_x: 0
+        position_x: 258
+        shear_y: 0
+        scale_y: 144
+        position_y: 190
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
+
+    02_Wall_24:
+      Type: 2
+      Flag: 0
+      Texture_Offset:
+        x_offset: 0.5712
+        y_offset: 0
+      Transformation:
+        scale_x: 128
+        shear_x: 0
+        position_x: 259
+        shear_y: 0
+        scale_y: 144
+        position_y: 267.5
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
+
+    02_Wall_25:
+      Type: 2
+      Flag: 0
+      Texture_Offset:
+        x_offset: 0.5712
+        y_offset: 0
+      Transformation:
+        scale_x: 128
+        shear_x: 0
+        position_x: 260
+        shear_y: 0
+        scale_y: 144
+        position_y: 345
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
+
+    02_Wall_26:
+      Type: 2
+      Flag: 0
+      Texture_Offset:
+        x_offset: 0.5712
+        y_offset: 0
+      Transformation:
+        scale_x: 128
+        shear_x: 0
+        position_x: 261
+        shear_y: 0
+        scale_y: 144
+        position_y: 422.5
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
+
+    02_Wall_27:
+      Type: 2
+      Flag: 0
+      Texture_Offset:
+        x_offset: 0.2856
+        y_offset: 0
+      Transformation:
+        scale_x: 128
+        shear_x: 0
+        position_x: -64
+        shear_y: 0
+        scale_y: 144
+        position_y: 131
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
+
+    02_Wall_28:
+      Type: 2
+      Flag: 0
+      Texture_Offset:
+        x_offset: 0.2856
+        y_offset: 0
+      Transformation:
+        scale_x: 128
+        shear_x: 0
+        position_x: -63
+        shear_y: 0
+        scale_y: 144
+        position_y: 208.5
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
+
+    02_Wall_29:
+      Type: 2
+      Flag: 0
+      Texture_Offset:
+        x_offset: 0.2856
+        y_offset: 0
+      Transformation:
+        scale_x: 128
+        shear_x: 0
+        position_x: -62
+        shear_y: 0
+        scale_y: 144
+        position_y: 286
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
+
+    02_Wall_30:
+      Type: 2
+      Flag: 0
+      Texture_Offset:
+        x_offset: 0.2856
+        y_offset: 0
+      Transformation:
+        scale_x: 128
+        shear_x: 0
+        position_x: -61
+        shear_y: 0
+        scale_y: 144
+        position_y: 363.5
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
+
+    02_Wall_31:
+      Type: 2
+      Flag: 0
+      Texture_Offset:
+        x_offset: 0.2856
+        y_offset: 0
+      Transformation:
+        scale_x: 128
+        shear_x: 0
+        position_x: -60
+        shear_y: 0
+        scale_y: 144
+        position_y: 441
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
+
+    02_Wall_32:
+      Type: 2
+      Flag: 0
+      Texture_Offset:
+        x_offset: 0.1428
+        y_offset: 0
+      Transformation:
+        scale_x: 128
+        shear_x: 0
+        position_x: -128
+        shear_y: 0
+        scale_y: 144
+        position_y: 99
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
+
+    02_Wall_33:
+      Type: 2
+      Flag: 0
+      Texture_Offset:
+        x_offset: 0.1428
+        y_offset: 0
+      Transformation:
+        scale_x: 128
+        shear_x: 0
+        position_x: -127
+        shear_y: 0
+        scale_y: 144
+        position_y: 176.5
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
+
+    02_Wall_34:
+      Type: 2
+      Flag: 0
+      Texture_Offset:
+        x_offset: 0.1428
+        y_offset: 0
+      Transformation:
+        scale_x: 128
+        shear_x: 0
+        position_x: -126
+        shear_y: 0
+        scale_y: 144
+        position_y: 254
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
+
+    02_Wall_35:
+      Type: 2
+      Flag: 0
+      Texture_Offset:
+        x_offset: 0.1428
+        y_offset: 0
+      Transformation:
+        scale_x: 128
+        shear_x: 0
+        position_x: -125
+        shear_y: 0
+        scale_y: 144
+        position_y: 331.5
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
+
+    02_Wall_36:
+      Type: 2
+      Flag: 0
+      Texture_Offset:
+        x_offset: 0.1428
+        y_offset: 0
+      Transformation:
+        scale_x: 128
+        shear_x: 0
+        position_x: -124
+        shear_y: 0
+        scale_y: 144
+        position_y: 409
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
+
+    02_Wall_37:
+      Type: 2
+      Flag: 0
+      Texture_Offset:
+        x_offset: 0.2856
+        y_offset: 0
+      Transformation:
+        scale_x: 128
+        shear_x: 0
+        position_x: -192
+        shear_y: 0
+        scale_y: 144
+        position_y: 67
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
+
+    02_Wall_38:
+      Type: 2
+      Flag: 0
+      Texture_Offset:
+        x_offset: 0.2856
+        y_offset: 0
+      Transformation:
+        scale_x: 128
+        shear_x: 0
+        position_x: -191
+        shear_y: 0
+        scale_y: 144
+        position_y: 144.5
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
+
+    02_Wall_39:
+      Type: 2
+      Flag: 0
+      Texture_Offset:
+        x_offset: 0.2856
+        y_offset: 0
+      Transformation:
+        scale_x: 128
+        shear_x: 0
+        position_x: -190
+        shear_y: 0
+        scale_y: 144
+        position_y: 222
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
+
+    02_Wall_40:
+      Type: 2
+      Flag: 0
+      Texture_Offset:
+        x_offset: 0.2856
+        y_offset: 0
+      Transformation:
+        scale_x: 128
+        shear_x: 0
+        position_x: -189
+        shear_y: 0
+        scale_y: 144
+        position_y: 299.5
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
+
+    02_Wall_41:
+      Type: 2
+      Flag: 0
+      Texture_Offset:
+        x_offset: 0.2856
+        y_offset: 0
+      Transformation:
+        scale_x: 128
+        shear_x: 0
+        position_x: -188
+        shear_y: 0
+        scale_y: 144
+        position_y: 377
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
+
+    02_Wall_42:
+      Type: 2
+      Flag: 0
+      Texture_Offset:
+        x_offset: 0.2856
+        y_offset: 0
+      Transformation:
+        scale_x: 128
+        shear_x: 0
+        position_x: -187
+        shear_y: 0
+        scale_y: 144
+        position_y: 454.5
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
+
+    02_Wall_43:
+      Type: 2
+      Flag: 0
+      Texture_Offset:
+        x_offset: 0.2856
+        y_offset: 0
+      Transformation:
+        scale_x: 128
+        shear_x: 0
+        position_x: -256
+        shear_y: 0
+        scale_y: 144
+        position_y: 35
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
+
+    02_Wall_44:
+      Type: 2
+      Flag: 0
+      Texture_Offset:
+        x_offset: 0.2856
+        y_offset: 0
+      Transformation:
+        scale_x: 128
+        shear_x: 0
+        position_x: -255
+        shear_y: 0
+        scale_y: 144
+        position_y: 112.5
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
+
+    02_Wall_45:
+      Type: 2
+      Flag: 0
+      Texture_Offset:
+        x_offset: 0.2856
+        y_offset: 0
+      Transformation:
+        scale_x: 128
+        shear_x: 0
+        position_x: -254
+        shear_y: 0
+        scale_y: 144
+        position_y: 190
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
+
+    02_Wall_46:
+      Type: 2
+      Flag: 0
+      Texture_Offset:
+        x_offset: 0.2856
+        y_offset: 0
+      Transformation:
+        scale_x: 128
+        shear_x: 0
+        position_x: -253
+        shear_y: 0
+        scale_y: 144
+        position_y: 267.5
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
+
+    02_Wall_47:
+      Type: 2
+      Flag: 0
+      Texture_Offset:
+        x_offset: 0.2856
+        y_offset: 0
+      Transformation:
+        scale_x: 128
+        shear_x: 0
+        position_x: -252
+        shear_y: 0
+        scale_y: 144
+        position_y: 345
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
+
+    02_Wall_48:
+      Type: 2
+      Flag: 0
+      Texture_Offset:
+        x_offset: 0.2856
+        y_offset: 0
+      Transformation:
+        scale_x: 128
+        shear_x: 0
+        position_x: -251
+        shear_y: 0
+        scale_y: 144
+        position_y: 422.5
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
+
+  04_Portrait:
+    04_Portrait_00:
+      Type: 4
+      Flag: 0
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0
+      Transformation:
+        scale_x: 51.3
+        shear_x: 0
+        position_x: -70
+        shear_y: 0
+        scale_y: 84.6
+        position_y: 150
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
+
+    04_Portrait_01:
+      Type: 4
+      Flag: 0
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0.2
+      Transformation:
+        scale_x: 51.3
+        shear_x: 0
+        position_x: -220
+        shear_y: 0
+        scale_y: 84.6
+        position_y: 315
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
+
+    04_Portrait_02:
+      Type: 4
+      Flag: 0
+      Texture_Offset:
+        x_offset: 0.5
+        y_offset: 0.4
+      Transformation:
+        scale_x: 51.3
+        shear_x: 0
+        position_x: 185
+        shear_y: 0
+        scale_y: 84.6
+        position_y: 335
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
+
+    04_Portrait_03:
+      Type: 4
+      Flag: 0
+      Texture_Offset:
+        x_offset: 0.5
+        y_offset: 0.6
+      Transformation:
+        scale_x: 51.3
+        shear_x: 0
+        position_x: 200
+        shear_y: 0
+        scale_y: 84.6
+        position_y: 170
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
+
+    04_Portrait_04:
+      Type: 4
+      Flag: 0
+      Texture_Offset:
+        x_offset: 0.5
+        y_offset: 0.8
+      Transformation:
+        scale_x: 51.3
+        shear_x: 0
+        position_x: 75
+        shear_y: 0
+        scale_y: 84.6
+        position_y: 310
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
+
+  05_Landscape:
+    05_Landscape_00:
+      Type: 5
+      Flag: 0
+      Texture_Offset:
+        x_offset: 0.5
+        y_offset: 0
+      Transformation:
+        scale_x: 62
+        shear_x: 0
+        position_x: 240
+        shear_y: 0
+        scale_y: 75
+        position_y: 230
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
+
+    05_Landscape_01:
+      Type: 5
+      Flag: 0
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0.2
+      Transformation:
+        scale_x: 62
+        shear_x: 0
+        position_x: -80
+        shear_y: 0
+        scale_y: 75
+        position_y: 305
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
+
+    05_Landscape_02:
+      Type: 5
+      Flag: 0
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0.4
+      Transformation:
+        scale_x: 62
+        shear_x: 0
+        position_x: -200
+        shear_y: 0
+        scale_y: 75
+        position_y: 165
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
+
+    05_Landscape_03:
+      Type: 5
+      Flag: 0
+      Texture_Offset:
+        x_offset: 0
+        y_offset: 0.6
+      Transformation:
+        scale_x: 62
+        shear_x: 0
+        position_x: -245
+        shear_y: 0
+        scale_y: 70
+        position_y: 225
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
+
+    05_Landscape_04:
+      Type: 5
+      Flag: 0
+      Texture_Offset:
+        x_offset: 0.5
+        y_offset: 0.8
+      Transformation:
+        scale_x: 62
+        shear_x: 0
+        position_x: 80
+        shear_y: 0
+        scale_y: 70
+        position_y: 225
+        elapsed: 0
+        empty: 0
+        position_z: 0.5
+

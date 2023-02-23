@@ -14,7 +14,7 @@ namespace Level_Initializer {
 
 
 
-	void Init_Player(GameObjects::ObjectInst OBJ_INST, GameObjects::Character* sCHARACTER, GameObjects::Character& p_player) {
+	void Init_Player(GameObjects::ObjectInst* OBJ_INST, GameObjects::Character* sCHARACTER, GameObjects::Character& p_player) {
 		
 		p_player.pObjInst			=			OBJ_INST;					// Set Player ObjectInstance
 		p_player.dir				=			(*sCHARACTER).dir;					// Set Player Direction
