@@ -2,133 +2,249 @@
 #include "AEEngine.h"
 #include "InputHandler.h"
 #include "GSM.h"
+#include "Enum.h"
+#include "PhysicsHandler.h"
+#include "AnimationHandler.h"
+#include "CollisionHandler.h"
+#include <tuple>
+#include <limits>
+#include <iostream>
 
 namespace Level1 {
+	const int y_size = 5;
+	const int x_size = 5;
 
-	AEGfxVertexList* pMesh1, * pMesh2, * pMeshLine;
-	AEGfxTexture* pTex1, * pTex2;
-	float obj1X, obj1Y, objtexX, objtexY, camX, camY;
-	int counter;
-	using namespace GameObjects;
+	static GameObjects::Object		tileObj;
+	static GameObjects::Object		playerObj;
+	//static GameObjects::Object		wallObj;
+	static GameObjects::Object		stairObj;
 
-	/*LOAD ASSETS*/
+	static GameObjects::Character	player;
+	static GameObjects::ObjectInst	playerObjInst;
+	static GameObjects::ObjectInst	stair;
+	static GameObjects::ObjectInst	tiles[5][5];
+	//static GameObjects::ObjectInst	wall[5][5];
+
 	void Level1_Load() {
+		/*TILE OBJECT*/
+		tileObj.width	= 64.f;
+		tileObj.length	= 64.f;
+		tileObj.height	= 37.f;
+		tileObj.type	= Enum::FLOOR;
+		tileObj.pTex	= AEGfxTextureLoad("../Assets/Textures/iso.png");
+
+		AEGfxMeshStart();
+		AEGfxTriAdd(
+			-0.5f, -0.5f, 0xFFFF0000, 0.0f, 1.0f,
+			0.5f, -0.5f, 0xFFFF0000, 1.0f, 1.0f,
+			-0.5f, 0.5f, 0xFFFF0000, 0.0f, 0.0f
+		);
+		AEGfxTriAdd(
+			0.5f, 0.5f, 0xFFFF0000, 1.0f, 0.0f,
+			0.5f, -0.5f, 0xFFFF0000, 1.0f, 1.0f,
+			-0.5f, 0.5f, 0xFFFF0000, 0.0f, 0.0f
+		);
+		tileObj.pMesh = AEGfxMeshEnd();
+		/*TILE OBJECT END*/
+
+		/*PLAYER OBJECT*/
+		playerObj.width		= 37.f;
+		playerObj.length	= 37.f;
+		playerObj.height	= 74.f;
+		playerObj.type		= Enum::PLAYER;
+		playerObj.pTex		= AEGfxTextureLoad("../Assets/Sprites/player.png");
+
+		AEGfxMeshStart();
+		AEGfxTriAdd(
+			-0.5f, -0.5f, 0xFFFF0000, 0.0f, 1.0f / 8.0f,
+			0.5f, -0.5f, 0xFFFF0000, 1.0f / 11.0f, 1.0f / 8.0f,
+			-0.5f, 0.5f, 0xFFFF0000, 0.0f, 0.0f
+		);
+		AEGfxTriAdd(
+			0.5f, 0.5f, 0xFFFF0000, 1.0f / 11.0f, 0.0f,
+			0.5f, -0.5f, 0xFFFF0000, 1.0f / 11.0f, 1.0f / 8.0f,
+			-0.5f, 0.5f, 0xFFFF0000, 0.0f, 0.0f
+		);
+		playerObj.pMesh = AEGfxMeshEnd();
+		/*PLAYER OBJECT END*/
+
+		/*WALL OBJECT*/
+		//wallObj.width	= 32.f;
+		//wallObj.length	= 128.f;
+		//wallObj.height	= 128.f;
+		//wallObj.type	= Enum::WALL;
+		//wallObj.pTex	= AEGfxTextureLoad("../Assets/Textures/wall.png");
+
+		//AEGfxMeshStart();
+		//AEGfxTriAdd(
+		//	-0.5f, -0.5f, 0xFFFFFFFF, 0.0f, 0.0f,
+		//	0.5f, -0.5f, 0xFFFFFFFF, 1.0f, 0.0f,
+		//	-0.5f, 0.5f, 0xFFFFFFFF, 0.0f, 1.0f);
+		//AEGfxTriAdd(
+		//	0.5f, -0.5f, 0xFFFFFFFF, 1.0f, 0.0f,
+		//	0.5f, 0.5f, 0xFFFFFFFF, 1.0f, 1.0f,
+		//	-0.5f, 0.5f, 0xFFFFFFFF, 0.0f, 1.0f);
+		//wallObj.pMesh = AEGfxMeshEnd();
+		/*WALL OBJECT END*/
+
+		/*STAIR OBJECT*/
+		stairObj.width	= 128.f;
+		stairObj.length = 128.f;
+		stairObj.height = 80.f;
+		stairObj.type	= Enum::PLATFORM;
+		stairObj.pTex	= AEGfxTextureLoad("../Assets/Textures/stairs.png");
+
+		AEGfxMeshStart();
+		AEGfxTriAdd(
+			-0.5f, -0.5f, 0xFFFF0000, 0.0f, 1.0f,
+			0.5f, -0.5f, 0xFFFF0000, 1.0f, 1.0f,
+			-0.5f, 0.5f, 0xFFFF0000, 0.0f, 0.0f
+		);
+		AEGfxTriAdd(
+			0.5f, 0.5f, 0xFFFF0000, 1.0f, 0.0f,
+			0.5f, -0.5f, 0xFFFF0000, 1.0f, 1.0f,
+			-0.5f, 0.5f, 0xFFFF0000, 0.0f, 0.0f
+		);
+		stairObj.pMesh = AEGfxMeshEnd();
+		/*STAIR OBJECT END*/
 	}
 
-	/*INITIALIZE DATA*/
 	void Level1_Init() {
-		obj1X = 0.0f, obj1Y = 0.0f, objtexX = 0.0f, objtexX = 0.0f;
-		counter = 1;
-		AEGfxMeshStart();
-		AEGfxTriAdd(
-			-25.5f, -25.5f, 0xFFFF0000, 0.0f, 0.0f,
-			25.5f, 0.0f, 0xFFFF0000, 0.0f, 0.0f,
-			-25.5f, 25.5f, 0xFFFF0000, 0.0f, 0.0f);
+		playerObjInst.flag			= 1;
+		playerObjInst.pObj			= &playerObj;
+		playerObjInst.tex_offset	= AEVec2{ 0, 0 };
+		playerObjInst.transform		= AEMtx33	{	30.f, 0, 0,
+													0, 30.f, 0,
+													0, 0, 0	};
+		/*
+		 	[0][0] scale_x,		[0][1] 0(shearx),	[0][2] world x,
+			[1][0] 0(sheary),	[1][1] scale_y,		[1][2] world y,
+			[2][0] e,			[2][1] 0,			[2][2] world z
+		*/
 
+		player.dir				= AEVec2{ 0, 0 };
+		player.input			= AEVec2{ 0, 0 };
+		player.isJumping		= false;
+		player.isMoving			= false;
+		player.pObjInst			= playerObjInst;
+		player.rotation			= 0.f;
+		player.speed			= 100.f;
+		player.spriteIteration	= 0;
+		player.zVel				= 0;
 
-		pMesh1 = AEGfxMeshEnd();
-		AE_ASSERT_MESG(pMesh1, "Failed to create mesh 1!!");
-		AEGfxMeshStart();
-		// This shape has 2 triangles
-		AEGfxTriAdd(
-			-30.0f, -30.0f, 0x00FF00FF, 0.0f, 1.0f,
-			30.0f, -30.0f, 0x00FFFF00, 1.0f, 1.0f,
-			-30.0f, 30.0f, 0x0000FFFF, 0.0f, 0.0f);
+		for (int i = 0; i < x_size; i++) {
+			for (int j = 0; j < y_size; j++) {
+				tiles[i][j].flag		= 1;
+				tiles[i][j].pObj		= &tileObj;
+				tiles[i][j].tex_offset	= AEVec2{ 0, 0 };
+				tiles[i][j].transform	= AEMtx33{	tileObj.width, 0, (i * tileObj.width),
+													0, tileObj.length, (j * tileObj.length),
+													0, 0, 0	};
 
-		AEGfxTriAdd(
-			30.0f, -30.0f, 0x00FFFFFF, 1.0f, 1.0f,
-			30.0f, 30.0f, 0x00FFFFFF, 1.0f, 0.0f,
-			-30.0f, 30.0f, 0x00FFFFFF, 0.0f, 0.0f);
+				//wall[i][j] .flag		= 1;
+				//wall[i][j].pObj			= &tileObj;
+				//wall[i][j].tex_offset	= AEVec2{ 0, 0 };
+				//wall[i][j].transform	= AEMtx33{	scalex, 0, i * scalex,
+				//									0, scaley, j * scaley,
+				//									0, 0, 0	};
+			}
+		}
 
-		// Saving the mesh (list of triangles) in pMesh2
-
-		pMesh2 = AEGfxMeshEnd();
-		AE_ASSERT_MESG(pMesh2, "Failed to create mesh 2!!");
-
-		// Informing the library that we're about to start adding vertices
-		AEGfxMeshStart();
-
-		// This shape has 5 vertices
-		AEGfxVertexAdd(0.0f, 0.0f, 0xFFFFFFFF, 0.0f, 0.0f);
-		AEGfxVertexAdd(100.0f, 0.0f, 0xFFFFFFFF, 0.0f, 0.0f);
-		AEGfxVertexAdd(200.0f, 150.0f, 0xFFFFFFFF, 0.0f, 0.0f);
-		AEGfxVertexAdd(300.0f, -100.0f, 0xFFFFFFFF, 0.0f, 0.0f);
-		AEGfxVertexAdd(100.0f, -250.0f, 0xFFFFFFFF, 0.0f, 0.0f);
-
-
-		pMeshLine = AEGfxMeshEnd();
-		AE_ASSERT_MESG(pMeshLine, "Failed to create line mesh!!");
+		stair.flag			= 1;
+		stair.pObj			= &stairObj;
+		stair.tex_offset	= AEVec2{ 0, 0 };
+		stair.transform		= AEMtx33{	stairObj.width, 0, 120.f,
+										0, stairObj.length, 120.f,
+										0, 0, 0	};
 	}
 
 	void Level1_Update() {
-		using namespace InputHandler;
+		/*HANDLE INPUT*/
+		InputHandler::ExitGame(GSM::next);
 
-		/*INPUT HANDLING*/
-		AEInputUpdate();
-		MoveObject(obj1Y, obj1X);
-		ChangeTexture(objtexX, objtexY);
-		MoveCamera(camX, camY);
-		ExitGame(GSM::next);
+		player.isJumping = InputHandler::PlayerJump(player);
+		player.pObjInst.flag = (InputHandler::playerMovement(player)) ? GameObjects::FLAG_ACTIVE : GameObjects::FLAG_INACTIVE;
+
+		/*MOVEMENT*/
+		PhysicsHandler::MovePlayer(player);
+
+		/*COLLISION*/
+		f32 depthXY, depthYZ, depthXZ;
+		AEVec2 normalXY, normalYZ, normalXZ;
+		std::pair<f32, AEVec2> XY{ depthXY, normalXY }, YZ{ depthXY, normalYZ }, XZ{ depthXY, normalXZ }, response;
+
+		bool a = CollisionHandler::SAT_Collision(player.pObjInst, stair, XY.first, XY.second, GameObjects::GetVerticesXY);
+		bool b = CollisionHandler::SAT_Collision(player.pObjInst, stair, YZ.first, YZ.second, GameObjects::GetVerticesYZ);
+		bool c = CollisionHandler::SAT_Collision(player.pObjInst, stair, XZ.first, XZ.second, GameObjects::GetVerticesXZ);
+
+		if (a && b && c) {
+			std::cout << player.pObjInst.transform.m[0][2] << '|' << player.pObjInst.transform.m[1][2] << '|' << player.pObjInst.transform.m[2][2] << std::endl;
+			std::cout << stair.transform.m[0][2] << '|' << stair.transform.m[1][2] << '|' << stair.transform.m[2][2] << std::endl;
+
+			response.first = static_cast<f32>((std::numeric_limits<float>::max)());
+			int plane = 0;
+
+			if (XY.first < response.first)
+				response = XY, plane++;
+			if (YZ.first < response.first)
+				response = YZ, plane++;
+			if (XZ.first < response.first)
+				response = XZ, plane++;
+
+			if (plane == 1) {
+				f32* xPos = &player.pObjInst.transform.m[0][2];
+				f32* yPos = &player.pObjInst.transform.m[1][2];
+
+				AEVec2Scale(&response.second, &response.second, response.first);
+				*xPos += response.second.x;
+				*yPos += response.second.y;
+			}
+
+			else if (plane == 2) {
+				f32* xPos = &player.pObjInst.transform.m[1][2];
+				f32* yPos = &player.pObjInst.transform.m[2][2];
+
+				AEVec2Scale(&response.second, &response.second, response.first);
+				*xPos += response.second.x;
+				*yPos += response.second.y;
+			}
+
+			else if (plane == 3) {
+				f32* xPos = &player.pObjInst.transform.m[0][2];
+				f32* yPos = &player.pObjInst.transform.m[2][2];
+
+				AEVec2Scale(&response.second, &response.second, response.first);
+				*xPos += response.second.x;
+				*yPos += response.second.y;
+			}
+		}
+		
+
+		AEGfxSetCamPosition(0.f, player.pObjInst.transform.m[1][2]);
 	}
 
 	void Level1_Draw() {
-		// Drawing object 1
-		AEGfxSetRenderMode(AE_GFX_RM_COLOR);
-		// Set position for object 1
-		AEGfxSetPosition(obj1X, obj1Y);
+		GameObjects::RenderSettings();
 
-		// Drawing the mesh (list of triangles)
-		AEGfxMeshDraw(pMesh1, AE_GFX_MDM_TRIANGLES);
-		// No tint
-		AEGfxSetTintColor(1.0f, 1.0f, 1.0f, 1.0f);
+		for (int i = 0; i < x_size; i++) {
+			for (int j = 0; j < y_size; j++) {
+				GameObjects::RenderObject(tiles[i][j]);
+			}
+		}
 
-		// Drawing object 2 - (first) - No tint
-		AEGfxSetRenderMode(AE_GFX_RM_TEXTURE);
-		// Set position for object 2
-		AEGfxSetPosition(100.0f, -60.0f);
-		// No tint
-		AEGfxSetTintColor(1.0f, 1.0f, 1.0f, 1.0f);
-		// Set texture
-		//AEGfxTextureSet(pTex1, objtexX, objtexY);
-		// Drawing the mesh (list of triangles)
-		AEGfxMeshDraw(pMesh2, AE_GFX_MDM_TRIANGLES);
-		// Set Transparency
-		AEGfxSetTransparency(1.0f);
-
-		// Drawing object 3 - (Second) - Blue tint
-		AEGfxSetRenderMode(AE_GFX_RM_TEXTURE);
-		// Set position for object 3
-		AEGfxSetPosition(100.0f, 60.0f);
-		// Add Blue tint
-		AEGfxSetTintColor(0.0f, 0.0f, 1.0f, 1.0f);
-
-		// Drawing the mesh (list of triangles)
-		AEGfxMeshDraw(pMesh2, AE_GFX_MDM_TRIANGLES);
-		// Set Transparency
-		AEGfxSetTransparency(1.0f);
-
-		AEGfxSetRenderMode(AE_GFX_RM_COLOR);
-		AEGfxSetPosition(0.0f, 0.0f);
-		AEGfxMeshDraw(pMeshLine, AE_GFX_MDM_LINES_STRIP);
-
-		char strBuffer[100];
-		memset(strBuffer, 0, 100 * sizeof(char));
-		sprintf_s(strBuffer, "Frame Time:  %.6f", AEFrameRateControllerGetFrameTime());
-
-		AEGfxSetBlendMode(AE_GFX_BM_BLEND);
-		AEGfxPrint(fontId, strBuffer, static_cast<f32>(-0.95), static_cast<f32>(-0.95), static_cast <f32>(1.0f), static_cast <f32>(1.f), static_cast <f32>(1.f), static_cast <f32>(1.f));
-
-		f32 TextWidth, TextHeight;
-		AEGfxGetPrintSize(fontId, strBuffer, 1.0f, TextWidth, TextHeight);
-		AEGfxPrint(fontId, strBuffer, static_cast<f32>(0.99 - TextWidth), static_cast<f32>(0.99 - TextHeight), static_cast<f32>(1.0f), static_cast<f32>(1.f), static_cast<f32>(1.f), static_cast<f32>(1.f));
+		GameObjects::RenderObject(stair);
+		AnimationHandler::AnimateCharacter(player);
 	}
 
 	void Level1_Free() {
-		AEGfxMeshFree(pMesh1);
-		AEGfxMeshFree(pMesh2);
-		AEGfxMeshFree(pMeshLine);
+		AEGfxMeshFree(tileObj.pMesh);
+		AEGfxMeshFree(stairObj.pMesh);
+		AEGfxMeshFree(playerObj.pMesh);
 	}
 
 	void Level1_Unload() {
+		AEGfxTextureUnload(tileObj.pTex);
+		AEGfxTextureUnload(stairObj.pTex);
+		AEGfxTextureUnload(playerObj.pTex);
 	}
 }

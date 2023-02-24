@@ -95,7 +95,8 @@ namespace GameObjects
 		//m[0][2] = //iso convert x;
 		//m[1][2] = //iso convert y + z;
 
-		AEGfxSetTransform(obj.transform.m);
+		AEGfxSetTransform(GameObjects::ConvertIsometric(obj).m);
+		//AEGfxSetTransform(obj.transform.m);
 		/*DRAW MESH*/
 		AEGfxMeshDraw(obj.pObj->pMesh, AE_GFX_MDM_TRIANGLES);
 		//AEGfxSetTransparency(1.0f);
@@ -136,19 +137,7 @@ namespace GameObjects
 	}
 
 	AEVec2* GetVerticesYZ(const ObjectInst obj, int& count) {
-		count = 4;
-		AEVec2* yzCoords = { new AEVec2[count] };
-		yzCoords[0] = AEVec2{ obj.transform.m[1][2] - obj.pObj->width / 2, obj.transform.m[2][2] + obj.pObj->height / 2 }; //top right
-		yzCoords[1] = AEVec2{ obj.transform.m[1][2] + obj.pObj->width / 2, obj.transform.m[2][2] + obj.pObj->height / 2 }; //top left
-		yzCoords[2] = AEVec2{ obj.transform.m[1][2] - obj.pObj->width / 2, obj.transform.m[2][2] - obj.pObj->height / 2 }; //bot right
-		yzCoords[3] = AEVec2{ obj.transform.m[1][2] + obj.pObj->width / 2, obj.transform.m[2][2] - obj.pObj->height / 2 }; //bot left
-
-		//TODO: Any rotatation 
-		return yzCoords;
-	}
-
-	AEVec2* GetVerticesXZ(const ObjectInst obj, int& count) {
-		if (1) { //TODO: Change to check if not a staircase
+		if (obj.pObj->type != Enum::PLATFORM) { //TODO: Change to check if not a staircase
 			count = 4;
 			AEVec2* xzCoords = { new AEVec2[count] };
 			xzCoords[0] = AEVec2{ obj.transform.m[0][2] - obj.pObj->width / 2, obj.transform.m[2][2] + obj.pObj->height / 2 }; // top right
@@ -173,10 +162,35 @@ namespace GameObjects
 		}
 	}
 
+	AEVec2* GetVerticesXZ(const ObjectInst obj, int& count) {
+		count = 4;
+		AEVec2* yzCoords = { new AEVec2[count] };
+		yzCoords[0] = AEVec2{ obj.transform.m[1][2] - obj.pObj->width / 2, obj.transform.m[2][2] + obj.pObj->height / 2 }; //top right
+		yzCoords[1] = AEVec2{ obj.transform.m[1][2] + obj.pObj->width / 2, obj.transform.m[2][2] + obj.pObj->height / 2 }; //top left
+		yzCoords[2] = AEVec2{ obj.transform.m[1][2] - obj.pObj->width / 2, obj.transform.m[2][2] - obj.pObj->height / 2 }; //bot right
+		yzCoords[3] = AEVec2{ obj.transform.m[1][2] + obj.pObj->width / 2, obj.transform.m[2][2] - obj.pObj->height / 2 }; //bot left
+
+		//TODO: Any rotatation 
+		return yzCoords;
+	}
+
 	AEMtx33 ConvertIsometric(const ObjectInst& obj) {
 		AEMtx33 transform = obj.transform;
-		transform.m[0][2] = obj.transform.m[0][2] + obj.transform.m[1][2];
-		transform.m[1][2] = -0.5f * obj.transform.m[0][2] + 0.5f * obj.transform.m[1][2] + obj.transform.m[2][2];
+		f32 xPos = obj.transform.m[0][2];
+		f32 yPos = obj.transform.m[1][2];
+		f32 zPos = obj.transform.m[2][2];
+
+		transform.m[0][2] = xPos - yPos;
+		transform.m[1][2] = ((xPos + yPos) / 2.f) + zPos - 20;
 		return transform;
+	}
+
+	void ConvertWorld(f32& x, f32& y) {
+		f32 x1, y1;
+		x1 = x;
+		y1 = y;
+
+		x = y + x / 2;
+		y = y - x / 2;
 	}
 }

@@ -68,6 +68,15 @@ namespace Level2
 		p_player.pObjInst.transform.m[0][2] = 0;
 		p_player.pObjInst.transform.m[1][2] = 0;
 		p_player.pObjInst.transform.m[2][2] = 0;
+
+		int count = 0;
+		for (auto it : objInst) {
+			f32 x = it.transform.m[0][2];
+			f32 y = it.transform.m[1][2];
+
+			GameObjects::ConvertWorld(x, y);
+			std::cout << count++ << ": " << objInst->pObj->type << "=> x: " << x << "| y: " << y << std::endl;
+		}
 	}
 
 	void Level2_Update()
@@ -95,7 +104,7 @@ namespace Level2
 		}
 
 		/*COLLISIONS*/
-		//TODO: Collision
+		//TODO: Collision with vehicle irl
 
 		/*ANIMATION*/
 		AEGfxSetCamPosition(0.f, max(p_player.pObjInst.transform.m[1][2], MIN_CAM_HEIGHT));

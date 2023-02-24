@@ -12,6 +12,6 @@ namespace SystemHandler {
 		//AESysToggleFullScreen(1);
 		AESysSetWindowTitle("My New Demo!");
 		AESysReset();
-		AEGfxSetBackgroundColor(0.0f, 0.0f, 0.0f);
+		AEGfxSetBackgroundColor(.0f, .0f, .0f);
 	}
 }
