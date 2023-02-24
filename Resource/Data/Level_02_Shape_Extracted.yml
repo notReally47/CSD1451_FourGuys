@@ -1,0 +1,99 @@
+Level: 02
+Object:
+  00_Player:
+    Type: 0
+    Mesh:
+      uv_01: 0
+      uv_02: 0.125
+      uv_03: 0.0909
+      uv_04: 0.125
+      uv_05: 0
+      uv_06: 0
+    Texture: "../Assets/Sprites/player.png"
+    Width: 0
+    Length: 0
+    Height: 0
+
+  01_Floor:
+    Type: 1
+    Mesh:
+      uv_01: 0
+      uv_02: 1
+      uv_03: 1
+      uv_04: 1
+      uv_05: 0
+      uv_06: 0
+    Texture: "../Assets/Textures/floor.png"
+    Width: 0
+    Length: 0
+    Height: 0
+
+  02_Wall:
+    Type: 2
+    Mesh:
+      uv_01: 0
+      uv_02: 1
+      uv_03: 0.1428
+      uv_04: 1
+      uv_05: 0
+      uv_06: 0
+    Texture: "../Assets/Textures/wall.png"
+    Width: 0
+    Length: 0
+    Height: 0
+
+  03_Decoration:
+    Type: 3
+    Mesh:
+      uv_01: 0
+      uv_02: 0
+      uv_03: 0
+      uv_04: 0
+      uv_05: 0
+      uv_06: 0
+    Texture: "../Assets/Props/candles.png"
+    Width: 0
+    Length: 0
+    Height: 0
+
+  04_Portrait:
+    Type: 4
+    Mesh:
+      uv_01: 0
+      uv_02: 0.2
+      uv_03: 0.25
+      uv_04: 0.2
+      uv_05: 0
+      uv_06: 0
+    Texture: "../Assets/Props/portrait.png"
+    Width: 0
+    Length: 0
+    Height: 0
+
+  05_Landscape:
+    Type: 5
+    Mesh:
+      uv_01: 0
+      uv_02: 0.2
+      uv_03: 0.25
+      uv_04: 0.2
+      uv_05: 0
+      uv_06: 0
+    Texture: "../Assets/Props/landscape.png"
+    Width: 0
+    Length: 0
+    Height: 0
+
+  06_Platform:
+    Type: 6
+    Mesh:
+      uv_01: 0
+      uv_02: 1
+      uv_03: 1
+      uv_04: 1
+      uv_05: 0
+      uv_06: 0
+    Texture: "../Assets/Textures/stairs.png"
+    Width: 0
+    Length: 0
+    Height: 0

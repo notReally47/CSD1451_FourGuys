@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Source\AudioManager.cpp" />
+    <ClCompile Include="..\Source\CollisionDetectionManager.cpp" />
+    <ClCompile Include="..\Source\EnvironmentManager.cpp" />
+    <ClCompile Include="..\Source\FileManager.cpp" />
+    <ClCompile Include="..\Source\GameStateManager.cpp" />
+    <ClCompile Include="..\Source\GraphicsManager.cpp" />
+    <ClCompile Include="..\Source\InputManager.cpp" />
+    <ClCompile Include="..\Source\Level1.cpp" />
+    <ClCompile Include="..\Source\Main.cpp" />
+    <ClCompile Include="..\Source\MainMenu.cpp" />
+    <ClCompile Include="..\Source\ObjectManager.cpp" />
+    <ClCompile Include="..\Source\SimulationManager.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Header\AudioManager.h" />
+    <ClInclude Include="..\Header\CollisionDetectionManager.h" />
+    <ClInclude Include="..\Header\Enumeration.h" />
+    <ClInclude Include="..\Header\EnvironmentManager.h" />
+    <ClInclude Include="..\Header\FileManager.h" />
+    <ClInclude Include="..\Header\GameStateManager.h" />
+    <ClInclude Include="..\Header\InputManager.h" />
+    <ClInclude Include="..\Header\ObjectManager.h" />
+    <ClInclude Include="..\Header\PCH.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\Resource\Art\map_pergament.png" />
+    <Image Include="..\Resource\Textures\candles.png" />
+    <Image Include="..\Resource\Textures\floor.png" />
+    <Image Include="..\Resource\Textures\landscape.png" />
+    <Image Include="..\Resource\Textures\player.png" />
+    <Image Include="..\Resource\Textures\portrait.png" />
+    <Image Include="..\Resource\Textures\stairs.png" />
+    <Image Include="..\Resource\Textures\wall.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Resource\Data\Level_02_Shape.yml" />
+    <None Include="..\Resource\Data\Level_02_Shape_Extracted.yml" />
+    <None Include="..\Resource\Data\Level_02_Transform.yml" />
+    <None Include="..\Resource\Data\Level_02_Transform_Extracted.yml" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{05cbc67c-7166-40ff-b7e0-d253ce977c0b}</ProjectGuid>
+    <RootNamespace>HopWards</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(SolutionDir)External\AlphaEngine_V3.09\include;$(SolutionDir)External\yaml-cpp\include;$(SolutionDir)Header</IncludePath>
+    <LibraryPath>$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64);$(SolutionDir)External\AlphaEngine_V3.09\lib;$(SolutionDir)External\yaml-cpp\lib</LibraryPath>
+    <OutDir>$(SolutionDir)\Bin\</OutDir>
+    <TargetName>$(ProjectName)D</TargetName>
+    <SourcePath>$(VC_SourcePath);$(SolutionDir)Source</SourcePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(SolutionDir)External\AlphaEngine_V3.09\include;$(SolutionDir)External\yaml-cpp\include;$(SolutionDir)Header</IncludePath>
+    <LibraryPath>$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64);$(SolutionDir)External\AlphaEngine_V3.09\lib;$(SolutionDir)External\yaml-cpp\lib</LibraryPath>
+    <OutDir>$(SolutionDir)\Bin\</OutDir>
+    <SourcePath>$(VC_SourcePath);$(SolutionDir)Source</SourcePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level4</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <PostBuildEvent>
+      <Command>xcopy "$(SolutionDir)Resource\*" "$(OutDir)Resource\" /s /r /y /q
+xcopy "$(SolutionDir)External\AlphaEngine_V3.09\lib\freetype.dll" "$(OutDir)" /s /r /y /q
+xcopy "$(SolutionDir)External\AlphaEngine_V3.09\lib\Alpha_EngineD.dll" "$(OutDir)" /s /r /y /q
+xcopy "$(SolutionDir)External\AlphaEngine_V3.09\lib\fmodL.dll" "$(OutDir)" /s /r /y /q
+xcopy "$(SolutionDir)External\yaml-cpp\lib\Debug\yaml-cpp.dll" "$(OutDir)" /s /r /y /q</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level4</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <PostBuildEvent>
+      <Command>xcopy "$(SolutionDir)Resource\*" "$(OutDir)Assets\" /s /r /y /q
+xcopy "$(SolutionDir)External\AlphaEngine_V3.09\lib\freetype.dll" "$(OutDir)" /s /r /y /q
+xcopy "$(SolutionDir)External\AlphaEngine_V3.09\lib\Alpha_Engine.dll" "$(OutDir)" /s /r /y /q
+xcopy "$(SolutionDir)External\AlphaEngine_V3.09\lib\fmod.dll" "$(OutDir)" /s /r /y /q
+xcopy "$(SolutionDir)External\yaml-cpp\lib\yaml-cpp.dll" "$(OutDir)" /s /r /y /q</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

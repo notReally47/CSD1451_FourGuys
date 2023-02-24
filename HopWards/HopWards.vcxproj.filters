@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Header">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Resource\Textures">
+      <UniqueIdentifier>{f63579d2-6aff-4b41-a38f-19e12be983e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource\Audio">
+      <UniqueIdentifier>{8a9729d7-4849-4420-a0e6-c96319971321}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource\Font">
+      <UniqueIdentifier>{0ce685e3-b30a-4398-b7ce-f0a3447a771c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource\Art">
+      <UniqueIdentifier>{90abd825-0dd9-4cdb-8421-14f58eb20bde}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource\Data">
+      <UniqueIdentifier>{8ed127fd-36b5-4d9d-b07b-084c1103f756}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\System Components">
+      <UniqueIdentifier>{381ef016-5562-4e19-9b5b-b4e793ca0726}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Game Logic Components">
+      <UniqueIdentifier>{b499bd2c-0a9f-44e1-8646-0849d723a92e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Game States">
+      <UniqueIdentifier>{60b681c5-4c64-4f84-a4aa-4eda4d83c530}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Source\GraphicsManager.cpp">
+      <Filter>Source\System Components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\AudioManager.cpp">
+      <Filter>Source\System Components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\InputManager.cpp">
+      <Filter>Source\System Components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\ObjectManager.cpp">
+      <Filter>Source\Game Logic Components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\GameStateManager.cpp">
+      <Filter>Source\Game Logic Components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\EnvironmentManager.cpp">
+      <Filter>Source\Game Logic Components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\CollisionDetectionManager.cpp">
+      <Filter>Source\Game Logic Components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\FileManager.cpp">
+      <Filter>Source\Game Logic Components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\SimulationManager.cpp">
+      <Filter>Source\Game Logic Components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Main.cpp">
+      <Filter>Source\Game States</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\MainMenu.cpp">
+      <Filter>Source\Game States</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Level1.cpp">
+      <Filter>Source\Game States</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Header\AudioManager.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\CollisionDetectionManager.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\Enumeration.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\EnvironmentManager.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\FileManager.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\GameStateManager.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\InputManager.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\ObjectManager.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Header\PCH.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\Resource\Textures\stairs.png">
+      <Filter>Resource\Textures</Filter>
+    </Image>
+    <Image Include="..\Resource\Textures\wall.png">
+      <Filter>Resource\Textures</Filter>
+    </Image>
+    <Image Include="..\Resource\Textures\candles.png">
+      <Filter>Resource\Textures</Filter>
+    </Image>
+    <Image Include="..\Resource\Textures\floor.png">
+      <Filter>Resource\Textures</Filter>
+    </Image>
+    <Image Include="..\Resource\Textures\landscape.png">
+      <Filter>Resource\Textures</Filter>
+    </Image>
+    <Image Include="..\Resource\Textures\player.png">
+      <Filter>Resource\Textures</Filter>
+    </Image>
+    <Image Include="..\Resource\Textures\portrait.png">
+      <Filter>Resource\Textures</Filter>
+    </Image>
+    <Image Include="..\Resource\Art\map_pergament.png">
+      <Filter>Resource\Art</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Resource\Data\Level_02_Shape.yml">
+      <Filter>Resource\Data</Filter>
+    </None>
+    <None Include="..\Resource\Data\Level_02_Shape_Extracted.yml">
+      <Filter>Resource\Data</Filter>
+    </None>
+    <None Include="..\Resource\Data\Level_02_Transform.yml">
+      <Filter>Resource\Data</Filter>
+    </None>
+    <None Include="..\Resource\Data\Level_02_Transform_Extracted.yml">
+      <Filter>Resource\Data</Filter>
+    </None>
+  </ItemGroup>
+</Project>
