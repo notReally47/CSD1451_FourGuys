@@ -39,15 +39,15 @@ namespace Level2
 		Level_Initializer::Option_Change(vOBJ_INST);
 
 		/*DO NOT DELETE*/
-		/*
-		for (auto& it : vOBJ_INST) {
-			AEVec2 a{ it.GetPosY() + (it.GetPosX() / 2.0f ), it.GetPosY() - (it.GetPosX() / 2.0f) };
-			it.GetPosX() = -a.x;
-			it.GetPosY() = a.y;
-		}*/
+		
+		//for (auto& it : vOBJ_INST) {
+			//AEVec2 a{ it.GetPosY() + (it.GetPosX() / 2.0f ), it.GetPosY() - (it.GetPosX() / 2.0f) };
+			//it.GetPosX() = a.x;
+			//it.GetPosY() = a.y;
+		//}
 
 		/*Extract Using Vector vOBJ_INST & p_player*/
-		//Extract_Data_To_File::Extract_Transform_Data_Out(vOBJ_INST, p_player, level_number);
+		Extract_Data_To_File::Extract_Transform_Data_Out(vOBJ_INST, p_player, level_number);
 	}
 
 	void Level2_Update()

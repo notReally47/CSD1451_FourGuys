@@ -43,19 +43,17 @@ namespace GameObjects
 	void ObjectInst::RenderObject() 
 	{ 
 		AEGfxTextureSet(this->pObj->pTex, this->tex_offset.x, this->tex_offset.y);
-		if (this->pObj->type == PLAYER)
-			AEGfxSetTransform(ConvertIsometric(*this).m);
-		else
-			AEGfxSetTransform(this->transform.m);
+		AEGfxSetTransform(ConvertIsometric(*this).m);
+		//AEGfxSetTransform(this->transform.m);
 		AEGfxMeshDraw(this->pObj->pMesh, AE_GFX_MDM_TRIANGLES);
 	}
 
 	int Character::checkDirection()
 	{
 		int x{ static_cast<int>(this->dir.x) }, y{ static_cast<int>(this->dir.y) };
-		return	(x > 0) ? (y > 0) ? RIGHT : (y) ? static_cast<int>(DOWN) : DOWNRIGHT : 
-				(x) ? (y > 0) ? UP : (y) ? static_cast<int>(LEFT) : UPLEFT : 
-				(y > 0) ? static_cast<int>(UPRIGHT) : DOWNLEFT;
+		return	(x > 0) ? (y > 0) ? UP : (y) ? static_cast<int>(RIGHT) : UPRIGHT : 
+				(x) ? (y > 0) ? LEFT : (y) ? static_cast<int>(DOWN) : DOWNLEFT :
+				(y > 0) ? static_cast<int>(UPLEFT) : DOWNRIGHT;
 	}
 
 	AEVec2& Character::GetOffset() { return this->pObjInst->tex_offset; }
@@ -167,8 +165,8 @@ namespace GameObjects
 
 	AEMtx33 ConvertIsometric(const ObjectInst& obj) {
 		AEMtx33 transform = obj.transform;
-		transform.m[0][2] = obj.GetPosX() + obj.GetPosY();
-		transform.m[1][2] = -0.5f * obj.GetPosX() + 0.5f * obj.GetPosY() + obj.GetPosZ();
+		transform.m[0][2] = obj.GetPosX() - obj.GetPosY();
+		transform.m[1][2] = 0.5f * obj.GetPosX() + 0.5f * obj.GetPosY() + obj.GetPosZ();
 		return transform;
 	}
 }
