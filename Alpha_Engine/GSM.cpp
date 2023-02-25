@@ -4,18 +4,22 @@
 #include "Level2.h"
 #include "MainMenu.h"
 
-namespace GSM {
-	int current{ Enum::GS_MENU }, previous{ 0 }, next{ 0 };
+namespace GSM
+{
+	int current{Enum::GS_LEVEL2}, previous{0}, next{0};
 	f64 gameTime;
 	FP fpLoad = nullptr, fpInit = nullptr, fpUpdate = nullptr, fpDraw = nullptr, fpFree = nullptr, fpUnload = nullptr;
 
-	void GSM_Init(int start) {
+	void GSM_Init(int start)
+	{
 		current = previous = next = start;
 	}
 
-	void GSM_Update() {
+	void GSM_Update()
+	{
 		using namespace Enum;
-		switch (current) {
+		switch (current)
+		{
 		case GS_QUIT:
 			break;
 		case GS_MENU:
@@ -47,4 +51,3 @@ namespace GSM {
 		}
 	}
 }
-

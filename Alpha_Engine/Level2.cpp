@@ -17,26 +17,27 @@ namespace Level2
 	const static f32 MIN_CAM_HEIGHT = -65.f;
 
 	using namespace GameObjects;
-	Object player, floor, wall, deco, portrait, landscape, platform; // 
+	Object player, floor, wall, deco, portrait, landscape, platform; //
 	Character p_player;
 	ObjectInst objInst[85];
 	f32 windowWidth, windowHeight;
-	Object* objs[]{ &player, &floor, &wall, &deco, &portrait, &landscape, &platform };
+	Object *objs[]{&player, &floor, &wall, &deco, &portrait, &landscape, &platform};
 
 	const std::string level_number = "02";
 
 	std::vector<Load_Data_From_File::ObjectShape> vOS;
 	std::vector<Load_Data_From_File::ObjectTransform> vOT;
-	Load_Data_From_File::PlayerProperties* sPP;
+	Load_Data_From_File::PlayerProperties *sPP;
 
-	void Level2_Load() {
+	void Level2_Load()
+	{
 		vOS = Load_Data_From_File::Load_Shape_From_YAML(level_number);
 		vOT = Load_Data_From_File::Load_Transform_From_YAML(level_number, vOS);
 		sPP = Load_Data_From_File::Load_Player_Stats_From_YAML(level_number);
 
-
-		//static int count{ 0 };
-		for (auto& iter : vOT) {
+		// static int count{ 0 };
+		for (auto &iter : vOT)
+		{
 			//			if (iter.OS.type == Enum::TYPE::PLAYER) {
 			iter.scale_x /= 2;
 			iter.shear_x /= 2;
@@ -47,8 +48,8 @@ namespace Level2
 			//}*/
 		}
 
-		//Extract_Data_To_File::Extract_Shape_Data_Out(vOS, level_number);
-		//Extract_Data_To_File::Extract_Transform_Data_Out(vOT, *sPP, level_number);
+		// Extract_Data_To_File::Extract_Shape_Data_Out(vOS, level_number);
+		// Extract_Data_To_File::Extract_Transform_Data_Out(vOT, *sPP, level_number);
 
 		Load_Data_From_File::Load_Shape_To_Object(vOS, objs);
 	}
@@ -80,15 +81,23 @@ namespace Level2
 
 		/*MOVEMENT*/
 		PhysicsHandler::MovePlayer(p_player);
+		std::cout << p_player.pObjInst.transform.m[0][2] << " " << p_player.pObjInst.transform.m[1][2] << "\n";
 
-		//check if player if near portrait
+		// check if player if near portrait
 		for (size_t i{0}; i < sizeof(objInst) / sizeof(objInst[0]); i++)
 		{
-			if (objInst[i].pObj->type == Enum::TYPE::PORTRAIT ||
-				objInst[i].pObj->type == Enum::TYPE::LANDSCAPE)
+
+			// if (objInst[i].pObj->type == Enum::TYPE::PORTRAIT ||
+			// 	objInst[i].pObj->type == Enum::TYPE::LANDSCAPE)
+			if (objInst[i].transform.m[0][2] == 80 && objInst[i].transform.m[1][2] == 225)
 			{
+				std::cout << objInst[i].transform.m[0][2] << " " << objInst[i].transform.m[1][2] << "\n";
+				// std::cout << objInst[i].transform.m[0][2] << " " << objInst[i].transform.m[1][2]<<"\n";
 				objInst[i].flag = (CollisionHandler::GetDistance(objInst[i].transform.m[0][2],
-																 objInst[i].transform.m[1][2], objInst[i].transform.m[0][0], objInst[i].transform.m[1][1], p_player.pObjInst.transform.m[0][2],
+																 objInst[i].transform.m[1][2],
+																 objInst[i].transform.m[0][0],
+																 objInst[i].transform.m[1][1],
+																 p_player.pObjInst.transform.m[0][2],
 																 p_player.pObjInst.transform.m[1][2]) < 40.0)
 									  ? FLAG_ACTIVE
 									  : FLAG_INACTIVE;
@@ -99,7 +108,7 @@ namespace Level2
 		}
 
 		/*COLLISIONS*/
-		//TODO: Collision
+		// TODO: Collision
 
 		/*ANIMATION*/
 		AEGfxSetCamPosition(0.f, max(p_player.pObjInst.transform.m[1][2], MIN_CAM_HEIGHT));
@@ -108,7 +117,7 @@ namespace Level2
 	{
 		RenderSettings();
 		// Initialise i to 1 to skip player
-		for (int i{ 1 }; i < (sizeof(objInst) / sizeof(objInst[0])); i++)
+		for (int i{1}; i < (sizeof(objInst) / sizeof(objInst[0])); i++)
 			RenderObject(objInst[i]);
 
 		AnimationHandler::AnimateCharacter(p_player);
@@ -122,7 +131,7 @@ namespace Level2
 		AEGfxMeshFree(deco.pMesh);
 		AEGfxMeshFree(portrait.pMesh);
 		AEGfxMeshFree(landscape.pMesh);
-		//AEGfxMeshFree(platform.pMesh);
+		// AEGfxMeshFree(platform.pMesh);
 	}
 
 	void Level2_Unload()
@@ -133,6 +142,6 @@ namespace Level2
 		AEGfxTextureUnload(deco.pTex);
 		AEGfxTextureUnload(portrait.pTex);
 		AEGfxTextureUnload(landscape.pTex);
-		//AEGfxTextureUnload(platform.pTex);
+		// AEGfxTextureUnload(platform.pTex);
 	}
 }
