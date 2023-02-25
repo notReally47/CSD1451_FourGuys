@@ -2,8 +2,9 @@
 #include <fstream>					// For std::istream/std::ostream
 #include <vector>					// For std::vector
 #include <iostream>					// For std::cout debugging
-#include "DataFiles.h"				// For ObjectTransform, ObjectShape & PlayerProperties
 #include <yaml-cpp/yaml.h>			// For Parsing YAML Files
+#include "DataFiles.h"				// For GameObjects::
+
 
 namespace Load_Data_From_File {
 
@@ -11,12 +12,12 @@ namespace Load_Data_From_File {
 
 
 
-	vector<ObjectShape> Load_Shape_From_YAML(const string level_number) {
+	vector<GameObjects::Object> Load_Shape_From_YAML(const string level_number) {
 
 		// Strings for Filtering through the YAML file
 		string 
 			find_object				{ "Object" },
-			object_types			{ "00_Player 01_Floor 02_Wall 03_Decoration 04_Portrait 05_Landscape 08_Platform" },
+			object_types			{ "00_Player 01_Floor 02_Wall 03_Decoration 04_Portrait 05_Landscape 06_Platform" },
 			object_type				{ 0 }, 
 			object_type_number		{ 0 }, 
 			object_data_type		{ 0 };
@@ -28,8 +29,8 @@ namespace Load_Data_From_File {
 			ifs.open("." + file_name);
 
 		// Vector to load data into
-		vector<ObjectShape>		vector_os;
-		ObjectShape*			OS			= new ObjectShape;
+		vector<GameObjects::Object>		vector_obj;
+		GameObjects::Object*			OBJ			= new GameObjects::Object;
 
 		// Parse YAML File
 		YAML::Parser			parser(ifs);
@@ -60,47 +61,99 @@ namespace Load_Data_From_File {
 							// If Node is "Type"
 							if (object_data_type == "Type") {
 								k.second() >> type;
-								OS->type = static_cast<unsigned long>(type);
+								OBJ->type = static_cast<unsigned long>(type);
 							}
 
 							// If Node is "Mesh"
 							if (object_data_type == "Mesh") {
-								k.second()["uv_01"] >> OS->uv_01;
-								k.second()["uv_02"] >> OS->uv_02;
-								k.second()["uv_03"] >> OS->uv_03;
-								k.second()["uv_04"] >> OS->uv_04;
-								k.second()["uv_05"] >> OS->uv_05;
-								k.second()["uv_06"] >> OS->uv_06;
+								// Local Placeholder to Extract Data
+								f32 uv_01,
+									uv_02,
+									uv_03,
+									uv_04,
+									uv_05,
+									uv_06;
+
+								k.second()["uv_01"] >> uv_01;
+								k.second()["uv_02"] >> uv_02;
+								k.second()["uv_03"] >> uv_03;
+								k.second()["uv_04"] >> uv_04;
+								k.second()["uv_05"] >> uv_05;
+								k.second()["uv_06"] >> uv_06;
+
+								// Start creating mesh for object
+								AEGfxMeshStart();
+								AEGfxTriAdd(
+									-0.5f, -0.5f, 0xFFFF0000, uv_01, uv_02,		// bottom left
+									0.5f, -0.5f, 0xFFFF0000, uv_03, uv_04,		// bottom right
+									-0.5f, 0.5f, 0xFFFF0000, uv_05, uv_06		// top left
+								);
+								AEGfxTriAdd(
+									0.5f, 0.5f, 0xFFFF0000, uv_03, uv_06,		// top right
+									0.5f, -0.5f, 0xFFFF0000, uv_03, uv_04,		// bottom right
+									-0.5f, 0.5f, 0xFFFF0000, uv_05, uv_06		// top left
+								);
+
+								// Set Object Mesh
+								OBJ->pMesh = AEGfxMeshEnd();
 							}
 
-							// If Node is "Texture_Offset"
+							// If Node is "Texture"
 							if (object_data_type == "Texture") {
-								k.second() >> OS->texture_file;
+								// Local Placeholder to Extract Data
+								string texture_filename{ 0 };
+								k.second() >> texture_filename;
+
+								// Check Filename
+								ifstream ifs_02(texture_filename);
+								if (!ifs_02.good()) {
+									texture_filename = "." + texture_filename;
+									ifs_02.open("." + texture_filename);
+								}
+
+								// Set Object Texture and assert message if failed
+								AE_ASSERT_MESG(OBJ->pTex = AEGfxTextureLoad(texture_filename.c_str()), "Failed to load texture");
+								ifs_02.close();
 							}
 
-						}
+							// If Node is "Width"
+							if (object_data_type == "Width") {
+								k.second() >> OBJ->width;
+							}
+
+							// If Node is "Length"
+							if (object_data_type == "Length") {
+								k.second() >> OBJ->length;
+							}
+
+							// If Node is "Height"
+							if (object_data_type == "Height") {
+								k.second() >> OBJ->height;
+							}
+						}// END For-Loop Through Specific Object
 
 						// Push into Vector
-						vector_os.push_back(*OS);
-					}
-				}
-			}
-		}
+						vector_obj.push_back(*OBJ);
 
-		delete OS;
-		ifs.close();
-		return vector_os;
+					}// END If Specific Object Exist
+				}// END For-Loop Through Object
+			}// END If key is Object
+		}// END For-Loop Through YAML File
+
+		delete OBJ;				// Delete Temporary Struct
+		ifs.close();			// Close File Stream
+		return vector_obj;		// Return New Vector
 
 	}// END LoadShapeFromYAML
 
 
 
-	vector<ObjectTransform> Load_Transform_From_YAML(const string level_number, vector<ObjectShape> vector_OS) {
+	vector<GameObjects::ObjectInst> Load_Transform_From_YAML(const string level_number, vector<GameObjects::Object>& vector_OBJ) {
 
 		// Strings for Filtering through the YAML file
 		string 
-			find_object				{ "ObjectInstance" },
-			object_types			{ "00_Player 01_Floor 02_Wall 03_Decoration 04_Portrait 05_Landscape 08_Platform" },
+			find_object				{ "Object_Instance" },
+			object_types			{ "00_Player 01_Floor 02_Wall 03_Decoration 04_Portrait 05_Landscape 06_Platform" },
 			object_type				{ 0 }, 
 			object_type_number		{ 0 }, 
 			object_data_type		{ 0 };
@@ -112,8 +165,8 @@ namespace Load_Data_From_File {
 			ifs.open("." + file_name);
 
 		// Vector to load data into
-		vector<ObjectTransform>	vector_ot;
-		ObjectTransform*		OT			= new ObjectTransform;
+		vector<GameObjects::ObjectInst>	vector_obj_inst;
+		GameObjects::ObjectInst*		OBJ_INST		= new GameObjects::ObjectInst;
 
 		// Parse YAML File
 		YAML::Parser			parser(ifs);
@@ -150,67 +203,61 @@ namespace Load_Data_From_File {
 									// If Node is "Type"
 									if (object_data_type == "Type") {
 										l.second() >> type;
-										for (int m{ 0 }; m < vector_OS.size(); m++)
-											if (vector_OS[m].type == type)
-												OT->OS = vector_OS[m];
+										for (int m{ 0 }; m < vector_OBJ.size(); m++)
+											if (vector_OBJ[m].type == type)
+												OBJ_INST->pObj = &vector_OBJ[m];
 									}
 
 									// If Node is "Flag"
 									if (object_data_type == "Flag") {
-										l.second() >> OT->flag;
+										long flag{ 0 };
+										l.second() >> flag;
+										OBJ_INST->flag = static_cast<unsigned long>(flag);
 									}
 
 									// If Node is "Texture_Offset"
 									if (object_data_type == "Texture_Offset") {
-										l.second()["x_offset"]		>> OT->texture_offset_x;
-										l.second()["y_offset"]		>> OT->texture_offset_y;
+										l.second()["x_offset"]		>> OBJ_INST->tex_offset.x;
+										l.second()["y_offset"]		>> OBJ_INST->tex_offset.y;
 									}
 
 									// If Node is "Transformation"
 									if (object_data_type == "Transformation") {
-										l.second()["scale_x"]		>> OT->scale_x;
-										l.second()["shear_x"]		>> OT->shear_x;
-										l.second()["position_x"]	>> OT->position_x;
-										l.second()["scale_y"]		>> OT->scale_y;
-										l.second()["shear_y"]		>> OT->shear_y;
-										l.second()["position_y"]	>> OT->position_y;
-										l.second()["width"]			>> OT->width;
-										l.second()["length"]		>> OT->length;
-										l.second()["height"]		>> OT->height;
+										
+										l.second()["scale_x"]		>> OBJ_INST->transform.m[0][0];
+										l.second()["shear_x"]		>> OBJ_INST->transform.m[0][1];
+										l.second()["position_x"]	>> OBJ_INST->transform.m[0][2];
+										l.second()["shear_y"]		>> OBJ_INST->transform.m[1][0];
+										l.second()["scale_y"]		>> OBJ_INST->transform.m[1][1];
+										l.second()["position_y"]	>> OBJ_INST->transform.m[1][2];
+										l.second()["elapsed"]		>> OBJ_INST->transform.m[2][0];
+										l.second()["empty"]			>> OBJ_INST->transform.m[2][1];
+										l.second()["position_z"]	>> OBJ_INST->transform.m[2][2];
 									}
-
-									// If Node is "Elapsed"
-									if (object_data_type == "Elapsed") {
-										l.second() >> OT->elapsed;
-									}
-
-									// If Node is "Z_Axis"
-									if (object_data_type == "Z_Axis") {
-										l.second() >> OT->z_axis;
-									}
-								}
+								}// END For-Loop Through Numbered Object_Instance
 
 								// Push into Vector
-								vector_ot.push_back(*OT);
-							}
-						}
-					}
-				}
-			}
-		}
+								vector_obj_inst.push_back(*OBJ_INST);
 
-		delete OT;
-		ifs.close();
-		return vector_ot;
+							}// END If Numbered Object Belong to Specific Object
+						}// END For-Loop Through Specific Object Type
+					}// END If Specific Object Exist
+				}// END For-Loop Through Object_Instance
+			}// END If key is Object_Instance
+		}// END For-Loop Through YAML File
+
+		delete OBJ_INST;			// Delete Temporary Struct
+		ifs.close();				// Close File Stream
+		return vector_obj_inst;		// Return New Vector
 
 	}// END LoadTransformFromYAML
 
 
 
-	PlayerProperties* Load_Player_Stats_From_YAML(const string level_number) {
+	GameObjects::Character* Load_Player_Stats_From_YAML(const string level_number) {
 		// Strings for Filtering through the YAML file
 		string 
-			find_object				{ "ObjectInstance" },
+			find_object				{ "Object_Instance" },
 			object_types			{ "00_Player" },
 			object_type				{ 0 }, 
 			object_type_number		{ 0 }, 
@@ -223,7 +270,7 @@ namespace Load_Data_From_File {
 			ifs.open("." + file_name);
 
 		// Struct to load data into
-		PlayerProperties* PP = new PlayerProperties;
+		GameObjects::Character* sCHARACTER = new GameObjects::Character;
 
 		// Parse YAML File
 		YAML::Parser parser(ifs);
@@ -232,18 +279,17 @@ namespace Load_Data_From_File {
 
 		// Iterate through YAML File
 		for (YAML::Iterator i = yaml_document.begin(); i != yaml_document.end(); i++) {
-			string key;
+			string		key		{ 0 };
 			i.first() >> key;
-			long type{ 0 };
 
 			// If key is 'ObjectInstance'
 			if (key == find_object) {
 
-				// Iterate through 'ObjectInstance' List
+				// Iterate through 'Object_Instance' List
 				for (YAML::Iterator j = i.second().begin(); j != i.second().end(); j++) {
 					j.first() >> object_type;								// Get Object Type String
 
-					// If  Object is matches list of existing object ("00_Player")
+					// If  Object matches list of existing object ("00_Player")
 					if (object_types.find(object_type) != string::npos) {
 
 						// Iterate through specific 'Object' List
@@ -259,79 +305,37 @@ namespace Load_Data_From_File {
 
 									// If Node is "Direction"
 									if (object_data_type == "Direction") {
-										l.second()["direction_x"]	>> PP->direction.x;
-										l.second()["direction_y"]	>> PP->direction.y;
+										l.second()["direction_x"]	>> sCHARACTER->dir.x;
+										l.second()["direction_y"]	>> sCHARACTER->dir.y;
 									}
 
 									// If Node is "Input"
 									if (object_data_type == "Input") {
-										l.second()["input_x"]		>> PP->input.x;
-										l.second()["input_y"]		>> PP->input.y;
+										l.second()["input_x"]		>> sCHARACTER->input.x;
+										l.second()["input_y"]		>> sCHARACTER->input.y;
 									}
 
-									// If Node is "Rotation"
-									if (object_data_type == "Rotation") {
-										l.second() >> PP->rotation;
-									}
-
-									// If Node is "Speed"
-									if (object_data_type == "Speed") {
-										l.second() >> PP->speed;
+									// If Node is "Z_Velocity"
+									if (object_data_type == "Z_Velocity") {
+										l.second() >> sCHARACTER->zVel;
 									}
 
 									// If Node is "Sprite_Iteration"
 									if (object_data_type == "Sprite_Iteration") {
-										l.second() >> PP->sprite_iteration;
+										l.second() >> sCHARACTER->spriteIteration;
 									}
-								}
-							}
-						}
-					}
-				}
-			}
-		}
+								}// END For-Loop Through Numbered Object_Instance
+							}// END If Numbered Object Belong to Specific Object
+						}// END For-Loop Through Specific Object Type
+					}// END If Specific Object Exist
+				}// END For-Loop Through Object_Instance
+			}// END If key is Object_Instance
+		}// END For-Loop Through YAML File
 
-		ifs.close();
-		return PP;
+		ifs.close();				// Close File Stream
+		return sCHARACTER;			// Return New Struct
 
 	}// END Load_Player_Stats_From_YAML
-
-
-
-	void Load_Shape_To_Object(vector<ObjectShape>& vOS, GameObjects::Object* objs[]) {
-		
-		// Iterate through ObjectShape Vector
-		for (auto iter : vOS) {
-
-			// Set Object Type
-			objs[iter.type]->type = iter.type;
-
-			// Set Object Texture and assert message if failed
-			AE_ASSERT_MESG(objs[iter.type]->pTex = AEGfxTextureLoad(iter.texture_file.c_str()), "Failed to load texture");
-
-			// Start creating mesh for object
-			AEGfxMeshStart();
-			AEGfxTriAdd(
-				-0.5f, -0.5f, 0xFFFF0000, iter.uv_01, iter.uv_02,	// bottom left
-				0.5f, -0.5f, 0xFFFF0000, iter.uv_03, iter.uv_04,	// bottom right
-				-0.5f, 0.5f, 0xFFFF0000, iter.uv_05, iter.uv_06		// top left
-			);
-			AEGfxTriAdd(
-				0.5f, 0.5f, 0xFFFF0000, iter.uv_03, iter.uv_06,		// top right
-				0.5f, -0.5f, 0xFFFF0000, iter.uv_03, iter.uv_04,	// bottom right
-				-0.5f, 0.5f, 0xFFFF0000, iter.uv_05, iter.uv_06		// top left
-			);
-
-			// Set Object Mesh
-			objs[iter.type]->pMesh = AEGfxMeshEnd();
-			
-		}
-
-		// Clear ObjectShape Vector
-		vOS.clear();
-
-
-	}// END LoadTextureToObject
 
 
 

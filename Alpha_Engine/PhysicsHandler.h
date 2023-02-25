@@ -1,7 +1,10 @@
 #pragma once
-#include "AEEngine.h"
-#include "GameObjects.h"
+#include "pch.h"
 
 namespace PhysicsHandler {
-	void MovePlayer(GameObjects::Character& player);
+
+	struct Move : GameObjects::Character {
+		void MoveCharacter();
+	};
+	//void MovePlayer(GameObjects::Character& player);
 }

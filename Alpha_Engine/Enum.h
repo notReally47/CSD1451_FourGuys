@@ -9,18 +9,18 @@ namespace Enum {
 		GS_QUIT = -1
 	};
 
-	enum CHARACTER_STATES {
-		CS_IDLE,
-		CS_MOVING
-	};
-
-	enum DIRECTION {
-		NONE,
+	enum DIRECTION : int {
+		UPRIGHT,
 		RIGHT,
-		LEFT
+		DOWNRIGHT,
+		DOWN,
+		DOWNLEFT,
+		LEFT,
+		UPLEFT,
+		UP
 	};
 
-	enum TYPE {
+	enum TYPE : unsigned long {
 		PLAYER,
 		FLOOR,
 		WALL,
@@ -29,5 +29,16 @@ namespace Enum {
 		LANDSCAPE,
 		PLATFORM,
 		BUTTON
+	};
+
+	enum FLAG : unsigned long {
+		IDLE,
+		ACTIVE,
+		JUMPING,
+		ISO_UP,
+		ISO_DOWN,
+		ISO_LEFT,
+		ISO_RIGHT,
+		DOOR
 	};
 }

@@ -113,7 +113,6 @@ xcopy "$(SolutionDir)Extern\yaml-cpp\lib\yaml-cpp.dll" "$(OutDir)" /s /r /y /q</
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="AnimationHandler.cpp" />
     <ClCompile Include="CollisionHandler.cpp" />
     <ClCompile Include="ExtractDataToFile.cpp" />
     <ClCompile Include="GameObjects.cpp" />
@@ -130,7 +129,6 @@ xcopy "$(SolutionDir)Extern\yaml-cpp\lib\yaml-cpp.dll" "$(OutDir)" /s /r /y /q</
     <ClCompile Include="SystemHandler.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AnimationHandler.h" />
     <ClInclude Include="CollisionHandler.h" />
     <ClInclude Include="DataFiles.h" />
     <ClInclude Include="ExtractDataToFile.h" />

@@ -31,7 +31,7 @@ namespace CollisionHandler
 		/*Check if normal is pointing in the correct
 		direction by comparing with center of object A to center of object B.
 		obj2 position x - obj1 position x, obj2 position y - obj1 position y */
-		AEVec2 dir = AEVec2{obj2.transform.m[0][2] - obj1.transform.m[0][2], obj2.transform.m[1][2] - obj1.transform.m[1][2]}; // Get vector from object A to object B
+		AEVec2 dir = AEVec2{ obj2.GetPosX() - obj1.GetPosX(), obj2.GetPosY() - obj1.GetPosY() }; // Get vector from object A to object B
 
 		/*If the normal is in the opposite direction, negate the vector.*/
 		if (AEVec2DotProduct(&dir, &normal) < 0.f)
@@ -116,9 +116,8 @@ namespace CollisionHandler
 	}
 	}
 
-	bool portraitInteract(ObjectInst const portrait, Character const player)
-	{
-		f32 dist = static_cast<f32>(sqrt(pow(portrait.transform.m[0][0] - player.pObjInst.transform.m[0][0], 2) + pow(portrait.transform.m[1][2] - player.pObjInst.transform.m[1][2], 2)));
+	bool portraitInteract(ObjectInst const portrait, Character const player) {
+		f32 dist = static_cast<f32>(sqrt(pow(portrait.transform.m[0][0] - player.pObjInst->transform.m[0][0], 2) + pow(portrait.GetPosY() - player.pObjInst->GetPosY(), 2)));
 
 		if (dist < 55.f)
 			return true;

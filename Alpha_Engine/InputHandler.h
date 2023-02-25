@@ -6,7 +6,7 @@ namespace InputHandler
 	void ChangeTexture(float&, float&);
 	void MoveCamera(float&, float&);
 	void ExitGame(int&);
-	bool playerMovement(GameObjects::Character& player);
+	bool PlayerMovement(GameObjects::Character& player);
 	bool PlayerJump(GameObjects::Character& player);
 	bool buttonClick(float buttonX, float buttonY);
 }

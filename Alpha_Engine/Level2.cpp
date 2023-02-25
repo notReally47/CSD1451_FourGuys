@@ -2,10 +2,9 @@
 #include "pch.h"
 #include "InputHandler.h"
 #include "CollisionHandler.h"
+#include "PhysicsHandler.h"
 #include "GSM.h"
 #include "DataFiles.h"
-#include "AnimationHandler.h"
-#include "PhysicsHandler.h"
 
 #define DEBUG
 #ifdef DEBUG
@@ -14,96 +13,66 @@
 
 namespace Level2
 {
+	/*DEFINES*/
+	const static std::string level_number = "02";
 	const static f32 MIN_CAM_HEIGHT = -65.f;
-
 	using namespace GameObjects;
-	Object player, floor, wall, deco, portrait, landscape, platform; //
+
 	Character p_player;
-	ObjectInst objInst[85];
-	f32 windowWidth, windowHeight;
-	Object *objs[]{&player, &floor, &wall, &deco, &portrait, &landscape, &platform};
+	std::vector<Object> vOBJ;
+	std::vector<ObjectInst> vOBJ_INST;
+	Character* sCHARACTER;
 
-	const std::string level_number = "02";
-
-	std::vector<Load_Data_From_File::ObjectShape> vOS;
-	std::vector<Load_Data_From_File::ObjectTransform> vOT;
-	Load_Data_From_File::PlayerProperties *sPP;
-
-	void Level2_Load()
+	void Level2_Load() 
 	{
-		vOS = Load_Data_From_File::Load_Shape_From_YAML(level_number);
-		vOT = Load_Data_From_File::Load_Transform_From_YAML(level_number, vOS);
-		sPP = Load_Data_From_File::Load_Player_Stats_From_YAML(level_number);
-
-		// static int count{ 0 };
-		for (auto &iter : vOT)
-		{
-			//			if (iter.OS.type == Enum::TYPE::PLAYER) {
-			iter.scale_x /= 2;
-			iter.shear_x /= 2;
-			iter.position_x /= 2;
-			iter.scale_y /= 2;
-			iter.shear_y /= 2;
-			iter.position_y /= 2;
-			//}*/
-		}
-
-		// Extract_Data_To_File::Extract_Shape_Data_Out(vOS, level_number);
-		// Extract_Data_To_File::Extract_Transform_Data_Out(vOT, *sPP, level_number);
-
-		Load_Data_From_File::Load_Shape_To_Object(vOS, objs);
+		vOBJ = Load_Data_From_File::Load_Shape_From_YAML(level_number);
+		vOBJ_INST = Load_Data_From_File::Load_Transform_From_YAML(level_number, vOBJ);
+		sCHARACTER = Load_Data_From_File::Load_Player_Stats_From_YAML(level_number);
 	}
 
 	void Level2_Init()
 	{
-		windowWidth = static_cast<f32>(AEGetWindowWidth());
-		windowHeight = static_cast<f32>(AEGetWindowHeight());
-
-		/*TRANSFORM OBJECTS*/
-		Level_Initializer::Init_Object(vOT, objs, objInst, (sizeof(objInst) / sizeof(objInst[0])));
-
 		/*CREATE PLAYER*/
-		Level_Initializer::Init_Player(sPP, p_player, &player, objInst[0]);
+		Level_Initializer::Init_Player(&vOBJ_INST[0], sCHARACTER, p_player);
 
-		/*TO REMOVE AFTER EDITING LEVEL FILES*/
-		p_player.pObjInst.transform.m[0][2] = 0;
-		p_player.pObjInst.transform.m[1][2] = 0;
-		p_player.pObjInst.transform.m[2][2] = 0;
+		/*SCALE OBJECTS*/
+		Level_Initializer::Option_Change(vOBJ_INST);
+
+		/*DO NOT DELETE*/
+		
+		//for (auto& it : vOBJ_INST) {
+			//AEVec2 a{ it.GetPosY() + (it.GetPosX() / 2.0f ), it.GetPosY() - (it.GetPosX() / 2.0f) };
+			//it.GetPosX() = a.x;
+			//it.GetPosY() = a.y;
+		//}
+
+		/*Extract Using Vector vOBJ_INST & p_player*/
+		Extract_Data_To_File::Extract_Transform_Data_Out(vOBJ_INST, p_player, level_number);
 	}
 
 	void Level2_Update()
 	{
+		using namespace Enum;
 		/*HANDLE INPUT*/
 		InputHandler::ExitGame(GSM::next);
 
-		p_player.isJumping = InputHandler::PlayerJump(p_player);
-		p_player.pObjInst.flag = (InputHandler::playerMovement(p_player)) ? FLAG_ACTIVE : FLAG_INACTIVE;
+		/*SET PLAYER BIT FLAG FOR MOVEMENT OR JUMPING*/
+		unsigned long& flag{ p_player.pObjInst->flag };
+		flag = (InputHandler::PlayerJump(p_player)) ? flag | JUMPING : flag & ~JUMPING;
+		flag = (InputHandler::PlayerMovement(p_player)) ? flag | ACTIVE : flag & ~ACTIVE;
 
 		/*MOVEMENT*/
-		PhysicsHandler::MovePlayer(p_player);
-		std::cout << p_player.pObjInst.transform.m[0][2] << " " << p_player.pObjInst.transform.m[1][2] << "\n";
+		//PhysicsHandler::Move::MoveCharacter();
+		p_player.MoveCharacter();
 
-		// check if player if near portrait
-		for (size_t i{0}; i < sizeof(objInst) / sizeof(objInst[0]); i++)
+		//check if player if near portrait
+		for (size_t i{ 0 }; i < vOBJ_INST.size(); i++)
 		{
-
-			// if (objInst[i].pObj->type == Enum::TYPE::PORTRAIT ||
-			// 	objInst[i].pObj->type == Enum::TYPE::LANDSCAPE)
-			if (objInst[i].transform.m[0][2] == 80 && objInst[i].transform.m[1][2] == 225)
+			if (vOBJ_INST[i].pObj->type == PORTRAIT || vOBJ_INST[i].pObj->type == LANDSCAPE)
 			{
-				std::cout << objInst[i].transform.m[0][2] << " " << objInst[i].transform.m[1][2] << "\n";
-				// std::cout << objInst[i].transform.m[0][2] << " " << objInst[i].transform.m[1][2]<<"\n";
-				objInst[i].flag = (CollisionHandler::GetDistance(objInst[i].transform.m[0][2],
-																 objInst[i].transform.m[1][2],
-																 objInst[i].transform.m[0][0],
-																 objInst[i].transform.m[1][1],
-																 p_player.pObjInst.transform.m[0][2],
-																 p_player.pObjInst.transform.m[1][2]) < 40.0)
-									  ? FLAG_ACTIVE
-									  : FLAG_INACTIVE;
-			}
-			if (objInst[i].pObj->type == Enum::TYPE::WALL)
-			{
+				vOBJ_INST[i].flag = (CollisionHandler::GetDistance(vOBJ_INST[i].GetPosX(),
+					vOBJ_INST[i].GetPosY(), p_player.pObjInst->GetPosX(),
+					p_player.pObjInst->GetPosY()) < 40.0) ? static_cast<unsigned long>(ACTIVE) : IDLE;
 			}
 		}
 
@@ -111,37 +80,29 @@ namespace Level2
 		// TODO: Collision
 
 		/*ANIMATION*/
-		AEGfxSetCamPosition(0.f, max(p_player.pObjInst.transform.m[1][2], MIN_CAM_HEIGHT));
+		AEGfxSetCamPosition(0.f, max(p_player.pObjInst->GetPosY(), MIN_CAM_HEIGHT));
 	}
 	void Level2_Draw()
 	{
 		RenderSettings();
 		// Initialise i to 1 to skip player
-		for (int i{1}; i < (sizeof(objInst) / sizeof(objInst[0])); i++)
-			RenderObject(objInst[i]);
-
-		AnimationHandler::AnimateCharacter(p_player);
+		for (int i{ 1 }; i < vOBJ_INST.size(); i++)
+			vOBJ_INST[i].RenderObject();
+		p_player.AnimateCharacter();
 	}
 
 	void Level2_Free()
 	{
-		AEGfxMeshFree(player.pMesh);
-		AEGfxMeshFree(wall.pMesh);
-		AEGfxMeshFree(floor.pMesh);
-		AEGfxMeshFree(deco.pMesh);
-		AEGfxMeshFree(portrait.pMesh);
-		AEGfxMeshFree(landscape.pMesh);
-		// AEGfxMeshFree(platform.pMesh);
+		for (size_t i{ 0 }; i < vOBJ.size(); i++)
+			AEGfxMeshFree(vOBJ[i].pMesh);
+		vOBJ_INST.clear();
 	}
 
 	void Level2_Unload()
 	{
-		AEGfxTextureUnload(player.pTex);
-		AEGfxTextureUnload(wall.pTex);
-		AEGfxTextureUnload(floor.pTex);
-		AEGfxTextureUnload(deco.pTex);
-		AEGfxTextureUnload(portrait.pTex);
-		AEGfxTextureUnload(landscape.pTex);
-		// AEGfxTextureUnload(platform.pTex);
+		for (size_t i{ 0 }; i < vOBJ.size(); i++)
+			AEGfxTextureUnload(vOBJ[i].pTex);
+		vOBJ.clear();
+
 	}
 }
