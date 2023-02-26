@@ -7,9 +7,7 @@
 
 namespace MainMenu
 {
-	char strBuffer[10];
-	char strBuffer2[10];
-	char strBuffer3[10];
+	char strBuffer[10], strBuffer2[10], strBuffer3[10];
 	using namespace GameObjects;
 	Object button, slider, box;
 	ObjectInst objInst[4];
@@ -55,12 +53,12 @@ namespace MainMenu
 								.0f, .0f, .0f};
 		objInst[3].pObj->pTex = AEGfxTextureLoad("../Assets/Textures/slider.png");
 
-		// memset(strBuffer, 0, 10 * sizeof(char));
-		// sprintf_s(strBuffer, "Start");
-		// memset(strBuffer2, 0, 10 * sizeof(char));
-		// sprintf_s(strBuffer2, "Option");
-		// memset(strBuffer3, 0, 10 * sizeof(char));
-		// sprintf_s(strBuffer3, "Exit");
+		memset(strBuffer, 0, 10 * sizeof(char));
+		sprintf_s(strBuffer, "Start");
+		memset(strBuffer2, 0, 10 * sizeof(char));
+		sprintf_s(strBuffer2, "Option");
+		memset(strBuffer3, 0, 10 * sizeof(char));
+		sprintf_s(strBuffer3, "Exit");
 
 		AESysSetWindowTitle("Main Menu");
 	}
@@ -69,7 +67,9 @@ namespace MainMenu
 	{
 		using namespace Enum;
 		/*UPDATE LOGIC*/
-
+		s32 mouseX, mouseY;
+		AEInputGetCursorPosition(&mouseX, &mouseY);
+		std::cout << mouseX << " " << mouseY << std::endl;
 		if (option)
 		{
 			if (AEInputCheckTriggered(AEVK_ESCAPE))
@@ -81,15 +81,15 @@ namespace MainMenu
 			// for (int i{}; i < (sizeof(objInst) / sizeof(objInst[0])); i++)
 			for (int i = 0; i < 3; i++)
 			{
-				if (InputHandler::buttonClick(objInst[i].transform.m[0][2], objInst[i].transform.m[1][2]))
+				if (InputHandler::buttonClick(objInst[i].GetPosX(), objInst[i].GetPosY()))
 				{
-					// GSM::next = GAME_STATES::GS_LEVEL2;
-					option = !option;
+					GSM::next = GAME_STATES::GS_LEVEL2;
+					// option = !option;
 				}
-				if (InputHandler::buttonClick(0.f, 375.f))
-				{
-					GSM::next = Enum::GS_QUIT;
-				}
+				// if (InputHandler::buttonClick(0.f, 375.f))
+				// {
+				// 	GSM::next = Enum::GS_QUIT;
+				// }
 			}
 		}
 	}
@@ -112,10 +112,10 @@ namespace MainMenu
 				objInst[i].RenderObject();
 		}
 
-		// AEGfxSetBlendMode(AE_GFX_BM_BLEND);
-		// AEGfxPrint(fontId, strBuffer, -0.055f, 0.3f, 2.0f, 0.0f, 0.f, 0.f);
-		// AEGfxPrint(fontId, strBuffer2, -0.08f, -0.02f, 2.0f, 0.0f, 0.f, 0.f);
-		// AEGfxPrint(fontId, strBuffer3, -0.05f, -0.35f, 2.0f, 0.0f, 0.0f, 0.0f);
+		AEGfxSetBlendMode(AE_GFX_BM_BLEND);
+		AEGfxPrint(fontId, strBuffer, GetScreenXPercentage(objInst[0].GetPosX()), GetScreenYPercentage(objInst[0].GetPosY()), 1.0f, 0.0f, 0.f, 0.f);
+		AEGfxPrint(fontId, strBuffer2, GetScreenXPercentage(objInst[1].GetPosX()), GetScreenYPercentage(objInst[1].GetPosY()), 1.0f, 0.0f, 0.f, 0.f);
+		AEGfxPrint(fontId, strBuffer3, GetScreenXPercentage(objInst[2].GetPosX()), GetScreenYPercentage(objInst[2].GetPosY()), 1.0f, 0.0f, 0.f, 0.f);
 	}
 
 	/*CLEAN UP DATA (SAVE/RESET ETC)*/

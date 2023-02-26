@@ -50,23 +50,25 @@ namespace GameObjects
 	void ObjectInst::RenderObject()
 	{
 		AEGfxTextureSet(this->pObj->pTex, this->tex_offset.x, this->tex_offset.y);
-		// if ((this->pObj->type == Enum::TYPE::PORTRAIT ||
-		// 	 this->pObj->type == Enum::TYPE::LANDSCAPE) &&
-		// 	this->flag == ACTIVE)
-		if (this->pObj->type == Enum::TYPE::WALL &&
-			this->flag == (DOOR))
+		if ((this->pObj->type == Enum::TYPE::PORTRAIT ||
+			 this->pObj->type == Enum::TYPE::LANDSCAPE) &&
+			this->flag == ACTIVE)
+		// if (this->pObj->type == Enum::TYPE::WALL &&
+		// 	this->flag == DOOR)
 		{
 			ObjectInst shadow = *this;
 			shadow.GetScaleX() += 5.f;
 			shadow.GetScaleY() += 5.f;
 			AEGfxSetTransform(ConvertIsometric(shadow).m);
-			AEGfxSetBlendColor(255.0f, 0.0f, 0.0f, 1.f);
+			AEGfxSetBlendColor(1.0f, 0.0f, 0.0f, 0.7f);
 			/*DRAW MESH*/
 			AEGfxMeshDraw(this->pObj->pMesh, AE_GFX_MDM_TRIANGLES);
 			AEGfxSetBlendColor(1.0f, 1.0f, 1.0f, 0.0f);
 		}
-		AEGfxSetTransform(ConvertIsometric(*this).m);
-		// AEGfxSetTransform(this->transform.m);
+		if (this->pObj->type == Enum::TYPE::BUTTON)
+			AEGfxSetTransform(this->transform.m);
+		else
+			AEGfxSetTransform(ConvertIsometric(*this).m);
 		AEGfxMeshDraw(this->pObj->pMesh, AE_GFX_MDM_TRIANGLES);
 	}
 	int Character::checkDirection()
@@ -134,6 +136,14 @@ namespace GameObjects
 		AEGfxSetTintColor(1.0f, 1.0f, 1.0f, 1.0f);
 		AEGfxSetBlendMode(AE_GFX_BM_BLEND);
 		AEGfxSetTransparency(1.0f);
+	}
+	f32 GetScreenXPercentage(f32 posX)
+	{
+		return -1.0f + ((static_cast<f32>(AEGetWindowWidth()) / 2.0f + posX) / AEGetWindowWidth()) * 2.0f;
+	}
+	f32 GetScreenYPercentage(f32 posY)
+	{
+		return -1.0f + ((static_cast<f32>(AEGetWindowHeight()) / 2.0f + posY) / AEGetWindowHeight()) * 2.0f;
 	}
 
 	AEVec2 *GetVerticesXY(const ObjectInst &obj, int &count)

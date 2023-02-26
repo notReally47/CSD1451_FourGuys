@@ -710,7 +710,7 @@ Object_Instance:
 
     02_Wall_15:
       Type: 2
-      Flag: 0
+      Flag: 7
       Texture_Offset:
         x_offset: 0.5712
         y_offset: 0
@@ -795,7 +795,7 @@ Object_Instance:
 
     02_Wall_20:
       Type: 2
-      Flag: 7
+      Flag: 0
       Texture_Offset:
         x_offset: 0.5712
         y_offset: 0

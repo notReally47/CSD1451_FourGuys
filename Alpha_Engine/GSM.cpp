@@ -5,7 +5,7 @@
 #include "MainMenu.h"
 
 namespace GSM {
-	int current{ Enum::GS_LEVEL2 }, previous{ 0 }, next{ 0 };
+	int current{ Enum::GS_MENU }, previous{ 0 }, next{ 0 };
 	f32 gameTime;
 	FP fpLoad = nullptr, fpInit = nullptr, fpUpdate = nullptr, fpDraw = nullptr, fpFree = nullptr, fpUnload = nullptr;
 

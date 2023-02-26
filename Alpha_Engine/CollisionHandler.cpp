@@ -96,9 +96,9 @@ namespace CollisionHandler
 
 	double GetDistance(f32 const object_x, f32 const object_y, f32 const width, f32 const height, f32 const player_x, f32 const player_y)
 	{
-		std::cout << "wall x y " << object_x <<" "<< object_y<< "\n";
-		std::cout << "wall w h " << width <<" "<< height<< "\n";
-		std::cout << "player x y " << player_x <<" "<< player_y<< "\n";
+		// std::cout << "wall x y " << object_x <<" "<< object_y<< "\n";
+		// std::cout << "wall w h " << width <<" "<< height<< "\n";
+		// std::cout << "player x y " << player_x <<" "<< player_y<< "\n";
 
 		f32 minX = object_x - width / 2;
 		f32 minY = object_y - height / 2;
