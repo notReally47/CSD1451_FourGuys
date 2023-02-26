@@ -68,11 +68,23 @@ namespace Level2
 		//check if player if near portrait
 		for (size_t i{ 0 }; i < vOBJ_INST.size(); i++)
 		{
-			if (vOBJ_INST[i].pObj->type == PORTRAIT || vOBJ_INST[i].pObj->type == LANDSCAPE)
-			{
-				vOBJ_INST[i].flag = (CollisionHandler::GetDistance(vOBJ_INST[i].GetPosX(),
-					vOBJ_INST[i].GetPosY(), p_player.pObjInst->GetPosX(),
-					p_player.pObjInst->GetPosY()) < 40.0) ? static_cast<unsigned long>(ACTIVE) : IDLE;
+			
+			// if (vOBJ_INST[i].pObj->type == PORTRAIT || vOBJ_INST[i].pObj->type == LANDSCAPE)
+			// {
+			// 	vOBJ_INST[i].flag = (CollisionHandler::GetDistance(vOBJ_INST[i].GetPosX(),
+			// 		vOBJ_INST[i].GetPosY(), vOBJ_INST[i].transform.m[0][0],vOBJ_INST[i].transform.m[1][1],p_player.pObjInst->GetPosX(),
+			// 		p_player.pObjInst->GetPosY()) < 10.0) ? static_cast<unsigned long>(ACTIVE) : IDLE;
+			// }
+			if (vOBJ_INST[i].pObj->type == WALL && vOBJ_INST[i].flag == DOOR ){
+				// std::cout << "wall flag = " << vOBJ_INST[i].flag << "\n";
+				if(CollisionHandler::GetDistance(vOBJ_INST[i].GetPosX() ,
+					vOBJ_INST[i].GetPosY() + vOBJ_INST[i].GetPosZ(), vOBJ_INST[i].transform.m[0][0],vOBJ_INST[i].transform.m[1][1],p_player.pObjInst->GetPosX(),
+					p_player.pObjInst->GetPosY()) == 0.0){
+					std::cout << "inside ";
+					vOBJ_INST[i].flag |= static_cast<unsigned long>(ACTIVE);
+					std::cout << "wall flag = " << vOBJ_INST[i].flag << "\n";
+					}
+					
 			}
 		}
 

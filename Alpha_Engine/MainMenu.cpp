@@ -39,7 +39,7 @@ namespace MainMenu
 		for (int i = 0; i < 3; i++)
 		{
 			objInst[i].pObj = &button;
-			objInst[i].flag = FLAG_INACTIVE;
+			objInst[i].flag = Enum::FLAG::IDLE;
 			objInst[i].tex_offset = {.0f, .0f};
 			objInst[i].transform = {100.0f, .0f, .0f + .0f,
 									.0f, 50.0f, i * 100.f - 100.f,
@@ -48,7 +48,7 @@ namespace MainMenu
 		}
 
 		objInst[3].pObj = &slider;
-		objInst[3].flag = FLAG_INACTIVE;
+		objInst[3].flag = Enum::FLAG::IDLE;
 		objInst[3].tex_offset = {.0f, .0f};
 		objInst[3].transform = {200.0f, .0f, .0f + .0f,
 								.0f, 40.0f, 0.f,
@@ -101,7 +101,7 @@ namespace MainMenu
 		{
 			AEGfxSetBackgroundColor(1.0f, 1.0f, 1.0f);
 			RenderSettings();
-			RenderObject(objInst[3]);
+			objInst[3].RenderObject();
 		}
 		else
 		{
@@ -109,7 +109,7 @@ namespace MainMenu
 			RenderSettings();
 			// for (int i{}; i < (sizeof(objInst) / sizeof(objInst[0])); i++)
 			for (int i = 0; i < 3; i++)
-				RenderObject(objInst[i]);
+				objInst[i].RenderObject();
 		}
 
 		// AEGfxSetBlendMode(AE_GFX_BM_BLEND);

@@ -31,7 +31,7 @@ namespace CollisionHandler
 		/*Check if normal is pointing in the correct
 		direction by comparing with center of object A to center of object B.
 		obj2 position x - obj1 position x, obj2 position y - obj1 position y */
-		AEVec2 dir = AEVec2{ obj2.GetPosX() - obj1.GetPosX(), obj2.GetPosY() - obj1.GetPosY() }; // Get vector from object A to object B
+		AEVec2 dir = AEVec2{obj2.GetPosX() - obj1.GetPosX(), obj2.GetPosY() - obj1.GetPosY()}; // Get vector from object A to object B
 
 		/*If the normal is in the opposite direction, negate the vector.*/
 		if (AEVec2DotProduct(&dir, &normal) < 0.f)
@@ -96,32 +96,23 @@ namespace CollisionHandler
 
 	double GetDistance(f32 const object_x, f32 const object_y, f32 const width, f32 const height, f32 const player_x, f32 const player_y)
 	{
-		// distance between point and rec
+		std::cout << "wall x y " << object_x <<" "<< object_y<< "\n";
+		std::cout << "wall w h " << width <<" "<< height<< "\n";
+		std::cout << "player x y " << player_x <<" "<< player_y<< "\n";
+
 		f32 minX = object_x - width / 2;
-		f32 minY = object_x - height / 2;
+		f32 minY = object_y - height / 2;
 		f32 maxX = object_x + width / 2;
 		f32 maxY = object_y + height / 2;
-		if (player_x >= minX && player_x <= maxX && player_y >= minY && player_y <= maxY) {
-        // point is inside the rectangle
-			std::cout << "inside\n";
-			return 0;
-    } else {
-        // // point is outside the rectangle
-        // f32 left = std::abs(minX - player_x);
-        // f32 right = std::abs(maxX - player_x);
-        // f32 top = std::abs(maxY - player_y);
-        // f32 bottom = std::abs(minY - player_y);
-		// return min(min(left, right), min(top, bottom));
-		return 41.f;
-	}
-	}
-
-	bool portraitInteract(ObjectInst const portrait, Character const player) {
-		f32 dist = static_cast<f32>(sqrt(pow(portrait.transform.m[0][0] - player.pObjInst->transform.m[0][0], 2) + pow(portrait.GetPosY() - player.pObjInst->GetPosY(), 2)));
-
-		if (dist < 55.f)
-			return true;
+		if (player_x >= minX && player_x <= maxX && player_y >= minY && player_y <= maxY)
+			// point is inside the rectangle
+			return 0.0;
 		else
-			return false;
+		{
+			// distance between point and rec
+			double dx = max(minX - player_x, 0.0) + max(player_x - (minX + width), 0.0);
+			double dy = max(minY - player_y, 0.0) + max(player_y - (minY + height), 0.0);
+			return sqrt(dx * dx + dy * dy);
+		}
 	}
 }
