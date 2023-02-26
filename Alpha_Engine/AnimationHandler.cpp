@@ -70,6 +70,7 @@ namespace AnimationHandler {
 			player.pObjInst.tex_offset.y);
 
 		AEGfxSetTransform(GameObjects::ConvertIsometric(player.pObjInst).m);
+		//AEGfxSetTransform(player.pObjInst.transform.m);
 
 		/*DRAW MESH*/
 		AEGfxMeshDraw(player.pObjInst.pObj->pMesh, AE_GFX_MDM_TRIANGLES);

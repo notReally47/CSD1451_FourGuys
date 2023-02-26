@@ -7,15 +7,15 @@ namespace GameObjects
 {
 	/*DEFINES*/
 	s8 fontId;
-	const unsigned char		FLAG_INACTIVE	= 0x0;
-	const unsigned char		FLAG_ACTIVE		= 0x1;
-	const unsigned char		FLAG_ALT1_S		= 0x2;
-	const unsigned char		FLAG_ALT1_E		= 0x3;
-	const unsigned char		FLAG_ALT2_S		= 0x4;
-	const unsigned char		FLAG_ALT2_E		= 0x5;
+	const unsigned char		FLAG_INACTIVE = 0x0;
+	const unsigned char		FLAG_ACTIVE = 0x1;
+	const unsigned char		FLAG_ALT1_S = 0x2;
+	const unsigned char		FLAG_ALT1_E = 0x3;
+	const unsigned char		FLAG_ALT2_S = 0x4;
+	const unsigned char		FLAG_ALT2_E = 0x5;
 
 	/*Set rendering modes, colour tints, blending and transparency*/
-	void RenderSettings(void) 
+	void RenderSettings(void)
 	{
 		/*SETTINGS*/
 		AEGfxSetRenderMode(AE_GFX_RM_TEXTURE);
@@ -27,7 +27,7 @@ namespace GameObjects
 	/*
 	 * Render objects that have textures.
 	 */
-	void RenderObject(ObjectInst &obj) 
+	void RenderObject(ObjectInst& obj)
 	{
 		f32 dt = static_cast<f32>(AEFrameRateControllerGetFrameTime());
 		if (obj.pObj->type == Enum::TYPE::PORTRAIT || obj.pObj->type == Enum::TYPE::LANDSCAPE)
@@ -45,8 +45,8 @@ namespace GameObjects
 				AEGfxMeshDraw(obj.pObj->pMesh, AE_GFX_MDM_TRIANGLES);
 				AEGfxSetBlendColor(1.0f, 1.0f, 1.0f, 0.0f);
 			}
-		}	
-		else if (obj.pObj->type == Enum::TYPE::PLATFORM) 
+		}
+		else if (obj.pObj->type == Enum::TYPE::PLATFORM)
 		{
 			if (obj.flag == FLAG_ALT1_S) {
 				obj.transform.m[2][0] += dt;
@@ -80,14 +80,14 @@ namespace GameObjects
 			/*Set texture*/
 			AEGfxTextureSet(obj.pObj->pTex, obj.tex_offset.x, obj.tex_offset.y);
 			//AEGfxSetTransparency(0.5f);
-			
+
 		}
-		else 
+		else
 		{
 			/*Set texture*/
 			AEGfxTextureSet(obj.pObj->pTex, obj.tex_offset.x, obj.tex_offset.y);
 		}
-		
+
 		/*TRANSFORMATION (TRS)*/
 		//TODO
 		//AEMtx33 trans;
@@ -100,7 +100,7 @@ namespace GameObjects
 		/*DRAW MESH*/
 		AEGfxMeshDraw(obj.pObj->pMesh, AE_GFX_MDM_TRIANGLES);
 		//AEGfxSetTransparency(1.0f);
-		
+
 	}
 
 	//AEVec2* GetVertices(const ObjectInst obj) {
@@ -127,23 +127,24 @@ namespace GameObjects
 	AEVec2* GetVerticesXY(const ObjectInst obj, int& count) {
 		count = 4;
 		AEVec2* xyCoords = { new AEVec2[count] };
-		xyCoords[0] = AEVec2{ obj.transform.m[0][2] - obj.pObj->width / 2, obj.transform.m[1][2] + obj.pObj->length / 2 }; //top right
-		xyCoords[1] = AEVec2{ obj.transform.m[0][2] + obj.pObj->width / 2, obj.transform.m[1][2] + obj.pObj->length / 2 }; //top left
-		xyCoords[2] = AEVec2{ obj.transform.m[0][2] - obj.pObj->width / 2, obj.transform.m[1][2] - obj.pObj->length / 2 }; //bot right
-		xyCoords[3] = AEVec2{ obj.transform.m[0][2] + obj.pObj->width / 2, obj.transform.m[1][2] - obj.pObj->length / 2 }; //bot left
+
+		xyCoords[0] = AEVec2{ obj.transform.m[0][2] - obj.pObj->width / 2.f, obj.transform.m[1][2] + obj.pObj->length / 2.f }; //top right
+		xyCoords[1] = AEVec2{ obj.transform.m[0][2] + obj.pObj->width / 2.f, obj.transform.m[1][2] + obj.pObj->length / 2.f }; //top left
+		xyCoords[2] = AEVec2{ obj.transform.m[0][2] + obj.pObj->width / 2.f, obj.transform.m[1][2] - obj.pObj->length / 2.f }; //bot right
+		xyCoords[3] = AEVec2{ obj.transform.m[0][2] - obj.pObj->width / 2.f, obj.transform.m[1][2] - obj.pObj->length / 2.f }; //bot left
 
 		//TODO: Any rotatation 
 		return xyCoords;
 	}
 
-	AEVec2* GetVerticesYZ(const ObjectInst obj, int& count) {
-		if (obj.pObj->type != Enum::PLATFORM) { //TODO: Change to check if not a staircase
+	AEVec2* GetVerticesXZ(const ObjectInst obj, int& count) {
+		if (/*obj.pObj->type != Enum::PLATFORM*/1) { //TODO: Change to check if not a staircase
 			count = 4;
 			AEVec2* xzCoords = { new AEVec2[count] };
-			xzCoords[0] = AEVec2{ obj.transform.m[0][2] - obj.pObj->width / 2, obj.transform.m[2][2] + obj.pObj->height / 2 }; // top right
-			xzCoords[1] = AEVec2{ obj.transform.m[0][2] + obj.pObj->width / 2, obj.transform.m[2][2] + obj.pObj->height / 2 }; // top left
-			xzCoords[2] = AEVec2{ obj.transform.m[0][2] - obj.pObj->width / 2, obj.transform.m[2][2] - obj.pObj->height / 2 }; // bot right
-			xzCoords[3] = AEVec2{ obj.transform.m[0][2] + obj.pObj->width / 2, obj.transform.m[2][2] - obj.pObj->height / 2 }; // bot left
+			xzCoords[0] = AEVec2{ obj.transform.m[0][2] - obj.pObj->width / 2, obj.transform.m[1][2] + obj.pObj->height / 2 }; //top right
+			xzCoords[1] = AEVec2{ obj.transform.m[0][2] + obj.pObj->width / 2, obj.transform.m[1][2] + obj.pObj->height / 2 }; //top left
+			xzCoords[2] = AEVec2{ obj.transform.m[0][2] + obj.pObj->width / 2, obj.transform.m[1][2] - obj.pObj->height / 2 }; //bot right
+			xzCoords[3] = AEVec2{ obj.transform.m[0][2] - obj.pObj->width / 2, obj.transform.m[1][2] - obj.pObj->height / 2 }; //bot left
 			return xzCoords;
 		}
 		else {
@@ -162,16 +163,28 @@ namespace GameObjects
 		}
 	}
 
-	AEVec2* GetVerticesXZ(const ObjectInst obj, int& count) {
-		count = 4;
-		AEVec2* yzCoords = { new AEVec2[count] };
-		yzCoords[0] = AEVec2{ obj.transform.m[1][2] - obj.pObj->width / 2, obj.transform.m[2][2] + obj.pObj->height / 2 }; //top right
-		yzCoords[1] = AEVec2{ obj.transform.m[1][2] + obj.pObj->width / 2, obj.transform.m[2][2] + obj.pObj->height / 2 }; //top left
-		yzCoords[2] = AEVec2{ obj.transform.m[1][2] - obj.pObj->width / 2, obj.transform.m[2][2] - obj.pObj->height / 2 }; //bot right
-		yzCoords[3] = AEVec2{ obj.transform.m[1][2] + obj.pObj->width / 2, obj.transform.m[2][2] - obj.pObj->height / 2 }; //bot left
+	AEVec2* GetVerticesYZ(const ObjectInst obj, int& count) {
+		count = 3;
+		AEVec2* xzCoords = { new AEVec2[count] };
+		xzCoords[0] = AEVec2{ obj.transform.m[1][2] - obj.pObj->width / 3,
+								obj.transform.m[2][2] - obj.pObj->height / 3 };		// bot left
 
-		//TODO: Any rotatation 
-		return yzCoords;
+		xzCoords[1] = AEVec2{ obj.transform.m[1][2] - obj.pObj->width / 3,
+								obj.transform.m[2][2] + (2 * obj.pObj->height) / 3 }; // top left
+
+		xzCoords[2] = AEVec2{ obj.transform.m[1][2] + (2 * obj.pObj->width) / 3,
+								obj.transform.m[2][2] - obj.pObj->height / 3 };		// bot right
+
+		return xzCoords;
+		//count = 4;
+		//AEVec2* yzCoords = { new AEVec2[count] };
+		//yzCoords[0] = AEVec2{ obj.transform.m[1][2] - obj.pObj->width / 2, obj.transform.m[2][2] + obj.pObj->height / 2 }; //top right
+		//yzCoords[1] = AEVec2{ obj.transform.m[1][2] + obj.pObj->width / 2, obj.transform.m[2][2] + obj.pObj->height / 2 }; //top left
+		//yzCoords[2] = AEVec2{ obj.transform.m[1][2] - obj.pObj->width / 2, obj.transform.m[2][2] - obj.pObj->height / 2 }; //bot right
+		//yzCoords[3] = AEVec2{ obj.transform.m[1][2] + obj.pObj->width / 2, obj.transform.m[2][2] - obj.pObj->height / 2 }; //bot left
+
+		////TODO: Any rotatation 
+		//return yzCoords;
 	}
 
 	AEMtx33 ConvertIsometric(const ObjectInst& obj) {
@@ -192,5 +205,19 @@ namespace GameObjects
 
 		x = y + x / 2;
 		y = y - x / 2;
+	}
+
+	AEVec2* SquareCollider(AEVec2 center, f32 width, f32 height, int& count) {
+		AEVec2* out = new AEVec2[4];
+		out[0] = AEVec2{ center.x - width / 2.f, center.y + height / 2.f };
+		out[1] = AEVec2{ center.x + width / 2.f, center.y + height / 2.f };
+		out[2] = AEVec2{ center.x - width / 2.f, center.y - height / 2.f };
+		out[3] = AEVec2{ center.x - width / 2.f, center.y - height / 2.f };
+		count = 4;
+		return out;
+	}
+
+	AEVec2* RightTriCollider() {
+		
 	}
 }

@@ -58,8 +58,8 @@ namespace GameObjects
 	/*GET VERTICES*/
 	//AEVec2* GetVertices(const ObjectInst obj);
 	AEVec2* GetVerticesXY(const ObjectInst obj, int& count);
-	AEVec2* GetVerticesYZ(const ObjectInst obj, int& count);
 	AEVec2* GetVerticesXZ(const ObjectInst obj, int& count);
+	AEVec2* GetVerticesYZ(const ObjectInst obj, int& count);
 	AEMtx33 ConvertIsometric(const ObjectInst& obj);
 	void ConvertWorld(f32& x, f32& y);
 }
