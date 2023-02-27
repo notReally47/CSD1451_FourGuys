@@ -164,7 +164,7 @@ namespace Level1 {
 		/*HANDLE INPUT*/
 		InputHandler::ExitGame(GSM::next);
 
-		player.isJumping = InputHandler::PlayerJump(player);
+		//player.isJumping = InputHandler::PlayerJump(player);
 		player.pObjInst.flag = (InputHandler::playerMovement(player)) ? GameObjects::FLAG_ACTIVE : GameObjects::FLAG_INACTIVE;
 
 		/*MOVEMENT*/
@@ -179,11 +179,11 @@ namespace Level1 {
 		a = CollisionHandler::SAT_Collision(player.pObjInst, stair, depthXY, normalXY, GameObjects::GetVerticesXY);
 		//b = CollisionHandler::SAT_Collision(player.pObjInst, stair, depthXY, normalXY, GameObjects::GetVerticesXZ);
 		c = CollisionHandler::SAT_Collision(player.pObjInst, stair, depthYZ, normalYZ, GameObjects::GetVerticesYZ);
+		f32* zPos = &player.pObjInst.transform.m[2][2];
 
-		if (a && c) {
+		if (a) {
 			f32* xPos = &player.pObjInst.transform.m[0][2];
 			f32* yPos = &player.pObjInst.transform.m[1][2];
-			f32* zPos = &player.pObjInst.transform.m[2][2];
 			//if (depthXY < depthYZ) {
 			//	AEVec2Scale(&normalXY, &normalXY, depthXY);
 			//	*xPos -= normalXY.x;
@@ -194,10 +194,25 @@ namespace Level1 {
 			//	*yPos -= normalXY.x;
 			//	*zPos -= normalXY.y;
 			//}
-			AEVec2Scale(&normalYZ, &normalYZ, depthYZ);
-			*yPos -= normalXY.x;
-			*zPos -= normalXY.y;
+			//AEVec2Scale(&normalXY, &normalXY, depthXY);
+			//*xPos -= normalXY.x;
+			//*yPos -= normalXY.y;
+			//if (c) {
+			//	AEVec2Scale(&normalYZ, &normalYZ, depthYZ);
+			//	//*yPos -= normalYZ.x;
+			//	*zPos += normalYZ.y;
+			//}
+			AEVec2* line = new AEVec2[2];
+			line[0] = AEVec2{ stair.transform.m[0][2] - stair.pObj->width / 2, stair.transform.m[1][2] - stair.pObj->length / 2 }; //bot right
+			line[1] = AEVec2{ stair.transform.m[0][2] + stair.pObj->width / 2, stair.transform.m[1][2] - stair.pObj->length / 2 }; //bot left
+			AEVec2 pos = { *xPos, *yPos + player.pObjInst.pObj->height / 2.f };
+
+			f32 dist = GameObjects::distanceFromAEVec2ToLine(pos, line);
+			*zPos = dist / 2.f;
+			delete[] line;
+			std::cout << dist << std::endl;
 		}
+		else *zPos = 0;
 
 
 		AEGfxSetCamPosition(0.f, player.pObjInst.transform.m[1][2]);

@@ -164,27 +164,38 @@ namespace GameObjects
 	}
 
 	AEVec2* GetVerticesYZ(const ObjectInst obj, int& count) {
+		//count = 3;
+		//AEVec2* xzCoords = { new AEVec2[count] };
+		//xzCoords[0] = AEVec2{ obj.transform.m[1][2] - obj.pObj->width / 3,
+		//						obj.transform.m[2][2] - obj.pObj->height / 3 };		// bot left
+
+		//xzCoords[1] = AEVec2{ obj.transform.m[1][2] - obj.pObj->width / 3,
+		//						obj.transform.m[2][2] + (2 * obj.pObj->height) / 3 }; // top left
+
+		//xzCoords[2] = AEVec2{ obj.transform.m[1][2] + (2 * obj.pObj->width) / 3,
+		//						obj.transform.m[2][2] - obj.pObj->height / 3 };		// bot right
+
+		//return xzCoords;
+		if (obj.pObj->type == Enum::PLAYER) {
+			count = 4;
+			AEVec2* yzCoords = { new AEVec2[count] };
+			yzCoords[0] = AEVec2{ obj.transform.m[1][2] - obj.pObj->width / 2, obj.transform.m[2][2] + obj.pObj->height / 2 }; //top right
+			yzCoords[3] = AEVec2{ obj.transform.m[1][2] + obj.pObj->width / 2, obj.transform.m[2][2] + obj.pObj->height / 2 }; //top left
+			yzCoords[1] = AEVec2{ obj.transform.m[1][2] - obj.pObj->width / 2, obj.transform.m[2][2] - obj.pObj->height / 2 }; //bot right
+			yzCoords[2] = AEVec2{ obj.transform.m[1][2] + obj.pObj->width / 2, obj.transform.m[2][2] - obj.pObj->height / 2 }; //bot left
+
+			//TODO: Any rotatation 
+			return yzCoords;
+		}
 		count = 3;
-		AEVec2* xzCoords = { new AEVec2[count] };
-		xzCoords[0] = AEVec2{ obj.transform.m[1][2] - obj.pObj->width / 3,
-								obj.transform.m[2][2] - obj.pObj->height / 3 };		// bot left
+		AEVec2* yzCoords = { new AEVec2[count] };
+		yzCoords[0] = AEVec2{ obj.transform.m[1][2] - obj.pObj->length / 2, obj.transform.m[2][2] + obj.pObj->height / 2 }; //top right
+		//yzCoords[0] = AEVec2{ obj.transform.m[1][2] + obj.pObj->width / 2, obj.transform.m[2][2] + obj.pObj->height / 2 }; //top left
+		yzCoords[1] = AEVec2{ obj.transform.m[1][2] - obj.pObj->length / 2, obj.transform.m[2][2] - obj.pObj->height / 2 }; //bot right
+		yzCoords[2] = AEVec2{ obj.transform.m[1][2] + obj.pObj->length / 2, obj.transform.m[2][2] - obj.pObj->height / 2 }; //bot left
 
-		xzCoords[1] = AEVec2{ obj.transform.m[1][2] - obj.pObj->width / 3,
-								obj.transform.m[2][2] + (2 * obj.pObj->height) / 3 }; // top left
-
-		xzCoords[2] = AEVec2{ obj.transform.m[1][2] + (2 * obj.pObj->width) / 3,
-								obj.transform.m[2][2] - obj.pObj->height / 3 };		// bot right
-
-		return xzCoords;
-		//count = 4;
-		//AEVec2* yzCoords = { new AEVec2[count] };
-		//yzCoords[0] = AEVec2{ obj.transform.m[1][2] - obj.pObj->width / 2, obj.transform.m[2][2] + obj.pObj->height / 2 }; //top right
-		//yzCoords[1] = AEVec2{ obj.transform.m[1][2] + obj.pObj->width / 2, obj.transform.m[2][2] + obj.pObj->height / 2 }; //top left
-		//yzCoords[2] = AEVec2{ obj.transform.m[1][2] - obj.pObj->width / 2, obj.transform.m[2][2] - obj.pObj->height / 2 }; //bot right
-		//yzCoords[3] = AEVec2{ obj.transform.m[1][2] + obj.pObj->width / 2, obj.transform.m[2][2] - obj.pObj->height / 2 }; //bot left
-
-		////TODO: Any rotatation 
-		//return yzCoords;
+		//TODO: Any rotatation 
+		return yzCoords;
 	}
 
 	AEMtx33 ConvertIsometric(const ObjectInst& obj) {
@@ -217,7 +228,36 @@ namespace GameObjects
 		return out;
 	}
 
-	AEVec2* RightTriCollider() {
-		
+	f32 distance(AEVec2 p1, AEVec2 p2) {
+		return sqrt(pow((p2.x - p1.x), 2) + pow((p2.y - p1.y), 2));
+	}
+
+	// Calculate the distance from a AEVec2 to a line
+	f32 distanceFromAEVec2ToLine(AEVec2 p, AEVec2* l) {
+		f32 A = p.x - l[0].x;
+		f32 B = p.y - l[0].y;
+		f32 C = l[1].x - l[0].x;
+		f32 D = l[1].y - l[0].y;
+
+		f32 dot = A * C + B * D;
+		f32 len_sq = C * C + D * D;
+		f32 param = dot / len_sq;
+
+		f32 xx, yy;
+
+		if (param < 0) {
+			xx = l[0].x;
+			yy = l[0].y;
+		}
+		else if (param > 1) {
+			xx = l[1].x;
+			yy = l[1].y;
+		}
+		else {
+			xx = l[0].x + param * C;
+			yy = l[0].y + param * D;
+		}
+
+		return distance(p, { xx, yy });
 	}
 }
