@@ -15,24 +15,26 @@ namespace GSM
 	const static f32 MIN_CAM_HEIGHT = -65.f;
 
 	OM::Character player;
-	std::vector<OM::Object> vOBJ;
-	std::vector<OM::ObjectInst> vOBJ_INST;
+	FM::Import ImportData;
+	FM::Export ExportData;
+	//std::vector<OM::Object>* vOBJ;
+	//std::vector<OM::ObjectInst>* vOBJ_INST;
 	OM::Character* sCHARACTER;
 
 	void Level1::Level1_Load()
 	{
-		vOBJ = Load_Data_From_File::Load_Shape_From_YAML(level_number);
-		vOBJ_INST = Load_Data_From_File::Load_Transform_From_YAML(level_number, vOBJ);
-		sCHARACTER = Load_Data_From_File::Load_Player_Stats_From_YAML(level_number);
+		ImportData.vO = *ImportData.Load_Shape_From_YAML(level_number);
+		ImportData.vOI = *ImportData.Load_Transform_From_YAML(level_number, ImportData.vO);
+		sCHARACTER = ImportData.Load_Player_Stats_From_YAML(level_number);
 	}
 
 	void Level1::Level1_Init()
-	{
+	{ 
 		/*CREATE PLAYER*/
-		Level_Initializer::Init_Player(&vOBJ_INST[0], sCHARACTER, player);
+		FM::Init_Player(&ImportData.vOI[0], sCHARACTER, player);
 
 		/*SCALE OBJECTS*/
-		Level_Initializer::Option_Change(vOBJ_INST);
+		FM::Option_Change(ImportData.vOI);
 
 		/*DO NOT DELETE*/
 
@@ -43,7 +45,7 @@ namespace GSM
 		//}
 
 		/*Extract Using Vector vOBJ_INST & p_player*/
-		Extract_Data_To_File::Extract_Transform_Data_Out(vOBJ_INST, player, level_number);
+		ExportData.Extract_Transform_Data_Out(ImportData.vOI, player, level_number);
 	}
 
 	void Level1::Level1_Update()
@@ -54,20 +56,20 @@ namespace GSM
 
 		/*SET PLAYER BIT FLAG FOR MOVEMENT OR JUMPING*/
 		unsigned long& flag{ player.pObjInst->flag };
-		flag = (InputHandler::PlayerJump(p_player)) ? flag | JUMPING : flag & ~JUMPING;
-		flag = (InputHandler::PlayerMovement(p_player)) ? flag | ACTIVE : flag & ~ACTIVE;
+		flag = (InputHandler::PlayerJump(player)) ? flag | JUMPING : flag & ~JUMPING;
+		flag = (InputHandler::PlayerMovement(player)) ? flag | ACTIVE : flag & ~ACTIVE;
 
 		/*MOVEMENT*/
 		//PhysicsHandler::Move::MoveCharacter();
 		p_player.MoveCharacter();
 
 		//check if player if near portrait
-		for (size_t i{ 0 }; i < vOBJ_INST.size(); i++)
+		for (size_t i{ 0 }; i < ImportData.vOI.size(); i++)
 		{
-			if (vOBJ_INST[i].pObj->type == PORTRAIT || vOBJ_INST[i].pObj->type == LANDSCAPE)
+			if (ImportData.vOI[i].pObj->type == PORTRAIT || ImportData.vOI[i].pObj->type == LANDSCAPE)
 			{
-				vOBJ_INST[i].flag = (CollisionHandler::GetDistance(vOBJ_INST[i].GetPosX(),
-					vOBJ_INST[i].GetPosY(), p_player.pObjInst->GetPosX(),
+				ImportData.vOI[i].flag = (CollisionHandler::GetDistance(ImportData.vOI[i].GetPosX(),
+					ImportData.vOI[i].GetPosY(), p_player.pObjInst->GetPosX(),
 					p_player.pObjInst->GetPosY()) < 40.0) ? static_cast<unsigned long>(ACTIVE) : IDLE;
 			}
 		}
@@ -82,23 +84,23 @@ namespace GSM
 	{
 		OM::RenderSettings();
 		// Initialise i to 1 to skip player
-		for (int i{ 1 }; i < vOBJ_INST.size(); i++)
-			vOBJ_INST[i].RenderObject();
+		for (int i{ 1 }; i < ImportData.vOI.size(); i++)
+			ImportData.vOI[i].RenderObject();
 		player.AnimateCharacter();
 	}
 
 	void Level1::Level1_Free()
 	{
-		for (size_t i{ 0 }; i < vOBJ.size(); i++)
-			AEGfxMeshFree(vOBJ[i].pMesh);
-		vOBJ_INST.clear();
+		for (size_t i{ 0 }; i < ImportData.vO.size(); i++)
+			AEGfxMeshFree(ImportData.vO[i].pMesh);
+		ImportData.vOI.clear();
 	}
 
 	void Level1::Level1_Unload()
 	{
-		for (size_t i{ 0 }; i < vOBJ.size(); i++)
-			AEGfxTextureUnload(vOBJ[i].pTex);
-		vOBJ.clear();
+		for (size_t i{ 0 }; i < ImportData.vO.size(); i++)
+			AEGfxTextureUnload(ImportData.vO[i].pTex);
+		ImportData.vO.clear();
 
 	}
 }

@@ -1,176 +1,209 @@
 ﻿  AudioManager.cpp
   CollisionDetectionManager.cpp
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Header\GameStateManager.h(16,16): error C2653: 'Level1': is not a class or namespace name
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Header\GameStateManager.h(16,26): error C2146: syntax error: missing ')' before identifier 'FP'
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Header\GameStateManager.h(16,26): error C3646: 'FP': unknown override specifier
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Header\GameStateManager.h(16,28): error C2059: syntax error: ')'
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Header\GameStateManager.h(16,30): error C2062: type 'void' unexpected
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Header\GameStateManager.h(16,35): error C2238: unexpected token(s) preceding ';'
   EnvironmentManager.cpp
   FileManager.cpp
-C:\Users\notRe\OneDrive\Projects\HopWards\External\yaml-cpp\include\yaml-cpp\parser.h(46,8): error C2039: 'auto_ptr': is not a member of 'std'
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Header\GameStateManager.h(16,16): error C2653: 'Level1': is not a class or namespace name
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Header\GameStateManager.h(16,26): error C2146: syntax error: missing ')' before identifier 'FP'
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Header\GameStateManager.h(16,26): error C3646: 'FP': unknown override specifier
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Header\GameStateManager.h(16,28): error C2059: syntax error: ')'
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Header\GameStateManager.h(16,30): error C2062: type 'void' unexpected
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Header\GameStateManager.h(16,35): error C2238: unexpected token(s) preceding ';'
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\External\yaml-cpp\include\yaml-cpp\parser.h(46,8): error C2039: 'auto_ptr': is not a member of 'std'
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\include\fstream(26,1): message : see declaration of 'std'
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\External\yaml-cpp\include\yaml-cpp\parser.h(46,16): error C7568: argument list missing after assumed function template 'auto_ptr'
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\External\yaml-cpp\include\yaml-cpp\parser.h(46,26): error C2062: type 'unknown-type' unexpected
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\External\yaml-cpp\include\yaml-cpp\parser.h(46,36): error C2238: unexpected token(s) preceding ';'
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\External\yaml-cpp\include\yaml-cpp\parser.h(47,8): error C2039: 'auto_ptr': is not a member of 'std'
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\include\fstream(26,1): message : see declaration of 'std'
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\External\yaml-cpp\include\yaml-cpp\parser.h(47,16): error C7568: argument list missing after assumed function template 'auto_ptr'
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\External\yaml-cpp\include\yaml-cpp\parser.h(47,29): error C2062: type 'unknown-type' unexpected
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\External\yaml-cpp\include\yaml-cpp\parser.h(47,42): error C2238: unexpected token(s) preceding ';'
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\External\yaml-cpp\include\yaml-cpp\emitter.h(105,8): error C2039: 'auto_ptr': is not a member of 'std'
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\include\fstream(26,1): message : see declaration of 'std'
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\External\yaml-cpp\include\yaml-cpp\emitter.h(105,17): error C7568: argument list missing after assumed function template 'auto_ptr'
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\External\yaml-cpp\include\yaml-cpp\emitter.h(105,32): error C2062: type 'unknown-type' unexpected
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\External\yaml-cpp\include\yaml-cpp\emitter.h(105,40): error C2238: unexpected token(s) preceding ';'
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\External\yaml-cpp\include\yaml-cpp\iterator.h(20,17): error C2039: 'auto_ptr': is not a member of 'std'
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\include\map(25,1): message : see declaration of 'std'
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\External\yaml-cpp\include\yaml-cpp\iterator.h(20): error C7568: argument list missing after assumed function template 'auto_ptr'
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\External\yaml-cpp\include\yaml-cpp\iterator.h(20,11): error C2061: syntax error: identifier 'auto_ptr'
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\External\yaml-cpp\include\yaml-cpp\iterator.h(20,3): error C2535: 'YAML::Iterator::Iterator(void)': member function already defined or declared
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\External\yaml-cpp\include\yaml-cpp\iterator.h(19,3): message : see declaration of 'YAML::Iterator::Iterator'
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\External\yaml-cpp\include\yaml-cpp\iterator.h(36,8): error C2039: 'auto_ptr': is not a member of 'std'
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\include\map(25,1): message : see declaration of 'std'
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\External\yaml-cpp\include\yaml-cpp\iterator.h(36,16): error C7568: argument list missing after assumed function template 'auto_ptr'
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\External\yaml-cpp\include\yaml-cpp\iterator.h(36,27): error C2062: type 'unknown-type' unexpected
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\External\yaml-cpp\include\yaml-cpp\iterator.h(36,34): error C2238: unexpected token(s) preceding ';'
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\External\yaml-cpp\include\yaml-cpp\node.h(43,8): error C2039: 'auto_ptr': is not a member of 'std'
 C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\include\iostream(19,1): message : see declaration of 'std'
-C:\Users\notRe\OneDrive\Projects\HopWards\External\yaml-cpp\include\yaml-cpp\parser.h(46,16): error C7568: argument list missing after assumed function template 'auto_ptr'
-C:\Users\notRe\OneDrive\Projects\HopWards\External\yaml-cpp\include\yaml-cpp\parser.h(46,26): error C2062: type 'unknown-type' unexpected
-C:\Users\notRe\OneDrive\Projects\HopWards\External\yaml-cpp\include\yaml-cpp\parser.h(46,36): error C2238: unexpected token(s) preceding ';'
-C:\Users\notRe\OneDrive\Projects\HopWards\External\yaml-cpp\include\yaml-cpp\parser.h(47,8): error C2039: 'auto_ptr': is not a member of 'std'
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\External\yaml-cpp\include\yaml-cpp\node.h(43,16): error C7568: argument list missing after assumed function template 'auto_ptr'
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\External\yaml-cpp\include\yaml-cpp\node.h(43,23): error C2062: type 'unknown-type' unexpected
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\External\yaml-cpp\include\yaml-cpp\node.h(43,36): error C2238: unexpected token(s) preceding ';'
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\External\yaml-cpp\include\yaml-cpp\node.h(117,8): error C2039: 'auto_ptr': is not a member of 'std'
 C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\include\iostream(19,1): message : see declaration of 'std'
-C:\Users\notRe\OneDrive\Projects\HopWards\External\yaml-cpp\include\yaml-cpp\parser.h(47,16): error C7568: argument list missing after assumed function template 'auto_ptr'
-C:\Users\notRe\OneDrive\Projects\HopWards\External\yaml-cpp\include\yaml-cpp\parser.h(47,29): error C2062: type 'unknown-type' unexpected
-C:\Users\notRe\OneDrive\Projects\HopWards\External\yaml-cpp\include\yaml-cpp\parser.h(47,42): error C2238: unexpected token(s) preceding ';'
-C:\Users\notRe\OneDrive\Projects\HopWards\External\yaml-cpp\include\yaml-cpp\emitter.h(105,8): error C2039: 'auto_ptr': is not a member of 'std'
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\include\iostream(19,1): message : see declaration of 'std'
-C:\Users\notRe\OneDrive\Projects\HopWards\External\yaml-cpp\include\yaml-cpp\emitter.h(105,17): error C7568: argument list missing after assumed function template 'auto_ptr'
-C:\Users\notRe\OneDrive\Projects\HopWards\External\yaml-cpp\include\yaml-cpp\emitter.h(105,32): error C2062: type 'unknown-type' unexpected
-C:\Users\notRe\OneDrive\Projects\HopWards\External\yaml-cpp\include\yaml-cpp\emitter.h(105,40): error C2238: unexpected token(s) preceding ';'
-C:\Users\notRe\OneDrive\Projects\HopWards\External\yaml-cpp\include\yaml-cpp\iterator.h(20,17): error C2039: 'auto_ptr': is not a member of 'std'
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\include\map(25,1): message : see declaration of 'std'
-C:\Users\notRe\OneDrive\Projects\HopWards\External\yaml-cpp\include\yaml-cpp\iterator.h(20): error C7568: argument list missing after assumed function template 'auto_ptr'
-C:\Users\notRe\OneDrive\Projects\HopWards\External\yaml-cpp\include\yaml-cpp\iterator.h(20,11): error C2061: syntax error: identifier 'auto_ptr'
-C:\Users\notRe\OneDrive\Projects\HopWards\External\yaml-cpp\include\yaml-cpp\iterator.h(20,3): error C2535: 'YAML::Iterator::Iterator(void)': member function already defined or declared
-C:\Users\notRe\OneDrive\Projects\HopWards\External\yaml-cpp\include\yaml-cpp\iterator.h(19,3): message : see declaration of 'YAML::Iterator::Iterator'
-C:\Users\notRe\OneDrive\Projects\HopWards\External\yaml-cpp\include\yaml-cpp\iterator.h(36,8): error C2039: 'auto_ptr': is not a member of 'std'
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\include\map(25,1): message : see declaration of 'std'
-C:\Users\notRe\OneDrive\Projects\HopWards\External\yaml-cpp\include\yaml-cpp\iterator.h(36,16): error C7568: argument list missing after assumed function template 'auto_ptr'
-C:\Users\notRe\OneDrive\Projects\HopWards\External\yaml-cpp\include\yaml-cpp\iterator.h(36,27): error C2062: type 'unknown-type' unexpected
-C:\Users\notRe\OneDrive\Projects\HopWards\External\yaml-cpp\include\yaml-cpp\iterator.h(36,34): error C2238: unexpected token(s) preceding ';'
-C:\Users\notRe\OneDrive\Projects\HopWards\External\yaml-cpp\include\yaml-cpp\node.h(43,8): error C2039: 'auto_ptr': is not a member of 'std'
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\include\map(25,1): message : see declaration of 'std'
-C:\Users\notRe\OneDrive\Projects\HopWards\External\yaml-cpp\include\yaml-cpp\node.h(43,16): error C7568: argument list missing after assumed function template 'auto_ptr'
-C:\Users\notRe\OneDrive\Projects\HopWards\External\yaml-cpp\include\yaml-cpp\node.h(43,23): error C2062: type 'unknown-type' unexpected
-C:\Users\notRe\OneDrive\Projects\HopWards\External\yaml-cpp\include\yaml-cpp\node.h(43,36): error C2238: unexpected token(s) preceding ';'
-C:\Users\notRe\OneDrive\Projects\HopWards\External\yaml-cpp\include\yaml-cpp\node.h(117,8): error C2039: 'auto_ptr': is not a member of 'std'
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\include\map(25,1): message : see declaration of 'std'
-C:\Users\notRe\OneDrive\Projects\HopWards\External\yaml-cpp\include\yaml-cpp\node.h(117,16): error C7568: argument list missing after assumed function template 'auto_ptr'
-C:\Users\notRe\OneDrive\Projects\HopWards\External\yaml-cpp\include\yaml-cpp\node.h(117,32): error C2062: type 'unknown-type' unexpected
-C:\Users\notRe\OneDrive\Projects\HopWards\External\yaml-cpp\include\yaml-cpp\node.h(117,44): error C2238: unexpected token(s) preceding ';'
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\FileManager.cpp(145,10): error C2440: 'return': cannot convert from 'std::vector<OM::Object,std::allocator<OM::Object>>' to 'std::vector<OM::Object,std::allocator<OM::Object>> *'
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\FileManager.cpp(145,10): message : No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\FileManager.cpp(206,31): error C2065: 'vector_OBJ': undeclared identifier
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\FileManager.cpp(207,16): error C2065: 'vector_OBJ': undeclared identifier
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\FileManager.cpp(208,31): error C2065: 'vector_OBJ': undeclared identifier
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\FileManager.cpp(251,10): error C2440: 'return': cannot convert from 'std::vector<OM::ObjectInst,std::allocator<OM::ObjectInst>>' to 'std::vector<OM::ObjectInst,std::allocator<OM::ObjectInst>> *'
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\FileManager.cpp(251,10): message : No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\FileManager.cpp(273,3): error C2065: 'Character': undeclared identifier
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\FileManager.cpp(273,14): error C2065: 'sCHARACTER': undeclared identifier
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\FileManager.cpp(273,32): error C2061: syntax error: identifier 'Character'
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\FileManager.cpp(308,40): error C2065: 'sCHARACTER': undeclared identifier
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\FileManager.cpp(309,40): error C2065: 'sCHARACTER': undeclared identifier
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\FileManager.cpp(314,36): error C2065: 'sCHARACTER': undeclared identifier
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\FileManager.cpp(315,36): error C2065: 'sCHARACTER': undeclared identifier
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\FileManager.cpp(320,25): error C2065: 'sCHARACTER': undeclared identifier
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\FileManager.cpp(325,25): error C2065: 'sCHARACTER': undeclared identifier
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\FileManager.cpp(336,10): error C2065: 'sCHARACTER': undeclared identifier
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\FileManager.cpp(353,40): error C2065: 'ObjectInst': undeclared identifier
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\FileManager.cpp(353,33): error C2923: 'std::vector': 'ObjectInst' is not a valid template type argument for parameter '_Ty'
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\FileManager.cpp(353,40): message : see declaration of 'ObjectInst'
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\FileManager.cpp(353,33): error C2976: 'std::vector': too few template arguments
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\include\vector(494,1): message : see declaration of 'std::vector'
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\FileManager.cpp(353,62): error C2955: 'std::vector': use of class template requires template argument list
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\include\vector(494,1): message : see declaration of 'std::vector'
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\FileManager.cpp(353,53): error C2955: 'std::vector': use of class template requires template argument list
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\include\vector(494,1): message : see declaration of 'std::vector'
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\FileManager.cpp(354,38): error C2065: 'ObjectInst': undeclared identifier
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\FileManager.cpp(354,31): error C2923: 'std::vector': 'ObjectInst' is not a valid template type argument for parameter '_Ty'
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\FileManager.cpp(354,38): message : see declaration of 'ObjectInst'
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\FileManager.cpp(354,31): error C2976: 'std::vector': too few template arguments
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\include\vector(494,1): message : see declaration of 'std::vector'
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\FileManager.cpp(354,60): error C2955: 'std::vector': use of class template requires template argument list
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\include\vector(494,1): message : see declaration of 'std::vector'
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\FileManager.cpp(354,51): error C2955: 'std::vector': use of class template requires template argument list
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\include\vector(494,1): message : see declaration of 'std::vector'
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\FileManager.cpp(354,62): error C2061: syntax error: identifier 'Character'
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\FileManager.cpp(383,50): error C2039: 'size': is not a member of 'FM::Export'
-C:\Users\notRe\OneDrive\Projects\HopWards\Header\FileManager.h(10,9): message : see declaration of 'FM::Export'
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\FileManager.cpp(384,12): error C2065: 'vOBJ_INST': undeclared identifier
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\FileManager.cpp(388,32): error C2065: 'vOBJ_INST': undeclared identifier
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\FileManager.cpp(396,29): error C2065: 'vOBJ_INST': undeclared identifier
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\FileManager.cpp(396,40): error C2065: 'p_player': undeclared identifier
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\FileManager.cpp(410,40): error C2065: 'ObjectInst': undeclared identifier
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\FileManager.cpp(410,33): error C2923: 'std::vector': 'ObjectInst' is not a valid template type argument for parameter '_Ty'
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\FileManager.cpp(410,40): message : see declaration of 'ObjectInst'
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\FileManager.cpp(410,33): error C2976: 'std::vector': too few template arguments
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\include\vector(494,1): message : see declaration of 'std::vector'
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\FileManager.cpp(410,62): error C2955: 'std::vector': use of class template requires template argument list
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\include\vector(494,1): message : see declaration of 'std::vector'
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\FileManager.cpp(410,53): error C2955: 'std::vector': use of class template requires template argument list
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\include\vector(494,1): message : see declaration of 'std::vector'
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\FileManager.cpp(444,38): error C2065: 'ObjectInst': undeclared identifier
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\FileManager.cpp(444,31): error C2923: 'std::vector': 'ObjectInst' is not a valid template type argument for parameter '_Ty'
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\FileManager.cpp(444,38): message : see declaration of 'ObjectInst'
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\FileManager.cpp(444,31): error C2976: 'std::vector': too few template arguments
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\include\vector(494,1): message : see declaration of 'std::vector'
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\FileManager.cpp(444,60): error C2955: 'std::vector': use of class template requires template argument list
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\include\vector(494,1): message : see declaration of 'std::vector'
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\FileManager.cpp(444,51): error C2955: 'std::vector': use of class template requires template argument list
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\include\vector(494,1): message : see declaration of 'std::vector'
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\FileManager.cpp(444,62): error C2061: syntax error: identifier 'Character'
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\FileManager.cpp(447,3): error C2065: 'data_file': undeclared identifier
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\FileManager.cpp(447,26): error C2065: 'object_type': undeclared identifier
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\FileManager.cpp(447,48): error C2065: 'object_type_number': undeclared identifier
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\FileManager.cpp(448,3): error C2065: 'object_type_number': undeclared identifier
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\FileManager.cpp(449,3): error C2065: 'data_file': undeclared identifier
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\FileManager.cpp(449,50): error C2065: 'index': undeclared identifier
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\FileManager.cpp(450,3): error C2065: 'data_file': undeclared identifier
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\FileManager.cpp(450,50): error C2065: 'index': undeclared identifier
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\FileManager.cpp(451,3): error C2065: 'data_file': undeclared identifier
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\FileManager.cpp(452,3): error C2065: 'data_file': undeclared identifier
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\FileManager.cpp(452,56): error C2065: 'index': undeclared identifier
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\FileManager.cpp(453,3): error C2065: 'data_file': undeclared identifier
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\FileManager.cpp(453,56): error C2065: 'index': undeclared identifier
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\FileManager.cpp(454,3): error C2065: 'data_file': undeclared identifier
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\FileManager.cpp(455,3): error C2065: 'data_file': undeclared identifier
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\FileManager.cpp(455,55): error C2065: 'index': undeclared identifier
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\FileManager.cpp(456,3): error C2065: 'data_file': undeclared identifier
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\FileManager.cpp(456,55): error C2065: 'index': undeclared identifier
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\FileManager.cpp(457,3): error C2065: 'data_file': undeclared identifier
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\FileManager.cpp(457,58): error C2065: 'index': undeclared identifier
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\FileManager.cpp(458,3): error C2065: 'data_file': undeclared identifier
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\FileManager.cpp(458,55): error C2065: 'index': undeclared identifier
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\FileManager.cpp(458,60): fatal  error C1003: error count exceeds 100; stopping compilation
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\External\yaml-cpp\include\yaml-cpp\node.h(117,16): error C7568: argument list missing after assumed function template 'auto_ptr'
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\External\yaml-cpp\include\yaml-cpp\node.h(117,32): error C2062: type 'unknown-type' unexpected
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\External\yaml-cpp\include\yaml-cpp\node.h(117,44): error C2238: unexpected token(s) preceding ';'
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Source\FileManager.cpp(208,35): warning C4389: '==': signed/unsigned mismatch
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Source\FileManager.cpp(214,16): warning C4458: declaration of 'flag' hides class member
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Header\ObjectManager.h(27,18): message : see declaration of 'OM::ObjectInst::flag'
   GameStateManager.cpp
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\GameStateManager.cpp(43,42): error C3867: 'GSM::MainMenu::MainMenu_Load': non-standard syntax; use '&' to create a pointer to member
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\GameStateManager.cpp(43,29): error C2440: '=': cannot convert from 'void (__cdecl GSM::MainMenu::* )(void)' to 'FP'
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\GameStateManager.cpp(43,29): message : There is no context in which this conversion is possible
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\GameStateManager.cpp(44,42): error C3867: 'GSM::MainMenu::MainMenu_Init': non-standard syntax; use '&' to create a pointer to member
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\GameStateManager.cpp(44,29): error C2440: '=': cannot convert from 'void (__cdecl GSM::MainMenu::* )(void)' to 'FP'
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\GameStateManager.cpp(44,29): message : There is no context in which this conversion is possible
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\GameStateManager.cpp(45,46): error C3867: 'GSM::MainMenu::MainMenu_Update': non-standard syntax; use '&' to create a pointer to member
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\GameStateManager.cpp(45,31): error C2440: '=': cannot convert from 'void (__cdecl GSM::MainMenu::* )(void)' to 'FP'
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\GameStateManager.cpp(45,31): message : There is no context in which this conversion is possible
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\GameStateManager.cpp(46,42): error C3867: 'GSM::MainMenu::MainMenu_Draw': non-standard syntax; use '&' to create a pointer to member
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\GameStateManager.cpp(46,29): error C2440: '=': cannot convert from 'void (__cdecl GSM::MainMenu::* )(void)' to 'FP'
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\GameStateManager.cpp(46,29): message : There is no context in which this conversion is possible
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\GameStateManager.cpp(47,42): error C3867: 'GSM::MainMenu::MainMenu_Free': non-standard syntax; use '&' to create a pointer to member
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\GameStateManager.cpp(47,29): error C2440: '=': cannot convert from 'void (__cdecl GSM::MainMenu::* )(void)' to 'FP'
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\GameStateManager.cpp(47,29): message : There is no context in which this conversion is possible
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\GameStateManager.cpp(48,46): error C3867: 'GSM::MainMenu::MainMenu_Unload': non-standard syntax; use '&' to create a pointer to member
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\GameStateManager.cpp(48,31): error C2440: '=': cannot convert from 'void (__cdecl GSM::MainMenu::* )(void)' to 'FP'
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\GameStateManager.cpp(48,31): message : There is no context in which this conversion is possible
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\GameStateManager.cpp(51,38): error C3867: 'GSM::Level1::Level1_Load': non-standard syntax; use '&' to create a pointer to member
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\GameStateManager.cpp(51,27): error C2440: '=': cannot convert from 'void (__cdecl GSM::Level1::* )(void)' to 'FP'
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\GameStateManager.cpp(51,27): message : There is no context in which this conversion is possible
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\GameStateManager.cpp(52,38): error C3867: 'GSM::Level1::Level1_Init': non-standard syntax; use '&' to create a pointer to member
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\GameStateManager.cpp(52,27): error C2440: '=': cannot convert from 'void (__cdecl GSM::Level1::* )(void)' to 'FP'
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\GameStateManager.cpp(52,27): message : There is no context in which this conversion is possible
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\GameStateManager.cpp(53,42): error C3867: 'GSM::Level1::Level1_Update': non-standard syntax; use '&' to create a pointer to member
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\GameStateManager.cpp(53,29): error C2440: '=': cannot convert from 'void (__cdecl GSM::Level1::* )(void)' to 'FP'
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\GameStateManager.cpp(53,29): message : There is no context in which this conversion is possible
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\GameStateManager.cpp(54,38): error C3867: 'GSM::Level1::Level1_Draw': non-standard syntax; use '&' to create a pointer to member
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\GameStateManager.cpp(54,27): error C2440: '=': cannot convert from 'void (__cdecl GSM::Level1::* )(void)' to 'FP'
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\GameStateManager.cpp(54,27): message : There is no context in which this conversion is possible
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\GameStateManager.cpp(55,38): error C3867: 'GSM::Level1::Level1_Free': non-standard syntax; use '&' to create a pointer to member
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\GameStateManager.cpp(55,27): error C2440: '=': cannot convert from 'void (__cdecl GSM::Level1::* )(void)' to 'FP'
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\GameStateManager.cpp(55,27): message : There is no context in which this conversion is possible
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\GameStateManager.cpp(56,42): error C3867: 'GSM::Level1::Level1_Unload': non-standard syntax; use '&' to create a pointer to member
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\GameStateManager.cpp(56,29): error C2440: '=': cannot convert from 'void (__cdecl GSM::Level1::* )(void)' to 'FP'
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\GameStateManager.cpp(56,29): message : There is no context in which this conversion is possible
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Header\GameStateManager.h(16,16): error C2653: 'Level1': is not a class or namespace name
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Header\GameStateManager.h(16,26): error C2146: syntax error: missing ')' before identifier 'FP'
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Header\GameStateManager.h(16,26): error C3646: 'FP': unknown override specifier
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Header\GameStateManager.h(16,28): error C2059: syntax error: ')'
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Header\GameStateManager.h(16,30): error C2062: type 'void' unexpected
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Header\GameStateManager.h(16,35): error C2238: unexpected token(s) preceding ';'
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Source\GameStateManager.cpp(43,42): error C3867: 'GSM::MainMenu::MainMenu_Load': non-standard syntax; use '&' to create a pointer to member
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Source\GameStateManager.cpp(43,29): error C2440: '=': cannot convert from 'void (__cdecl GSM::MainMenu::* )(void)' to 'FP'
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Source\GameStateManager.cpp(43,29): message : There is no context in which this conversion is possible
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Source\GameStateManager.cpp(44,42): error C3867: 'GSM::MainMenu::MainMenu_Init': non-standard syntax; use '&' to create a pointer to member
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Source\GameStateManager.cpp(44,29): error C2440: '=': cannot convert from 'void (__cdecl GSM::MainMenu::* )(void)' to 'FP'
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Source\GameStateManager.cpp(44,29): message : There is no context in which this conversion is possible
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Source\GameStateManager.cpp(45,46): error C3867: 'GSM::MainMenu::MainMenu_Update': non-standard syntax; use '&' to create a pointer to member
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Source\GameStateManager.cpp(45,31): error C2440: '=': cannot convert from 'void (__cdecl GSM::MainMenu::* )(void)' to 'FP'
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Source\GameStateManager.cpp(45,31): message : There is no context in which this conversion is possible
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Source\GameStateManager.cpp(46,42): error C3867: 'GSM::MainMenu::MainMenu_Draw': non-standard syntax; use '&' to create a pointer to member
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Source\GameStateManager.cpp(46,29): error C2440: '=': cannot convert from 'void (__cdecl GSM::MainMenu::* )(void)' to 'FP'
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Source\GameStateManager.cpp(46,29): message : There is no context in which this conversion is possible
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Source\GameStateManager.cpp(47,42): error C3867: 'GSM::MainMenu::MainMenu_Free': non-standard syntax; use '&' to create a pointer to member
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Source\GameStateManager.cpp(47,29): error C2440: '=': cannot convert from 'void (__cdecl GSM::MainMenu::* )(void)' to 'FP'
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Source\GameStateManager.cpp(47,29): message : There is no context in which this conversion is possible
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Source\GameStateManager.cpp(48,46): error C3867: 'GSM::MainMenu::MainMenu_Unload': non-standard syntax; use '&' to create a pointer to member
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Source\GameStateManager.cpp(48,31): error C2440: '=': cannot convert from 'void (__cdecl GSM::MainMenu::* )(void)' to 'FP'
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Source\GameStateManager.cpp(48,31): message : There is no context in which this conversion is possible
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Source\GameStateManager.cpp(51,38): error C3867: 'GSM::Level1::Level1_Load': non-standard syntax; use '&' to create a pointer to member
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Source\GameStateManager.cpp(51,27): error C2440: '=': cannot convert from 'void (__cdecl GSM::Level1::* )(void)' to 'FP'
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Source\GameStateManager.cpp(51,27): message : There is no context in which this conversion is possible
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Source\GameStateManager.cpp(52,38): error C3867: 'GSM::Level1::Level1_Init': non-standard syntax; use '&' to create a pointer to member
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Source\GameStateManager.cpp(52,27): error C2440: '=': cannot convert from 'void (__cdecl GSM::Level1::* )(void)' to 'FP'
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Source\GameStateManager.cpp(52,27): message : There is no context in which this conversion is possible
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Source\GameStateManager.cpp(53,42): error C3867: 'GSM::Level1::Level1_Update': non-standard syntax; use '&' to create a pointer to member
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Source\GameStateManager.cpp(53,29): error C2440: '=': cannot convert from 'void (__cdecl GSM::Level1::* )(void)' to 'FP'
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Source\GameStateManager.cpp(53,29): message : There is no context in which this conversion is possible
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Source\GameStateManager.cpp(54,38): error C3867: 'GSM::Level1::Level1_Draw': non-standard syntax; use '&' to create a pointer to member
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Source\GameStateManager.cpp(54,27): error C2440: '=': cannot convert from 'void (__cdecl GSM::Level1::* )(void)' to 'FP'
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Source\GameStateManager.cpp(54,27): message : There is no context in which this conversion is possible
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Source\GameStateManager.cpp(55,38): error C3867: 'GSM::Level1::Level1_Free': non-standard syntax; use '&' to create a pointer to member
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Source\GameStateManager.cpp(55,27): error C2440: '=': cannot convert from 'void (__cdecl GSM::Level1::* )(void)' to 'FP'
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Source\GameStateManager.cpp(55,27): message : There is no context in which this conversion is possible
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Source\GameStateManager.cpp(56,42): error C3867: 'GSM::Level1::Level1_Unload': non-standard syntax; use '&' to create a pointer to member
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Source\GameStateManager.cpp(56,29): error C2440: '=': cannot convert from 'void (__cdecl GSM::Level1::* )(void)' to 'FP'
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Source\GameStateManager.cpp(56,29): message : There is no context in which this conversion is possible
   GraphicsManager.cpp
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Header\GameStateManager.h(16,16): error C2653: 'Level1': is not a class or namespace name
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Header\GameStateManager.h(16,26): error C2146: syntax error: missing ')' before identifier 'FP'
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Header\GameStateManager.h(16,26): error C3646: 'FP': unknown override specifier
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Header\GameStateManager.h(16,28): error C2059: syntax error: ')'
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Header\GameStateManager.h(16,30): error C2062: type 'void' unexpected
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Header\GameStateManager.h(16,35): error C2238: unexpected token(s) preceding ';'
   InputManager.cpp
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Header\GameStateManager.h(16,16): error C2653: 'Level1': is not a class or namespace name
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Header\GameStateManager.h(16,26): error C2146: syntax error: missing ')' before identifier 'FP'
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Header\GameStateManager.h(16,26): error C3646: 'FP': unknown override specifier
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Header\GameStateManager.h(16,28): error C2059: syntax error: ')'
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Header\GameStateManager.h(16,30): error C2062: type 'void' unexpected
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Header\GameStateManager.h(16,35): error C2238: unexpected token(s) preceding ';'
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Source\InputManager.cpp(56,14): error C2039: 'ButtonClick': is not a member of 'IM::Input'
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Header\InputManager.h(6,9): message : see declaration of 'IM::Input'
   Level1.cpp
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\Level1.cpp(4,10): fatal  error C1083: Cannot open include file: 'PhysicsHandler.h': No such file or directory
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Header\GameStateManager.h(16,16): error C2653: 'Level1': is not a class or namespace name
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Header\GameStateManager.h(16,26): error C2146: syntax error: missing ')' before identifier 'FP'
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Header\GameStateManager.h(16,26): error C3646: 'FP': unknown override specifier
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Header\GameStateManager.h(16,28): error C2059: syntax error: ')'
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Header\GameStateManager.h(16,30): error C2062: type 'void' unexpected
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Header\GameStateManager.h(16,35): error C2238: unexpected token(s) preceding ';'
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Source\Level1.cpp(24,22): error C2352: 'FM::Import::Load_Shape_From_YAML': a call of a non-static member function requires an object
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Header\FileManager.h(20,24): message : see declaration of 'FM::Import::Load_Shape_From_YAML'
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Source\Level1.cpp(25,19): error C2039: 'Load_Transform_From_YAML': is not a member of 'FM'
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Header\FileManager.h(8,11): message : see declaration of 'FM'
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Source\Level1.cpp(25,43): error C3861: 'Load_Transform_From_YAML': identifier not found
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Source\Level1.cpp(26,20): error C2039: 'Load_Player_Stats_From_YAML': is not a member of 'FM'
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Header\FileManager.h(8,11): message : see declaration of 'FM'
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Source\Level1.cpp(26,47): error C3861: 'Load_Player_Stats_From_YAML': identifier not found
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Source\Level1.cpp(32,3): error C2653: 'Level_Initializer': is not a class or namespace name
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Source\Level1.cpp(32,22): error C3861: 'Init_Player': identifier not found
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Source\Level1.cpp(35,3): error C2653: 'Level_Initializer': is not a class or namespace name
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Source\Level1.cpp(35,22): error C3861: 'Option_Change': identifier not found
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Source\Level1.cpp(46,3): error C2653: 'Extract_Data_To_File': is not a class or namespace name
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Source\Level1.cpp(46,25): error C3861: 'Extract_Transform_Data_Out': identifier not found
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Source\Level1.cpp(53,3): error C2653: 'InputHandler': is not a class or namespace name
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Source\Level1.cpp(53,31): error C2039: 'next': is not a member of 'GSM'
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Source\Level1.cpp(11,11): message : see declaration of 'GSM'
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Source\Level1.cpp(53,17): error C3861: 'ExitGame': identifier not found
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Source\Level1.cpp(57,11): error C2653: 'InputHandler': is not a class or namespace name
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Source\Level1.cpp(57,36): error C2065: 'p_player': undeclared identifier
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Source\Level1.cpp(57,25): error C3861: 'PlayerJump': identifier not found
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Source\Level1.cpp(58,11): error C2653: 'InputHandler': is not a class or namespace name
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Source\Level1.cpp(58,40): error C2065: 'p_player': undeclared identifier
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Source\Level1.cpp(58,25): error C3861: 'PlayerMovement': identifier not found
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Source\Level1.cpp(62,3): error C2065: 'p_player': undeclared identifier
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Source\Level1.cpp(69,26): error C2653: 'CollisionHandler': is not a class or namespace name
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Source\Level1.cpp(70,30): error C2065: 'p_player': undeclared identifier
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Source\Level1.cpp(71,6): error C2065: 'p_player': undeclared identifier
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Source\Level1.cpp(69,44): error C3861: 'GetDistance': identifier not found
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Source\Level1.cpp(79,28): error C2065: 'p_player': undeclared identifier
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Source\Level1.cpp(79,3): error C2660: 'AEGfxSetCamPosition': function does not take 1 arguments
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\External\AlphaEngine_V3.09\include\AEGraphics.h(308,13): message : see declaration of 'AEGfxSetCamPosition'
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Source\Level1.cpp(79,3): message : while trying to match the argument list '(float)'
   Main.cpp
-C:\Users\notRe\OneDrive\Projects\HopWards\Header\Enumeration.h(7,16): error C7631: '`anonymous-namespace'::gameTime': variable with internal linkage declared but not defined
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Header\GameStateManager.h(16,16): error C2653: 'Level1': is not a class or namespace name
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Header\GameStateManager.h(16,26): error C2146: syntax error: missing ')' before identifier 'FP'
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Header\GameStateManager.h(16,26): error C3646: 'FP': unknown override specifier
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Header\GameStateManager.h(16,28): error C2059: syntax error: ')'
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Header\GameStateManager.h(16,30): error C2062: type 'void' unexpected
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Header\GameStateManager.h(16,35): error C2238: unexpected token(s) preceding ';'
   MainMenu.cpp
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\MainMenu.cpp(2,10): fatal  error C1083: Cannot open include file: 'InputHandler.h': No such file or directory
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Header\GameStateManager.h(16,16): error C2653: 'Level1': is not a class or namespace name
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Header\GameStateManager.h(16,26): error C2146: syntax error: missing ')' before identifier 'FP'
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Header\GameStateManager.h(16,26): error C3646: 'FP': unknown override specifier
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Header\GameStateManager.h(16,28): error C2059: syntax error: ')'
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Header\GameStateManager.h(16,30): error C2062: type 'void' unexpected
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Header\GameStateManager.h(16,35): error C2238: unexpected token(s) preceding ';'
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Source\MainMenu.cpp(79,7): error C2039: 'ExitGame': is not a member of 'IM'
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Header\InputManager.h(4,11): message : see declaration of 'IM'
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Source\MainMenu.cpp(79,21): error C2039: 'next': is not a member of 'GSM'
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Source\MainMenu.cpp(9,11): message : see declaration of 'GSM'
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Source\MainMenu.cpp(79,25): error C2065: 'next': undeclared identifier
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Source\MainMenu.cpp(79,15): error C3861: 'ExitGame': identifier not found
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Source\MainMenu.cpp(80,11): error C2039: 'buttonClick': is not a member of 'IM'
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Header\InputManager.h(4,11): message : see declaration of 'IM'
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Source\MainMenu.cpp(80): error C3861: 'buttonClick': identifier not found
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Source\MainMenu.cpp(83,9): error C2039: 'next': is not a member of 'GSM'
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Source\MainMenu.cpp(9,11): message : see declaration of 'GSM'
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Source\MainMenu.cpp(83,14): error C2065: 'next': undeclared identifier
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Source\MainMenu.cpp(83,29): error C2838: 'LEVEL2': illegal qualified name in member declaration
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Source\MainMenu.cpp(83,35): error C2065: 'LEVEL2': undeclared identifier
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Source\MainMenu.cpp(85,11): error C2039: 'buttonClick': is not a member of 'IM'
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Header\InputManager.h(4,11): message : see declaration of 'IM'
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Source\MainMenu.cpp(85): error C3861: 'buttonClick': identifier not found
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Source\MainMenu.cpp(87,9): error C2039: 'next': is not a member of 'GSM'
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Source\MainMenu.cpp(9,11): message : see declaration of 'GSM'
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Source\MainMenu.cpp(87,14): error C2065: 'next': undeclared identifier
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Source\MainMenu.cpp(87,22): error C2039: 'GS_QUIT': is not a member of 'Enum'
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Header\Enumeration.h(10,11): message : see declaration of 'Enum'
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Source\MainMenu.cpp(87,29): error C2065: 'GS_QUIT': undeclared identifier
   ObjectManager.cpp
-C:\Users\notRe\OneDrive\Projects\HopWards\Header\Enumeration.h(7,16): error C7631: '`anonymous-namespace'::gameTime': variable with internal linkage declared but not defined
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Header\GameStateManager.h(16,16): error C2653: 'Level1': is not a class or namespace name
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Header\GameStateManager.h(16,26): error C2146: syntax error: missing ')' before identifier 'FP'
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Header\GameStateManager.h(16,26): error C3646: 'FP': unknown override specifier
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Header\GameStateManager.h(16,28): error C2059: syntax error: ')'
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Header\GameStateManager.h(16,30): error C2062: type 'void' unexpected
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Header\GameStateManager.h(16,35): error C2238: unexpected token(s) preceding ';'
+  Options.cpp
   SimulationManager.cpp
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\SimulationManager.cpp(8,45): warning C4458: declaration of 'dir' hides class member
-C:\Users\notRe\OneDrive\Projects\HopWards\Header\ObjectManager.h(51,13): message : see declaration of 'OM::Character::dir'
-C:\Users\notRe\OneDrive\Projects\HopWards\Header\Enumeration.h(7,16): error C7631: '`anonymous-namespace'::gameTime': variable with internal linkage declared but not defined
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Header\GameStateManager.h(16,16): error C2653: 'Level1': is not a class or namespace name
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Header\GameStateManager.h(16,26): error C2146: syntax error: missing ')' before identifier 'FP'
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Header\GameStateManager.h(16,26): error C3646: 'FP': unknown override specifier
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Header\GameStateManager.h(16,28): error C2059: syntax error: ')'
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Header\GameStateManager.h(16,30): error C2062: type 'void' unexpected
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Header\GameStateManager.h(16,35): error C2238: unexpected token(s) preceding ';'
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Source\SimulationManager.cpp(8,45): warning C4458: declaration of 'dir' hides class member
+C:\Users\Faliq\source\repos\Four_Guys_Unstable\Header\ObjectManager.h(51,13): message : see declaration of 'OM::Character::dir'
   Generating Code...

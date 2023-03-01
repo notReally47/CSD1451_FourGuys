@@ -5,7 +5,7 @@ namespace GSM
 	GameStateManager::GameStateManager()
 	{
 		using enum GAME_STATES;
-
+		
 		this->fpLoad		= nullptr;
 		this->fpInit		= nullptr;
 		this->fpUpdate		= nullptr;

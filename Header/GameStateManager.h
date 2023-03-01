@@ -12,6 +12,9 @@ namespace GSM
 		GameStateManager();
 		~GameStateManager();
 
+		/*DEFINES*/
+		typedef void(Level1::* FP)(void);
+
 		/*MEMBER FUNCTIONS*/
 		void				Initialise(GAME_STATES);
 		void				Update();

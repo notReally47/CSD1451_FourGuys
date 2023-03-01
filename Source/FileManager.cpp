@@ -143,13 +143,13 @@ namespace FM
 
 		delete OBJ;				// Delete Temporary Struct
 		ifs.close();			// Close File Stream
-		return vector_obj;		// Return New Vector
+		return &vector_obj;		// Return New Vector
 
 	}// END LoadShapeFromYAML
 
 
 
-	vector<OM::ObjectInst>* Import::Load_Transform_From_YAML(const string level_number) {
+	vector<OM::ObjectInst>* Import::Load_Transform_From_YAML(const string level_number, vector<OM::Object>& vO) {
 
 		// Strings for Filtering through the YAML file
 		string
@@ -204,9 +204,9 @@ namespace FM
 									// If Node is "Type"
 									if (object_data_type == "Type") {
 										l.second() >> type;
-										for (int m{ 0 }; m <vector_OBJ.size(); m++)
-											if (vector_OBJ[m].type == type)
-												OBJ_INST->pObj = &vector_OBJ[m];
+										for (int m{ 0 }; m < vO.size(); m++)
+											if (vO[m].type == type)
+												OBJ_INST->pObj = &vO[m];
 									}
 
 									// If Node is "Flag"
@@ -249,7 +249,7 @@ namespace FM
 
 		delete OBJ_INST;			// Delete Temporary Struct
 		ifs.close();				// Close File Stream
-		return vector_obj_inst;		// Return New Vector
+		return &vector_obj_inst;		// Return New Vector
 
 	}// END LoadTransformFromYAML
 
@@ -354,7 +354,7 @@ namespace FM
 	void Set_Object_Transform_Type(vector<OM::ObjectInst>& vOBJ_INST, string& object_type, int& object_count, int& index, ofstream& data_file);
 	void Print_To_Transform_YAML(vector<OM::ObjectInst>& vOBJ_INST, OM::Character p_player, string& object_type, stringstream& object_type_number, int& index, ofstream& data_file);
 
-	void Export::Extract_Transform_Data_Out(const string level_number)
+	void Export::Extract_Transform_Data_Out(vector<OM::ObjectInst> vOI, OM::Character p_player, const string level_number)
 	{
 
 		// file name to extract to based on level_number
@@ -381,12 +381,12 @@ namespace FM
 			data_file << "Object_Instance:" << endl;														// second line is 'Object_Instance: '
 
 			// iterate through data vector
-			for (int i{ 0 }, object_count{ 0 }; i < this->size(); i++, object_count++) {
-				type = vOBJ_INST[i].pObj->type;															// set type enum for object type
+			for (int i{ 0 }, object_count{ 0 }; i < vOI.size(); i++, object_count++) {
+				type = vOI[i].pObj->type;															// set type enum for object type
 
 				// if object type changes, prints different object as header for list
 				if (type != previous_type)
-					Set_Object_Transform_Type(vOBJ_INST, object_type, object_count, i, data_file);
+					Set_Object_Transform_Type(vOI, object_type, object_count, i, data_file);
 
 				// adding '0' to front of object count if less than 10
 				if (object_count < 10)
@@ -394,7 +394,7 @@ namespace FM
 				else
 					object_type_number << object_count;
 
-				Print_To_Transform_YAML(vOBJ_INST, p_player, object_type, object_type_number, i, data_file);	// print data of object to file
+				Print_To_Transform_YAML(vOI, p_player, object_type, object_type_number, i, data_file);	// print data of object to file
 
 				previous_type = type;
 			}
@@ -408,33 +408,33 @@ namespace FM
 
 
 
-	void Set_Object_Transform_Type(vector<OM::ObjectInst>& vOBJ_INST, string& object_type, int& object_count, int& index, ofstream& data_file) {
+	void Set_Object_Transform_Type(vector<OM::ObjectInst>& vOI, string& object_type, int& object_count, int& index, ofstream& data_file) {
 		object_count = 0;												// Reset Object Count
-		if (vOBJ_INST[index].pObj->type == Enum::TYPE::PLAYER) {
+		if (vOI[index].pObj->type == Enum::TYPE::PLAYER) {
 			object_type = "00_Player";									// Set to Player
 			data_file << "  " << object_type << ":" << endl;
 		}
-		else if (vOBJ_INST[index].pObj->type == Enum::TYPE::FLOOR) {
+		else if (vOI[index].pObj->type == Enum::TYPE::FLOOR) {
 			object_type = "01_Floor";									// Set to Floor
 			data_file << "  " << object_type << ":" << endl;
 		}
-		else if (vOBJ_INST[index].pObj->type == Enum::TYPE::WALL) {
+		else if (vOI[index].pObj->type == Enum::TYPE::WALL) {
 			object_type = "02_Wall";									// Set to Wall
 			data_file << "  " << object_type << ":" << endl;
 		}
-		else if (vOBJ_INST[index].pObj->type == Enum::TYPE::DECO) {
+		else if (vOI[index].pObj->type == Enum::TYPE::DECO) {
 			object_type = "03_Decoration";								// Set to Decoration
 			data_file << "  " << object_type << ":" << endl;
 		}
-		else if (vOBJ_INST[index].pObj->type == Enum::TYPE::PORTRAIT) {
+		else if (vOI[index].pObj->type == Enum::TYPE::PORTRAIT) {
 			object_type = "04_Portrait";								// Set to Portrait
 			data_file << "  " << object_type << ":" << endl;
 		}
-		else if (vOBJ_INST[index].pObj->type == Enum::TYPE::LANDSCAPE) {
+		else if (vOI[index].pObj->type == Enum::TYPE::LANDSCAPE) {
 			object_type = "05_Landscape";								// Set to Landscape
 			data_file << "  " << object_type << ":" << endl;
 		}
-		else if (vOBJ_INST[index].pObj->type == Enum::TYPE::PLATFORM) {
+		else if (vOI[index].pObj->type == Enum::TYPE::PLATFORM) {
 			object_type = "06_Platform";								// Set to Platform
 			data_file << "  " << object_type << ":" << endl;
 		}
@@ -442,29 +442,29 @@ namespace FM
 
 
 
-	void Print_To_Transform_YAML(vector<OM::ObjectInst>& vOBJ_INST, OM::Character p_player, string& object_type, stringstream& object_type_number, int& index, ofstream& data_file) {
+	void Print_To_Transform_YAML(vector<OM::ObjectInst>& vOI, OM::Character p_player, string& object_type, stringstream& object_type_number, int& index, ofstream& data_file) {
 
 		// Print data of object to file
 		data_file << "    " << object_type << "_" << object_type_number.str() << ":" << endl;
 		object_type_number.str(string());
-		data_file << "      " << "Type: " << vOBJ_INST[index].pObj->type << endl;
-		data_file << "      " << "Flag: " << vOBJ_INST[index].flag << endl;
+		data_file << "      " << "Type: " << vOI[index].pObj->type << endl;
+		data_file << "      " << "Flag: " << vOI[index].flag << endl;
 		data_file << "      " << "Texture_Offset:" << endl;
-		data_file << "        " << "x_offset: " << vOBJ_INST[index].tex_offset.x << endl;
-		data_file << "        " << "y_offset: " << vOBJ_INST[index].tex_offset.y << endl;
+		data_file << "        " << "x_offset: " << vOI[index].tex_offset.x << endl;
+		data_file << "        " << "y_offset: " << vOI[index].tex_offset.y << endl;
 		data_file << "      " << "Transformation:" << endl;
-		data_file << "        " << "scale_x: " << vOBJ_INST[index].transform.m[0][0] << endl;
-		data_file << "        " << "shear_x: " << vOBJ_INST[index].transform.m[0][1] << endl;
-		data_file << "        " << "position_x: " << vOBJ_INST[index].transform.m[0][2] << endl;
-		data_file << "        " << "shear_y: " << vOBJ_INST[index].transform.m[1][0] << endl;
-		data_file << "        " << "scale_y: " << vOBJ_INST[index].transform.m[1][1] << endl;
-		data_file << "        " << "position_y: " << vOBJ_INST[index].transform.m[1][2] << endl;
-		data_file << "        " << "elapsed: " << vOBJ_INST[index].transform.m[2][0] << endl;
-		data_file << "        " << "empty: " << vOBJ_INST[index].transform.m[2][1] << endl;
-		data_file << "        " << "position_z: " << vOBJ_INST[index].transform.m[2][2] << endl;
+		data_file << "        " << "scale_x: " << vOI[index].transform.m[0][0] << endl;
+		data_file << "        " << "shear_x: " << vOI[index].transform.m[0][1] << endl;
+		data_file << "        " << "position_x: " << vOI[index].transform.m[0][2] << endl;
+		data_file << "        " << "shear_y: " << vOI[index].transform.m[1][0] << endl;
+		data_file << "        " << "scale_y: " << vOI[index].transform.m[1][1] << endl;
+		data_file << "        " << "position_y: " << vOI[index].transform.m[1][2] << endl;
+		data_file << "        " << "elapsed: " << vOI[index].transform.m[2][0] << endl;
+		data_file << "        " << "empty: " << vOI[index].transform.m[2][1] << endl;
+		data_file << "        " << "position_z: " << vOI[index].transform.m[2][2] << endl;
 
 		// Player Stats
-		if (vOBJ_INST[index].pObj->type == Enum::TYPE::PLAYER) {
+		if (vOI[index].pObj->type == Enum::TYPE::PLAYER) {
 			data_file << "      " << "Direction:" << endl;
 			data_file << "        " << "direction_x: " << p_player.dir.x << endl;
 			data_file << "        " << "direction_y: " << p_player.dir.y << endl;
@@ -489,23 +489,23 @@ namespace FM
 	const static int count = 3;
 
 
-	void Option_Change(vector<OM::ObjectInst>& vOBJ_INST) {
+	void Option_Change(vector<OM::ObjectInst>& vOI) {
 		// Scale Value
 		f32 scaling = 1920.0f / static_cast<f32>(AEGetWindowWidth());
 
 		//Set Object to ObjectInstance
-		for (size_t i{ 0 }; i < vOBJ_INST.size(); i++) {
+		for (size_t i{ 0 }; i < vOI.size(); i++) {
 			for (int j{ 0 }; j < count * 3; j++)
-				vOBJ_INST[i].transform.m[j / count][j % count] /= scaling;
+				vOI[i].transform.m[j / count][j % count] /= scaling;
 		}
 
 	}// END Init_Object_From_Vector
 
 
 
-	void Init_Player(OM::ObjectInst* OBJ_INST, OM::Character* sCHARACTER, OM::Character& p_player) {
+	void Init_Player(OM::ObjectInst* vOI, OM::Character* sCHARACTER, OM::Character& p_player) {
 
-		p_player.pObjInst = OBJ_INST;							// Set Player ObjectInstance
+		p_player.pObjInst = vOI;							// Set Player ObjectInstance
 		p_player.dir = (*sCHARACTER).dir;					// Set Player Direction
 		p_player.input = (*sCHARACTER).input;				// Set Player Input
 		p_player.zVel = (*sCHARACTER).zVel;					// Set Player z velocity
