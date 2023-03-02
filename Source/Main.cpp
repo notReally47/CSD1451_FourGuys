@@ -23,7 +23,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 	/*INITIALIZATIONS*/
 	EM::WindowCreate(hInstance, nCmdShow);
 
-	AE_ASSERT_MESG(GSM::fontId = AEGfxCreateFont("Roboto-Regular.ttf", 12), "Failed to load font");
+	AE_ASSERT_MESG(GSM::fontId = AEGfxCreateFont("../Resource/Font/fude.ttf", 12), "Failed to load font");
 
 	Initialise(GAME_STATES::LEVEL1);
 	
