@@ -15,9 +15,10 @@ namespace Enum {
 	};
 
 	enum DIRECTION {
-		NONE,
-		RIGHT,
-		LEFT
+		NORTH,
+		SOUTH,
+		EAST,
+		WEST
 	};
 
 	enum TYPE {

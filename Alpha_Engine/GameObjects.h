@@ -64,4 +64,5 @@ namespace GameObjects
 	void ConvertWorld(f32& x, f32& y);
 	f32 distance(AEVec2 p1, AEVec2 p2);
 	f32 distanceFromAEVec2ToLine(AEVec2 p, AEVec2* l);
+	f32 GetLineFromDirection(ObjectInst obj, ObjectInst player, int direction);
 }

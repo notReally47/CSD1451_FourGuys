@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "AnimationHandler.h"
+#include <iostream>
 //#include <string>
 //#include <iostream>
 
@@ -48,7 +49,7 @@ namespace GameObjects
 		}
 		else if (obj.pObj->type == Enum::TYPE::PLATFORM)
 		{
-			if (obj.flag == FLAG_ALT1_S) {
+			/*if (obj.flag == FLAG_ALT1_S) {
 				obj.transform.m[2][0] += dt;
 				obj.transform.m[0][2] -= dt * 10.f;
 				obj.transform.m[1][2] += dt * 5.f;
@@ -71,7 +72,7 @@ namespace GameObjects
 				obj.transform.m[0][2] += dt * 10.f;
 				obj.transform.m[1][2] += dt * 5.f;
 				obj.flag = (obj.transform.m[2][0] > 5.f) ? (obj.transform.m[2][0] = .0f, FLAG_ALT2_S) : obj.flag;
-			}
+			}*/
 			/*Set texture*/
 			AEGfxTextureSet(obj.pObj->pTex, obj.tex_offset.x, obj.tex_offset.y);
 		}
@@ -103,35 +104,46 @@ namespace GameObjects
 
 	}
 
-	//AEVec2* GetVertices(const ObjectInst obj) {
-	//	AEVec2* vertices = { new AEVec2[4] };
-	//	AEVec2 original[4] = {
-	//		/* object position x +- object width - object position y +- object height */
-	//		AEVec2{ obj.transform.m[0][2] - obj.transform.m[0][0], obj.transform.m[1][2] + obj.transform.m[1][1] },
-	//		AEVec2{ obj.transform.m[0][2] + obj.transform.m[0][0], obj.transform.m[1][2] + obj.transform.m[1][1] },
-	//		AEVec2{ obj.transform.m[0][2] + obj.transform.m[0][0], obj.transform.m[1][2] - obj.transform.m[1][1] },
-	//		AEVec2{ obj.transform.m[0][2] - obj.transform.m[0][0], obj.transform.m[1][2] - obj.transform.m[1][1] }
-	//	};
+	f32 GetLineFromDirection(ObjectInst obj, ObjectInst player, int direction) {
+		AEVec2 line[2];
+		switch (direction) {
+		case Enum::NORTH: // y increaseing
+			line[0] = AEVec2{ obj.transform.m[0][2] - 0.5f, obj.transform.m[1][2] - 0.5f };
+			line[1] = AEVec2{ obj.transform.m[0][2] + 0.5f, obj.transform.m[1][2] - 0.5f };
+			break;
+		case Enum::SOUTH:
+			line[0] = AEVec2{ obj.transform.m[0][2] - 0.5f, obj.transform.m[1][2] + 0.5f };
+			line[1] = AEVec2{ obj.transform.m[0][2] + 0.5f, obj.transform.m[1][2] + 0.5f };
+			break;
+		case Enum::EAST:
+			line[0] = AEVec2{ obj.transform.m[0][2] - 0.5f, obj.transform.m[1][2] - 0.5f };
+			line[1] = AEVec2{ obj.transform.m[0][2] - 0.5f, obj.transform.m[1][2] + 0.5f };
+			break;
+		case Enum::WEST:
+			line[0] = AEVec2{ obj.transform.m[0][2] + 0.5f, obj.transform.m[1][2] - 0.5f };
+			line[1] = AEVec2{ obj.transform.m[0][2] + 0.5f, obj.transform.m[1][2] + 0.5f };
+			break;
+		default:
+			break;
+		}
+		AEVec2 pos = { player.transform.m[0][2],
+						player.transform.m[1][2] };
+		f32 distance = 1.f / distanceFromAEVec2ToLine(pos, line);
 
-	//	/* Get vertex after rotation. Vertex rotates around the center of the mesh */
-	//	for (int i = 0; i < 4; i++) {
-	//		f32 posX = original[i].x - obj.transform.m[0][2];
-	//		f32 posY = original[i].y - obj.transform.m[1][2];
-	//		vertices[i].x = posX * static_cast<f32>(cos(-.0f)) - posY * static_cast<f32>(sin(-.0f)) + obj.transform.m[0][2];
-	//		vertices[i].y = posX * static_cast<f32>(sin(-.0f)) + posY * static_cast<f32>(cos(-.0f)) + obj.transform.m[1][2];
-	//	}
-
-	//	return vertices;
-	//}
+		//distance *= obj.pObj->length * distance;
+		std::cout << distance << std::endl;
+		//return line;
+		return distance;
+	}
 
 	AEVec2* GetVerticesXY(const ObjectInst obj, int& count) {
 		count = 4;
 		AEVec2* xyCoords = { new AEVec2[count] };
 
-		xyCoords[0] = AEVec2{ obj.transform.m[0][2] - obj.pObj->width / 2.f, obj.transform.m[1][2] + obj.pObj->length / 2.f }; //top right
-		xyCoords[1] = AEVec2{ obj.transform.m[0][2] + obj.pObj->width / 2.f, obj.transform.m[1][2] + obj.pObj->length / 2.f }; //top left
-		xyCoords[2] = AEVec2{ obj.transform.m[0][2] + obj.pObj->width / 2.f, obj.transform.m[1][2] - obj.pObj->length / 2.f }; //bot right
-		xyCoords[3] = AEVec2{ obj.transform.m[0][2] - obj.pObj->width / 2.f, obj.transform.m[1][2] - obj.pObj->length / 2.f }; //bot left
+		xyCoords[0] = AEVec2{ obj.transform.m[0][2] * obj.pObj->width - obj.pObj->width / 2.f, obj.transform.m[1][2] * obj.pObj->length + obj.pObj->length / 2.f }; //top right
+		xyCoords[1] = AEVec2{ obj.transform.m[0][2] * obj.pObj->width + obj.pObj->width / 2.f, obj.transform.m[1][2] * obj.pObj->length + obj.pObj->length / 2.f }; //top left
+		xyCoords[2] = AEVec2{ obj.transform.m[0][2] * obj.pObj->width + obj.pObj->width / 2.f, obj.transform.m[1][2] * obj.pObj->length - obj.pObj->length / 2.f }; //bot right
+		xyCoords[3] = AEVec2{ obj.transform.m[0][2] * obj.pObj->width - obj.pObj->width / 2.f, obj.transform.m[1][2] * obj.pObj->length - obj.pObj->length / 2.f }; //bot left
 
 		//TODO: Any rotatation 
 		return xyCoords;
@@ -164,18 +176,6 @@ namespace GameObjects
 	}
 
 	AEVec2* GetVerticesYZ(const ObjectInst obj, int& count) {
-		//count = 3;
-		//AEVec2* xzCoords = { new AEVec2[count] };
-		//xzCoords[0] = AEVec2{ obj.transform.m[1][2] - obj.pObj->width / 3,
-		//						obj.transform.m[2][2] - obj.pObj->height / 3 };		// bot left
-
-		//xzCoords[1] = AEVec2{ obj.transform.m[1][2] - obj.pObj->width / 3,
-		//						obj.transform.m[2][2] + (2 * obj.pObj->height) / 3 }; // top left
-
-		//xzCoords[2] = AEVec2{ obj.transform.m[1][2] + (2 * obj.pObj->width) / 3,
-		//						obj.transform.m[2][2] - obj.pObj->height / 3 };		// bot right
-
-		//return xzCoords;
 		if (obj.pObj->type == Enum::PLAYER) {
 			count = 4;
 			AEVec2* yzCoords = { new AEVec2[count] };
@@ -204,8 +204,8 @@ namespace GameObjects
 		f32 yPos = obj.transform.m[1][2];
 		f32 zPos = obj.transform.m[2][2];
 
-		transform.m[0][2] = (xPos - yPos);
-		transform.m[1][2] = ((xPos + yPos) / 2.f) + zPos;
+		transform.m[0][2] = (xPos - yPos) * obj.pObj->width;
+		transform.m[1][2] = (xPos + yPos) * obj.pObj->length / 2.f + zPos + obj.pObj->height / 2.f;
 		return transform;
 	}
 
