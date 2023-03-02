@@ -90,15 +90,13 @@ namespace InputHandler {
 	bool PlayerJump(GameObjects::Character& player) {
 		player.zVel = GRAVITY * (f32)AEFrameRateControllerGetFrameTime() + player.zVel;
 
-		if (AEInputCheckTriggered(AEVK_SPACE) && player.pObjInst.transform.m[2][2] == 0) {
+		if (AEInputCheckTriggered(AEVK_SPACE)) {
 			player.zVel = sqrt(2 * -GRAVITY * (JUMP_HEIGHT));
 		}
-
+		
 		player.pObjInst.transform.m[2][2] = player.zVel * (f32)AEFrameRateControllerGetFrameTime() + player.pObjInst.transform.m[2][2];
-		if (player.pObjInst.transform.m[2][2] < 0)
-			player.pObjInst.transform.m[2][2] = 0;
 
-		return player.pObjInst.transform.m[2][2] > 0;
+		return false;
 	}
 
 	bool buttonClick(s32 mouseX, s32 mouseY, float buttonX, float buttonY) {

@@ -31,9 +31,9 @@ namespace Level1 {
 		/*TILE OBJECT*/
 		tileObj.width = 64.f;
 		tileObj.length = 64.f;
-		tileObj.height = 9.f;
+		tileObj.height = 64.f / 7.f;
 		tileObj.type = Enum::FLOOR;
-		tileObj.pTex = AEGfxTextureLoad("../Assets/Textures/iso.png");
+		tileObj.pTex = AEGfxTextureLoad("../Assets/Textures/floor.png");
 
 		AEGfxMeshStart();
 		AEGfxTriAdd(
@@ -50,9 +50,9 @@ namespace Level1 {
 		/*TILE OBJECT END*/
 
 		/*PLAYER OBJECT*/
-		playerObj.width = 37.f;
-		playerObj.length = 37.f;
-		playerObj.height = 74.f;
+		playerObj.width = 16.f;
+		playerObj.length = 16.f;
+		playerObj.height = 32.f;
 		playerObj.type = Enum::PLAYER;
 		playerObj.pTex = AEGfxTextureLoad("../Assets/Sprites/player.png");
 
@@ -92,9 +92,9 @@ namespace Level1 {
 		/*STAIR OBJECT*/
 		stairObj.width = 64.f;
 		stairObj.length = 64.f;
-		stairObj.height = 80.f;
+		stairObj.height = 8.f * 64.f / 7.f;
 		stairObj.type = Enum::PLATFORM;
-		stairObj.pTex = AEGfxTextureLoad("../Assets/Textures/stairs.png");
+		stairObj.pTex = AEGfxTextureLoad("../Assets/Textures/ianr1.png");
 
 		AEGfxMeshStart();
 		AEGfxTriAdd(
@@ -115,9 +115,9 @@ namespace Level1 {
 		playerObjInst.flag = 1;
 		playerObjInst.pObj = &playerObj;
 		playerObjInst.tex_offset = AEVec2{ 0, 0 };
-		playerObjInst.transform = AEMtx33{ 30.f, 0, 0,
-													0, 30.f, 0,
-													0, 0, 0 };
+		playerObjInst.transform = AEMtx33{ playerObj.width * 2.f, 0, 0,
+											0, playerObj.length + playerObj.height, 0,
+											0, 0, 10 };
 		/*
 			[0][0] scale_x,		[0][1] 0(shearx),	[0][2] world x,
 			[1][0] 0(sheary),	[1][1] scale_y,		[1][2] world y,
@@ -139,8 +139,8 @@ namespace Level1 {
 				tiles[i][j].flag = 1;
 				tiles[i][j].pObj = &tileObj;
 				tiles[i][j].tex_offset = AEVec2{ 0, 0 };
-				tiles[i][j].transform = AEMtx33{ tileObj.width, 0, (i * tileObj.width),
-													0, tileObj.length, (j * tileObj.length),
+				tiles[i][j].transform = AEMtx33{ tileObj.width * 2.f, 0, (i * tileObj.width),
+													0, tileObj.length + tileObj.height, (j * tileObj.length),
 													0, 0, 0 };
 
 				//wall[i][j] .flag		= 1;
@@ -155,16 +155,16 @@ namespace Level1 {
 		stair.flag = 1;
 		stair.pObj = &stairObj;
 		stair.tex_offset = AEVec2{ 0, 0 };
-		stair.transform = AEMtx33{ stairObj.width * 2.f, 0, 120.f,
-										0, stairObj.length + tileObj.height, 120.f - tileObj.height,
-										0, 0, 0 };
+		stair.transform = AEMtx33{ stairObj.width * 2.f, 0, 128.f,
+									0, stairObj.length * 2.f + stairObj.height, 128.f,
+									0, 0, 10 };
 	}
 
 	void Level1_Update() {
 		/*HANDLE INPUT*/
 		InputHandler::ExitGame(GSM::next);
 
-		//player.isJumping = InputHandler::PlayerJump(player);
+		player.isJumping = InputHandler::PlayerJump(player);
 		player.pObjInst.flag = (InputHandler::playerMovement(player)) ? GameObjects::FLAG_ACTIVE : GameObjects::FLAG_INACTIVE;
 
 		/*MOVEMENT*/
@@ -174,21 +174,34 @@ namespace Level1 {
 		f32 depthXY, depthYZ, depthXZ;
 		AEVec2 normalXY, normalYZ, normalXZ;
 		std::pair<f32, AEVec2> XY{ depthXY, normalXY }, YZ{ depthXY, normalYZ }, XZ{ depthXY, normalXZ }, response;
-		bool a, b, c;
 
-		a = CollisionHandler::SAT_Collision(player.pObjInst, stair, depthXY, normalXY, GameObjects::GetVerticesXY);
-		//b = CollisionHandler::SAT_Collision(player.pObjInst, stair, depthXY, normalXY, GameObjects::GetVerticesXZ);
-		c = CollisionHandler::SAT_Collision(player.pObjInst, stair, depthYZ, normalYZ, GameObjects::GetVerticesYZ);
+		bool a, b, c;
+		f32* xPos = &player.pObjInst.transform.m[0][2];
+		f32* yPos = &player.pObjInst.transform.m[1][2];
 		f32* zPos = &player.pObjInst.transform.m[2][2];
 
+		for (int i = x_size - 1; i >= 0; i--) {
+			for (int j = y_size - 1; j >= 0; j--) {
+				a = CollisionHandler::SAT_Collision(player.pObjInst, tiles[i][j], depthXY, normalXY, GameObjects::GetVerticesXY);
+				b = CollisionHandler::SAT_Collision(player.pObjInst, tiles[i][j], depthXY, normalXY, GameObjects::GetVerticesXZ);
+				c = CollisionHandler::SAT_Collision(player.pObjInst, tiles[i][j], depthYZ, normalYZ, GameObjects::GetVerticesYZ);
+				if (a && b && c) {
+					AEVec2Scale(&normalYZ, &normalYZ, depthYZ);
+					//*yPos -= normalXY.x;
+					*zPos -= normalXY.y;
+				}
+			}
+		}
+
+
+		a = CollisionHandler::SAT_Collision(player.pObjInst, stair, depthXY, normalXY, GameObjects::GetVerticesXY);
+		b = CollisionHandler::SAT_Collision(player.pObjInst, stair, depthXY, normalXY, GameObjects::GetVerticesXZ);
+		c = CollisionHandler::SAT_Collision(player.pObjInst, stair, depthYZ, normalYZ, GameObjects::GetVerticesYZ);
+
 		if (a) {
-			f32* xPos = &player.pObjInst.transform.m[0][2];
-			f32* yPos = &player.pObjInst.transform.m[1][2];
-			//if (depthXY < depthYZ) {
-			//	AEVec2Scale(&normalXY, &normalXY, depthXY);
-			//	*xPos -= normalXY.x;
-			//	*yPos -= normalXY.y;
-			//}
+			//AEVec2Scale(&normalXY, &normalXY, depthXY);
+			//*xPos -= normalXY.x;
+			//*yPos -= normalXY.y;
 			//else { 
 			//	AEVec2Scale(&normalYZ, &normalYZ, depthYZ);
 			//	*yPos -= normalXY.x;
@@ -197,22 +210,20 @@ namespace Level1 {
 			//AEVec2Scale(&normalXY, &normalXY, depthXY);
 			//*xPos -= normalXY.x;
 			//*yPos -= normalXY.y;
-			//if (c) {
-			//	AEVec2Scale(&normalYZ, &normalYZ, depthYZ);
-			//	//*yPos -= normalYZ.x;
-			//	*zPos += normalYZ.y;
-			//}
-			AEVec2* line = new AEVec2[2];
-			line[0] = AEVec2{ stair.transform.m[0][2] - stair.pObj->width / 2, stair.transform.m[1][2] - stair.pObj->length / 2 }; //bot right
-			line[1] = AEVec2{ stair.transform.m[0][2] + stair.pObj->width / 2, stair.transform.m[1][2] - stair.pObj->length / 2 }; //bot left
-			AEVec2 pos = { *xPos, *yPos + player.pObjInst.pObj->height / 2.f };
+			//AEVec2Scale(&normalYZ, &normalYZ, depthYZ);
+			//*yPos -= normalYZ.x;
+			//*zPos -= normalYZ.y;
+			//AEVec2* line = new AEVec2[2];
+			//line[0] = AEVec2{ stair.transform.m[0][2] - stair.pObj->width / 2, stair.transform.m[1][2] - stair.pObj->length / 2 }; //bot right
+			//line[1] = AEVec2{ stair.transform.m[0][2] + stair.pObj->width / 2, stair.transform.m[1][2] - stair.pObj->length / 2 }; //bot left
+			//AEVec2 pos = { *xPos, *yPos + player.pObjInst.pObj->height / 2.f };
 
-			f32 dist = GameObjects::distanceFromAEVec2ToLine(pos, line);
-			*zPos = dist / 2.f;
-			delete[] line;
-			std::cout << dist << std::endl;
+			//f32 dist = GameObjects::distanceFromAEVec2ToLine(pos, line);
+			//*zPos = dist / 2.f;
+			//delete[] line;
+			//std::cout << dist << std::endl;
 		}
-		else *zPos = 0;
+		//else *zPos = 0;
 
 
 		AEGfxSetCamPosition(0.f, player.pObjInst.transform.m[1][2]);
@@ -220,11 +231,11 @@ namespace Level1 {
 
 	void Level1_Draw() {
 		GameObjects::RenderSettings();
-		//for (int i = 0; i < x_size; i++) {
-		//	for (int j = 0; j < y_size; j++) {
-		//		GameObjects::RenderObject(tiles[i][j]);
-		//	}
-		//}
+		for (int i = x_size - 1; i >= 0; i--) {
+			for (int j = y_size - 1; j >= 0; j--) {
+				GameObjects::RenderObject(tiles[i][j]);
+			}
+		}
 
 		GameObjects::RenderObject(stair);
 		AnimationHandler::AnimateCharacter(player);

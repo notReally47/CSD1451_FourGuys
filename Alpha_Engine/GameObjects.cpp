@@ -189,8 +189,8 @@ namespace GameObjects
 		}
 		count = 3;
 		AEVec2* yzCoords = { new AEVec2[count] };
-		yzCoords[0] = AEVec2{ obj.transform.m[1][2] - obj.pObj->length / 2, obj.transform.m[2][2] + obj.pObj->height / 2 }; //top right
-		//yzCoords[0] = AEVec2{ obj.transform.m[1][2] + obj.pObj->width / 2, obj.transform.m[2][2] + obj.pObj->height / 2 }; //top left
+		//yzCoords[0] = AEVec2{ obj.transform.m[1][2] - obj.pObj->length / 2, obj.transform.m[2][2] + obj.pObj->height / 2 }; //top right
+		yzCoords[0] = AEVec2{ obj.transform.m[1][2] + obj.pObj->width / 2, obj.transform.m[2][2] + obj.pObj->height / 2 }; //top left
 		yzCoords[1] = AEVec2{ obj.transform.m[1][2] - obj.pObj->length / 2, obj.transform.m[2][2] - obj.pObj->height / 2 }; //bot right
 		yzCoords[2] = AEVec2{ obj.transform.m[1][2] + obj.pObj->length / 2, obj.transform.m[2][2] - obj.pObj->height / 2 }; //bot left
 
@@ -204,8 +204,8 @@ namespace GameObjects
 		f32 yPos = obj.transform.m[1][2];
 		f32 zPos = obj.transform.m[2][2];
 
-		transform.m[0][2] = xPos - yPos;
-		transform.m[1][2] = ((xPos + yPos) / 2.f) + zPos - 20;
+		transform.m[0][2] = (xPos - yPos);
+		transform.m[1][2] = ((xPos + yPos) / 2.f) + zPos;
 		return transform;
 	}
 
