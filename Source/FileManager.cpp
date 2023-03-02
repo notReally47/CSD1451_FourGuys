@@ -113,7 +113,7 @@ namespace FM
 								ifstream ifs_02(texture_filename);
 								if (!ifs_02.good()) {
 									texture_filename = "." + texture_filename;
-									ifs_02.open("." + texture_filename);
+									ifs_02.open(texture_filename);
 								}
 
 								// Set Object Texture and assert message if failed
@@ -508,13 +508,13 @@ namespace FM
 
 	void Init_Player(OM::ObjectInst* vOI, OM::Character* sCHARACTER, OM::Character& p_player) {
 
-		p_player.pObjInst = vOI;										// Set Player ObjectInstance
-		p_player.dir = (*sCHARACTER).dir;								// Set Player Direction
-		p_player.input = (*sCHARACTER).input;							// Set Player Input
-		p_player.zVel = (*sCHARACTER).zVel;								// Set Player z velocity
-		p_player.spriteIteration = (*sCHARACTER).spriteIteration;		// Set Player Sprite Iteration
+		p_player.pObjInst			= vOI;									// Set Player ObjectInstance
+		p_player.dir				= (*sCHARACTER).dir;					// Set Player Direction
+		p_player.input				= (*sCHARACTER).input;					// Set Player Input
+		p_player.zVel				= (*sCHARACTER).zVel;					// Set Player z velocity
+		p_player.spriteIteration	= (*sCHARACTER).spriteIteration;		// Set Player Sprite Iteration
 
-		delete sCHARACTER;												// Delete Struct
+		delete sCHARACTER;													// Delete Struct
 
 	}// END Init_Player
 }
