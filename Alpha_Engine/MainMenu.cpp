@@ -81,7 +81,7 @@ namespace MainMenu
 			// for (int i{}; i < (sizeof(objInst) / sizeof(objInst[0])); i++)
 			for (int i = 0; i < 3; i++)
 			{
-				if (InputHandler::buttonClick(objInst[i].GetPosX(), objInst[i].GetPosY()))
+				if (InputHandler::ButtonClick(objInst[i].GetPosX(), objInst[i].GetPosY()))
 				{
 					GSM::next = GAME_STATES::GS_LEVEL2;
 					// option = !option;
@@ -113,9 +113,9 @@ namespace MainMenu
 		}
 
 		AEGfxSetBlendMode(AE_GFX_BM_BLEND);
-		AEGfxPrint(fontId, strBuffer, GetScreenXPercentage(objInst[0].GetPosX()), GetScreenYPercentage(objInst[0].GetPosY()), 1.0f, 0.0f, 0.f, 0.f);
+		AEGfxPrint(fontId, strBuffer3, GetScreenXPercentage(objInst[0].GetPosX()), GetScreenYPercentage(objInst[0].GetPosY()), 1.0f, 0.0f, 0.f, 0.f);
 		AEGfxPrint(fontId, strBuffer2, GetScreenXPercentage(objInst[1].GetPosX()), GetScreenYPercentage(objInst[1].GetPosY()), 1.0f, 0.0f, 0.f, 0.f);
-		AEGfxPrint(fontId, strBuffer3, GetScreenXPercentage(objInst[2].GetPosX()), GetScreenYPercentage(objInst[2].GetPosY()), 1.0f, 0.0f, 0.f, 0.f);
+		AEGfxPrint(fontId, strBuffer, GetScreenXPercentage(objInst[2].GetPosX()), GetScreenYPercentage(objInst[2].GetPosY()), 1.0f, 0.0f, 0.f, 0.f);
 	}
 
 	/*CLEAN UP DATA (SAVE/RESET ETC)*/

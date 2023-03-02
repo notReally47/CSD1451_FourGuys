@@ -98,13 +98,21 @@ namespace InputHandler {
 		return player.pObjInst->GetPosZ() > 0;
 	}
 
-	bool buttonClick(float buttonX, float buttonY)
+	bool ButtonClick(float buttonX, float buttonY)
 	{
 		s32 mouseX, mouseY;
 		AEInputGetCursorPosition(&mouseX, &mouseY);
 		if (AEInputCheckReleased(AEVK_LBUTTON) && mouseX <= static_cast<s32>(AEGetWindowWidth() / 2 + (buttonX + 50.f)) && mouseX >= static_cast<s32>(AEGetWindowWidth() / 2 + (buttonX - 50.f)) && mouseY <= static_cast<s32>(AEGetWindowHeight() / 2 + (buttonY + 25.f)) && mouseY >= static_cast<s32>(AEGetWindowHeight() / 2 + (buttonY - 25.f)))
 			return true;
 		return false;
+	}
+	void PlayerInteractionF(Character &player)
+	{
+		if (AEInputCheckCurr(AEVK_F))
+		{
+			player.pObjInst->GetPosX() = 0.f;
+			player.pObjInst->GetPosY() = 0.f;
+		}
 	}
 
 }

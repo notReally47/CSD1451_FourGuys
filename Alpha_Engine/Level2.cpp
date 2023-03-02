@@ -61,6 +61,10 @@ namespace Level2
 		flag = (InputHandler::PlayerJump(p_player)) ? flag | JUMPING : flag & ~JUMPING;
 		flag = (InputHandler::PlayerMovement(p_player)) ? flag | ACTIVE : flag & ~ACTIVE;
 
+		// collision detection for isometric
+		
+
+
 		/*MOVEMENT*/
 		//PhysicsHandler::Move::MoveCharacter();
 		p_player.MoveCharacter();
@@ -86,7 +90,9 @@ namespace Level2
 			// 		}
 					
 			// }
+			
 		}
+		InputHandler::PlayerInteractionF(p_player);
 
 		/*COLLISIONS*/
 		// TODO: Collision
