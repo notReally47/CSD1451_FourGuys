@@ -7,21 +7,25 @@
 #include <yaml-cpp/yaml.h>			// For Parsing YAML Files
 
 #define DEBUG
+
 #ifdef DEBUG
 #include <iostream>
-#endif // DEBUG
+#endif
 
+/*
+*	IMPORT
+*/
 namespace FM
 {
 	vector<OM::Object>* Import::Load_Shape_From_YAML(const string level_number) {
 
 		// Strings for Filtering through the YAML file
 		string
-			find_object{ "Object" },
-			object_types{ "00_Player 01_Floor 02_Wall 03_Decoration 04_Portrait 05_Landscape 06_Platform" },
-			object_type{ 0 },
-			object_type_number{ 0 },
-			object_data_type{ 0 };
+			find_object			{ "Object" },
+			object_types		{ "00_Player 01_Floor 02_Wall 03_Decoration 04_Portrait 05_Landscape 06_Platform" },
+			object_type			{ 0 },
+			object_type_number	{ 0 },
+			object_data_type	{ 0 };
 
 		// YAML file to read from
 		string file_name{ "./Resource/Data/Level_" + level_number + "_Shape.yml" };
@@ -40,7 +44,7 @@ namespace FM
 
 		// Iterate through YAML File
 		for (YAML::Iterator i = yaml_document.begin(); i != yaml_document.end(); i++) {
-			string		key{ 0 };
+			string		key	{ 0 };
 			long		type{ 0 };
 
 			i.first() >> key;
@@ -153,11 +157,11 @@ namespace FM
 
 		// Strings for Filtering through the YAML file
 		string
-			find_object{ "Object_Instance" },
-			object_types{ "00_Player 01_Floor 02_Wall 03_Decoration 04_Portrait 05_Landscape 06_Platform" },
-			object_type{ 0 },
-			object_type_number{ 0 },
-			object_data_type{ 0 };
+			find_object			{ "Object_Instance" },
+			object_types		{ "00_Player 01_Floor 02_Wall 03_Decoration 04_Portrait 05_Landscape 06_Platform" },
+			object_type			{ 0 },
+			object_type_number	{ 0 },
+			object_data_type	{ 0 };
 
 		// YAML file to read from
 		string file_name{ "./Resource/Data/Level_" + level_number + "_Transform.yml" };
@@ -176,7 +180,7 @@ namespace FM
 
 		// Iterate through YAML File
 		for (YAML::Iterator i = yaml_document.begin(); i != yaml_document.end(); i++) {
-			string		key{ 0 };
+			string		key	{ 0 };
 			long		type{ 0 };
 			i.first() >> key;
 
@@ -218,22 +222,22 @@ namespace FM
 
 									// If Node is "Texture_Offset"
 									if (object_data_type == "Texture_Offset") {
-										l.second()["x_offset"] >> OBJ_INST->tex_offset.x;
-										l.second()["y_offset"] >> OBJ_INST->tex_offset.y;
+										l.second()["x_offset"]		>> OBJ_INST->tex_offset.x;
+										l.second()["y_offset"]		>> OBJ_INST->tex_offset.y;
 									}
 
 									// If Node is "Transformation"
 									if (object_data_type == "Transformation") {
 
-										l.second()["scale_x"] >> OBJ_INST->transform.m[0][0];
-										l.second()["shear_x"] >> OBJ_INST->transform.m[0][1];
-										l.second()["position_x"] >> OBJ_INST->transform.m[0][2];
-										l.second()["shear_y"] >> OBJ_INST->transform.m[1][0];
-										l.second()["scale_y"] >> OBJ_INST->transform.m[1][1];
-										l.second()["position_y"] >> OBJ_INST->transform.m[1][2];
-										l.second()["elapsed"] >> OBJ_INST->transform.m[2][0];
-										l.second()["empty"] >> OBJ_INST->transform.m[2][1];
-										l.second()["position_z"] >> OBJ_INST->transform.m[2][2];
+										l.second()["scale_x"]		>> OBJ_INST->transform.m[0][0];
+										l.second()["shear_x"]		>> OBJ_INST->transform.m[0][1];
+										l.second()["position_x"]	>> OBJ_INST->transform.m[0][2];
+										l.second()["shear_y"]		>> OBJ_INST->transform.m[1][0];
+										l.second()["scale_y"]		>> OBJ_INST->transform.m[1][1];
+										l.second()["position_y"]	>> OBJ_INST->transform.m[1][2];
+										l.second()["elapsed"]		>> OBJ_INST->transform.m[2][0];
+										l.second()["empty"]			>> OBJ_INST->transform.m[2][1];
+										l.second()["position_z"]	>> OBJ_INST->transform.m[2][2];
 									}
 								}// END For-Loop Through Numbered Object_Instance
 
@@ -247,8 +251,8 @@ namespace FM
 			}// END If key is Object_Instance
 		}// END For-Loop Through YAML File
 
-		delete OBJ_INST;			// Delete Temporary Struct
-		ifs.close();				// Close File Stream
+		delete OBJ_INST;				// Delete Temporary Struct
+		ifs.close();					// Close File Stream
 		return &vector_obj_inst;		// Return New Vector
 
 	}// END LoadTransformFromYAML
@@ -258,11 +262,11 @@ namespace FM
 	OM::Character* Import::Load_Player_Stats_From_YAML(const string level_number) {
 		// Strings for Filtering through the YAML file
 		string
-			find_object{ "Object_Instance" },
-			object_types{ "00_Player" },
-			object_type{ 0 },
-			object_type_number{ 0 },
-			object_data_type{ 0 };
+			find_object			{ "Object_Instance" },
+			object_types		{ "00_Player" },
+			object_type			{ 0 },
+			object_type_number	{ 0 },
+			object_data_type	{ 0 };
 
 		// YAML file to read from
 		string file_name{ "./Resource/Data/Level_" + level_number + "_Transform.yml" };
@@ -344,7 +348,7 @@ namespace FM
 
 
 /*
-*  EXPORT HERE
+*  EXPORT
 */
 
 namespace FM
@@ -377,12 +381,12 @@ namespace FM
 
 		// if out file successfully opened
 		if (data_file.is_open()) {
-			data_file << "Level: " + level_number << endl;												// first line is level number
+			data_file << "Level: " + level_number << endl;													// first line is level number
 			data_file << "Object_Instance:" << endl;														// second line is 'Object_Instance: '
 
 			// iterate through data vector
 			for (int i{ 0 }, object_count{ 0 }; i < vOI.size(); i++, object_count++) {
-				type = vOI[i].pObj->type;															// set type enum for object type
+				type = vOI[i].pObj->type;																	// set type enum for object type
 
 				// if object type changes, prints different object as header for list
 				if (type != previous_type)
@@ -447,32 +451,32 @@ namespace FM
 		// Print data of object to file
 		data_file << "    " << object_type << "_" << object_type_number.str() << ":" << endl;
 		object_type_number.str(string());
-		data_file << "      " << "Type: " << vOI[index].pObj->type << endl;
-		data_file << "      " << "Flag: " << vOI[index].flag << endl;
-		data_file << "      " << "Texture_Offset:" << endl;
-		data_file << "        " << "x_offset: " << vOI[index].tex_offset.x << endl;
-		data_file << "        " << "y_offset: " << vOI[index].tex_offset.y << endl;
-		data_file << "      " << "Transformation:" << endl;
-		data_file << "        " << "scale_x: " << vOI[index].transform.m[0][0] << endl;
-		data_file << "        " << "shear_x: " << vOI[index].transform.m[0][1] << endl;
-		data_file << "        " << "position_x: " << vOI[index].transform.m[0][2] << endl;
-		data_file << "        " << "shear_y: " << vOI[index].transform.m[1][0] << endl;
-		data_file << "        " << "scale_y: " << vOI[index].transform.m[1][1] << endl;
-		data_file << "        " << "position_y: " << vOI[index].transform.m[1][2] << endl;
-		data_file << "        " << "elapsed: " << vOI[index].transform.m[2][0] << endl;
-		data_file << "        " << "empty: " << vOI[index].transform.m[2][1] << endl;
-		data_file << "        " << "position_z: " << vOI[index].transform.m[2][2] << endl;
+		data_file << "      "	<< "Type: "				<< vOI[index].pObj->type		<< endl;
+		data_file << "      "	<< "Flag: "				<< vOI[index].flag				<< endl;
+		data_file << "      "	<< "Texture_Offset:"									<< endl;
+		data_file << "        " << "x_offset: "			<< vOI[index].tex_offset.x		<< endl;
+		data_file << "        " << "y_offset: "			<< vOI[index].tex_offset.y		<< endl;
+		data_file << "      "	<< "Transformation:"									<< endl;
+		data_file << "        " << "scale_x: "			<< vOI[index].transform.m[0][0] << endl;
+		data_file << "        " << "shear_x: "			<< vOI[index].transform.m[0][1] << endl;
+		data_file << "        " << "position_x: "		<< vOI[index].transform.m[0][2] << endl;
+		data_file << "        " << "shear_y: "			<< vOI[index].transform.m[1][0] << endl;
+		data_file << "        " << "scale_y: "			<< vOI[index].transform.m[1][1] << endl;
+		data_file << "        " << "position_y: "		<< vOI[index].transform.m[1][2] << endl;
+		data_file << "        " << "elapsed: "			<< vOI[index].transform.m[2][0] << endl;
+		data_file << "        " << "empty: "			<< vOI[index].transform.m[2][1] << endl;
+		data_file << "        " << "position_z: "		<< vOI[index].transform.m[2][2] << endl;
 
 		// Player Stats
 		if (vOI[index].pObj->type == Enum::TYPE::PLAYER) {
-			data_file << "      " << "Direction:" << endl;
-			data_file << "        " << "direction_x: " << p_player.dir.x << endl;
-			data_file << "        " << "direction_y: " << p_player.dir.y << endl;
-			data_file << "      " << "Input:" << endl;
-			data_file << "        " << "input_x: " << p_player.input.x << endl;
-			data_file << "        " << "input_y: " << p_player.input.y << endl;
-			data_file << "      " << "Z_Velocity: " << p_player.zVel << endl;
-			data_file << "      " << "Sprite_Iteration: " << p_player.spriteIteration << endl;
+			data_file << "      "	<< "Direction:"										<< endl;
+			data_file << "        " << "direction_x: "		<< p_player.dir.x			<< endl;
+			data_file << "        " << "direction_y: "		<< p_player.dir.y			<< endl;
+			data_file << "      "	<< "Input:"											<< endl;
+			data_file << "        " << "input_x: "			<< p_player.input.x			<< endl;
+			data_file << "        " << "input_y: "			<< p_player.input.y			<< endl;
+			data_file << "      "	<< "Z_Velocity: "		<< p_player.zVel			<< endl;
+			data_file << "      "	<< "Sprite_Iteration: " << p_player.spriteIteration << endl;
 		}
 
 		data_file << endl;
@@ -494,10 +498,9 @@ namespace FM
 		f32 scaling = 1920.0f / static_cast<f32>(AEGetWindowWidth());
 
 		//Set Object to ObjectInstance
-		for (size_t i{ 0 }; i < vOI.size(); i++) {
+		for (size_t i{ 0 }; i < vOI.size(); i++)
 			for (int j{ 0 }; j < count * 3; j++)
 				vOI[i].transform.m[j / count][j % count] /= scaling;
-		}
 
 	}// END Init_Object_From_Vector
 
@@ -505,13 +508,13 @@ namespace FM
 
 	void Init_Player(OM::ObjectInst* vOI, OM::Character* sCHARACTER, OM::Character& p_player) {
 
-		p_player.pObjInst = vOI;							// Set Player ObjectInstance
-		p_player.dir = (*sCHARACTER).dir;					// Set Player Direction
-		p_player.input = (*sCHARACTER).input;				// Set Player Input
-		p_player.zVel = (*sCHARACTER).zVel;					// Set Player z velocity
+		p_player.pObjInst = vOI;										// Set Player ObjectInstance
+		p_player.dir = (*sCHARACTER).dir;								// Set Player Direction
+		p_player.input = (*sCHARACTER).input;							// Set Player Input
+		p_player.zVel = (*sCHARACTER).zVel;								// Set Player z velocity
 		p_player.spriteIteration = (*sCHARACTER).spriteIteration;		// Set Player Sprite Iteration
 
-		delete sCHARACTER;															// Delete Struct
+		delete sCHARACTER;												// Delete Struct
 
 	}// END Init_Player
 }
