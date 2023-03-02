@@ -1,12 +1,5 @@
 #pragma once
 
-namespace
-{
-	/*EXTERN*/
-	extern s8				fontId;
-	extern f32				gameTime;
-}
-
 namespace Enum {
 
 

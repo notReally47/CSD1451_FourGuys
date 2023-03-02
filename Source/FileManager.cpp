@@ -153,7 +153,7 @@ namespace FM
 
 
 
-	vector<OM::ObjectInst>* Import::Load_Transform_From_YAML(const string level_number, vector<OM::Object>& vO) {
+	vector<OM::ObjectInst>* Import::Load_Transform_From_YAML(const string level_number) {
 
 		// Strings for Filtering through the YAML file
 		string
@@ -209,15 +209,15 @@ namespace FM
 									if (object_data_type == "Type") {
 										l.second() >> type;
 										for (int m{ 0 }; m < vO.size(); m++)
-											if (vO[m].type == type)
+											if (vO[m].type == static_cast<unsigned long>(type))
 												OBJ_INST->pObj = &vO[m];
 									}
 
 									// If Node is "Flag"
 									if (object_data_type == "Flag") {
-										long flag{ 0 };
-										l.second() >> flag;
-										OBJ_INST->flag = static_cast<unsigned long>(flag);
+										long tflag{ 0 };
+										l.second() >> tflag;
+										OBJ_INST->flag = static_cast<unsigned long>(tflag);
 									}
 
 									// If Node is "Texture_Offset"

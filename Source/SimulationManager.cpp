@@ -5,15 +5,15 @@ namespace OM
 {
 	void Character::MoveCharacter()
 	{
-		AEVec2 pos{ this->pObjInst->GetPosXY() }, dir{ this->dir };
-		if (this->pObjInst->flag & Enum::FLAG::ACTIVE)
+		AEVec2 pos{ pObjInst->GetPosXY() }, dire { dir };
+		if (pObjInst->flag & Enum::FLAG::ACTIVE)
 		{
-			f32 unitSpeed = this->pObjInst->GetPlayerSpeed() * gameTime;
-			AEVec2Normalize(&dir, &dir);
-			AEVec2Scale(&dir, &dir, unitSpeed);
-			AEVec2Add(&pos, &pos, &dir);
+			f32 unitSpeed = pObjInst->GetPlayerSpeed() * GSM::gameTime;
+			AEVec2Normalize(&dire, &dire);
+			AEVec2Scale(&dire, &dire, unitSpeed);
+			AEVec2Add(&pos, &pos, &dire);
 		}
-		this->pObjInst->GetPosX() = pos.x;
-		this->pObjInst->GetPosY() = pos.y;
+		pObjInst->GetPosX() = pos.x;
+		pObjInst->GetPosY() = pos.y;
 	}
 }

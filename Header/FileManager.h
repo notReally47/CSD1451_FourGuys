@@ -18,7 +18,7 @@ namespace FM
 		vector<OM::ObjectInst>	vOI;
 
 		vector<OM::Object>*		Load_Shape_From_YAML		(const string level_number);
-		vector<OM::ObjectInst>* Load_Transform_From_YAML	(const string level_number, vector<OM::Object>& vO);
+		vector<OM::ObjectInst>* Load_Transform_From_YAML	(const string level_number);
 		OM::Character*			Load_Player_Stats_From_YAML	(const string level_number);
 	};
 

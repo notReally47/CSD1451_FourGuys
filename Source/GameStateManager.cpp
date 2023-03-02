@@ -2,60 +2,53 @@
 
 namespace GSM
 {
-	GameStateManager::GameStateManager()
+	FP
+	fpLoad		= nullptr,
+	fpInit		= nullptr,
+	fpUpdate	= nullptr,
+	fpDraw		= nullptr,
+	fpFree		= nullptr,
+	fpUnload	= nullptr;
+
+	GAME_STATES
+	current		= GAME_STATES::RESTART,
+	previous	= GAME_STATES::RESTART,
+	next		= GAME_STATES::RESTART;
+
+	f32 gameTime = .0f;
+	s8	fontId = 0;
+
+	void Initialise(GAME_STATES start)
 	{
-		using enum GAME_STATES;
-		
-		this->fpLoad		= nullptr;
-		this->fpInit		= nullptr;
-		this->fpUpdate		= nullptr;
-		this->fpDraw		= nullptr;
-		this->fpFree		= nullptr;
-		this->fpUnload		= nullptr;
-
-		this->current		= RESTART;
-		this->previous		= RESTART;
-		this->next			= RESTART;
-
-		gameTime			= .0f;
+		current		= previous
+					= next
+					= start;
 	}
 
-	GameStateManager::~GameStateManager()
+	void Update()
 	{
-
-	}
-
-	void GameStateManager::Initialise(GAME_STATES start)
-	{
-		this->current		= this->previous
-							= this->next
-							= start;
-	}
-
-	void GameStateManager::Update()
-	{
-		using enum			GAME_STATES;
-
-		switch (this->current) {
-		case QUIT:
+		switch (current) {
+		case GAME_STATES::QUIT:
 			break;
-		case MAINMENU:
-			this->fpLoad	= MainMenu::MainMenu_Load;
-			this->fpInit	= MainMenu::MainMenu_Init;
-			this->fpUpdate	= MainMenu::MainMenu_Update;
-			this->fpDraw	= MainMenu::MainMenu_Draw;
-			this->fpFree	= MainMenu::MainMenu_Free;
-			this->fpUnload	= MainMenu::MainMenu_Unload;
+		case GAME_STATES::MAINMENU:
+		using namespace Menu;
+			fpLoad		= Menu_Load;
+			fpInit		= Menu_Init;
+			fpUpdate	= Menu_Update;
+			fpDraw		= Menu_Draw;
+			fpFree		= Menu_Free;
+			fpUnload	= Menu_Unload;
 			break;
-		case LEVEL1:
-			this->fpLoad	= Level1::Level1_Load;
-			this->fpInit	= Level1::Level1_Init;
-			this->fpUpdate	= Level1::Level1_Update;
-			this->fpDraw	= Level1::Level1_Draw;
-			this->fpFree	= Level1::Level1_Free;
-			this->fpUnload	= Level1::Level1_Unload;
+		case GAME_STATES::LEVEL1:
+		using namespace Level1;
+			fpLoad		= Level1_Load;
+			fpInit		= Level1_Init;
+			fpUpdate	= Level1_Update;
+			fpDraw		= Level1_Draw;
+			fpFree		= Level1_Free;
+			fpUnload	= Level1_Unload;
 			break;
-		case RESTART:
+		case GAME_STATES::RESTART:
 			break;
 		}
 	}

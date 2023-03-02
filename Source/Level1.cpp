@@ -8,7 +8,7 @@
 #include <iostream>
 #endif // DEBUG
 
-namespace GSM
+namespace Level1
 {
 	/*DEFINES*/
 	const static std::string level_number = "01";
@@ -20,15 +20,15 @@ namespace GSM
 	//std::vector<OM::Object>* vOBJ;
 	//std::vector<OM::ObjectInst>* vOBJ_INST;
 	OM::Character* sCHARACTER;
-
-	void Level1::Level1_Load()
+	
+	void Level1_Load()
 	{
 		ImportData.vO = *ImportData.Load_Shape_From_YAML(level_number);
-		ImportData.vOI = *ImportData.Load_Transform_From_YAML(level_number, ImportData.vO);
+		ImportData.vOI = *ImportData.Load_Transform_From_YAML(level_number);
 		sCHARACTER = ImportData.Load_Player_Stats_From_YAML(level_number);
 	}
-
-	void Level1::Level1_Init()
+	
+	void Level1_Init()
 	{ 
 		/*CREATE PLAYER*/
 		FM::Init_Player(&ImportData.vOI[0], sCHARACTER, player);
@@ -44,33 +44,33 @@ namespace GSM
 			//it.GetPosY() = a.y;
 		//}
 
-		/*Extract Using Vector vOBJ_INST & p_player*/
+		/*Extract Using Vector vOBJ_INST & player*/
 		ExportData.Extract_Transform_Data_Out(ImportData.vOI, player, level_number);
 	}
 
-	void Level1::Level1_Update()
+	void Level1_Update()
 	{
 		using namespace Enum;
 		/*HANDLE INPUT*/
-		InputHandler::ExitGame(GSM::next);
+		IM::ExitGame(GSM::next);
 
 		/*SET PLAYER BIT FLAG FOR MOVEMENT OR JUMPING*/
 		unsigned long& flag{ player.pObjInst->flag };
-		flag = (InputHandler::PlayerJump(player)) ? flag | JUMPING : flag & ~JUMPING;
-		flag = (InputHandler::PlayerMovement(player)) ? flag | ACTIVE : flag & ~ACTIVE;
+		flag = (IM::PlayerJump(player)) ? flag | JUMPING : flag & ~JUMPING;
+		flag = (IM::PlayerMovement(player)) ? flag | ACTIVE : flag & ~ACTIVE;
 
 		/*MOVEMENT*/
 		//PhysicsHandler::Move::MoveCharacter();
-		p_player.MoveCharacter();
+		player.MoveCharacter();
 
 		//check if player if near portrait
 		for (size_t i{ 0 }; i < ImportData.vOI.size(); i++)
 		{
 			if (ImportData.vOI[i].pObj->type == PORTRAIT || ImportData.vOI[i].pObj->type == LANDSCAPE)
 			{
-				ImportData.vOI[i].flag = (CollisionHandler::GetDistance(ImportData.vOI[i].GetPosX(),
-					ImportData.vOI[i].GetPosY(), p_player.pObjInst->GetPosX(),
-					p_player.pObjInst->GetPosY()) < 40.0) ? static_cast<unsigned long>(ACTIVE) : IDLE;
+				ImportData.vOI[i].flag = (CDM::GetDistance(ImportData.vOI[i].GetPosX(),
+					ImportData.vOI[i].GetPosY(), player.pObjInst->GetPosX(),
+					player.pObjInst->GetPosY()) < 40.0) ? static_cast<unsigned long>(ACTIVE) : IDLE;
 			}
 		}
 
@@ -78,9 +78,10 @@ namespace GSM
 		//TODO: Collision
 
 		/*ANIMATION*/
-		AEGfxSetCamPosition(0.f, max(p_player.pObjInst->GetPosY(), MIN_CAM_HEIGHT));
+		AEGfxSetCamPosition(0.f, max(player.pObjInst->GetPosY(), MIN_CAM_HEIGHT));
 	}
-	void Level1::Level1_Draw()
+
+	void Level1_Draw()
 	{
 		OM::RenderSettings();
 		// Initialise i to 1 to skip player
@@ -89,14 +90,14 @@ namespace GSM
 		player.AnimateCharacter();
 	}
 
-	void Level1::Level1_Free()
+	void Level1_Free()
 	{
 		for (size_t i{ 0 }; i < ImportData.vO.size(); i++)
 			AEGfxMeshFree(ImportData.vO[i].pMesh);
 		ImportData.vOI.clear();
 	}
 
-	void Level1::Level1_Unload()
+	void Level1_Unload()
 	{
 		for (size_t i{ 0 }; i < ImportData.vO.size(); i++)
 			AEGfxTextureUnload(ImportData.vO[i].pTex);

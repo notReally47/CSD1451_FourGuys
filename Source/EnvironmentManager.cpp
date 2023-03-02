@@ -3,7 +3,7 @@
 
 namespace EM
 {
-	void Window::Create(HINSTANCE hInstance, s32 nCmdShow)
+	void WindowCreate(HINSTANCE hInstance, s32 nCmdShow)
 	{
 		RECT window;
 		const HWND hwindow = GetDesktopWindow();

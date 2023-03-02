@@ -2,6 +2,7 @@
 
 #ifndef PCH_H
 #define PCH_H
+#define _HAS_AUTO_PTR_ETC 1
 
 /*PRECOMPILED HEADERS HERE*/
 #include "AEEngine.h"

@@ -13,7 +13,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 	UNREFERENCED_PARAMETER(lpCmdLine);
 
 	/*COMMON NAMESPACES*/
-	using enum GAME_STATES;
+	using namespace GSM;
 
 	//// Enable run-time memory check for debug builds.
 #if defined(DEBUG) | defined(_DEBUG)
@@ -21,52 +21,52 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 #endif
 
 	/*INITIALIZATIONS*/
-	EM::Window System;
+	EM::WindowCreate(hInstance, nCmdShow);
 
-	System.Create(hInstance, nCmdShow);
-	//AE_ASSERT_MESG(fontId = AEGfxCreateFont("Roboto-Regular.ttf", 12), "Failed to load font");
-	
-	GSM::GameStateManager GSM;
+	AE_ASSERT_MESG(GSM::fontId = AEGfxCreateFont("Roboto-Regular.ttf", 12), "Failed to load font");
 
-	GSM.Initialise(LEVEL1);
+	Initialise(GAME_STATES::LEVEL1);
 	
 	/*GAME LOOP*/
-	while (GSM.current != QUIT)
+	while (current != GAME_STATES::QUIT)
 	{
-		if (GSM.current != RESTART)
+		if (current != GAME_STATES::RESTART)
 		{
-			GSM.Update();
-			GSM.fpLoad();
+			Update();
+			fpLoad();
 		}
 		else
 		{
-			GSM.next = GSM.previous;
-			GSM.current = GSM.previous;
+			next = previous;
+			current = previous;
 		}
 
-		GSM.fpInit();
+		fpInit();
 
-		while (GSM.next == GSM.current)
+		while (next == current)
 		{
 			AESysFrameStart();
 			AEInputUpdate();
-			GSM.fpUpdate();
-			GSM.fpDraw();
-			gameTime = static_cast<f32>(AEFrameRateControllerGetFrameTime());
+			fpUpdate();
+			fpDraw();
 			AESysFrameEnd();
+			// check if forcing the application to quit
+			if ((AESysDoesWindowExist() == false))
+				next = GAME_STATES::QUIT;
+			GSM::gameTime = static_cast<f32>(AEFrameRateControllerGetFrameTime());
 		}
 
-		GSM.fpFree();
+		fpFree();
 
-		if (GSM.next != RESTART)
+		if (next != GAME_STATES::RESTART)
 		{
-			GSM.fpUnload();
+			fpUnload();
 		}
 
-		GSM.previous = GSM.current;
-		GSM.current = GSM.next;
+		previous = current;
+		current = next;
 	}
 
-	AEGfxDestroyFont(fontId);
+	AEGfxDestroyFont(GSM::fontId);
 	AESysExit();
 }

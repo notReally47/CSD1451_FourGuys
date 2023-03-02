@@ -15,16 +15,16 @@ namespace OM
 	/*Render objects that have textures*/
 	void ObjectInst::RenderObject()
 	{
-		AEGfxTextureSet(this->pObj->pTex, this->tex_offset.x, this->tex_offset.y);
+		AEGfxTextureSet(pObj->pTex, tex_offset.x, tex_offset.y);
 		AEGfxSetTransform(ConvertIsometric(*this).m);
-		//AEGfxSetTransform(this->transform.m);
-		AEGfxMeshDraw(this->pObj->pMesh, AE_GFX_MDM_TRIANGLES);
+		//AEGfxSetTransform(transform.m);
+		AEGfxMeshDraw(pObj->pMesh, AE_GFX_MDM_TRIANGLES);
 	}
 
 	void Character::AnimateCharacter()
 	{
-		this->SetOffsetX();
-		this->SetOffsetY();
-		this->pObjInst->RenderObject();
+		SetOffsetX();
+		SetOffsetY();
+		pObjInst->RenderObject();
 	}
 }

@@ -6,7 +6,7 @@
 #include <iostream>
 #endif // DEBUG
 
-namespace GSM
+namespace Menu
 {
 	AEGfxVertexList* pMesh1{ 0 }, * pMesh2{ 0 }, * pMesh3{ 0 };
 
@@ -16,12 +16,14 @@ namespace GSM
 	char strBuffer3[10];
 
 	/*LOAD ASSETS*/
-	void MainMenu::MainMenu_Load()
+	
+	void Menu_Load()
 	{
 
 	}
 	/*LOAD INITIAL DATA*/
-	void MainMenu::MainMenu_Init()
+	
+	void Menu_Init()
 	{
 		memset(strBuffer, 0, 10 * sizeof(char));
 		sprintf_s(strBuffer, "Start");
@@ -72,24 +74,25 @@ namespace GSM
 		pMesh3 = AEGfxMeshEnd();
 	}
 
-	void MainMenu::MainMenu_Update()
+	
+	void Menu_Update()
 	{
-		using namespace Enum;
 		/*UPDATE LOGIC*/
 		IM::ExitGame(GSM::next);
-		if (IM::buttonClick(mouseX, mouseY, 350.f, 175.f))
+		if (IM::ButtonClick(mouseX, mouseY, 350.f, 175.f))
 		{
 			std::cout << "hi\n";
-			GSM::next = GAME_STATES::LEVEL2;
+			GSM::next = GAME_STATES::LEVEL1;
 		}
-		if (IM::buttonClick(mouseX, mouseY, 350.f, 375.f))
+		if (IM::ButtonClick(mouseX, mouseY, 350.f, 375.f))
 		{
-			GSM::next = Enum::GS_QUIT;
+			GSM::next = GAME_STATES::QUIT;
 		}
 	}
 
 	/*RENDERING*/
-	void MainMenu::MainMenu_Draw()
+	
+	void Menu_Draw()
 	{
 		// Set the background to black.
 		AEGfxSetBackgroundColor(0.0f, 0.0f, 0.0f);
@@ -141,13 +144,14 @@ namespace GSM
 		AEGfxMeshDraw(pMesh3, AE_GFX_MDM_TRIANGLES);
 
 		AEGfxSetBlendMode(AE_GFX_BM_BLEND);
-		AEGfxPrint(fontId, strBuffer, -0.055f, 0.3f, 2.0f, 0.0f, 0.f, 0.f);
-		AEGfxPrint(fontId, strBuffer2, -0.08f, -0.02f, 2.0f, 0.0f, 0.f, 0.f);
-		AEGfxPrint(fontId, strBuffer3, -0.05f, -0.35f, 2.0f, 0.0f, 0.0f, 0.0f);
+		AEGfxPrint(GSM::fontId, strBuffer, -0.055f, 0.3f, 2.0f, 0.0f, 0.f, 0.f);
+		AEGfxPrint(GSM::fontId, strBuffer2, -0.08f, -0.02f, 2.0f, 0.0f, 0.f, 0.f);
+		AEGfxPrint(GSM::fontId, strBuffer3, -0.05f, -0.35f, 2.0f, 0.0f, 0.0f, 0.0f);
 	}
 
 	/*CLEAN UP DATA (SAVE/RESET ETC)*/
-	void MainMenu::MainMenu_Free()
+	
+	void Menu_Free()
 	{
 		AEGfxMeshFree(pMesh1);
 		AEGfxMeshFree(pMesh2);
@@ -155,7 +159,8 @@ namespace GSM
 	}
 
 	/*UNLOADS ASSETS*/
-	void MainMenu::MainMenu_Unload()
+	
+	void Menu_Unload()
 	{
 	}
 }

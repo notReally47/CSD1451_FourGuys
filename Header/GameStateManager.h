@@ -1,66 +1,55 @@
 #pragma once
 #include "Enumeration.h"
-
-/*DEFINES*/
-typedef void(*FP)(void);
+#include "AEEngine.h"
 
 namespace GSM
 {
-	struct GameStateManager
-	{
-		/*CONSTRUCTORS*/
-		GameStateManager();
-		~GameStateManager();
+	/*DEFINES*/
+	typedef void(*FP)(void);
 
-		/*DEFINES*/
-		typedef void(Level1::* FP)(void);
+	extern f32					gameTime;
+	extern s8					fontId;
 
-		/*MEMBER FUNCTIONS*/
-		void				Initialise(GAME_STATES);
-		void				Update();
+	extern FP					fpLoad;
+	extern FP					fpInit;
+	extern FP					fpUpdate;
+	extern FP					fpDraw;
+	extern FP					fpFree;
+	extern FP					fpUnload;
+	extern GAME_STATES			current;
+	extern GAME_STATES			previous;
+	extern GAME_STATES			next;
 
-		/*PUBLIC DATA*/
-		FP					fpLoad;
-		FP					fpInit;
-		FP					fpUpdate;
-		FP					fpDraw;
-		FP					fpFree;
-		FP					fpUnload;
-		GAME_STATES			current;
-		GAME_STATES			previous;
-		GAME_STATES			next;
-	};
-
-	struct Level1
-	{
-		/*MEMBER FUNCTIONS*/
-		void				Level1_Load();
-		void				Level1_Init();
-		void				Level1_Update();
-		void				Level1_Draw();
-		void				Level1_Free();
-		void				Level1_Unload();
-	};
-
-	struct MainMenu
-	{
-		/*MEMBER FUNCTIONS*/
-		void				MainMenu_Load();
-		void				MainMenu_Init();
-		void				MainMenu_Update();
-		void				MainMenu_Draw();
-		void				MainMenu_Free();
-		void				MainMenu_Unload();
-	};
-
-	struct Options
-	{
-		/*MEMBER FUNCTIONS*/
-		void				Options_Load();
-		void				Options_Init();
-		void				Options_Update();
-		void				Options_Draw();
-		void				Options_Free();
-		void				Options_Unload();
-	};
+	void				Initialise(GAME_STATES);
+	void				Update();
 }
+
+namespace Level1
+{
+	void				Level1_Load();
+	void				Level1_Init();
+	void				Level1_Update();
+	void				Level1_Draw();
+	void				Level1_Free();
+	void				Level1_Unload();
+};
+
+namespace Menu
+{
+	void				Menu_Load();
+	void				Menu_Init();
+	void				Menu_Update();
+	void				Menu_Draw();
+	void				Menu_Free();
+	void				Menu_Unload();
+};
+
+namespace Options
+{
+	void				Options_Load();
+	void				Options_Init();
+	void				Options_Update();
+	void				Options_Draw();
+	void				Options_Free();
+	void				Options_Unload();
+};

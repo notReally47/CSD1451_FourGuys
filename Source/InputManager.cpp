@@ -14,12 +14,12 @@ namespace IM
 	using namespace OM;
 
 
-	void Input::ExitGame(GAME_STATES next) {
+	void ExitGame(GAME_STATES next) {
 		if (AEInputCheckTriggered(AEVK_ESCAPE))
 			next = GAME_STATES::QUIT;
 	}
 
-	bool Input::PlayerMovement(Character& player) {
+	bool PlayerMovement(Character& player) {
 		AEVec2 dir{ .0f,.0f };
 		if (AEInputCheckCurr(AEVK_A)) {
 			dir.x--;
@@ -39,7 +39,7 @@ namespace IM
 		return dir.x || dir.y;
 	}
 
-	bool Input::PlayerJump(Character& player) {
+	bool PlayerJump(Character& player) {
 		player.zVel = GRAVITY * (f32)AEFrameRateControllerGetFrameTime() + player.zVel;
 
 		if (AEInputCheckTriggered(AEVK_SPACE) && player.pObjInst->GetPosZ() == 0) {
@@ -53,7 +53,7 @@ namespace IM
 		return player.pObjInst->GetPosZ() > 0;
 	}
 
-	bool Input::ButtonClick(s32 mouseX, s32 mouseY, float buttonX, float buttonY) {
+	bool ButtonClick(s32 mouseX, s32 mouseY, float buttonX, float buttonY) {
 		AEInputGetCursorPosition(&mouseX, &mouseY);
 		if (AEInputCheckReleased(AEVK_LBUTTON) && mouseX <= static_cast<s32>(buttonX + 100.f) && mouseX >= static_cast<s32>(buttonX)
 			&& mouseY <= static_cast<s32>(buttonY + 50.f) && mouseY >= static_cast<s32>(buttonY))
