@@ -1,3 +1,17 @@
+/*!***********************************************************************
+  \file	CollisionDetectionManager.cpp
+  \authors 
+  
+  
+  \brief 
+  This file contains the implementation of the collision detection manager
+
+  \copyright  
+  Copyright (C) 2023 DigiPen Institute of Technology.
+  Reproduction or disclosure of this file or its contents without the
+  prior written consent of DigiPen Institute of Technology is prohibited.
+*************************************************************************/
+
 #include "PCH.h"
 #include "CollisionDetectionManager.h"
 #include <limits>
@@ -10,7 +24,17 @@
 
 namespace CDM
 {
-	/*SAT COLLISION*/
+	/*!***********************************************************************
+	  \brief SAT collision detection
+	  
+	  \param obj1 
+	  \param obj2 
+	  \param depth 
+	  \param normal 
+	  \param GetVertices 
+	  \return true 
+	  \return false
+	*************************************************************************/
 	bool SAT_Collision(ObjectInst obj1, ObjectInst obj2, f32& depth, AEVec2& normal, AEVec2* (*GetVertices)(ObjectInst, int&)) {
 		int lenA{};
 		int lenB{};
@@ -45,8 +69,16 @@ namespace CDM
 
 		return out;
 	}
-
-	/*Projects the vertex onto a axis and returns the maximum and mimum points.*/
+	/*!***********************************************************************
+	  \brief Projects the vertex onto a axis and returns the maximum and 
+	  minimum points
+	  
+	  \param vertices 
+	  \param axis 
+	  \param min 
+	  \param max 
+	  \param len 
+	*************************************************************************/
 	void ProjectVertices(AEVec2 vertices[], AEVec2 axis, f32& min, f32& max, int len) {
 		min = static_cast<f32>((std::numeric_limits<float>::max)());
 		max = static_cast<f32>((std::numeric_limits<float>::min)());
@@ -59,7 +91,19 @@ namespace CDM
 		}
 	}
 
-	/*Check if the maximum and minimum projections of each object intersects*/
+	/*!***********************************************************************
+	  \brief Check if the maximum and minimum projections of each object
+	  intersects
+	  
+	  \param verticesA 
+	  \param verticesB 
+	  \param lenA 
+	  \param lenB 
+	  \param depth 
+	  \param normal 
+	  \return true 
+	  \return false 
+	*************************************************************************/
 	bool CheckIntersect(AEVec2 verticesA[], AEVec2 verticesB[], int lenA, int lenB, f32& depth, AEVec2& normal) {
 		for (int i = 0; i < lenA; i++) {
 			f32 minA, maxA, minB, maxB;
@@ -89,11 +133,27 @@ namespace CDM
 		return true;
 	}
 
-
+	/*!***********************************************************************
+	  \brief Get the distance between player and object
+	  
+	  \param portrait_x 
+	  \param portrait_y 
+	  \param player_x 
+	  \param player_y 
+	  \return double 
+	*************************************************************************/
 	double GetDistance(f32 const portrait_x, f32 const portrait_y, f32 const player_x, f32 const player_y) {
 		return sqrt(pow(portrait_x - player_x, 2) + pow(portrait_y - player_y, 2));
 	}
 
+	/*!***********************************************************************
+	  \brief Check if player is within range of object to interact
+	  
+	  \param portrait 
+	  \param player 
+	  \return true 
+	  \return false 
+	*************************************************************************/
 	bool portraitInteract(ObjectInst const portrait, Character const player) {
 		f32 dist = static_cast<f32>(sqrt(pow(portrait.transform.m[0][0] - player.pObjInst->transform.m[0][0], 2) + pow(portrait.GetPosY() - player.pObjInst->GetPosY(), 2)));
 

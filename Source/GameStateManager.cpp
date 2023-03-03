@@ -1,3 +1,16 @@
+/*!***********************************************************************
+  \file   GameStateManager.cpp
+  \authors
+
+  \brief 
+  This file contains the implementation of the game state manager
+
+  \copyright  
+  Copyright (C) 2023 DigiPen Institute of Technology.
+  Reproduction or disclosure of this file or its contents without the
+  prior written consent of DigiPen Institute of Technology is prohibited.
+*************************************************************************/
+
 #include "PCH.h"
 
 namespace GSM
@@ -15,9 +28,16 @@ namespace GSM
 	previous	= GAME_STATES::RESTART,
 	next		= GAME_STATES::RESTART;
 
-	f32 gameTime = .0f;
-	s8	fontId = 0;
+	f32 
+	gameTime 	= .0f;
+	s8	
+	fontId		= 0;
 
+	/*!***********************************************************************
+	  \brief Initialise the game state manager
+	  
+	  \param start 
+	*************************************************************************/
 	void Initialise(GAME_STATES start)
 	{
 		current		= previous
@@ -25,6 +45,10 @@ namespace GSM
 					= start;
 	}
 
+	/*!***********************************************************************
+	  \brief Update the game state manager
+	  
+	*************************************************************************/
 	void Update()
 	{
 		switch (current) {

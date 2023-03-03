@@ -1,3 +1,16 @@
+/*!***********************************************************************
+  \file   FileManager.cpp
+  \authors
+  
+  \brief 
+  This file contains the implementation of the FileManager class
+
+  \copyright  
+  Copyright (C) 2023 DigiPen Institute of Technology.
+  Reproduction or disclosure of this file or its contents without the
+  prior written consent of DigiPen Institute of Technology is prohibited.
+*************************************************************************/
+
 #include "PCH.h"
 #include "FileManager.h"
 #include <string>					// For std::string
@@ -12,11 +25,22 @@
 #include <iostream>
 #endif
 
-/*
-*	IMPORT
-*/
+/*!***********************************************************************
+_____________8764_ 39___34_ 644348__ __223___ 742524__ 948266_____________
+______________42__ 248_468_ 83___72_ _79_53__ 47___38_ __22_______________
+______________45__ 4828777_ 58___86_ 78___95_ 63___37_ __22_______________
+______________87__ 57_3_22_ 844969__ 22___97_ 856494__ __27_______________
+______________48__ 55___98_ 95______ _87_49__ 49___99_ __99_______________
+_____________7456_ 99___75_ 65______ __626___ 29___86_ __44_______________
+*************************************************************************/
 namespace FM
 {
+	/*!***********************************************************************
+	  \brief Load mesh data from YAML file
+	  
+	  \param level_number 
+	  \return vector<OM::Object>* 
+	*************************************************************************/
 	vector<OM::Object>* Import::Load_Shape_From_YAML(const string level_number) {
 
 		// Strings for Filtering through the YAML file
@@ -34,7 +58,7 @@ namespace FM
 			ifs.open("." + file_name);
 
 		// Vector to load data into
-		vector<OM::Object>		vector_obj;
+		//vector<OM::Object>		vector_obj;
 		OM::Object* OBJ = new  OM::Object;
 
 		// Parse YAML File
@@ -138,7 +162,7 @@ namespace FM
 						}// END For-Loop Through Specific Object
 
 						// Push into Vector
-						vector_obj.push_back(*OBJ);
+						vO.push_back(*OBJ);
 
 					}// END If Specific Object Exist
 				}// END For-Loop Through Object
@@ -147,12 +171,16 @@ namespace FM
 
 		delete OBJ;				// Delete Temporary Struct
 		ifs.close();			// Close File Stream
-		return &vector_obj;		// Return New Vector
+		return &vO;		// Return New Vector
 
 	}// END LoadShapeFromYAML
 
-
-
+	/*!***********************************************************************
+	  \brief Load transform data from YAML file
+	  
+	  \param level_number 
+	  \return vector<OM::ObjectInst>* 
+	*************************************************************************/
 	vector<OM::ObjectInst>* Import::Load_Transform_From_YAML(const string level_number) {
 
 		// Strings for Filtering through the YAML file
@@ -170,7 +198,6 @@ namespace FM
 			ifs.open("." + file_name);
 
 		// Vector to load data into
-		vector<OM::ObjectInst>	vector_obj_inst;
 		OM::ObjectInst* OBJ_INST = new OM::ObjectInst;
 
 		// Parse YAML File
@@ -242,7 +269,7 @@ namespace FM
 								}// END For-Loop Through Numbered Object_Instance
 
 								// Push into Vector
-								vector_obj_inst.push_back(*OBJ_INST);
+								vOI.push_back(*OBJ_INST);
 
 							}// END If Numbered Object Belong to Specific Object
 						}// END For-Loop Through Specific Object Type
@@ -253,12 +280,16 @@ namespace FM
 
 		delete OBJ_INST;				// Delete Temporary Struct
 		ifs.close();					// Close File Stream
-		return &vector_obj_inst;		// Return New Vector
+		return &vOI;		// Return New Vector
 
 	}// END LoadTransformFromYAML
 
-
-
+	/*!***********************************************************************
+	  \brief Loads the player stats from a YAML file
+	  
+	  \param level_number 
+	  \return OM::Character* 
+	*************************************************************************/
 	OM::Character* Import::Load_Player_Stats_From_YAML(const string level_number) {
 		// Strings for Filtering through the YAML file
 		string
@@ -346,11 +377,14 @@ namespace FM
 
 }// End namespace Load_Data_From_File
 
-
-/*
-*  EXPORT
-*/
-
+/*!***********************************************************************
+___________4857784_ 75___49_ 654933__ __586___ 242553__ 633792____________
+___________82______ 763_664_ 48___28_ _47_46__ 98___62_ __62______________
+___________62572___ _42424__ 25___94_ 35___29_ 73___39_ __36______________
+___________78______ _27567__ 492745__ 62___38_ 368929__ __76______________
+___________89______ 557_489_ 77______ _27_67__ 42___85_ __32______________
+___________6328975_ 35___96_ 49______ __585___ 24___77_ __47______________
+*************************************************************************/
 namespace FM
 {
 	using namespace std;
@@ -358,6 +392,14 @@ namespace FM
 	void Set_Object_Transform_Type(vector<OM::ObjectInst>& vOBJ_INST, string& object_type, int& object_count, int& index, ofstream& data_file);
 	void Print_To_Transform_YAML(vector<OM::ObjectInst>& vOBJ_INST, OM::Character p_player, string& object_type, stringstream& object_type_number, int& index, ofstream& data_file);
 
+	/*!***********************************************************************
+	  \brief Extracts the transform data from the object instances and
+	  exports it to a YAML file
+	  
+	  \param vOI 
+	  \param p_player 
+	  \param level_number 
+	*************************************************************************/
 	void Export::Extract_Transform_Data_Out(vector<OM::ObjectInst> vOI, OM::Character p_player, const string level_number)
 	{
 
@@ -410,8 +452,15 @@ namespace FM
 		}
 	}// END extract_transform_data_out
 
-
-
+	/*!***********************************************************************
+	  \brief Sets the object type and prints the header for the object type
+	  
+	  \param vOI 
+	  \param object_type 
+	  \param object_count 
+	  \param index 
+	  \param data_file 
+	*************************************************************************/
 	void Set_Object_Transform_Type(vector<OM::ObjectInst>& vOI, string& object_type, int& object_count, int& index, ofstream& data_file) {
 		object_count = 0;												// Reset Object Count
 		if (vOI[index].pObj->type == Enum::TYPE::PLAYER) {
@@ -444,8 +493,16 @@ namespace FM
 		}
 	}// END Set_Object_Transform_Type
 
-
-
+	/*!***********************************************************************
+	  \brief Prints the data of the object to the YAML file
+	  
+	  \param vOI 
+	  \param p_player 
+	  \param object_type 
+	  \param object_type_number 
+	  \param index 
+	  \param data_file 
+	*************************************************************************/
 	void Print_To_Transform_YAML(vector<OM::ObjectInst>& vOI, OM::Character p_player, string& object_type, stringstream& object_type_number, int& index, ofstream& data_file) {
 
 		// Print data of object to file
@@ -483,19 +540,15 @@ namespace FM
 
 	}// END Print_To_Transform_YAML
 
-
-
-
-
-
-
-
-	const static int count = 3;
-
-
+	/*!***********************************************************************
+	  \brief Changes the scale of the object to fit the screen size
+	  
+	  \param vOI 
+	*************************************************************************/
 	void Option_Change(vector<OM::ObjectInst>& vOI) {
 		// Scale Value
 		f32 scaling = 1920.0f / static_cast<f32>(AEGetWindowWidth());
+		int count = 3;
 
 		//Set Object to ObjectInstance
 		for (size_t i{ 0 }; i < vOI.size(); i++)
@@ -504,8 +557,13 @@ namespace FM
 
 	}// END Init_Object_From_Vector
 
-
-
+	/*!***********************************************************************
+	  \brief Initializes the player object
+	  
+	  \param vOI 
+	  \param sCHARACTER 
+	  \param p_player 
+	*************************************************************************/
 	void Init_Player(OM::ObjectInst* vOI, OM::Character* sCHARACTER, OM::Character& p_player) {
 
 		p_player.pObjInst			= vOI;									// Set Player ObjectInstance

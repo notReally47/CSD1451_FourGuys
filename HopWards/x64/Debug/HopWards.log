@@ -1,35 +1,6 @@
-﻿  CollisionDetectionManager.cpp
-  FileManager.cpp
-C:\Users\notRe\OneDrive\Projects\HopWards\External\yaml-cpp\include\yaml-cpp\conversion.h(66,44): warning C4127: conditional expression is constant
-C:\Users\notRe\OneDrive\Projects\HopWards\External\yaml-cpp\include\yaml-cpp\conversion.h(50): message : consider using 'if constexpr' statement instead
-C:\Users\notRe\OneDrive\Projects\HopWards\External\yaml-cpp\include\yaml-cpp\nodereadimpl.h(77): message : see reference to function template instantiation 'bool YAML::Convert<T>(const std::string &,T &,void *)' being compiled
-          with
-          [
-              T=long
-          ]
-C:\Users\notRe\OneDrive\Projects\HopWards\External\yaml-cpp\include\yaml-cpp\nodeimpl.h(23): message : see reference to function template instantiation 'bool YAML::ConvertScalar<T>(const YAML::Node &,T &)' being compiled
-          with
-          [
-              T=long
-          ]
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\FileManager.cpp(68,27): message : see reference to function template instantiation 'void YAML::operator >><long>(const YAML::Node &,T &)' being compiled
-          with
-          [
-              T=long
-          ]
-  GameStateManager.cpp
-  GraphicsManager.cpp
-  InputManager.cpp
-  Level1.cpp
-  Main.cpp
-  MainMenu.cpp
-  ObjectManager.cpp
-  SimulationManager.cpp
-  Generating Code...
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\FileManager.cpp(150): warning C4172: returning address of local variable or temporary: vector_obj
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\FileManager.cpp(256): warning C4172: returning address of local variable or temporary: vector_obj_inst
-  HopWards.vcxproj -> C:\Users\notRe\OneDrive\Projects\HopWards\Bin\HopWardsD.exe
-  11 File(s) copied
+﻿  GraphicsManager.cpp
+  HopWards.vcxproj -> C:\Users\notRe\OneDrive\Projects\HopWards\Bin\Debug-x64\HopWardsD.exe
+  15 File(s) copied
   1 File(s) copied
   1 File(s) copied
   1 File(s) copied

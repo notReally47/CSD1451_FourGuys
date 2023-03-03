@@ -1,3 +1,15 @@
+/*!***********************************************************************
+  \file   Level1.cpp
+  \authors 
+  
+  \brief 
+  This file contains the implementation of the level 1
+  \copyright  
+  Copyright (C) 2023 DigiPen Institute of Technology.
+  Reproduction or disclosure of this file or its contents without the
+  prior written consent of DigiPen Institute of Technology is prohibited.
+*************************************************************************/
+
 #include "PCH.h"
 #include "InputManager.h"
 #include "CollisionDetectionManager.h"
@@ -17,10 +29,12 @@ namespace Level1
 	OM::Character player;
 	FM::Import ImportData;
 	FM::Export ExportData;
-	//std::vector<OM::Object>* vOBJ;
-	//std::vector<OM::ObjectInst>* vOBJ_INST;
 	OM::Character* sCHARACTER;
 	
+	/*!***********************************************************************
+	  \brief Load level 1 data
+	  
+	*************************************************************************/
 	void Level1_Load()
 	{
 		ImportData.vO = *ImportData.Load_Shape_From_YAML(level_number);
@@ -28,6 +42,10 @@ namespace Level1
 		sCHARACTER = ImportData.Load_Player_Stats_From_YAML(level_number);
 	}
 	
+	/*!***********************************************************************
+	  \brief Initialise level 1
+	  
+	*************************************************************************/
 	void Level1_Init()
 	{ 
 		/*CREATE PLAYER*/
@@ -48,6 +66,10 @@ namespace Level1
 		ExportData.Extract_Transform_Data_Out(ImportData.vOI, player, level_number);
 	}
 
+	/*!***********************************************************************
+	  \brief Update player and objects based on input and collisions
+	  
+	*************************************************************************/
 	void Level1_Update()
 	{
 		using namespace Enum;
@@ -81,6 +103,10 @@ namespace Level1
 		AEGfxSetCamPosition(0.f, max(player.pObjInst->GetPosY(), MIN_CAM_HEIGHT));
 	}
 
+	/*!***********************************************************************
+	  \brief Render game objects
+	  
+	*************************************************************************/
 	void Level1_Draw()
 	{
 		OM::RenderSettings();
@@ -90,6 +116,10 @@ namespace Level1
 		player.AnimateCharacter();
 	}
 
+	/*!***********************************************************************
+	  \brief Free level 1 data
+	  
+	*************************************************************************/
 	void Level1_Free()
 	{
 		for (size_t i{ 0 }; i < ImportData.vO.size(); i++)
@@ -97,6 +127,10 @@ namespace Level1
 		ImportData.vOI.clear();
 	}
 
+	/*!***********************************************************************
+	  \brief Unload level 1 data
+	  
+	*************************************************************************/
 	void Level1_Unload()
 	{
 		for (size_t i{ 0 }; i < ImportData.vO.size(); i++)

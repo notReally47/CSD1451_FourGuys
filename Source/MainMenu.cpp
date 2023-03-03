@@ -1,3 +1,15 @@
+/*!***********************************************************************
+  \file   MainMenu.cpp
+  \authors
+  
+  \brief 
+  This file contains the implementation of the main menu
+
+  \copyright  
+  Copyright (C) 2023 DigiPen Institute of Technology.
+  Reproduction or disclosure of this file or its contents without the
+  prior written consent of DigiPen Institute of Technology is prohibited.
+*************************************************************************/
 #include "PCH.h"
 #include "InputManager.h"
 
@@ -15,14 +27,19 @@ namespace Menu
 	char strBuffer2[10];
 	char strBuffer3[10];
 
-	/*LOAD ASSETS*/
-	
+	/*!***********************************************************************
+	  \brief Loads the assets for the main menu
+	  
+	*************************************************************************/
 	void Menu_Load()
 	{
 
 	}
-	/*LOAD INITIAL DATA*/
-	
+
+	/*!***********************************************************************
+	  \brief Initialises the main menu
+	  
+	*************************************************************************/
 	void Menu_Init()
 	{
 		memset(strBuffer, 0, 10 * sizeof(char));
@@ -74,7 +91,10 @@ namespace Menu
 		pMesh3 = AEGfxMeshEnd();
 	}
 
-	
+	/*!***********************************************************************
+	  \brief Checks for input and changes the state of the main menu
+	  
+	*************************************************************************/
 	void Menu_Update()
 	{
 		/*UPDATE LOGIC*/
@@ -90,8 +110,10 @@ namespace Menu
 		}
 	}
 
-	/*RENDERING*/
-	
+	/*!***********************************************************************
+	  \brief Renders the main menu buttons
+	  
+	*************************************************************************/
 	void Menu_Draw()
 	{
 		// Set the background to black.
@@ -149,8 +171,10 @@ namespace Menu
 		AEGfxPrint(GSM::fontId, strBuffer3, -0.05f, -0.35f, 2.0f, 0.0f, 0.0f, 0.0f);
 	}
 
-	/*CLEAN UP DATA (SAVE/RESET ETC)*/
-	
+	/*!***********************************************************************
+	  \brief Frees the main menu meshes
+	  
+	*************************************************************************/
 	void Menu_Free()
 	{
 		AEGfxMeshFree(pMesh1);
@@ -158,8 +182,10 @@ namespace Menu
 		AEGfxMeshFree(pMesh3);
 	}
 
-	/*UNLOADS ASSETS*/
-	
+	/*!***********************************************************************
+	  \brief Unloads the main menu textures
+	  
+	*************************************************************************/
 	void Menu_Unload()
 	{
 	}

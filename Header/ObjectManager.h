@@ -29,7 +29,7 @@ namespace OM
 		AEMtx33				transform;
 
 		/*MEMBER FUNCTIONS*/
-		f32&				GetScaleX(); // check if this is used anywhere
+		f32&				GetScaleX();
 		f32&				GetPosX();
 		f32					GetPosX() const;
 		f32&				GetScaleY();
@@ -39,8 +39,10 @@ namespace OM
 		f32&				GetPlayerSpeed();
 		f32&				GetPosZ();
 		f32					GetPosZ() const;
+		AEVec2				GetScaleXY();
 		AEVec2				GetPosXY();
 		void				RenderObject();
+		void 				RenderShadow();
 	};
 
 	/*CHARACTER STRUCTURE*/

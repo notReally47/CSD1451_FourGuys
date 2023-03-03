@@ -76,7 +76,7 @@
       <Filter>Source\Game States</Filter>
     </ClCompile>
     <ClCompile Include="..\Source\Options.cpp">
-      <Filter>Source</Filter>
+      <Filter>Source\Game States</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

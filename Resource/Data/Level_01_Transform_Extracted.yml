@@ -1,4 +1,4 @@
-Level: 02
+Level: 01
 Object_Instance:
   00_Player:
     00_Player_00:
@@ -10,10 +10,10 @@ Object_Instance:
       Transformation:
         scale_x: 153.6
         shear_x: 0
-        position_x: 15
+        position_x: 0
         shear_y: 0
         scale_y: 182.4
-        position_y: 5
+        position_y: 0
         elapsed: 0
         empty: 200
         position_z: 0
@@ -1466,11 +1466,11 @@ Object_Instance:
         x_offset: 0
         y_offset: 0
       Transformation:
-        scale_x: 128
+        scale_x: 417
         shear_x: 0
         position_x: -16
         shear_y: 0
-        scale_y: 103.5
+        scale_y: 280
         position_y: -16
         elapsed: 0
         empty: 0
@@ -1483,11 +1483,11 @@ Object_Instance:
         x_offset: 0
         y_offset: 0
       Transformation:
-        scale_x: 128
+        scale_x: 417
         shear_x: 0
-        position_x: -70
+        position_x: -150
         shear_y: 0
-        scale_y: 103.5
+        scale_y: 280
         position_y: -90
         elapsed: 0
         empty: 0

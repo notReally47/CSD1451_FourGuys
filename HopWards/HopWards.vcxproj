@@ -88,14 +88,14 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
     <LibraryPath>$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64);</LibraryPath>
-    <OutDir>$(SolutionDir)\Bin\</OutDir>
+    <OutDir>$(SolutionDir)\Bin\$(Configuration)-$(Platform)\</OutDir>
     <TargetName>$(ProjectName)D</TargetName>
     <SourcePath>$(VC_SourcePath);$(SolutionDir)Source;</SourcePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
     <LibraryPath>$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64);</LibraryPath>
-    <OutDir>$(SolutionDir)\Bin\</OutDir>
+    <OutDir>$(SolutionDir)\Bin\$(Configuration)-$(Platform)\</OutDir>
     <SourcePath>$(VC_SourcePath);$(SolutionDir)Source;</SourcePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -141,7 +141,7 @@ xcopy "$(SolutionDir)External\yaml-cpp\lib\Debug\yaml-cpp.dll" "$(OutDir)" /s /r
       <AdditionalDependencies>$(CoreLibraryDependencies);Alpha_Engine.lib;yaml-cpp.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy "$(SolutionDir)Resource\*" "$(OutDir)Assets\" /s /r /y /q
+      <Command>xcopy "$(SolutionDir)Resource\*" "$(OutDir)Resource\" /s /r /y /q
 xcopy "$(SolutionDir)External\AlphaEngine_V3.09\lib\freetype.dll" "$(OutDir)" /s /r /y /q
 xcopy "$(SolutionDir)External\AlphaEngine_V3.09\lib\Alpha_Engine.dll" "$(OutDir)" /s /r /y /q
 xcopy "$(SolutionDir)External\AlphaEngine_V3.09\lib\fmod.dll" "$(OutDir)" /s /r /y /q

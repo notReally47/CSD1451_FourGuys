@@ -1,3 +1,15 @@
+/*!***********************************************************************
+  \file   ObjectManager.cpp
+  \authors
+  
+  \brief This file contains the implementation of the object manager
+
+  \copyright  
+  Copyright (C) 2023 DigiPen Institute of Technology.
+  Reproduction or disclosure of this file or its contents without the
+  prior written consent of DigiPen Institute of Technology is prohibited.
+*************************************************************************/
+
 #include "PCH.h"
 #include <vector>
 
@@ -13,6 +25,10 @@ namespace OM
 	const static f32		JUMP_SPRITE = 4.0f / 11.0f;
 	using namespace			Enum;
 
+	/*!***********************************************************************
+	  \brief Construct a new Object:: Object object
+	  
+	*************************************************************************/
 	Object::Object()
 	{
 		pTex			= nullptr;
@@ -23,73 +39,135 @@ namespace OM
 		height			= .0f;
 	}
 
+	/*!***********************************************************************
+	  \brief Destroy the Object:: Object object
+	  
+	*************************************************************************/
 	Object::~Object()
 	{
 
 	}
 
-	// Scale of Object Instance in width
+	/*!***********************************************************************
+	  \brief Get the Scale X of the object in width
+	  
+	  \return f32& 
+	*************************************************************************/
 	f32& ObjectInst::GetScaleX()
 	{ 
 		return transform.m[0][0]; // check if this is used anywhere
 	} 
 
-	// Position X in world screen coordinates
+	/*!***********************************************************************
+	  \brief Get the Pos X of the object in world screen coordinates
+	  
+	  \return f32& 
+	*************************************************************************/
 	f32& ObjectInst::GetPosX()
 	{ 
 		return transform.m[0][2];
 	}
 
+	/*!***********************************************************************
+	  \brief Get the Pos X of the object in world screen coordinates
+	  
+	  \return f32 
+	*************************************************************************/
 	f32 ObjectInst::GetPosX() const
 	{ 
 		return transform.m[0][2];
 	}
 
-	// Scale of Object Instance in height
+	/*!***********************************************************************
+	  \brief Get the Scale Y of the object in height
+	  
+	  \return f32& 
+	*************************************************************************/
 	f32& ObjectInst::GetScaleY()
 	{ 
 		return transform.m[1][1];
 	}
 
-	// Position Y in world screen coordinates
+	/*!***********************************************************************
+	  \brief Get the Pos Y of the object in world screen coordinates
+	  
+	  \return f32& 
+	*************************************************************************/
 	f32& ObjectInst::GetPosY()
 	{
 		return transform.m[1][2];
 	}
 
+	/*!***********************************************************************
+	  \brief Get the Pos Y of the object in world screen coordinates
+	  
+	  \return f32 
+	*************************************************************************/
 	f32 ObjectInst::GetPosY() const
 	{ 
 		return transform.m[1][2];
 	}
 
-	// Elapsed time of animation
+	/*!***********************************************************************
+	  \brief Get the elapsed animation time of the object
+	  
+	  \return f32& 
+	*************************************************************************/
 	f32& ObjectInst::GetElapsed()
 	{ 
 		return transform.m[2][0];
 	}
 
-	// Speed of the player's movement
+	/*!***********************************************************************
+	  \brief Get the player speed
+	  
+	  \return f32& 
+	*************************************************************************/
 	f32& ObjectInst::GetPlayerSpeed()
 	{ 
 		return transform.m[2][1];
 	}
 
-	// Elevation of the Object Instance
+	/*!***********************************************************************
+	  \brief Get the Pos Z of the object in world screen coordinates
+	  
+	  \return f32& 
+	*************************************************************************/
 	f32& ObjectInst::GetPosZ()
 	{ 
 		return transform.m[2][2];
 	}
 
+	/*!***********************************************************************
+	  \brief Get the Pos Z of the object in world screen coordinates
+	  
+	  \return f32 
+	*************************************************************************/
 	f32 ObjectInst::GetPosZ() const
 	{ 
 		return transform.m[2][2];
 	}
 
+	AEVec2 ObjectInst::GetScaleXY()
+	{
+		return { GetScaleX(), GetScaleY() };
+	}
+
+	/*!***********************************************************************
+	  \brief Get the Pos X and Pos Y of the object in world screen coordinates
+	  
+	  \return AEVec2 
+	*************************************************************************/
 	AEVec2 ObjectInst::GetPosXY()
 	{ 
 		return { GetPosX(), GetPosY() }; 
 	}
 
+	/*!***********************************************************************
+	  \brief Check the direction the player is facing
+	  
+	  \return int 
+	*************************************************************************/
 	int Character::CheckDirection()
 	{
 		int x{ static_cast<int>(dir.x) }, y{ static_cast<int>(dir.y) };
@@ -98,19 +176,30 @@ namespace OM
 			(y > 0) ? static_cast<int>(UPLEFT) : DOWNRIGHT;
 	}
 
+	/*!***********************************************************************
+	  \brief Get the texture offset of the object
+	  
+	  \return AEVec2& 
+	*************************************************************************/
 	AEVec2& Character::GetOffset()
 	{ 
 		return pObjInst->tex_offset;
 	}
 
-	/*Get direction the player is facing and set according to the spritesheet row.*/
+	/*!***********************************************************************
+	  \brief Set the texture y offset of the player
+	  
+	*************************************************************************/
 	void Character::SetOffsetY()
 	{
 		if (pObjInst->flag & ACTIVE)
 			GetOffset().y = 0.125f * static_cast<f32>(CheckDirection());
 	}
 
-	/*Iterates through the spritesheets columns if the player is moving*/
+	/*!***********************************************************************
+	  \brief Set the texture x offset of the player
+	  
+	*************************************************************************/
 	void Character::SetOffsetX()
 	{
 		pObjInst->GetElapsed() += GSM::gameTime;
@@ -126,6 +215,13 @@ namespace OM
 			GetOffset().x = .0f;
 	}
 
+	/*!***********************************************************************
+	  \brief Get the Vertices X Y object
+	  
+	  \param obj 
+	  \param count 
+	  \return AEVec2* 
+	*************************************************************************/
 	AEVec2* GetVerticesXY(const ObjectInst& obj, int& count)
 	{
 		count = 4;
@@ -140,6 +236,13 @@ namespace OM
 		return xyCoords;
 	}
 
+	/*!***********************************************************************
+	  \brief Get the Vertices Y Z object
+	  
+	  \param obj 
+	  \param count 
+	  \return AEVec2* 
+	*************************************************************************/
 	AEVec2* GetVerticesYZ(const ObjectInst& obj, int& count)
 	{
 		count = 4;
@@ -153,6 +256,13 @@ namespace OM
 		return yzCoords;
 	}
 
+	/*!***********************************************************************
+	  \brief Get the Vertices X Z object
+	  
+	  \param obj 
+	  \param count 
+	  \return AEVec2* 
+	*************************************************************************/
 	AEVec2* GetVerticesXZ(const ObjectInst& obj, int& count)
 	{
 		if (1) { //TODO: Change to check if not a staircase
@@ -180,6 +290,12 @@ namespace OM
 		}
 	}
 
+	/*!***********************************************************************
+	  \brief Convert the object to isometric
+	  
+	  \param obj 
+	  \return AEMtx33 
+	*************************************************************************/
 	AEMtx33 ConvertIsometric(const ObjectInst& obj)
 	{
 		AEMtx33 transform = obj.transform;
