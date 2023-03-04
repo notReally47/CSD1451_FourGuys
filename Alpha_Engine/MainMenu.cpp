@@ -76,18 +76,18 @@ namespace MainMenu
 		// {
 		InputHandler::ExitGame(GSM::next);
 		// for (int i{}; i < (sizeof(objInst) / sizeof(objInst[0])); i++)
-		for (int i = 0; i < 3; i++)
+		// for (int i = 0; i < 3; i++)
+		// {
+		if (InputHandler::ButtonClick(objInst[0].GetPosX(), objInst[0].GetPosY()))
 		{
-			if (InputHandler::ButtonClick(objInst[i].GetPosX(), objInst[i].GetPosY()))
-			{
-				GSM::next = GAME_STATES::GS_LEVEL1;
-				// option = !option;
-			}
-			// if (InputHandler::buttonClick(0.f, 375.f))
-			// {
-			// 	GSM::next = Enum::GS_QUIT;
-			// }
+			GSM::next = GAME_STATES::GS_LEVEL1;
+			// option = !option;
 		}
+		if (InputHandler::ButtonClick(objInst[2].GetPosX(), objInst[2].GetPosY()))
+		{
+			GSM::next = Enum::GS_QUIT;
+		}
+		// }
 		// }
 	}
 
