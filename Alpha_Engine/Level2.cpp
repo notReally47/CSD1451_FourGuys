@@ -61,6 +61,10 @@ namespace Level2
 		flag = (InputHandler::PlayerJump(p_player)) ? flag | JUMPING : flag & ~JUMPING;
 		flag = (InputHandler::PlayerMovement(p_player)) ? flag | ACTIVE : flag & ~ACTIVE;
 
+		// collision detection for isometric
+		
+
+
 		/*MOVEMENT*/
 		//PhysicsHandler::Move::MoveCharacter();
 		p_player.MoveCharacter();
@@ -68,22 +72,37 @@ namespace Level2
 		//check if player if near portrait
 		for (size_t i{ 0 }; i < vOBJ_INST.size(); i++)
 		{
+			
 			if (vOBJ_INST[i].pObj->type == PORTRAIT || vOBJ_INST[i].pObj->type == LANDSCAPE)
 			{
 				vOBJ_INST[i].flag = (CollisionHandler::GetDistance(vOBJ_INST[i].GetPosX(),
-					vOBJ_INST[i].GetPosY(), p_player.pObjInst->GetPosX(),
-					p_player.pObjInst->GetPosY()) < 40.0) ? static_cast<unsigned long>(ACTIVE) : IDLE;
+					vOBJ_INST[i].GetPosY(), vOBJ_INST[i].transform.m[0][0],vOBJ_INST[i].transform.m[1][1],p_player.pObjInst->GetPosX(),
+					p_player.pObjInst->GetPosY()) < 10.0) ? static_cast<unsigned long>(ACTIVE) : IDLE;
 			}
+			//! When player reaches the door, set the flag ( |= isUnlocked).
+			//! TODO because of wall sprite offset issue
+			// if (vOBJ_INST[i].pObj->type == WALL && vOBJ_INST[i].flag == DOOR ){
+			// 	if(CollisionHandler::GetDistance(vOBJ_INST[i].GetPosX() ,
+			// 		vOBJ_INST[i].GetPosY() + vOBJ_INST[i].GetPosZ(), vOBJ_INST[i].transform.m[0][0] ,vOBJ_INST[i].transform.m[1][1] ,p_player.pObjInst->GetPosX(),
+			// 		p_player.pObjInst->GetPosY()) == 0.0){
+			// 			std::cout << "inside\n";
+			// 		vOBJ_INST[i].flag |= static_cast<unsigned long>(ACTIVE);
+			// 		}
+					
+			// }
+			
 		}
+		InputHandler::PlayerInteractionF(p_player);
 
 		/*COLLISIONS*/
-		//TODO: Collision
+		// TODO: Collision
 
 		/*ANIMATION*/
 		AEGfxSetCamPosition(0.f, max(p_player.pObjInst->GetPosY(), MIN_CAM_HEIGHT));
 	}
 	void Level2_Draw()
 	{
+		AEGfxSetBackgroundColor(0.0f, 0.0f, 0.0f);
 		RenderSettings();
 		// Initialise i to 1 to skip player
 		for (int i{ 1 }; i < vOBJ_INST.size(); i++)

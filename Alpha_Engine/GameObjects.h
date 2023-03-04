@@ -59,7 +59,8 @@ namespace GameObjects
 
 	/*FUNCTIONS*/
 	void RenderSettings();
-
+	f32 GetScreenXPercentage(f32 posX);
+	f32 GetScreenYPercentage(f32 posY);
 	/*GET VERTICES*/
 	AEVec2* GetVerticesXY(const ObjectInst& obj, int& count);
 	AEVec2* GetVerticesYZ(const ObjectInst& obj, int& count);
