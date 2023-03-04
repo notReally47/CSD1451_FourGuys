@@ -23,6 +23,12 @@ namespace OM
 	/*GAME OBJECT INSTANCE STRUCTURE*/
 	struct ObjectInst
 	{
+		/*CONSTRUCTORS*/
+		ObjectInst();
+		ObjectInst(const ObjectInst&);
+		~ObjectInst();
+
+
 		/*PUBLIC DATA*/
 		Object*				pObj;
 		unsigned long		flag;
@@ -38,20 +44,20 @@ namespace OM
 		AEVec2				botRight;
 
 		/*MEMBER FUNCTIONS*/
-		f32&				GetScaleX();
-		f32&				GetPosX();
-		f32					GetPosX() const;
-		f32&				GetScaleY();
-		f32&				GetPosY();
-		f32					GetPosY() const;
 		f32&				GetElapsed();
 		f32&				GetPlayerSpeed();
 		f32&				GetPosZ();
 		f32					GetPosZ() const;
-		AEVec2				GetScaleXY();
-		AEVec2				GetPosXY();
+		AEVec2				GetPos() const;
+		void				SetPos(const AEVec2&);
+		AEVec2				SetScale(const f32&);
+
+		/*GRAPHICS MANAGER*/
 		void				RenderObject();
 		void 				RenderShadow();
+		void				RemderGlow();
+
+		/*SIMULATION MANAGER*/
 		void				SetCollider();
 	};
 

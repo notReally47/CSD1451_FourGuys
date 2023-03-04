@@ -41,7 +41,6 @@ namespace Level1
 		ImportData.vOI = *ImportData.Load_Transform_From_YAML(level_number);
 		sCHARACTER = ImportData.Load_Player_Stats_From_YAML(level_number);
 	}
-	
 	/*!***********************************************************************
 	  \brief Initialise level 1
 	  
@@ -65,7 +64,6 @@ namespace Level1
 		/*Extract Using Vector vOBJ_INST & player*/
 		ExportData.Extract_Transform_Data_Out(ImportData.vOI, player, level_number);
 	}
-
 	/*!***********************************************************************
 	  \brief Update player and objects based on input and collisions
 	  
@@ -90,9 +88,7 @@ namespace Level1
 		{
 			if (ImportData.vOI[i].pObj->type == PORTRAIT || ImportData.vOI[i].pObj->type == LANDSCAPE)
 			{
-				ImportData.vOI[i].flag = (CDM::GetDistance(ImportData.vOI[i].GetPosX(),
-					ImportData.vOI[i].GetPosY(), player.pObjInst->GetPosX(),
-					player.pObjInst->GetPosY()) < 40.0) ? static_cast<unsigned long>(ACTIVE) : IDLE;
+				ImportData.vOI[i].flag = (CDM::GetDistance(ImportData.vOI[i].GetPos(), player.pObjInst->GetPos()) < 40.0) ? static_cast<unsigned long>(ACTIVE) : IDLE;
 			}
 		}
 
@@ -100,9 +96,8 @@ namespace Level1
 		//TODO: Collision
 
 		/*ANIMATION*/
-		AEGfxSetCamPosition(0.f, max(player.pObjInst->GetPosY(), MIN_CAM_HEIGHT));
+		AEGfxSetCamPosition(0.f, max(player.pObjInst->GetPos().y, MIN_CAM_HEIGHT));
 	}
-
 	/*!***********************************************************************
 	  \brief Render game objects
 	  
@@ -115,7 +110,6 @@ namespace Level1
 			ImportData.vOI[i].RenderObject();
 		player.AnimateCharacter();
 	}
-
 	/*!***********************************************************************
 	  \brief Free level 1 data
 	  
@@ -126,7 +120,6 @@ namespace Level1
 			AEGfxMeshFree(ImportData.vO[i].pMesh);
 		ImportData.vOI.clear();
 	}
-
 	/*!***********************************************************************
 	  \brief Unload level 1 data
 	  

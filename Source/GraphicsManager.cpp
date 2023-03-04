@@ -26,7 +26,6 @@ namespace OM
 		AEGfxSetBlendMode(AE_GFX_BM_BLEND);
 		AEGfxSetTransparency(1.0f);
 	}
-
 	/*!***********************************************************************
 	  \brief Render objects that have textures
 	  
@@ -38,7 +37,6 @@ namespace OM
 		//AEGfxSetTransform(transform.m);
 		AEGfxMeshDraw(pObj->pMesh, AE_GFX_MDM_TRIANGLES);
 	}
-
 	/*!***********************************************************************
 	  \brief Animate the character
 	  
@@ -50,18 +48,13 @@ namespace OM
 		//pObjInst->RenderShadow();
 		pObjInst->RenderObject();
 	}
-
 	/*!***********************************************************************
 	  \brief Render the shadow of the character
 
 	*************************************************************************/
 	void ObjectInst::RenderShadow()
 	{
-		AEMtx33 shadow{transform};
-
-		AEVec2 scale = GetScaleXY();
-
-		AEVec2Scale(&scale, &scale, 1.1f);
+		/*
 		AEGfxSetTransform(ConvertIsometric(*this).m);
 
 		AEGfxSetBlendColor(0.0f, 0.0f, 0.0f, 1.0f);
@@ -70,6 +63,15 @@ namespace OM
 		AEGfxMeshDraw(pObj->pMesh, AE_GFX_MDM_TRIANGLES);
 
 		AEGfxSetBlendColor(1.0f, 1.0f, 1.0f, 0.0f);
-		AEGfxSetTransparency(1.0f);
+		AEGfxSetTransparency(1.0f);*/
+	}
+	/*!***********************************************************************
+	  \brief Render the glow of the portraits
+	  
+	*************************************************************************/
+	void ObjectInst::RemderGlow()
+	{
+		ObjectInst glow(*this);
+
 	}
 }

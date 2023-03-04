@@ -1,6 +1,36 @@
-﻿  GraphicsManager.cpp
+﻿  CollisionDetectionManager.cpp
+C:\Users\notRe\OneDrive\Projects\HopWards\Source\CollisionDetectionManager.cpp(165,14): warning C4244: 'return': conversion from 'double' to 'f32', possible loss of data
+  FileManager.cpp
+C:\Users\notRe\OneDrive\Projects\HopWards\External\yaml-cpp\include\yaml-cpp\conversion.h(66,44): warning C4127: conditional expression is constant
+C:\Users\notRe\OneDrive\Projects\HopWards\External\yaml-cpp\include\yaml-cpp\conversion.h(50): message : consider using 'if constexpr' statement instead
+C:\Users\notRe\OneDrive\Projects\HopWards\External\yaml-cpp\include\yaml-cpp\nodereadimpl.h(77): message : see reference to function template instantiation 'bool YAML::Convert<T>(const std::string &,T &,void *)' being compiled
+          with
+          [
+              T=long
+          ]
+C:\Users\notRe\OneDrive\Projects\HopWards\External\yaml-cpp\include\yaml-cpp\nodeimpl.h(23): message : see reference to function template instantiation 'bool YAML::ConvertScalar<T>(const YAML::Node &,T &)' being compiled
+          with
+          [
+              T=long
+          ]
+C:\Users\notRe\OneDrive\Projects\HopWards\Source\FileManager.cpp(92,27): message : see reference to function template instantiation 'void YAML::operator >><long>(const YAML::Node &,T &)' being compiled
+          with
+          [
+              T=long
+          ]
+  GameStateManager.cpp
+  GraphicsManager.cpp
+  InputManager.cpp
+  Level1.cpp
+  Main.cpp
+  MainMenu.cpp
+  ObjectManager.cpp
+  SimulationManager.cpp
+  Generating Code...
+AudioManager.obj : warning LNK4099: PDB '' was not found with 'AudioManager.obj' or at ''; linking object as if no debug info
+Options.obj : warning LNK4099: PDB '' was not found with 'Options.obj' or at ''; linking object as if no debug info
   HopWards.vcxproj -> C:\Users\notRe\OneDrive\Projects\HopWards\Bin\Debug-x64\HopWardsD.exe
-  15 File(s) copied
+  29 File(s) copied
   1 File(s) copied
   1 File(s) copied
   1 File(s) copied

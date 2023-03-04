@@ -37,7 +37,6 @@ namespace IM
 		if (AEInputCheckTriggered(AEVK_ESCAPE))
 			next = GAME_STATES::QUIT;
 	}
-
 	/*!***********************************************************************
 	  \brief Checks if the player is moving
 	  
@@ -64,7 +63,6 @@ namespace IM
 		player.dir = dir;
 		return dir.x || dir.y;
 	}
-
 	/*!***********************************************************************
 	  \brief Checks if the player is jumping
 	  
@@ -85,7 +83,6 @@ namespace IM
 
 		return player.pObjInst->GetPosZ() > 0;
 	}
-
 	/*!***********************************************************************
 	  \brief Checks if the mouse clicked on a button
 	  

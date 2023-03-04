@@ -15,9 +15,13 @@
 
 namespace OM
 {
+	/*!***********************************************************************
+	  \brief Move the character based on the direction vector
+	  
+	*************************************************************************/
 	void Character::MoveCharacter()
 	{
-		AEVec2 pos{ pObjInst->GetPosXY() }, dire { dir };
+		AEVec2 pos{ pObjInst->GetPos() }, dire { dir };
 		if (pObjInst->flag & Enum::FLAG::ACTIVE)
 		{
 			f32 unitSpeed = pObjInst->GetPlayerSpeed() * GSM::gameTime;
@@ -25,32 +29,42 @@ namespace OM
 			AEVec2Scale(&dire, &dire, unitSpeed);
 			AEVec2Add(&pos, &pos, &dire);
 		}
-		pObjInst->GetPosX() = pos.x;
-		pObjInst->GetPosY() = pos.y;
+		pObjInst->SetPos(pos);
 	}
-
+	/*!***********************************************************************
+	  \brief Check if the character is in the cell
+	  
+	  \param cell 
+	  \return true 
+	  \return false 
+	*************************************************************************/
 	bool Character::InCell(ObjectInst cell)
 	{
-		f32 x = cell.GetPosX();
-		f32 y = cell.GetPosY();
+		f32 x = cell.GetPos().x;
+		f32 y = cell.GetPos().y;
 
-		AEVec2 p1 = AEVec2{ x - pObjInst->GetScaleX() / 2.f, y + pObjInst->GetScaleY() / 2.f }; // top left
-		AEVec2 p2 = AEVec2{ x + pObjInst->GetScaleX() / 2.f, y + pObjInst->GetScaleY() / 2.f }; // top right
-		AEVec2 p4 = AEVec2{ x - pObjInst->GetScaleX() / 2.f, y - pObjInst->GetScaleY() / 2.f }; // bottom left
-		AEVec2 p3 = AEVec2{ x + pObjInst->GetScaleX() / 2.f, y - pObjInst->GetScaleY() / 2.f }; // bottom right
+		AEVec2 p1 = AEVec2{ x - pObjInst->SetScale(0.5f).x, y + pObjInst->SetScale(0.5f).y }; // top left
+		AEVec2 p2 = AEVec2{ x + pObjInst->SetScale(0.5f).x, y + pObjInst->SetScale(0.5f).y }; // top right
+		AEVec2 p4 = AEVec2{ x - pObjInst->SetScale(0.5f).x, y - pObjInst->SetScale(0.5f).y }; // bottom left
+		AEVec2 p3 = AEVec2{ x + pObjInst->SetScale(0.5f).x, y - pObjInst->SetScale(0.5f).y }; // bottom right
 
-		f32 playerX = pObjInst->GetPosX();
-		f32 playerY = pObjInst->GetPosY();
+		f32 playerX = pObjInst->GetPos().x;
+		f32 playerY = pObjInst->GetPos().y;
 
 		bool a = x - 0.5f <= playerX && playerX <= x + 0.5f;
 		bool b = y - 0.5f <= playerY && playerY <= y + 0.5f;
 		return a && b;
 	}
-
+	/*!***********************************************************************
+	  \brief Get the height of the slope
+	  
+	  \param cell 
+	  \return f32 
+	*************************************************************************/
 	f32 Character::SlopeHeight(ObjectInst cell) 
 	{
 		f32 distance{};
-		AEVec2 pos{ pObjInst->GetPosX(), pObjInst->GetPosY() };
+		AEVec2 pos{ pObjInst->GetPos() };
 
 		AEVec2 bot[2]	{ cell.botLeft, cell.botRight };
 		AEVec2 top[2]	{ cell.topRight, cell.topLeft };;
@@ -78,15 +92,16 @@ namespace OM
 		}
 		return distance;
 	}
-
+	/*!***********************************************************************
+	  \brief Set the collider vertices
+	  
+	*************************************************************************/
 	void ObjectInst::SetCollider()
 	{
-		AEVec2 scale	= GetScaleXY();
-		AEVec2 pos		= GetPosXY();
-		topLeft			= { pos.x - scale.x / 2.f, pos.y + scale.y / 2.f };
-		topRight		= { pos.x + scale.x / 2.f, pos.y + scale.y / 2.f };
-		botLeft			= { pos.x - scale.x / 2.f, pos.y - scale.y / 2.f };
-		botRight		= { pos.x + scale.x / 2.f, pos.y - scale.y / 2.f };
+		topLeft			= { GetPos().x - SetScale(0.5f).x, GetPos().y + SetScale(0.5f).y };
+		topRight		= { GetPos().x + SetScale(0.5f).x, GetPos().y + SetScale(0.5f).y };
+		botLeft			= { GetPos().x - SetScale(0.5f).x, GetPos().y - SetScale(0.5f).y };
+		botRight		= { GetPos().x + SetScale(0.5f).x, GetPos().y - SetScale(0.5f).y };
 	}
 
 

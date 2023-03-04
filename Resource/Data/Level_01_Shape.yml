@@ -33,7 +33,7 @@ Object:
     Mesh:
       uv_01: 0
       uv_02: 1
-      uv_03: 0.1428
+      uv_03: 0.1111111111111111
       uv_04: 1
       uv_05: 0
       uv_06: 0
@@ -94,6 +94,20 @@ Object:
       uv_05: 0
       uv_06: 0
     Texture: "./Resource/Textures/stairs.png"
+    Width: 0
+    Length: 0
+    Height: 0
+
+  07_Platform:
+    Type: 6
+    Mesh:
+      uv_01: 0
+      uv_02: 1
+      uv_03: 0.25
+      uv_04: 1
+      uv_05: 0
+      uv_06: 0
+    Texture: "./Resource/Textures/bridge.png"
     Width: 0
     Length: 0
     Height: 0

@@ -1,4 +1,5 @@
 ﻿  CollisionDetectionManager.cpp
+C:\Users\notRe\OneDrive\Projects\HopWards\Source\CollisionDetectionManager.cpp(167,14): warning C4244: 'return': conversion from 'double' to 'f32', possible loss of data
   EnvironmentManager.cpp
   FileManager.cpp
 C:\Users\notRe\OneDrive\Projects\HopWards\External\yaml-cpp\include\yaml-cpp\conversion.h(66,44): warning C4127: conditional expression is constant
@@ -20,10 +21,19 @@ C:\Users\notRe\OneDrive\Projects\HopWards\Source\FileManager.cpp(92,27): message
           ]
   GameStateManager.cpp
   GraphicsManager.cpp
-C:\Users\notRe\OneDrive\Projects\HopWards\Source\GraphicsManager.cpp(61,19): error C2102: '&' requires l-value
   InputManager.cpp
   Level1.cpp
   Main.cpp
   MainMenu.cpp
   ObjectManager.cpp
   SimulationManager.cpp
+  Generating code
+  Previous IPDB and IOBJ mismatch, fall back to full compilation.
+  All 535 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  HopWards.vcxproj -> C:\Users\notRe\OneDrive\Projects\HopWards\Bin\Release-x64\HopWards.exe
+  29 File(s) copied
+  1 File(s) copied
+  1 File(s) copied
+  1 File(s) copied
+  2 File(s) copied

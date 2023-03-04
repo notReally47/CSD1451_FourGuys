@@ -457,7 +457,7 @@ Object_Instance:
       Type: 2
       Flag: 0
       Texture_Offset:
-        x_offset: 0.4284
+        x_offset: 0.444444
         y_offset: 0
       Transformation:
         scale_x: 256
@@ -474,7 +474,7 @@ Object_Instance:
       Type: 2
       Flag: 0
       Texture_Offset:
-        x_offset: 0.4284
+        x_offset: 0.444444
         y_offset: 0
       Transformation:
         scale_x: 256
@@ -491,7 +491,7 @@ Object_Instance:
       Type: 2
       Flag: 0
       Texture_Offset:
-        x_offset: 0.4284
+        x_offset: 0.444444
         y_offset: 0
       Transformation:
         scale_x: 256
@@ -508,7 +508,7 @@ Object_Instance:
       Type: 2
       Flag: 0
       Texture_Offset:
-        x_offset: 0.4284
+        x_offset: 0.444444
         y_offset: 0
       Transformation:
         scale_x: 256
@@ -525,7 +525,7 @@ Object_Instance:
       Type: 2
       Flag: 0
       Texture_Offset:
-        x_offset: 0.4284
+        x_offset: 0.444444
         y_offset: 0
       Transformation:
         scale_x: 256
@@ -542,7 +542,7 @@ Object_Instance:
       Type: 2
       Flag: 0
       Texture_Offset:
-        x_offset: 0.5712
+        x_offset: 0.555556
         y_offset: 0
       Transformation:
         scale_x: 256
@@ -559,7 +559,7 @@ Object_Instance:
       Type: 2
       Flag: 0
       Texture_Offset:
-        x_offset: 0.5712
+        x_offset: 0.555556
         y_offset: 0
       Transformation:
         scale_x: 256
@@ -576,7 +576,7 @@ Object_Instance:
       Type: 2
       Flag: 0
       Texture_Offset:
-        x_offset: 0.5712
+        x_offset: 0.555556
         y_offset: 0
       Transformation:
         scale_x: 256
@@ -593,7 +593,7 @@ Object_Instance:
       Type: 2
       Flag: 0
       Texture_Offset:
-        x_offset: 0.5712
+        x_offset: 0.555556
         y_offset: 0
       Transformation:
         scale_x: 256
@@ -610,7 +610,7 @@ Object_Instance:
       Type: 2
       Flag: 0
       Texture_Offset:
-        x_offset: 0.5712
+        x_offset: 0.555556
         y_offset: 0
       Transformation:
         scale_x: 256
@@ -627,7 +627,7 @@ Object_Instance:
       Type: 2
       Flag: 0
       Texture_Offset:
-        x_offset: 0.714
+        x_offset: 0.666667
         y_offset: 0
       Transformation:
         scale_x: 256
@@ -644,7 +644,7 @@ Object_Instance:
       Type: 2
       Flag: 0
       Texture_Offset:
-        x_offset: 0.714
+        x_offset: 0.666667
         y_offset: 0
       Transformation:
         scale_x: 256
@@ -661,7 +661,7 @@ Object_Instance:
       Type: 2
       Flag: 0
       Texture_Offset:
-        x_offset: 0.714
+        x_offset: 0.666667
         y_offset: 0
       Transformation:
         scale_x: 256
@@ -678,7 +678,7 @@ Object_Instance:
       Type: 2
       Flag: 0
       Texture_Offset:
-        x_offset: 0.714
+        x_offset: 0.666667
         y_offset: 0
       Transformation:
         scale_x: 256
@@ -695,7 +695,7 @@ Object_Instance:
       Type: 2
       Flag: 0
       Texture_Offset:
-        x_offset: 0.714
+        x_offset: 0.666667
         y_offset: 0
       Transformation:
         scale_x: 256
@@ -712,7 +712,7 @@ Object_Instance:
       Type: 2
       Flag: 0
       Texture_Offset:
-        x_offset: 0.5712
+        x_offset: 0.888889
         y_offset: 0
       Transformation:
         scale_x: 256
@@ -729,7 +729,7 @@ Object_Instance:
       Type: 2
       Flag: 0
       Texture_Offset:
-        x_offset: 0.5712
+        x_offset: 0.555556
         y_offset: 0
       Transformation:
         scale_x: 256
@@ -746,7 +746,7 @@ Object_Instance:
       Type: 2
       Flag: 0
       Texture_Offset:
-        x_offset: 0.5712
+        x_offset: 0.555556
         y_offset: 0
       Transformation:
         scale_x: 256
@@ -763,7 +763,7 @@ Object_Instance:
       Type: 2
       Flag: 0
       Texture_Offset:
-        x_offset: 0.5712
+        x_offset: 0.555556
         y_offset: 0
       Transformation:
         scale_x: 256
@@ -780,7 +780,7 @@ Object_Instance:
       Type: 2
       Flag: 0
       Texture_Offset:
-        x_offset: 0.5712
+        x_offset: 0.555556
         y_offset: 0
       Transformation:
         scale_x: 256
@@ -797,7 +797,7 @@ Object_Instance:
       Type: 2
       Flag: 0
       Texture_Offset:
-        x_offset: 0.5712
+        x_offset: 0.555556
         y_offset: 0
       Transformation:
         scale_x: 256
@@ -814,7 +814,7 @@ Object_Instance:
       Type: 2
       Flag: 0
       Texture_Offset:
-        x_offset: 0.5712
+        x_offset: 0.555556
         y_offset: 0
       Transformation:
         scale_x: 256
@@ -831,7 +831,7 @@ Object_Instance:
       Type: 2
       Flag: 0
       Texture_Offset:
-        x_offset: 0.5712
+        x_offset: 0.555556
         y_offset: 0
       Transformation:
         scale_x: 256
@@ -848,7 +848,7 @@ Object_Instance:
       Type: 2
       Flag: 0
       Texture_Offset:
-        x_offset: 0.5712
+        x_offset: 0.555556
         y_offset: 0
       Transformation:
         scale_x: 256
@@ -865,7 +865,7 @@ Object_Instance:
       Type: 2
       Flag: 0
       Texture_Offset:
-        x_offset: 0.5712
+        x_offset: 0.555556
         y_offset: 0
       Transformation:
         scale_x: 256
@@ -882,7 +882,7 @@ Object_Instance:
       Type: 2
       Flag: 0
       Texture_Offset:
-        x_offset: 0.5712
+        x_offset: 0.555556
         y_offset: 0
       Transformation:
         scale_x: 256
@@ -899,7 +899,7 @@ Object_Instance:
       Type: 2
       Flag: 0
       Texture_Offset:
-        x_offset: 0.5712
+        x_offset: 0.555556
         y_offset: 0
       Transformation:
         scale_x: 256
@@ -916,7 +916,7 @@ Object_Instance:
       Type: 2
       Flag: 0
       Texture_Offset:
-        x_offset: 0.2856
+        x_offset: 0.333333
         y_offset: 0
       Transformation:
         scale_x: 256
@@ -933,7 +933,7 @@ Object_Instance:
       Type: 2
       Flag: 0
       Texture_Offset:
-        x_offset: 0.2856
+        x_offset: 0.333333
         y_offset: 0
       Transformation:
         scale_x: 256
@@ -950,7 +950,7 @@ Object_Instance:
       Type: 2
       Flag: 0
       Texture_Offset:
-        x_offset: 0.2856
+        x_offset: 0.333333
         y_offset: 0
       Transformation:
         scale_x: 256
@@ -967,7 +967,7 @@ Object_Instance:
       Type: 2
       Flag: 0
       Texture_Offset:
-        x_offset: 0.2856
+        x_offset: 0.333333
         y_offset: 0
       Transformation:
         scale_x: 256
@@ -984,7 +984,7 @@ Object_Instance:
       Type: 2
       Flag: 0
       Texture_Offset:
-        x_offset: 0.2856
+        x_offset: 0.333333
         y_offset: 0
       Transformation:
         scale_x: 256
@@ -1001,7 +1001,7 @@ Object_Instance:
       Type: 2
       Flag: 0
       Texture_Offset:
-        x_offset: 0.1428
+        x_offset: 0.222222
         y_offset: 0
       Transformation:
         scale_x: 256
@@ -1018,7 +1018,7 @@ Object_Instance:
       Type: 2
       Flag: 0
       Texture_Offset:
-        x_offset: 0.1428
+        x_offset: 0
         y_offset: 0
       Transformation:
         scale_x: 256
@@ -1035,7 +1035,7 @@ Object_Instance:
       Type: 2
       Flag: 0
       Texture_Offset:
-        x_offset: 0.1428
+        x_offset: 0.222222
         y_offset: 0
       Transformation:
         scale_x: 256
@@ -1052,7 +1052,7 @@ Object_Instance:
       Type: 2
       Flag: 0
       Texture_Offset:
-        x_offset: 0.1428
+        x_offset: 0.222222
         y_offset: 0
       Transformation:
         scale_x: 256
@@ -1069,7 +1069,7 @@ Object_Instance:
       Type: 2
       Flag: 0
       Texture_Offset:
-        x_offset: 0.1428
+        x_offset: 0.222222
         y_offset: 0
       Transformation:
         scale_x: 256
@@ -1086,7 +1086,7 @@ Object_Instance:
       Type: 2
       Flag: 0
       Texture_Offset:
-        x_offset: 0.2856
+        x_offset: 0.111111
         y_offset: 0
       Transformation:
         scale_x: 256
@@ -1103,7 +1103,7 @@ Object_Instance:
       Type: 2
       Flag: 0
       Texture_Offset:
-        x_offset: 0.2856
+        x_offset: 0.333333
         y_offset: 0
       Transformation:
         scale_x: 256
@@ -1120,7 +1120,7 @@ Object_Instance:
       Type: 2
       Flag: 0
       Texture_Offset:
-        x_offset: 0.2856
+        x_offset: 0.333333
         y_offset: 0
       Transformation:
         scale_x: 256
@@ -1137,7 +1137,7 @@ Object_Instance:
       Type: 2
       Flag: 0
       Texture_Offset:
-        x_offset: 0.2856
+        x_offset: 0.333333
         y_offset: 0
       Transformation:
         scale_x: 256
@@ -1154,7 +1154,7 @@ Object_Instance:
       Type: 2
       Flag: 0
       Texture_Offset:
-        x_offset: 0.2856
+        x_offset: 0.333333
         y_offset: 0
       Transformation:
         scale_x: 256
@@ -1171,7 +1171,7 @@ Object_Instance:
       Type: 2
       Flag: 0
       Texture_Offset:
-        x_offset: 0.2856
+        x_offset: 0.333333
         y_offset: 0
       Transformation:
         scale_x: 256
@@ -1188,7 +1188,7 @@ Object_Instance:
       Type: 2
       Flag: 0
       Texture_Offset:
-        x_offset: 0.2856
+        x_offset: 0.333333
         y_offset: 0
       Transformation:
         scale_x: 256
@@ -1205,7 +1205,7 @@ Object_Instance:
       Type: 2
       Flag: 0
       Texture_Offset:
-        x_offset: 0.2856
+        x_offset: 0.333333
         y_offset: 0
       Transformation:
         scale_x: 256
@@ -1222,7 +1222,7 @@ Object_Instance:
       Type: 2
       Flag: 0
       Texture_Offset:
-        x_offset: 0.2856
+        x_offset: 0.333333
         y_offset: 0
       Transformation:
         scale_x: 256
@@ -1239,7 +1239,7 @@ Object_Instance:
       Type: 2
       Flag: 0
       Texture_Offset:
-        x_offset: 0.2856
+        x_offset: 0.333333
         y_offset: 0
       Transformation:
         scale_x: 256
@@ -1256,7 +1256,7 @@ Object_Instance:
       Type: 2
       Flag: 0
       Texture_Offset:
-        x_offset: 0.2856
+        x_offset: 0.333333
         y_offset: 0
       Transformation:
         scale_x: 256
@@ -1273,12 +1273,97 @@ Object_Instance:
       Type: 2
       Flag: 0
       Texture_Offset:
-        x_offset: 0.2856
+        x_offset: 0.333333
         y_offset: 0
       Transformation:
         scale_x: 256
         shear_x: 0
         position_x: -181
+        shear_y: 0
+        scale_y: 288
+        position_y: 321
+        elapsed: 0
+        empty: 0
+        position_z: 775
+
+    02_Wall_49:
+      Type: 2
+      Flag: 0
+      Texture_Offset:
+        x_offset: 0.444444
+        y_offset: 0
+      Transformation:
+        scale_x: 256
+        shear_x: 0
+        position_x: 331
+        shear_y: 0
+        scale_y: 288
+        position_y: 321
+        elapsed: 0
+        empty: 0
+        position_z: 775
+
+    02_Wall_50:
+      Type: 2
+      Flag: 0
+      Texture_Offset:
+        x_offset: 0.555556
+        y_offset: 0
+      Transformation:
+        scale_x: 256
+        shear_x: 0
+        position_x: 331
+        shear_y: 0
+        scale_y: 288
+        position_y: 193
+        elapsed: 0
+        empty: 0
+        position_z: 775
+
+    02_Wall_51:
+      Type: 2
+      Flag: 0
+      Texture_Offset:
+        x_offset: 0.666667
+        y_offset: 0
+      Transformation:
+        scale_x: 256
+        shear_x: 0
+        position_x: 331
+        shear_y: 0
+        scale_y: 288
+        position_y: 65
+        elapsed: 0
+        empty: 0
+        position_z: 775
+
+    02_Wall_52:
+      Type: 2
+      Flag: 0
+      Texture_Offset:
+        x_offset: 0.333333
+        y_offset: 0
+      Transformation:
+        scale_x: 256
+        shear_x: 0
+        position_x: 203
+        shear_y: 0
+        scale_y: 288
+        position_y: 321
+        elapsed: 0
+        empty: 0
+        position_z: 775
+
+    02_Wall_53:
+      Type: 2
+      Flag: 0
+      Texture_Offset:
+        x_offset: 0.222222
+        y_offset: 0
+      Transformation:
+        scale_x: 256
+        shear_x: 0
+        position_x: 75
         shear_y: 0
         scale_y: 288
         position_y: 321
@@ -1468,10 +1553,10 @@ Object_Instance:
       Transformation:
         scale_x: 417
         shear_x: 0
-        position_x: -16
+        position_x: 350
         shear_y: 0
         scale_y: 280
-        position_y: -16
+        position_y: 278
         elapsed: 0
         empty: 0
         position_z: 0
@@ -1485,10 +1570,10 @@ Object_Instance:
       Transformation:
         scale_x: 417
         shear_x: 0
-        position_x: -150
+        position_x: 350
         shear_y: 0
         scale_y: 280
-        position_y: -90
+        position_y: 278
         elapsed: 0
         empty: 0
         position_z: 0

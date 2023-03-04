@@ -56,7 +56,7 @@ namespace CDM
 		/*Check if normal is pointing in the correct
 		direction by comparing with center of object A to center of object B.
 		obj2 position x - obj1 position x, obj2 position y - obj1 position y */
-		AEVec2 dir = AEVec2{ obj2.GetPosX() - obj1.GetPosX(), obj2.GetPosY() - obj1.GetPosY() }; // Get vector from object A to object B
+		AEVec2 dir = AEVec2{ obj2.GetPos().x - obj1.GetPos().x, obj2.GetPos().y - obj1.GetPos().y }; // Get vector from object A to object B
 
 		/*If the normal is in the opposite direction, negate the vector.*/
 		if (AEVec2DotProduct(&dir, &normal) < 0.f) {
@@ -136,14 +136,12 @@ namespace CDM
 	/*!***********************************************************************
 	  \brief Get the distance between player and object
 	  
-	  \param portrait_x 
-	  \param portrait_y 
-	  \param player_x 
-	  \param player_y 
+	  \param portrait
+	  \param player
 	  \return double 
 	*************************************************************************/
-	double GetDistance(f32 const portrait_x, f32 const portrait_y, f32 const player_x, f32 const player_y) {
-		return sqrt(pow(portrait_x - player_x, 2) + pow(portrait_y - player_y, 2));
+	double GetDistance(AEVec2 const& portrait, AEVec2 const& player) {
+		return sqrt(pow(portrait.x - player.x, 2) + pow(portrait.y - player.y, 2));
 	}
 
 	/*!***********************************************************************
@@ -155,7 +153,7 @@ namespace CDM
 	  \return false 
 	*************************************************************************/
 	bool portraitInteract(ObjectInst const portrait, Character const player) {
-		f32 dist = static_cast<f32>(sqrt(pow(portrait.transform.m[0][0] - player.pObjInst->transform.m[0][0], 2) + pow(portrait.GetPosY() - player.pObjInst->GetPosY(), 2)));
+		f32 dist = static_cast<f32>(sqrt(pow(portrait.transform.m[0][0] - player.pObjInst->transform.m[0][0], 2) + pow(portrait.GetPos().y - player.pObjInst->GetPos().y, 2)));
 
 		if (dist < 55.f)
 			return true;
