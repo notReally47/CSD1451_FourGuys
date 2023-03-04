@@ -130,7 +130,7 @@ namespace Level1 {
 		player.isMoving = false;
 		player.pObjInst = playerObjInst;
 		player.rotation = 0.f;
-		player.speed = 10.f;
+		player.speed = 1.f;
 		player.spriteIteration = 0;
 		player.zVel = 0;
 
@@ -171,48 +171,18 @@ namespace Level1 {
 		PhysicsHandler::MovePlayer(player);
 
 		/*COLLISION*/
-		f32 depthXY, depthYZ, depthXZ;
-		AEVec2 normalXY, normalYZ, normalXZ;
-		std::pair<f32, AEVec2> XY{ depthXY, normalXY }, YZ{ depthXY, normalYZ }, XZ{ depthXY, normalXZ }, response;
+		//CollisionHandler::GetEdges(stair);
 
-		bool a, b, c;
-		f32* xPos = &player.pObjInst.transform.m[0][2];
-		f32* yPos = &player.pObjInst.transform.m[1][2];
-		f32* zPos = &player.pObjInst.transform.m[2][2];
+		//std::pair<f32, f32> line = CollisionHandler::CalcLine(stair.bot[0], stair.bot[1]);
+		//AEVec2 playerPos = { player.pObjInst.transform.m[0][2], player.pObjInst.transform.m[1][2] };
+		//CollisionHandler::CheckSide1(line.first, line.second, playerPos);
 
-		a = CollisionHandler::SAT_Collision(player.pObjInst, stair, depthXY, normalXY, GameObjects::GetVerticesXY);
-		b = CollisionHandler::SAT_Collision(player.pObjInst, stair, depthXY, normalXY, GameObjects::GetVerticesXZ);
-		c = CollisionHandler::SAT_Collision(player.pObjInst, stair, depthYZ, normalYZ, GameObjects::GetVerticesYZ);
-
-		if (a) {
-			//AEVec2Scale(&normalXY, &normalXY, depthXY);
-			//*xPos -= normalXY.x;
-			//*yPos -= normalXY.y;
-			//else { 
-			//	AEVec2Scale(&normalYZ, &normalYZ, depthYZ);
-			//	*yPos -= normalXY.x;
-			//	*zPos -= normalXY.y;
-			//}
-			//AEVec2Scale(&normalXY, &normalXY, depthXY);
-			//*xPos -= normalXY.x;
-			//*yPos -= normalXY.y;
-			//AEVec2Scale(&normalYZ, &normalYZ, depthYZ);
-			//*yPos -= normalYZ.x;
-			//*zPos -= normalYZ.y;
-			AEVec2* line = new AEVec2[2];
-			line[0] = AEVec2{ stair.transform.m[0][2] - 0.5f, stair.transform.m[1][2] - 0.5f }; //bot right
-			line[1] = AEVec2{ stair.transform.m[0][2] + 0.5f, stair.transform.m[1][2] - 0.5f }; //bot left
-			AEVec2 pos = { *xPos, *yPos };
-
-			f32 dist = GameObjects::distanceFromAEVec2ToLine(pos, line);
-			*zPos = dist * 2.5f;
-			delete[] line;
-			std::cout << dist << std::endl;
-			//* zPos *= GetLineFromDirection(stair, player.pObjInst, Enum::NORTH);
+		if (CollisionHandler::PointInCell(stair, player.pObjInst)) {
+			CollisionHandler::GetEdges(stair);
+			AEVec2 p = { player.pObjInst.transform.m[0][2], player.pObjInst.transform.m[1][2] };
+			player.pObjInst.transform.m[2][2] = (CollisionHandler::distanceFromAEVec2ToLine(p, stair.bot) - 1.5f) * 40.f;
 		}
-		else *zPos = 0;
-
-
+		else player.pObjInst.transform.m[2][2] = 0;
 		AEGfxSetCamPosition(0.f, player.pObjInst.transform.m[1][2]);
 	}
 
@@ -228,7 +198,6 @@ namespace Level1 {
 		//		GameObjects::RenderObject(tiles[i][j]);
 		//	}
 		//}
-		//GameObjects::RenderObject(tiles[2][2]);
 		GameObjects::RenderObject(stair);
 		AnimationHandler::AnimateCharacter(player);
 	}

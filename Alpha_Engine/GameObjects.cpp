@@ -204,8 +204,8 @@ namespace GameObjects
 		f32 yPos = obj.transform.m[1][2];
 		f32 zPos = obj.transform.m[2][2];
 
-		transform.m[0][2] = (xPos - yPos) * obj.pObj->width;
-		transform.m[1][2] = (xPos + yPos) * obj.pObj->length / 2.f + zPos + obj.pObj->height / 2.f;
+		transform.m[0][2] = (xPos - yPos) * 64.f;
+		transform.m[1][2] = (xPos + yPos) * 64.f / 2.f + zPos + obj.pObj->height / 2.f;
 		return transform;
 	}
 

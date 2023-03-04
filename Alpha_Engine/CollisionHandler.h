@@ -1,5 +1,6 @@
 #pragma once
 #include "pch.h"
+#include <utility>
 
 namespace CollisionHandler {
 	//f32 cuboid[8][3] = {{ 0, 0, 0 }, 
@@ -22,4 +23,12 @@ namespace CollisionHandler {
 	double GetDistance(f32 const portrait_x, f32 const portrait_y, f32 const player_x, f32 const player_y);
 	f32 checkBoundary(Character const player);
 	bool portraitInteract(ObjectInst const portrait, Character const player);
+
+	void GetEdges(ObjectInst &obj);
+	AEVec2 GetNormal(AEVec2 point1, AEVec2 point2);
+	f32 CheckSide(AEVec2 normal, AEVec2 line, AEVec2 pos);
+	bool InCell(ObjectInst &cell, ObjectInst &player);
+	bool PointInCell(ObjectInst& cell, ObjectInst& player);
+	std::pair<f32, f32> CalcLine(AEVec2 p1, AEVec2 p2);
+	int CheckSide1(f32 m, f32 c, AEVec2 point);
 }

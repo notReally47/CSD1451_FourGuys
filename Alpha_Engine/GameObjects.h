@@ -35,6 +35,11 @@ namespace GameObjects
 		*/
 		AEMtx33						transform;
 		//f32							elevation;
+		AEVec2						top[2];
+		AEVec2						bot[2];
+		AEVec2						left[2];
+		AEVec2						right[2];
+
 	};
 
 	/*CHARACTER STRUCTURE*/

@@ -98,4 +98,91 @@ namespace CollisionHandler {
 		else
 			return false;
 	}
+
+	void GetEdges(ObjectInst &obj) {
+		f32 posX = obj.transform.m[0][1];
+		f32 posY = obj.transform.m[0][2];
+
+		AEVec2 topleft = AEVec2{ posX - 0.5f, posY + 0.5f }; // top left
+		AEVec2 topright = AEVec2{ posX + 0.5f, posY + 0.5f }; // top right
+		AEVec2 botleft = AEVec2{ posX - 0.5f, posY - 0.5f }; // bottom left
+		AEVec2 botright = AEVec2{ posX + 0.5f, posY - 0.5f }; // bottom right
+
+		obj.top[0] = topleft;
+		obj.top[1] = topright;
+
+		obj.bot[0] = botright;
+		obj.bot[1] = botleft;
+
+		obj.right[0] = topright;
+		obj.right[1] = botright;
+
+		obj.left[0] = botleft;
+		obj.left[1] = topleft;
+	}
+
+	AEVec2 GetNormal(AEVec2 point1, AEVec2 point2) {
+		AEVec2 lineVec;
+		AEVec2Sub(&lineVec, &point2, &point1);
+		AEVec2Normalize(&lineVec, &lineVec);
+		return AEVec2{ lineVec.y, -lineVec.x };
+	}
+
+	f32 CheckSide(AEVec2 normal, AEVec2 line, AEVec2 pos) {
+		f32 p0 = AEVec2DotProduct(&normal, &line);
+		f32 q = AEVec2DotProduct(&normal, &pos);
+		f32 out = q - p0;
+		return out;
+	}
+
+	bool InCell(ObjectInst &cell, ObjectInst &player) {
+		GetEdges(cell);
+		AEVec2 topNormal = GetNormal(cell.top[0], cell.top[1]);
+		AEVec2 botNormal = GetNormal(cell.bot[0], cell.bot[1]);
+		AEVec2 leftNormal = GetNormal(cell.left[0], cell.left[1]);
+		AEVec2 rightNormal = GetNormal(cell.right[0], cell.right[1]);
+
+		AEVec2 playerPos = { player.transform.m[0][2], player.transform.m[1][2] };
+
+		f32 topDist = CheckSide(topNormal, cell.top[0], playerPos);
+		f32 botDist = CheckSide(botNormal, cell.bot[0], playerPos);
+		f32 leftDist = CheckSide(leftNormal, cell.left[0], playerPos);
+		f32 rightDist = CheckSide(rightNormal, cell.right[0], playerPos);
+
+		return (topDist > 0 && botDist > 0 && leftDist > 0 && rightDist > 0);
+	}
+
+	bool PointInCell(ObjectInst& cell, ObjectInst& player) {
+		f32 x = cell.transform.m[0][2];
+		f32 y = cell.transform.m[1][2];
+
+		AEVec2 p1 = AEVec2{ x - 0.5f, y + 0.5f }; // top left
+		AEVec2 p2 = AEVec2{ x + 0.5f, y + 0.5f }; // top right
+		AEVec2 p4 = AEVec2{ x - 0.5f, y - 0.5f }; // bottom left
+		AEVec2 p3 = AEVec2{ x + 0.5f, y - 0.5f }; // bottom right
+
+		f32 playerX = player.transform.m[0][2];
+		f32 playerY = player.transform.m[1][2];
+
+		bool a = x - 0.5f <= playerX && playerX <= x + 0.5f;
+		bool b = y - 0.5f <= playerY && playerY <= y + 0.5f;
+		return a && b;
+	}
+
+ 	std::pair<f32, f32> CalcLine(AEVec2 p1, AEVec2 p2) {
+		std::pair<f32, f32> line;
+		line.first = (p2.y - p1.y) / (p2.x, p1.x);
+		line.second = p1.y - line.first * p1.x;
+		return line;
+	}
+
+	int CheckSide1(f32 m, f32 c, AEVec2 point) {
+		f32 yOnLine = m * point.x + c;
+		std::cout << yOnLine << std::endl;
+		if (point.y > yOnLine)
+			return 1;
+		else if (point.y < yOnLine)
+			return -1;
+		else return 0;
+	}
 }
