@@ -42,7 +42,7 @@ namespace MainMenu
 			objInst[i].transform = {100.0f, .0f, .0f + .0f,
 									.0f, 50.0f, i * 100.f - 100.f,
 									.0f, .0f, .0f};
-			objInst[i].pObj->pTex = AEGfxTextureLoad("../Assets/Textures/images.png");
+			objInst[i].pObj->pTex = AEGfxTextureLoad("../Assets/Textures/button.png");
 		}
 
 		objInst[3].pObj = &background;
@@ -111,9 +111,9 @@ namespace MainMenu
 		// }
 
 		AEGfxSetBlendMode(AE_GFX_BM_BLEND);
-		AEGfxPrint(fontId, strBuffer3, GetScreenXPercentage(objInst[0].GetPosX() - objInst[0].transform.m[0][0] / 4.f), GetScreenYPercentage(objInst[0].GetPosY()), 1.0f, 0.0f, 0.f, 0.f);
-		AEGfxPrint(fontId, strBuffer2, GetScreenXPercentage(objInst[1].GetPosX() - objInst[1].transform.m[0][0] / 4.f), GetScreenYPercentage(objInst[1].GetPosY()), 1.0f, 0.0f, 0.f, 0.f);
-		AEGfxPrint(fontId, strBuffer, GetScreenXPercentage(objInst[2].GetPosX() - objInst[2].transform.m[0][0] / 4.f), GetScreenYPercentage(objInst[2].GetPosY()), 1.0f, 0.0f, 0.f, 0.f);
+		AEGfxPrint(fontId, strBuffer3, GetScreenXPercentage(objInst[0].GetPosX() - objInst[0].transform.m[0][0] / 4.f), GetScreenYPercentage(objInst[0].GetPosY()), 1.0f, 1.0f, 1.f, 1.f);
+		AEGfxPrint(fontId, strBuffer2, GetScreenXPercentage(objInst[1].GetPosX() - objInst[1].transform.m[0][0] / 4.f), GetScreenYPercentage(objInst[1].GetPosY()), 1.0f, 1.0f, 1.f, 1.f);
+		AEGfxPrint(fontId, strBuffer, GetScreenXPercentage(objInst[2].GetPosX() - objInst[2].transform.m[0][0] / 4.f), GetScreenYPercentage(objInst[2].GetPosY()), 1.0f, 1.0f, 1.f, 1.f);
 	}
 
 	/*CLEAN UP DATA (SAVE/RESET ETC)*/
