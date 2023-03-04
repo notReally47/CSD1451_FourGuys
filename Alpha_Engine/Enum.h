@@ -28,7 +28,9 @@ namespace Enum {
 		PORTRAIT,
 		LANDSCAPE,
 		PLATFORM,
-		BUTTON
+		BUTTON,
+		BUBBLE,
+		BACKGROUND
 	};
 
 	enum FLAG : unsigned long {

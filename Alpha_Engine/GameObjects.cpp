@@ -65,8 +65,14 @@ namespace GameObjects
 			AEGfxMeshDraw(this->pObj->pMesh, AE_GFX_MDM_TRIANGLES);
 			AEGfxSetBlendColor(1.0f, 1.0f, 1.0f, 0.0f);
 		}
-		if (this->pObj->type == Enum::TYPE::BUTTON)
+		if (this->pObj->type == Enum::TYPE::BUBBLE)
+		{
+			AEGfxSetTransparency(0.5f);
+		}
+		if (this->pObj->type == Enum::TYPE::BUTTON || this->pObj->type == Enum::TYPE::BACKGROUND)
+		{
 			AEGfxSetTransform(this->transform.m);
+		}
 		else
 			AEGfxSetTransform(ConvertIsometric(*this).m);
 		AEGfxMeshDraw(this->pObj->pMesh, AE_GFX_MDM_TRIANGLES);
@@ -209,4 +215,5 @@ namespace GameObjects
 		transform.m[1][2] = 0.5f * obj.GetPosX() + 0.5f * obj.GetPosY() + obj.GetPosZ();
 		return transform;
 	}
+
 }
