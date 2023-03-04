@@ -56,7 +56,7 @@ namespace Level1
 
 		/*Extract Using Vector vOBJ_INST & p_player*/
 		Extract_Data_To_File::Extract_Transform_Data_Out(vOBJ_INST, p_player, level_number);
-		
+
 		// strBuffer = "";
 
 		AEGfxMeshStart();
@@ -73,8 +73,8 @@ namespace Level1
 		objInst[0].pObj = &bubble;
 		objInst[0].flag = Enum::FLAG::IDLE;
 		objInst[0].tex_offset = {.0f, .0f};
-		objInst[0].transform = {100.f, .0f, .0f + .0f,
-								.0f, 50.0f, 0.f,
+		objInst[0].transform = {150.f, .0f, .0f + .0f,
+								.0f, 150.0f, 0.f,
 								.0f, .0f, .0f};
 		objInst[0].pObj->pTex = AEGfxTextureLoad("../Assets/Textures/bubble.jpg");
 	}
@@ -111,7 +111,7 @@ namespace Level1
 				{
 					objInst[0].GetPosX() = vOBJ_INST[i].GetPosX();
 					objInst[0].GetPosY() = vOBJ_INST[i].GetPosY();
-					objInst[0].GetPosZ() = vOBJ_INST[i].GetPosZ() + 50.0f;
+					objInst[0].GetPosZ() = vOBJ_INST[i].GetPosZ() + 100.0f;
 					objInst[0].flag = ACTIVE;
 				}
 			}
@@ -141,6 +141,7 @@ namespace Level1
 		{
 
 			objInst[0].flag = IDLE;
+			objInst[0].GetElapsed() = {};
 		}
 		InputHandler::PlayerInteractionF(p_player);
 
