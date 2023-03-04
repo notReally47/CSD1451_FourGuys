@@ -1,5 +1,6 @@
 #pragma once
 #include "PCH.h"
+#include <utility>
 
 namespace OM
 {
@@ -27,6 +28,14 @@ namespace OM
 		unsigned long		flag;
 		AEVec2				tex_offset;
 		AEMtx33				transform;
+		unsigned long		direction; // slope direction; none if not a slope
+
+		/*COLLIDER VERTICES*/
+		// Not required to be added to YAML, calculated at run time
+		AEVec2				topLeft;
+		AEVec2				topRight;
+		AEVec2				botLeft;
+		AEVec2				botRight;
 
 		/*MEMBER FUNCTIONS*/
 		f32&				GetScaleX();
@@ -43,6 +52,7 @@ namespace OM
 		AEVec2				GetPosXY();
 		void				RenderObject();
 		void 				RenderShadow();
+		void				SetCollider();
 	};
 
 	/*CHARACTER STRUCTURE*/
@@ -62,6 +72,10 @@ namespace OM
 		void				SetOffsetX();
 		void				AnimateCharacter();
 		void				MoveCharacter();
+
+		bool				InCell(ObjectInst cell);
+		f32					PointLineDist(ObjectInst cell);
+		f32					SlopeHeight(ObjectInst cell);
 	};
 
 	/*FUNCTIONS*/
@@ -72,5 +86,7 @@ namespace OM
 	AEVec2*					GetVerticesYZ(const ObjectInst& obj, int& count);
 	AEVec2*					GetVerticesXZ(const ObjectInst& obj, int& count);
 	AEMtx33					ConvertIsometric(const ObjectInst& obj);
+
+	int						PointLineClassification(AEVec2 point, AEVec2 pt1, AEVec2 pt2);
 }
 

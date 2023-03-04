@@ -162,4 +162,37 @@ namespace CDM
 		else
 			return false;
 	}
+
+	f32 distance(AEVec2 p1, AEVec2 p2) {
+		return sqrt(pow((p2.x - p1.x), 2) + pow((p2.y - p1.y), 2));
+	}
+
+	f32 PointLineDist(AEVec2 pos, AEVec2 line[2])
+	{
+		f32 A = pos.x - line[0].x;
+		f32 B = pos.y - line[0].y;
+		f32 C = line[1].x - line[0].x;
+		f32 D = line[1].y - line[0].y;
+
+		f32 dot = A * C + B * D;
+		f32 len_sq = C * C + D * D;
+		f32 param = dot / len_sq;
+
+		f32 xx, yy;
+
+		if (param < 0) {
+			xx = line[0].x;
+			yy = line[0].y;
+		}
+		else if (param > 1) {
+			xx = line[1].x;
+			yy = line[1].y;
+		}
+		else {
+			xx = line[0].x + param * C;
+			yy = line[0].y + param * D;
+		}
+
+		return distance(pos, { xx, yy });
+	}
 }

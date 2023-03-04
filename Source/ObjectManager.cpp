@@ -299,8 +299,24 @@ namespace OM
 	AEMtx33 ConvertIsometric(const ObjectInst& obj)
 	{
 		AEMtx33 transform = obj.transform;
-		transform.m[0][2] = obj.GetPosX() - obj.GetPosY();
-		transform.m[1][2] = 0.5f * obj.GetPosX() + 0.5f * obj.GetPosY() + obj.GetPosZ();
+		transform.m[0][2] = (obj.GetPosX() - obj.GetPosY());
+		transform.m[1][2] = (obj.GetPosX() + obj.GetPosY()) / 2.f + obj.GetPosZ();
 		return transform;
+	}
+
+	/*!***********************************************************************
+	  \brief Checks if a point is on the left or right side of a line
+
+	  \param AEVec2 point
+	  \param AEVec2 pt1
+	  \param AEVec2 pt2
+	  \return int: returns 1 if point is on the left side, -1 if point is on the right side, and 0 if point is on the line.
+	*************************************************************************/
+	int PointLineClassification(AEVec2 point, AEVec2 pt1, AEVec2 pt2)
+	{
+		int out;
+		f32 result = (point.x - pt1.x) * (pt2.y - pt1.y) - (point.y - pt1.y) * (pt2.x - pt1.x);
+		out = result > 0 ? 1 : result < 0 ? -1 : 0;
+		return out;
 	}
 }

@@ -9,5 +9,6 @@
 #include "Enumeration.h"
 #include "ObjectManager.h"
 #include "GameStateManager.h"
+#include "CollisionDetectionManager.h"
 
 #endif // !PCH_H

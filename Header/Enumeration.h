@@ -34,6 +34,14 @@ namespace Enum {
 		ISO_RIGHT,
 		DOOR
 	};
+
+	enum SLOPE : unsigned long {
+		NONE,
+		NORTH,
+		SOUTH,
+		EAST,
+		WEST
+	};
 }
 
 enum class GAME_STATES : int {
