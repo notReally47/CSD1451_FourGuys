@@ -122,7 +122,7 @@ namespace Level1
 				objInst[0].transform.m[1][2] = ImportData.vOI[i].GetPos().y;
 				objInst[0].GetPosZ() = ImportData.vOI[i].GetPosZ() + 100.0f;
 				objInst[0].flag = ACTIVE;
-				*tmp.next = ACTIVE;
+				*tmp.next |= ACTIVE;
 			}
 			if (ImportData.vOI[i].pObj->type == WALL && ImportData.vOI[i].flag & DOOR)
 			{

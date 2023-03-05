@@ -7,20 +7,6 @@ using namespace std;
 
 namespace FM
 {
-	struct File
-	{
-		File();
-		~File();
-
-		vector<OM::Object>*		pO;
-		vector<OM::ObjectInst>*	pOI;
-
-		// create static structs of Object, etc
-		vector<OM::Object>* Load_Shape_From_YAMLs();
-		vector<OM::ObjectInst>* Load_Transform_From_YAMLs();
-		void					Extract_Transform_Data_Outs();
-	};
-
 	struct Export : public OM::ObjectInst, public OM::Character
 	{
 		void					Extract_Transform_Data_Out(vector<OM::ObjectInst> vOI, OM::Character p_player, const string level_number);

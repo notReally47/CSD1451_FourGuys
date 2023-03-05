@@ -37,11 +37,11 @@
             "expandedObjectLayers": [
                 9
             ],
-            "scale": 1,
-            "selectedLayer": 4,
+            "scale": 1.5,
+            "selectedLayer": 2,
             "viewCenter": {
-                "x": 655,
-                "y": 115.5
+                "x": 522,
+                "y": 261
             }
         },
         "HopWards Tileset.tsx": {
