@@ -98,7 +98,7 @@ namespace Menu
 		}
 		if (IM::ButtonClick(objInst[2].GetPos().x, objInst[2].GetPos().y))
 		{
-			GSM::next = GAME_STATES::LEVEL1;
+			GSM::next = GAME_STATES::QUIT;
 		}
 	}
 
