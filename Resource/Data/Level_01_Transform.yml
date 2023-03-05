@@ -1152,7 +1152,7 @@ Object_Instance:
 
     02_Wall_37:
       Type: 2
-      Flag: 2
+      Flag: 3
       Texture_Offset:
         x_offset: 0.1111111111111111
         y_offset: 0

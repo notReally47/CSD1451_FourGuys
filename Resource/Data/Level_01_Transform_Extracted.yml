@@ -8,14 +8,14 @@ Object_Instance:
         x_offset: 0.429
         y_offset: 0
       Transformation:
-        scale_x: 102.4
+        scale_x: 153.6
         shear_x: 0
         position_x: 0
         shear_y: 0
-        scale_y: 121.6
+        scale_y: 182.4
         position_y: 0
         elapsed: 0
-        empty: 133.333
+        empty: 200
         position_z: 0
       Direction:
         direction_x: 0
@@ -34,12 +34,12 @@ Object_Instance:
         x_offset: 0
         y_offset: 0
       Transformation:
-        scale_x: 170.667
+        scale_x: 256
         shear_x: 0
-        position_x: 170.667
+        position_x: 256
         shear_y: 0
-        scale_y: 98.6667
-        position_y: 170.667
+        scale_y: 148
+        position_y: 256
         elapsed: 0
         empty: 0
         position_z: 0
@@ -51,12 +51,12 @@ Object_Instance:
         x_offset: 0
         y_offset: 0
       Transformation:
-        scale_x: 170.667
+        scale_x: 256
         shear_x: 0
-        position_x: 85.3333
+        position_x: 128
         shear_y: 0
-        scale_y: 98.6667
-        position_y: 170.667
+        scale_y: 148
+        position_y: 256
         elapsed: 0
         empty: 0
         position_z: 0
@@ -68,12 +68,12 @@ Object_Instance:
         x_offset: 0
         y_offset: 0
       Transformation:
-        scale_x: 170.667
+        scale_x: 256
         shear_x: 0
         position_x: 0
         shear_y: 0
-        scale_y: 98.6667
-        position_y: 170.667
+        scale_y: 148
+        position_y: 256
         elapsed: 0
         empty: 0
         position_z: 0
@@ -85,12 +85,12 @@ Object_Instance:
         x_offset: 0
         y_offset: 0
       Transformation:
-        scale_x: 170.667
+        scale_x: 256
         shear_x: 0
-        position_x: -85.3333
+        position_x: -128
         shear_y: 0
-        scale_y: 98.6667
-        position_y: 170.667
+        scale_y: 148
+        position_y: 256
         elapsed: 0
         empty: 0
         position_z: 0
@@ -102,12 +102,12 @@ Object_Instance:
         x_offset: 0
         y_offset: 0
       Transformation:
-        scale_x: 170.667
+        scale_x: 256
         shear_x: 0
-        position_x: -170.667
+        position_x: -256
         shear_y: 0
-        scale_y: 98.6667
-        position_y: 170.667
+        scale_y: 148
+        position_y: 256
         elapsed: 0
         empty: 0
         position_z: 0
@@ -119,12 +119,12 @@ Object_Instance:
         x_offset: 0
         y_offset: 0
       Transformation:
-        scale_x: 170.667
+        scale_x: 256
         shear_x: 0
-        position_x: 170.667
+        position_x: 256
         shear_y: 0
-        scale_y: 98.6667
-        position_y: 85.3333
+        scale_y: 148
+        position_y: 128
         elapsed: 0
         empty: 0
         position_z: 0
@@ -136,12 +136,12 @@ Object_Instance:
         x_offset: 0
         y_offset: 0
       Transformation:
-        scale_x: 170.667
+        scale_x: 256
         shear_x: 0
-        position_x: 85.3333
+        position_x: 128
         shear_y: 0
-        scale_y: 98.6667
-        position_y: 85.3333
+        scale_y: 148
+        position_y: 128
         elapsed: 0
         empty: 0
         position_z: 0
@@ -153,12 +153,12 @@ Object_Instance:
         x_offset: 0
         y_offset: 0
       Transformation:
-        scale_x: 170.667
+        scale_x: 256
         shear_x: 0
         position_x: 0
         shear_y: 0
-        scale_y: 98.6667
-        position_y: 85.3333
+        scale_y: 148
+        position_y: 128
         elapsed: 0
         empty: 0
         position_z: 0
@@ -170,12 +170,12 @@ Object_Instance:
         x_offset: 0
         y_offset: 0
       Transformation:
-        scale_x: 170.667
+        scale_x: 256
         shear_x: 0
-        position_x: -85.3333
+        position_x: -128
         shear_y: 0
-        scale_y: 98.6667
-        position_y: 85.3333
+        scale_y: 148
+        position_y: 128
         elapsed: 0
         empty: 0
         position_z: 0
@@ -187,12 +187,12 @@ Object_Instance:
         x_offset: 0
         y_offset: 0
       Transformation:
-        scale_x: 170.667
+        scale_x: 256
         shear_x: 0
-        position_x: -170.667
+        position_x: -256
         shear_y: 0
-        scale_y: 98.6667
-        position_y: 85.3333
+        scale_y: 148
+        position_y: 128
         elapsed: 0
         empty: 0
         position_z: 0
@@ -204,11 +204,11 @@ Object_Instance:
         x_offset: 0
         y_offset: 0
       Transformation:
-        scale_x: 170.667
+        scale_x: 256
         shear_x: 0
-        position_x: 170.667
+        position_x: 256
         shear_y: 0
-        scale_y: 98.6667
+        scale_y: 148
         position_y: 0
         elapsed: 0
         empty: 0
@@ -221,11 +221,11 @@ Object_Instance:
         x_offset: 0
         y_offset: 0
       Transformation:
-        scale_x: 170.667
+        scale_x: 256
         shear_x: 0
-        position_x: 85.3333
+        position_x: 128
         shear_y: 0
-        scale_y: 98.6667
+        scale_y: 148
         position_y: 0
         elapsed: 0
         empty: 0
@@ -238,11 +238,11 @@ Object_Instance:
         x_offset: 0
         y_offset: 0
       Transformation:
-        scale_x: 170.667
+        scale_x: 256
         shear_x: 0
         position_x: 0
         shear_y: 0
-        scale_y: 98.6667
+        scale_y: 148
         position_y: 0
         elapsed: 0
         empty: 0
@@ -255,11 +255,11 @@ Object_Instance:
         x_offset: 0
         y_offset: 0
       Transformation:
-        scale_x: 170.667
+        scale_x: 256
         shear_x: 0
-        position_x: -85.3333
+        position_x: -128
         shear_y: 0
-        scale_y: 98.6667
+        scale_y: 148
         position_y: 0
         elapsed: 0
         empty: 0
@@ -272,11 +272,11 @@ Object_Instance:
         x_offset: 0
         y_offset: 0
       Transformation:
-        scale_x: 170.667
+        scale_x: 256
         shear_x: 0
-        position_x: -170.667
+        position_x: -256
         shear_y: 0
-        scale_y: 98.6667
+        scale_y: 148
         position_y: 0
         elapsed: 0
         empty: 0
@@ -289,12 +289,12 @@ Object_Instance:
         x_offset: 0
         y_offset: 0
       Transformation:
-        scale_x: 170.667
+        scale_x: 256
         shear_x: 0
-        position_x: 170.667
+        position_x: 256
         shear_y: 0
-        scale_y: 98.6667
-        position_y: -85.3333
+        scale_y: 148
+        position_y: -128
         elapsed: 0
         empty: 0
         position_z: 0
@@ -306,12 +306,12 @@ Object_Instance:
         x_offset: 0
         y_offset: 0
       Transformation:
-        scale_x: 170.667
+        scale_x: 256
         shear_x: 0
-        position_x: 85.3333
+        position_x: 128
         shear_y: 0
-        scale_y: 98.6667
-        position_y: -85.3333
+        scale_y: 148
+        position_y: -128
         elapsed: 0
         empty: 0
         position_z: 0
@@ -323,12 +323,12 @@ Object_Instance:
         x_offset: 0
         y_offset: 0
       Transformation:
-        scale_x: 170.667
+        scale_x: 256
         shear_x: 0
         position_x: 0
         shear_y: 0
-        scale_y: 98.6667
-        position_y: -85.3333
+        scale_y: 148
+        position_y: -128
         elapsed: 0
         empty: 0
         position_z: 0
@@ -340,12 +340,12 @@ Object_Instance:
         x_offset: 0
         y_offset: 0
       Transformation:
-        scale_x: 170.667
+        scale_x: 256
         shear_x: 0
-        position_x: -85.3333
+        position_x: -128
         shear_y: 0
-        scale_y: 98.6667
-        position_y: -85.3333
+        scale_y: 148
+        position_y: -128
         elapsed: 0
         empty: 0
         position_z: 0
@@ -357,12 +357,12 @@ Object_Instance:
         x_offset: 0
         y_offset: 0
       Transformation:
-        scale_x: 170.667
+        scale_x: 256
         shear_x: 0
-        position_x: -170.667
+        position_x: -256
         shear_y: 0
-        scale_y: 98.6667
-        position_y: -85.3333
+        scale_y: 148
+        position_y: -128
         elapsed: 0
         empty: 0
         position_z: 0
@@ -374,12 +374,12 @@ Object_Instance:
         x_offset: 0
         y_offset: 0
       Transformation:
-        scale_x: 170.667
+        scale_x: 256
         shear_x: 0
-        position_x: 170.667
+        position_x: 256
         shear_y: 0
-        scale_y: 98.6667
-        position_y: -170.667
+        scale_y: 148
+        position_y: -256
         elapsed: 0
         empty: 0
         position_z: 0
@@ -391,12 +391,12 @@ Object_Instance:
         x_offset: 0
         y_offset: 0
       Transformation:
-        scale_x: 170.667
+        scale_x: 256
         shear_x: 0
-        position_x: 85.3333
+        position_x: 128
         shear_y: 0
-        scale_y: 98.6667
-        position_y: -170.667
+        scale_y: 148
+        position_y: -256
         elapsed: 0
         empty: 0
         position_z: 0
@@ -408,12 +408,12 @@ Object_Instance:
         x_offset: 0
         y_offset: 0
       Transformation:
-        scale_x: 170.667
+        scale_x: 256
         shear_x: 0
         position_x: 0
         shear_y: 0
-        scale_y: 98.6667
-        position_y: -170.667
+        scale_y: 148
+        position_y: -256
         elapsed: 0
         empty: 0
         position_z: 0
@@ -425,12 +425,12 @@ Object_Instance:
         x_offset: 0
         y_offset: 0
       Transformation:
-        scale_x: 170.667
+        scale_x: 256
         shear_x: 0
-        position_x: -85.3333
+        position_x: -128
         shear_y: 0
-        scale_y: 98.6667
-        position_y: -170.667
+        scale_y: 148
+        position_y: -256
         elapsed: 0
         empty: 0
         position_z: 0
@@ -442,12 +442,12 @@ Object_Instance:
         x_offset: 0
         y_offset: 0
       Transformation:
-        scale_x: 170.667
+        scale_x: 256
         shear_x: 0
-        position_x: -170.667
+        position_x: -256
         shear_y: 0
-        scale_y: 98.6667
-        position_y: -170.667
+        scale_y: 148
+        position_y: -256
         elapsed: 0
         empty: 0
         position_z: 0
@@ -460,12 +460,12 @@ Object_Instance:
         x_offset: 0.444444
         y_offset: 0
       Transformation:
-        scale_x: 170.667
+        scale_x: 256
         shear_x: 0
-        position_x: 217.333
+        position_x: 326
         shear_y: 0
-        scale_y: 192
-        position_y: 217.333
+        scale_y: 288
+        position_y: 326
         elapsed: 0
         empty: 0
         position_z: 0
@@ -477,15 +477,15 @@ Object_Instance:
         x_offset: 0.444444
         y_offset: 0
       Transformation:
-        scale_x: 170.667
+        scale_x: 256
         shear_x: 0
-        position_x: 218
+        position_x: 327
         shear_y: 0
-        scale_y: 192
-        position_y: 216.667
+        scale_y: 288
+        position_y: 325
         elapsed: 0
         empty: 0
-        position_z: 103.333
+        position_z: 155
 
     02_Wall_02:
       Type: 2
@@ -494,15 +494,15 @@ Object_Instance:
         x_offset: 0.444444
         y_offset: 0
       Transformation:
-        scale_x: 170.667
+        scale_x: 256
         shear_x: 0
-        position_x: 218.667
+        position_x: 328
         shear_y: 0
-        scale_y: 192
-        position_y: 216
+        scale_y: 288
+        position_y: 324
         elapsed: 0
         empty: 0
-        position_z: 206.667
+        position_z: 310
 
     02_Wall_03:
       Type: 2
@@ -511,15 +511,15 @@ Object_Instance:
         x_offset: 0.444444
         y_offset: 0
       Transformation:
-        scale_x: 170.667
+        scale_x: 256
         shear_x: 0
-        position_x: 219.333
+        position_x: 329
         shear_y: 0
-        scale_y: 192
-        position_y: 215.333
+        scale_y: 288
+        position_y: 323
         elapsed: 0
         empty: 0
-        position_z: 310
+        position_z: 465
 
     02_Wall_04:
       Type: 2
@@ -528,15 +528,15 @@ Object_Instance:
         x_offset: 0.444444
         y_offset: 0
       Transformation:
-        scale_x: 170.667
+        scale_x: 256
         shear_x: 0
-        position_x: 220
+        position_x: 330
         shear_y: 0
-        scale_y: 192
-        position_y: 214.667
+        scale_y: 288
+        position_y: 322
         elapsed: 0
         empty: 0
-        position_z: 413.333
+        position_z: 620
 
     02_Wall_05:
       Type: 2
@@ -545,12 +545,12 @@ Object_Instance:
         x_offset: 0.555556
         y_offset: 0
       Transformation:
-        scale_x: 170.667
+        scale_x: 256
         shear_x: 0
-        position_x: 217.333
+        position_x: 326
         shear_y: 0
-        scale_y: 192
-        position_y: 132
+        scale_y: 288
+        position_y: 198
         elapsed: 0
         empty: 0
         position_z: 0
@@ -562,15 +562,15 @@ Object_Instance:
         x_offset: 0.555556
         y_offset: 0
       Transformation:
-        scale_x: 170.667
+        scale_x: 256
         shear_x: 0
-        position_x: 218
+        position_x: 327
         shear_y: 0
-        scale_y: 192
-        position_y: 131.333
+        scale_y: 288
+        position_y: 197
         elapsed: 0
         empty: 0
-        position_z: 103.333
+        position_z: 155
 
     02_Wall_07:
       Type: 2
@@ -579,15 +579,15 @@ Object_Instance:
         x_offset: 0.555556
         y_offset: 0
       Transformation:
-        scale_x: 170.667
+        scale_x: 256
         shear_x: 0
-        position_x: 218.667
+        position_x: 328
         shear_y: 0
-        scale_y: 192
-        position_y: 130.667
+        scale_y: 288
+        position_y: 196
         elapsed: 0
         empty: 0
-        position_z: 206.667
+        position_z: 310
 
     02_Wall_08:
       Type: 2
@@ -596,15 +596,15 @@ Object_Instance:
         x_offset: 0.555556
         y_offset: 0
       Transformation:
-        scale_x: 170.667
+        scale_x: 256
         shear_x: 0
-        position_x: 219.333
+        position_x: 329
         shear_y: 0
-        scale_y: 192
-        position_y: 130
+        scale_y: 288
+        position_y: 195
         elapsed: 0
         empty: 0
-        position_z: 310
+        position_z: 465
 
     02_Wall_09:
       Type: 2
@@ -613,15 +613,15 @@ Object_Instance:
         x_offset: 0.555556
         y_offset: 0
       Transformation:
-        scale_x: 170.667
+        scale_x: 256
         shear_x: 0
-        position_x: 220
+        position_x: 330
         shear_y: 0
-        scale_y: 192
-        position_y: 129.333
+        scale_y: 288
+        position_y: 194
         elapsed: 0
         empty: 0
-        position_z: 413.333
+        position_z: 620
 
     02_Wall_10:
       Type: 2
@@ -630,12 +630,12 @@ Object_Instance:
         x_offset: 0.666667
         y_offset: 0
       Transformation:
-        scale_x: 170.667
+        scale_x: 256
         shear_x: 0
-        position_x: 217.333
+        position_x: 326
         shear_y: 0
-        scale_y: 192
-        position_y: 46.6667
+        scale_y: 288
+        position_y: 70
         elapsed: 0
         empty: 0
         position_z: 0
@@ -647,15 +647,15 @@ Object_Instance:
         x_offset: 0.666667
         y_offset: 0
       Transformation:
-        scale_x: 170.667
+        scale_x: 256
         shear_x: 0
-        position_x: 218
+        position_x: 327
         shear_y: 0
-        scale_y: 192
-        position_y: 46
+        scale_y: 288
+        position_y: 69
         elapsed: 0
         empty: 0
-        position_z: 103.333
+        position_z: 155
 
     02_Wall_12:
       Type: 2
@@ -664,15 +664,15 @@ Object_Instance:
         x_offset: 0.666667
         y_offset: 0
       Transformation:
-        scale_x: 170.667
+        scale_x: 256
         shear_x: 0
-        position_x: 218.667
+        position_x: 328
         shear_y: 0
-        scale_y: 192
-        position_y: 45.3333
+        scale_y: 288
+        position_y: 68
         elapsed: 0
         empty: 0
-        position_z: 206.667
+        position_z: 310
 
     02_Wall_13:
       Type: 2
@@ -681,15 +681,15 @@ Object_Instance:
         x_offset: 0.666667
         y_offset: 0
       Transformation:
-        scale_x: 170.667
+        scale_x: 256
         shear_x: 0
-        position_x: 219.333
+        position_x: 329
         shear_y: 0
-        scale_y: 192
-        position_y: 44.6667
+        scale_y: 288
+        position_y: 67
         elapsed: 0
         empty: 0
-        position_z: 310
+        position_z: 465
 
     02_Wall_14:
       Type: 2
@@ -698,15 +698,15 @@ Object_Instance:
         x_offset: 0.666667
         y_offset: 0
       Transformation:
-        scale_x: 170.667
+        scale_x: 256
         shear_x: 0
-        position_x: 220
+        position_x: 330
         shear_y: 0
-        scale_y: 192
-        position_y: 44
+        scale_y: 288
+        position_y: 66
         elapsed: 0
         empty: 0
-        position_z: 413.333
+        position_z: 620
 
     02_Wall_15:
       Type: 2
@@ -715,12 +715,12 @@ Object_Instance:
         x_offset: 0.888889
         y_offset: 0
       Transformation:
-        scale_x: 170.667
+        scale_x: 256
         shear_x: 0
-        position_x: 217.333
+        position_x: 326
         shear_y: 0
-        scale_y: 192
-        position_y: -38.6667
+        scale_y: 288
+        position_y: -58
         elapsed: 0
         empty: 0
         position_z: 0
@@ -732,15 +732,15 @@ Object_Instance:
         x_offset: 0.555556
         y_offset: 0
       Transformation:
-        scale_x: 170.667
+        scale_x: 256
         shear_x: 0
-        position_x: 218
+        position_x: 327
         shear_y: 0
-        scale_y: 192
-        position_y: -39.3333
+        scale_y: 288
+        position_y: -59
         elapsed: 0
         empty: 0
-        position_z: 103.333
+        position_z: 155
 
     02_Wall_17:
       Type: 2
@@ -749,15 +749,15 @@ Object_Instance:
         x_offset: 0.555556
         y_offset: 0
       Transformation:
-        scale_x: 170.667
+        scale_x: 256
         shear_x: 0
-        position_x: 218.667
+        position_x: 328
         shear_y: 0
-        scale_y: 192
-        position_y: -40
+        scale_y: 288
+        position_y: -60
         elapsed: 0
         empty: 0
-        position_z: 206.667
+        position_z: 310
 
     02_Wall_18:
       Type: 2
@@ -766,15 +766,15 @@ Object_Instance:
         x_offset: 0.555556
         y_offset: 0
       Transformation:
-        scale_x: 170.667
+        scale_x: 256
         shear_x: 0
-        position_x: 219.333
+        position_x: 329
         shear_y: 0
-        scale_y: 192
-        position_y: -40.6667
+        scale_y: 288
+        position_y: -61
         elapsed: 0
         empty: 0
-        position_z: 310
+        position_z: 465
 
     02_Wall_19:
       Type: 2
@@ -783,15 +783,15 @@ Object_Instance:
         x_offset: 0.555556
         y_offset: 0
       Transformation:
-        scale_x: 170.667
+        scale_x: 256
         shear_x: 0
-        position_x: 220
+        position_x: 330
         shear_y: 0
-        scale_y: 192
-        position_y: -41.3333
+        scale_y: 288
+        position_y: -62
         elapsed: 0
         empty: 0
-        position_z: 413.333
+        position_z: 620
 
     02_Wall_20:
       Type: 2
@@ -800,15 +800,15 @@ Object_Instance:
         x_offset: 0.555556
         y_offset: 0
       Transformation:
-        scale_x: 170.667
+        scale_x: 256
         shear_x: 0
-        position_x: 220.667
+        position_x: 331
         shear_y: 0
-        scale_y: 192
-        position_y: -42
+        scale_y: 288
+        position_y: -63
         elapsed: 0
         empty: 0
-        position_z: 516.667
+        position_z: 775
 
     02_Wall_21:
       Type: 2
@@ -817,12 +817,12 @@ Object_Instance:
         x_offset: 0.555556
         y_offset: 0
       Transformation:
-        scale_x: 170.667
+        scale_x: 256
         shear_x: 0
-        position_x: 217.333
+        position_x: 326
         shear_y: 0
-        scale_y: 192
-        position_y: -124
+        scale_y: 288
+        position_y: -186
         elapsed: 0
         empty: 0
         position_z: 0
@@ -834,15 +834,15 @@ Object_Instance:
         x_offset: 0.555556
         y_offset: 0
       Transformation:
-        scale_x: 170.667
+        scale_x: 256
         shear_x: 0
-        position_x: 218
+        position_x: 327
         shear_y: 0
-        scale_y: 192
-        position_y: -124.667
+        scale_y: 288
+        position_y: -187
         elapsed: 0
         empty: 0
-        position_z: 103.333
+        position_z: 155
 
     02_Wall_23:
       Type: 2
@@ -851,15 +851,15 @@ Object_Instance:
         x_offset: 0.555556
         y_offset: 0
       Transformation:
-        scale_x: 170.667
+        scale_x: 256
         shear_x: 0
-        position_x: 218.667
+        position_x: 328
         shear_y: 0
-        scale_y: 192
-        position_y: -125.333
+        scale_y: 288
+        position_y: -188
         elapsed: 0
         empty: 0
-        position_z: 206.667
+        position_z: 310
 
     02_Wall_24:
       Type: 2
@@ -868,15 +868,15 @@ Object_Instance:
         x_offset: 0.555556
         y_offset: 0
       Transformation:
-        scale_x: 170.667
+        scale_x: 256
         shear_x: 0
-        position_x: 219.333
+        position_x: 329
         shear_y: 0
-        scale_y: 192
-        position_y: -126
+        scale_y: 288
+        position_y: -189
         elapsed: 0
         empty: 0
-        position_z: 310
+        position_z: 465
 
     02_Wall_25:
       Type: 2
@@ -885,15 +885,15 @@ Object_Instance:
         x_offset: 0.555556
         y_offset: 0
       Transformation:
-        scale_x: 170.667
+        scale_x: 256
         shear_x: 0
-        position_x: 220
+        position_x: 330
         shear_y: 0
-        scale_y: 192
-        position_y: -126.667
+        scale_y: 288
+        position_y: -190
         elapsed: 0
         empty: 0
-        position_z: 413.333
+        position_z: 620
 
     02_Wall_26:
       Type: 2
@@ -902,15 +902,15 @@ Object_Instance:
         x_offset: 0.555556
         y_offset: 0
       Transformation:
-        scale_x: 170.667
+        scale_x: 256
         shear_x: 0
-        position_x: 220.667
+        position_x: 331
         shear_y: 0
-        scale_y: 192
-        position_y: -127.333
+        scale_y: 288
+        position_y: -191
         elapsed: 0
         empty: 0
-        position_z: 516.667
+        position_z: 775
 
     02_Wall_27:
       Type: 2
@@ -919,12 +919,12 @@ Object_Instance:
         x_offset: 0.333333
         y_offset: 0
       Transformation:
-        scale_x: 170.667
+        scale_x: 256
         shear_x: 0
-        position_x: 132
+        position_x: 198
         shear_y: 0
-        scale_y: 192
-        position_y: 217.333
+        scale_y: 288
+        position_y: 326
         elapsed: 0
         empty: 0
         position_z: 0
@@ -936,15 +936,15 @@ Object_Instance:
         x_offset: 0.333333
         y_offset: 0
       Transformation:
-        scale_x: 170.667
+        scale_x: 256
         shear_x: 0
-        position_x: 132.667
+        position_x: 199
         shear_y: 0
-        scale_y: 192
-        position_y: 216.667
+        scale_y: 288
+        position_y: 325
         elapsed: 0
         empty: 0
-        position_z: 103.333
+        position_z: 155
 
     02_Wall_29:
       Type: 2
@@ -953,15 +953,15 @@ Object_Instance:
         x_offset: 0.333333
         y_offset: 0
       Transformation:
-        scale_x: 170.667
+        scale_x: 256
         shear_x: 0
-        position_x: 133.333
+        position_x: 200
         shear_y: 0
-        scale_y: 192
-        position_y: 216
+        scale_y: 288
+        position_y: 324
         elapsed: 0
         empty: 0
-        position_z: 206.667
+        position_z: 310
 
     02_Wall_30:
       Type: 2
@@ -970,15 +970,15 @@ Object_Instance:
         x_offset: 0.333333
         y_offset: 0
       Transformation:
-        scale_x: 170.667
+        scale_x: 256
         shear_x: 0
-        position_x: 134
+        position_x: 201
         shear_y: 0
-        scale_y: 192
-        position_y: 215.333
+        scale_y: 288
+        position_y: 323
         elapsed: 0
         empty: 0
-        position_z: 310
+        position_z: 465
 
     02_Wall_31:
       Type: 2
@@ -987,15 +987,15 @@ Object_Instance:
         x_offset: 0.333333
         y_offset: 0
       Transformation:
-        scale_x: 170.667
+        scale_x: 256
         shear_x: 0
-        position_x: 134.667
+        position_x: 202
         shear_y: 0
-        scale_y: 192
-        position_y: 214.667
+        scale_y: 288
+        position_y: 322
         elapsed: 0
         empty: 0
-        position_z: 413.333
+        position_z: 620
 
     02_Wall_32:
       Type: 2
@@ -1004,12 +1004,12 @@ Object_Instance:
         x_offset: 0.222222
         y_offset: 0
       Transformation:
-        scale_x: 170.667
+        scale_x: 256
         shear_x: 0
-        position_x: 46.6667
+        position_x: 70
         shear_y: 0
-        scale_y: 192
-        position_y: 217.333
+        scale_y: 288
+        position_y: 326
         elapsed: 0
         empty: 0
         position_z: 0
@@ -1021,15 +1021,15 @@ Object_Instance:
         x_offset: 0
         y_offset: 0
       Transformation:
-        scale_x: 170.667
+        scale_x: 256
         shear_x: 0
-        position_x: 47.3333
+        position_x: 71
         shear_y: 0
-        scale_y: 192
-        position_y: 216.667
+        scale_y: 288
+        position_y: 325
         elapsed: 0
         empty: 0
-        position_z: 103.333
+        position_z: 155
 
     02_Wall_34:
       Type: 2
@@ -1038,15 +1038,15 @@ Object_Instance:
         x_offset: 0.222222
         y_offset: 0
       Transformation:
-        scale_x: 170.667
+        scale_x: 256
         shear_x: 0
-        position_x: 48
+        position_x: 72
         shear_y: 0
-        scale_y: 192
-        position_y: 216
+        scale_y: 288
+        position_y: 324
         elapsed: 0
         empty: 0
-        position_z: 206.667
+        position_z: 310
 
     02_Wall_35:
       Type: 2
@@ -1055,15 +1055,15 @@ Object_Instance:
         x_offset: 0.222222
         y_offset: 0
       Transformation:
-        scale_x: 170.667
+        scale_x: 256
         shear_x: 0
-        position_x: 48.6667
+        position_x: 73
         shear_y: 0
-        scale_y: 192
-        position_y: 215.333
+        scale_y: 288
+        position_y: 323
         elapsed: 0
         empty: 0
-        position_z: 310
+        position_z: 465
 
     02_Wall_36:
       Type: 2
@@ -1072,29 +1072,29 @@ Object_Instance:
         x_offset: 0.222222
         y_offset: 0
       Transformation:
-        scale_x: 170.667
+        scale_x: 256
         shear_x: 0
-        position_x: 49.3333
+        position_x: 74
         shear_y: 0
-        scale_y: 192
-        position_y: 214.667
+        scale_y: 288
+        position_y: 322
         elapsed: 0
         empty: 0
-        position_z: 413.333
+        position_z: 620
 
     02_Wall_37:
       Type: 2
-      Flag: 2
+      Flag: 3
       Texture_Offset:
         x_offset: 0.111111
         y_offset: 0
       Transformation:
-        scale_x: 170.667
+        scale_x: 256
         shear_x: 0
-        position_x: -38.6667
+        position_x: -58
         shear_y: 0
-        scale_y: 192
-        position_y: 217.333
+        scale_y: 288
+        position_y: 326
         elapsed: 0
         empty: 0
         position_z: 0
@@ -1106,15 +1106,15 @@ Object_Instance:
         x_offset: 0.333333
         y_offset: 0
       Transformation:
-        scale_x: 170.667
+        scale_x: 256
         shear_x: 0
-        position_x: -38
+        position_x: -57
         shear_y: 0
-        scale_y: 192
-        position_y: 216.667
+        scale_y: 288
+        position_y: 325
         elapsed: 0
         empty: 0
-        position_z: 103.333
+        position_z: 155
 
     02_Wall_39:
       Type: 2
@@ -1123,15 +1123,15 @@ Object_Instance:
         x_offset: 0.333333
         y_offset: 0
       Transformation:
-        scale_x: 170.667
+        scale_x: 256
         shear_x: 0
-        position_x: -37.3333
+        position_x: -56
         shear_y: 0
-        scale_y: 192
-        position_y: 216
+        scale_y: 288
+        position_y: 324
         elapsed: 0
         empty: 0
-        position_z: 206.667
+        position_z: 310
 
     02_Wall_40:
       Type: 2
@@ -1140,15 +1140,15 @@ Object_Instance:
         x_offset: 0.333333
         y_offset: 0
       Transformation:
-        scale_x: 170.667
+        scale_x: 256
         shear_x: 0
-        position_x: -36.6667
+        position_x: -55
         shear_y: 0
-        scale_y: 192
-        position_y: 215.333
+        scale_y: 288
+        position_y: 323
         elapsed: 0
         empty: 0
-        position_z: 310
+        position_z: 465
 
     02_Wall_41:
       Type: 2
@@ -1157,15 +1157,15 @@ Object_Instance:
         x_offset: 0.333333
         y_offset: 0
       Transformation:
-        scale_x: 170.667
+        scale_x: 256
         shear_x: 0
-        position_x: -36
+        position_x: -54
         shear_y: 0
-        scale_y: 192
-        position_y: 214.667
+        scale_y: 288
+        position_y: 322
         elapsed: 0
         empty: 0
-        position_z: 413.333
+        position_z: 620
 
     02_Wall_42:
       Type: 2
@@ -1174,15 +1174,15 @@ Object_Instance:
         x_offset: 0.333333
         y_offset: 0
       Transformation:
-        scale_x: 170.667
+        scale_x: 256
         shear_x: 0
-        position_x: -35.3333
+        position_x: -53
         shear_y: 0
-        scale_y: 192
-        position_y: 214
+        scale_y: 288
+        position_y: 321
         elapsed: 0
         empty: 0
-        position_z: 516.667
+        position_z: 775
 
     02_Wall_43:
       Type: 2
@@ -1191,12 +1191,12 @@ Object_Instance:
         x_offset: 0.333333
         y_offset: 0
       Transformation:
-        scale_x: 170.667
+        scale_x: 256
         shear_x: 0
-        position_x: -124
+        position_x: -186
         shear_y: 0
-        scale_y: 192
-        position_y: 217.333
+        scale_y: 288
+        position_y: 326
         elapsed: 0
         empty: 0
         position_z: 0
@@ -1208,15 +1208,15 @@ Object_Instance:
         x_offset: 0.333333
         y_offset: 0
       Transformation:
-        scale_x: 170.667
+        scale_x: 256
         shear_x: 0
-        position_x: -123.333
+        position_x: -185
         shear_y: 0
-        scale_y: 192
-        position_y: 216.667
+        scale_y: 288
+        position_y: 325
         elapsed: 0
         empty: 0
-        position_z: 103.333
+        position_z: 155
 
     02_Wall_45:
       Type: 2
@@ -1225,15 +1225,15 @@ Object_Instance:
         x_offset: 0.333333
         y_offset: 0
       Transformation:
-        scale_x: 170.667
+        scale_x: 256
         shear_x: 0
-        position_x: -122.667
+        position_x: -184
         shear_y: 0
-        scale_y: 192
-        position_y: 216
+        scale_y: 288
+        position_y: 324
         elapsed: 0
         empty: 0
-        position_z: 206.667
+        position_z: 310
 
     02_Wall_46:
       Type: 2
@@ -1242,15 +1242,15 @@ Object_Instance:
         x_offset: 0.333333
         y_offset: 0
       Transformation:
-        scale_x: 170.667
+        scale_x: 256
         shear_x: 0
-        position_x: -122
+        position_x: -183
         shear_y: 0
-        scale_y: 192
-        position_y: 215.333
+        scale_y: 288
+        position_y: 323
         elapsed: 0
         empty: 0
-        position_z: 310
+        position_z: 465
 
     02_Wall_47:
       Type: 2
@@ -1259,15 +1259,15 @@ Object_Instance:
         x_offset: 0.333333
         y_offset: 0
       Transformation:
-        scale_x: 170.667
+        scale_x: 256
         shear_x: 0
-        position_x: -121.333
+        position_x: -182
         shear_y: 0
-        scale_y: 192
-        position_y: 214.667
+        scale_y: 288
+        position_y: 322
         elapsed: 0
         empty: 0
-        position_z: 413.333
+        position_z: 620
 
     02_Wall_48:
       Type: 2
@@ -1276,15 +1276,15 @@ Object_Instance:
         x_offset: 0.333333
         y_offset: 0
       Transformation:
-        scale_x: 170.667
+        scale_x: 256
         shear_x: 0
-        position_x: -120.667
+        position_x: -181
         shear_y: 0
-        scale_y: 192
-        position_y: 214
+        scale_y: 288
+        position_y: 321
         elapsed: 0
         empty: 0
-        position_z: 516.667
+        position_z: 775
 
     02_Wall_49:
       Type: 2
@@ -1293,15 +1293,15 @@ Object_Instance:
         x_offset: 0.444444
         y_offset: 0
       Transformation:
-        scale_x: 170.667
+        scale_x: 256
         shear_x: 0
-        position_x: 220.667
+        position_x: 331
         shear_y: 0
-        scale_y: 192
-        position_y: 214
+        scale_y: 288
+        position_y: 321
         elapsed: 0
         empty: 0
-        position_z: 516.667
+        position_z: 775
 
     02_Wall_50:
       Type: 2
@@ -1310,15 +1310,15 @@ Object_Instance:
         x_offset: 0.777778
         y_offset: 0
       Transformation:
-        scale_x: 170.667
+        scale_x: 256
         shear_x: 0
-        position_x: 220.667
+        position_x: 331
         shear_y: 0
-        scale_y: 192
-        position_y: 128.667
+        scale_y: 288
+        position_y: 193
         elapsed: 0
         empty: 0
-        position_z: 516.667
+        position_z: 775
 
     02_Wall_51:
       Type: 2
@@ -1327,15 +1327,15 @@ Object_Instance:
         x_offset: 0.666667
         y_offset: 0
       Transformation:
-        scale_x: 170.667
+        scale_x: 256
         shear_x: 0
-        position_x: 220.667
+        position_x: 331
         shear_y: 0
-        scale_y: 192
-        position_y: 43.3333
+        scale_y: 288
+        position_y: 65
         elapsed: 0
         empty: 0
-        position_z: 516.667
+        position_z: 775
 
     02_Wall_52:
       Type: 2
@@ -1344,15 +1344,15 @@ Object_Instance:
         x_offset: 0.333333
         y_offset: 0
       Transformation:
-        scale_x: 170.667
+        scale_x: 256
         shear_x: 0
-        position_x: 135.333
+        position_x: 203
         shear_y: 0
-        scale_y: 192
-        position_y: 214
+        scale_y: 288
+        position_y: 321
         elapsed: 0
         empty: 0
-        position_z: 516.667
+        position_z: 775
 
     02_Wall_53:
       Type: 2
@@ -1361,15 +1361,15 @@ Object_Instance:
         x_offset: 0.222222
         y_offset: 0
       Transformation:
-        scale_x: 170.667
+        scale_x: 256
         shear_x: 0
-        position_x: 50
+        position_x: 75
         shear_y: 0
-        scale_y: 192
-        position_y: 214
+        scale_y: 288
+        position_y: 321
         elapsed: 0
         empty: 0
-        position_z: 516.667
+        position_z: 775
 
   04_Portrait:
     04_Portrait_00:
@@ -1379,12 +1379,12 @@ Object_Instance:
         x_offset: 0
         y_offset: 0
       Transformation:
-        scale_x: 68.4
+        scale_x: 102.6
         shear_x: 0
-        position_x: 153.333
+        position_x: 230
         shear_y: 0
-        scale_y: 112.8
-        position_y: 246.667
+        scale_y: 169.2
+        position_y: 370
         elapsed: 0
         empty: 0
         position_z: 0
@@ -1396,12 +1396,12 @@ Object_Instance:
         x_offset: 0
         y_offset: 0.2
       Transformation:
-        scale_x: 68.4
+        scale_x: 102.6
         shear_x: 0
-        position_x: 273.333
+        position_x: 410
         shear_y: 0
-        scale_y: 112.8
-        position_y: 566.667
+        scale_y: 169.2
+        position_y: 850
         elapsed: 0
         empty: 0
         position_z: 0
@@ -1413,12 +1413,12 @@ Object_Instance:
         x_offset: 0.5
         y_offset: 0.4
       Transformation:
-        scale_x: 68.4
+        scale_x: 102.6
         shear_x: 0
-        position_x: 570
+        position_x: 855
         shear_y: 0
-        scale_y: 112.8
-        position_y: 323.333
+        scale_y: 169.2
+        position_y: 485
         elapsed: 0
         empty: 0
         position_z: 0
@@ -1430,12 +1430,12 @@ Object_Instance:
         x_offset: 0.5
         y_offset: 0.6
       Transformation:
-        scale_x: 68.4
+        scale_x: 102.6
         shear_x: 0
-        position_x: 360
+        position_x: 540
         shear_y: 0
-        scale_y: 112.8
-        position_y: 93.3333
+        scale_y: 169.2
+        position_y: 140
         elapsed: 0
         empty: 0
         position_z: 0
@@ -1447,12 +1447,12 @@ Object_Instance:
         x_offset: 0.5
         y_offset: 0.8
       Transformation:
-        scale_x: 68.4
+        scale_x: 102.6
         shear_x: 0
-        position_x: 463.333
+        position_x: 695
         shear_y: 0
-        scale_y: 112.8
-        position_y: 363.333
+        scale_y: 169.2
+        position_y: 545
         elapsed: 0
         empty: 0
         position_z: 0
@@ -1465,12 +1465,12 @@ Object_Instance:
         x_offset: 0.5
         y_offset: 0
       Transformation:
-        scale_x: 82.6667
+        scale_x: 124
         shear_x: 0
-        position_x: 466.667
+        position_x: 700
         shear_y: 0
-        scale_y: 100
-        position_y: 146.667
+        scale_y: 150
+        position_y: 220
         elapsed: 0
         empty: 0
         position_z: 0
@@ -1482,12 +1482,12 @@ Object_Instance:
         x_offset: 0
         y_offset: 0.2
       Transformation:
-        scale_x: 82.6667
+        scale_x: 124
         shear_x: 0
-        position_x: 353.333
+        position_x: 530
         shear_y: 0
-        scale_y: 100
-        position_y: 460
+        scale_y: 150
+        position_y: 690
         elapsed: 0
         empty: 0
         position_z: 0
@@ -1499,12 +1499,12 @@ Object_Instance:
         x_offset: 0
         y_offset: 0.4
       Transformation:
-        scale_x: 82.6667
+        scale_x: 124
         shear_x: 0
-        position_x: 86.6667
+        position_x: 130
         shear_y: 0
-        scale_y: 100
-        position_y: 353.333
+        scale_y: 150
+        position_y: 530
         elapsed: 0
         empty: 0
         position_z: 0
@@ -1516,12 +1516,12 @@ Object_Instance:
         x_offset: 0
         y_offset: 0.6
       Transformation:
-        scale_x: 82.6667
+        scale_x: 124
         shear_x: 0
-        position_x: 136.667
+        position_x: 205
         shear_y: 0
-        scale_y: 93.3333
-        position_y: 463.333
+        scale_y: 140
+        position_y: 695
         elapsed: 0
         empty: 0
         position_z: 0
@@ -1533,12 +1533,12 @@ Object_Instance:
         x_offset: 0.5
         y_offset: 0.8
       Transformation:
-        scale_x: 82.6667
+        scale_x: 124
         shear_x: 0
-        position_x: 353.333
+        position_x: 530
         shear_y: 0
-        scale_y: 93.3333
-        position_y: 246.667
+        scale_y: 140
+        position_y: 370
         elapsed: 0
         empty: 0
         position_z: 0
@@ -1551,12 +1551,12 @@ Object_Instance:
         x_offset: 0
         y_offset: 0
       Transformation:
-        scale_x: 278
+        scale_x: 417
         shear_x: 0
-        position_x: 233.333
+        position_x: 350
         shear_y: 0
-        scale_y: 186.667
-        position_y: 185.333
+        scale_y: 280
+        position_y: 278
         elapsed: 0
         empty: 0
         position_z: 0
@@ -1568,12 +1568,12 @@ Object_Instance:
         x_offset: 0
         y_offset: 0
       Transformation:
-        scale_x: 278
+        scale_x: 417
         shear_x: 0
-        position_x: 233.333
+        position_x: 350
         shear_y: 0
-        scale_y: 186.667
-        position_y: 185.333
+        scale_y: 280
+        position_y: 278
         elapsed: 0
         empty: 0
         position_z: 0

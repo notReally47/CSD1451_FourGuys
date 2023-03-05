@@ -95,7 +95,7 @@ namespace Level1
 				if (CDM::GetDistance(ImportData.vOI[i].GetPos().x + ImportData.vOI[i].GetPosZ(), ImportData.vOI[i].GetPos().y + ImportData.vOI[i].GetPosZ(), ImportData.vOI[i].transform.m[0][0], ImportData.vOI[i].transform.m[1][1], player.pObjInst->GetPos().x, player.pObjInst->GetPos().y) == 0.0)
 				{
 					ImportData.vOI[i].flag |= static_cast<unsigned long>(ACTIVE);
-					std::cout << "Door is unlocked" << ImportData.vOI[i].flag << std::endl;
+					//std::cout << "Door is unlocked" << ImportData.vOI[i].flag << std::endl;
 					IM::PlayerInteractionF(player, ImportData.vOI, i);
 				}
 			}
