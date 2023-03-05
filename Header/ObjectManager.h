@@ -16,9 +16,11 @@ namespace OM
 		AEGfxTexture*		pTex;
 		AEGfxVertexList*	pMesh;
 		unsigned long		type;
-		f32					width;		// to remove
-		f32					length;		// to remove
-		f32					height;		// to remove
+
+		// DEPRECIATED ?
+		f32					width;
+		f32					length;
+		f32					height;
 	};
 
 	/*GAME OBJECT INSTANCE STRUCTURE*/
@@ -67,6 +69,16 @@ namespace OM
 	struct ObjectCollision
 	{
 		/*TO MOVE COLLIDER VERITCES HERE*/
+	};
+
+	struct ObjectPair
+	{
+		/*CONSTRUCTORS*/
+		ObjectPair();
+		~ObjectPair();
+
+		unsigned long*		head;
+		unsigned long*		next;
 	};
 
 	struct ObjectLayer
