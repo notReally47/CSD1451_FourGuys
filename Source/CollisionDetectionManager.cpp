@@ -140,10 +140,30 @@ namespace CDM
 	  \param player
 	  \return double 
 	*************************************************************************/
-	double GetDistance(AEVec2 const& portrait, AEVec2 const& player) {
+	/*double GetDistance(AEVec2 const& portrait, AEVec2 const& player) {
 		return sqrt(pow(portrait.x - player.x, 2) + pow(portrait.y - player.y, 2));
-	}
+	}*/
+	double GetDistance(f32 const object_x, f32 const object_y, f32 const width, f32 const height, f32 const player_x, f32 const player_y)
+	{
+		// std::cout << "wall x y " << object_x <<" "<< object_y<< "\n";
+		// std::cout << "wall w h " << width <<" "<< height<< "\n";
+		// std::cout << "player x y " << player_x <<" "<< player_y<< "\n";
 
+		f32 minX = object_x - width / 2;
+		f32 minY = object_y - height / 2;
+		f32 maxX = object_x + width / 2;
+		f32 maxY = object_y + height / 2;
+		if (player_x >= minX && player_x <= maxX && player_y >= minY && player_y <= maxY)
+			// point is inside the rectangle
+			return 0.0;
+		else
+		{
+			// distance between point and rec
+			double dx = max(minX - player_x, 0.0) + max(player_x - (minX + width), 0.0);
+			double dy = max(minY - player_y, 0.0) + max(player_y - (minY + height), 0.0);
+			return sqrt(dx * dx + dy * dy);
+		}
+	}
 	/*!***********************************************************************
 	  \brief Check if player is within range of object to interact
 	  

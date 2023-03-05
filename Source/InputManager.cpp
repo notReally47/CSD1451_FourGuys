@@ -103,7 +103,25 @@ namespace IM
 		}
 		return false;
 	}
-
+	void PlayerInteractionF(Character& player, std::vector<ObjectInst>& obj, size_t index)
+	{
+		if (AEInputCheckCurr(AEVK_F))
+		{
+			for (size_t i{ 0 }; i < obj.size(); i++)
+			{
+				if (i == index)
+					continue;
+				if (obj[i].pObj->type == Enum::TYPE::WALL && obj[i].flag & Enum::FLAG::DOOR && obj[i].flag & Enum::FLAG::ACTIVE )
+				{
+					AEVec2 pos{};
+					pos.x = obj[i].GetPos().x + obj[i].GetPosZ();
+					pos.y = obj[i].GetPos().y + obj[i].GetPosZ();
+					player.pObjInst->transform.m[0][2] = pos.x;
+					player.pObjInst->transform.m[1][2] = pos.y;
+				}
+			}
+		}
+	}
 
 	
 }

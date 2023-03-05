@@ -88,10 +88,20 @@ namespace Level1
 		{
 			if (ImportData.vOI[i].pObj->type == PORTRAIT || ImportData.vOI[i].pObj->type == LANDSCAPE)
 			{
-				ImportData.vOI[i].flag = (CDM::GetDistance(ImportData.vOI[i].GetPos(), player.pObjInst->GetPos()) < 40.0) ? static_cast<unsigned long>(GLOW) : IDLE;
+				ImportData.vOI[i].flag = (CDM::GetDistance(ImportData.vOI[i].GetPos().x, ImportData.vOI[i].GetPos().y, ImportData.vOI[i].transform.m[0][0], ImportData.vOI[i].transform.m[1][1], player.pObjInst->GetPos().x, player.pObjInst->GetPos().y) < 10.0) ? static_cast<unsigned long>(GLOW) : IDLE;
 			}
-		}
+			if (ImportData.vOI[i].pObj->type == WALL && ImportData.vOI[i].flag & DOOR)
+			{
+				if (CDM::GetDistance(ImportData.vOI[i].GetPos().x + ImportData.vOI[i].GetPosZ(), ImportData.vOI[i].GetPos().y + ImportData.vOI[i].GetPosZ(), ImportData.vOI[i].transform.m[0][0], ImportData.vOI[i].transform.m[1][1], player.pObjInst->GetPos().x, player.pObjInst->GetPos().y) == 0.0)
+				{
+					ImportData.vOI[i].flag |= static_cast<unsigned long>(ACTIVE);
+					std::cout << "Door is unlocked" << ImportData.vOI[i].flag << std::endl;
+					IM::PlayerInteractionF(player, ImportData.vOI, i);
+				}
+			}
 
+		}
+		
 		/*COLLISIONS*/
 		//TODO: Collision
 

@@ -1152,7 +1152,7 @@ Object_Instance:
 
     02_Wall_37:
       Type: 2
-      Flag: 100
+      Flag: 2
       Texture_Offset:
         x_offset: 0.1111111111111111
         y_offset: 0
@@ -1356,7 +1356,7 @@ Object_Instance:
 
     02_Wall_50:
       Type: 2
-      Flag: 100
+      Flag: 3
       Texture_Offset:
         x_offset: 0.7777777777777778
         y_offset: 0
