@@ -88,7 +88,7 @@ namespace Level1
 		{
 			if (ImportData.vOI[i].pObj->type == PORTRAIT || ImportData.vOI[i].pObj->type == LANDSCAPE)
 			{
-				ImportData.vOI[i].flag = (CDM::GetDistance(ImportData.vOI[i].GetPos(), player.pObjInst->GetPos()) < 40.0) ? static_cast<unsigned long>(ACTIVE) : IDLE;
+				ImportData.vOI[i].flag = (CDM::GetDistance(ImportData.vOI[i].GetPos(), player.pObjInst->GetPos()) < 40.0) ? static_cast<unsigned long>(GLOW) : IDLE;
 			}
 		}
 
@@ -106,8 +106,11 @@ namespace Level1
 	{
 		OM::RenderSettings();
 		// Initialise i to 1 to skip player
-		for (int i{ 1 }; i < ImportData.vOI.size(); i++)
+		for (int i{ 1 }; i < ImportData.vOI.size(); i++) {
+			if (ImportData.vOI[i].flag & Enum::FLAG::GLOW)
+				ImportData.vOI[i].RenderGlow();
 			ImportData.vOI[i].RenderObject();
+		}
 		player.AnimateCharacter();
 	}
 	/*!***********************************************************************

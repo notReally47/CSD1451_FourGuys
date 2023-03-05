@@ -69,9 +69,14 @@ namespace OM
 	  \brief Render the glow of the portraits
 	  
 	*************************************************************************/
-	void ObjectInst::RemderGlow()
+	void ObjectInst::RenderGlow()
 	{
 		ObjectInst glow(*this);
 
+		glow.SetScale(1.1f);
+
+		AEGfxSetBlendColor(1.0f, 1.0f, 0.0f, 0.7f);
+		glow.RenderObject();
+		AEGfxSetBlendColor(1.0f, 1.0f, 1.0f, 0.0f);
 	}
 }

@@ -1,6 +1,7 @@
 #pragma once
 #include "PCH.h"
 #include <utility>
+#include <string>
 
 namespace OM
 {
@@ -15,9 +16,9 @@ namespace OM
 		AEGfxTexture*		pTex;
 		AEGfxVertexList*	pMesh;
 		unsigned long		type;
-		f32					width;
-		f32					length;
-		f32					height;
+		f32					width;		// to remove
+		f32					length;		// to remove
+		f32					height;		// to remove
 	};
 
 	/*GAME OBJECT INSTANCE STRUCTURE*/
@@ -36,6 +37,7 @@ namespace OM
 		AEMtx33				transform;
 		unsigned long		direction; // slope direction; none if not a slope
 
+		/*TO BE MOVE UNDER OBJECTCOLLISION STRUCT*/
 		/*COLLIDER VERTICES*/
 		// Not required to be added to YAML, calculated at run time
 		AEVec2				topLeft;
@@ -43,23 +45,51 @@ namespace OM
 		AEVec2				botLeft;
 		AEVec2				botRight;
 
-		/*MEMBER FUNCTIONS*/
+		/*MEMBER FUNCTIONS FOR TRANSFORMATIONS*/
 		f32&				GetElapsed();
 		f32&				GetPlayerSpeed();
 		f32&				GetPosZ();
 		f32					GetPosZ() const;
 		AEVec2				GetPos() const;
 		void				SetPos(const AEVec2&);
-		AEVec2				SetScale(const f32&);
+		AEVec2				GetScale(const f32&);
+		void				SetScale(const f32&);
 
 		/*GRAPHICS MANAGER*/
 		void				RenderObject();
 		void 				RenderShadow();
-		void				RemderGlow();
+		void				RenderGlow();
 
 		/*SIMULATION MANAGER*/
 		void				SetCollider();
 	};
+
+	struct ObjectCollision
+	{
+		/*TO MOVE COLLIDER VERITCES HERE*/
+	};
+
+	struct ObjectLayer
+	{
+		/*CONSTRUCTORS*/
+		ObjectLayer();
+		~ObjectLayer();
+
+		/*PUBLIC DATA*/
+		int					layer[5][5];
+		f32					offsetx;
+		f32					offsety;
+	};
+
+	struct Ground : public ObjectLayer, public ObjectInst
+	{
+		/*CONSTRUCTORS*/
+		Ground();
+		~Ground();
+
+		/*PUBLIC DATA*/
+	};
+
 
 	/*CHARACTER STRUCTURE*/
 	struct Character

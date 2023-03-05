@@ -43,10 +43,10 @@ namespace OM
 		f32 x = cell.GetPos().x;
 		f32 y = cell.GetPos().y;
 
-		AEVec2 p1 = AEVec2{ x - pObjInst->SetScale(0.5f).x, y + pObjInst->SetScale(0.5f).y }; // top left
-		AEVec2 p2 = AEVec2{ x + pObjInst->SetScale(0.5f).x, y + pObjInst->SetScale(0.5f).y }; // top right
-		AEVec2 p4 = AEVec2{ x - pObjInst->SetScale(0.5f).x, y - pObjInst->SetScale(0.5f).y }; // bottom left
-		AEVec2 p3 = AEVec2{ x + pObjInst->SetScale(0.5f).x, y - pObjInst->SetScale(0.5f).y }; // bottom right
+		AEVec2 p1 = AEVec2{ x - pObjInst->GetScale(0.5f).x, y + pObjInst->GetScale(0.5f).y }; // top left
+		AEVec2 p2 = AEVec2{ x + pObjInst->GetScale(0.5f).x, y + pObjInst->GetScale(0.5f).y }; // top right
+		AEVec2 p4 = AEVec2{ x - pObjInst->GetScale(0.5f).x, y - pObjInst->GetScale(0.5f).y }; // bottom left
+		AEVec2 p3 = AEVec2{ x + pObjInst->GetScale(0.5f).x, y - pObjInst->GetScale(0.5f).y }; // bottom right
 
 		f32 playerX = pObjInst->GetPos().x;
 		f32 playerY = pObjInst->GetPos().y;
@@ -98,10 +98,10 @@ namespace OM
 	*************************************************************************/
 	void ObjectInst::SetCollider()
 	{
-		topLeft			= { GetPos().x - SetScale(0.5f).x, GetPos().y + SetScale(0.5f).y };
-		topRight		= { GetPos().x + SetScale(0.5f).x, GetPos().y + SetScale(0.5f).y };
-		botLeft			= { GetPos().x - SetScale(0.5f).x, GetPos().y - SetScale(0.5f).y };
-		botRight		= { GetPos().x + SetScale(0.5f).x, GetPos().y - SetScale(0.5f).y };
+		topLeft			= { GetPos().x - GetScale(0.5f).x, GetPos().y + GetScale(0.5f).y };
+		topRight		= { GetPos().x + GetScale(0.5f).x, GetPos().y + GetScale(0.5f).y };
+		botLeft			= { GetPos().x - GetScale(0.5f).x, GetPos().y - GetScale(0.5f).y };
+		botRight		= { GetPos().x + GetScale(0.5f).x, GetPos().y - GetScale(0.5f).y };
 	}
 
 

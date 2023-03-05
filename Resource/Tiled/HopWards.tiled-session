@@ -37,11 +37,11 @@
             "expandedObjectLayers": [
                 9
             ],
-            "scale": 1.5,
+            "scale": 1,
             "selectedLayer": 4,
             "viewCenter": {
-                "x": 608,
-                "y": -46.66666666666663
+                "x": 655,
+                "y": 115.5
             }
         },
         "HopWards Tileset.tsx": {
@@ -61,7 +61,7 @@
         "Stairs Tileset.tsx": {
             "dynamicWrapping": false,
             "scaleInDock": 1,
-            "scaleInEditor": 1
+            "scaleInEditor": 1.5
         },
         "Tileset.tsx": {
             "scaleInDock": 1,
@@ -69,6 +69,10 @@
         },
         "Wall Spritesheet.tsx": {
             "scaleInDock": 0.75,
+            "scaleInEditor": 1
+        },
+        "stairs.tsx": {
+            "scaleInDock": 1,
             "scaleInEditor": 1
         }
     },
@@ -84,15 +88,16 @@
     "map.width": 5,
     "openFiles": [
         "HopWards Layer.tmx",
-        "Wall Spritesheet.tsx"
+        "Stairs Tileset.tsx"
     ],
     "project": "HopWards.tiled-project",
     "property.type": "object",
     "recentFiles": [
-        "Wall Spritesheet.tsx",
-        "HopWards Layer.tmx",
-        "Bridge Tiletset.tsx",
         "Stairs Tileset.tsx",
+        "HopWards Layer.tmx",
+        "stairs.tsx",
+        "Wall Spritesheet.tsx",
+        "Bridge Tiletset.tsx",
         "C:/Users/notRe/Downloads/Telegram Desktop/HopWards_Level1/Tiled/HopWards.tmx",
         "Portrait Tileset.tsx",
         "Candles Tilesheet.tsx",
@@ -103,8 +108,8 @@
     ],
     "tileset.lastUsedFormat": "tsx",
     "tileset.tileSize": {
-        "height": 279,
-        "width": 439
+        "height": 207,
+        "width": 256
     },
     "tileset.type": 0
 }

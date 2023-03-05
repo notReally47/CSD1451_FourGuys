@@ -141,9 +141,14 @@ namespace OM
 	  \param val 
 	  \return AEVec2 
 	*************************************************************************/
-	AEVec2 ObjectInst::SetScale(const f32& val)
+	AEVec2 ObjectInst::GetScale(const f32& val)
 	{
 		return { transform.m[0][0] * val, transform.m[1][1] * val };
+	}
+	void ObjectInst::SetScale(const f32& val)
+	{
+		transform.m[0][0] *= val;
+		transform.m[1][1] *= val;
 	}
 	/*!***********************************************************************
 	  \brief Check the direction the player is facing

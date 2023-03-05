@@ -5,11 +5,6 @@
   <properties>
    <property name="INACTIVE" type="bool" value="false"/>
   </properties>
-  <objectgroup draworder="index" id="3">
-   <object id="4" x="182.563" y="278.563">
-    <polygon points="0,0 74.9375,-37.875 75,-57.125 -83.1875,-250.188 -104.938,-258 -180.063,-219.938 -158.25,-212 0.00271739,-19.1277"/>
-   </object>
-  </objectgroup>
   <animation>
    <frame tileid="0" duration="5000"/>
    <frame tileid="1" duration="100"/>
@@ -133,9 +128,27 @@
   <properties>
    <property name="INACTIVE" type="bool" value="false"/>
   </properties>
-  <objectgroup draworder="index" id="2">
-   <object id="1" x="257.609" y="278.522">
-    <polygon points="0,0 -0.173913,-19.0435 158.783,-211 180.957,-220.087 105.87,-258.043 83.7826,-249.87 -74.3913,-56.8696 -74.4348,-37.7826"/>
+  <objectgroup draworder="index" id="4">
+   <object id="8" name="ELEVATED FACE" x="438.438" y="97.5938">
+    <polygon points="0,0 0.0625,-39.4688 -75.3125,-77.2188 -75.8864,-38.5142"/>
+   </object>
+   <object id="9" x="438.652" y="58.3043">
+    <polygon points="0,0 -180.652,220.217 -135.13,204.261 -0.214674,39.3832"/>
+   </object>
+   <object id="10" name="GROUND FACE" x="258.109" y="278.5">
+    <polygon points="0,0 -75.6406,-38.3125 -32.6548,-55.4091 45.4017,-15.8333"/>
+   </object>
+   <object id="11" name="SIDE FACE (FAR)" x="182.469" y="240.344">
+    <polygon points="0,0 180.642,-219.877 180.042,-181.499 42.8868,-17.2993"/>
+   </object>
+   <object id="12" name="BOTTOM FACE" x="438.5" y="97.625">
+    <polygon points="0,0 -76.0313,-38.6406 -213.233,125.442 -134.969,165"/>
+   </object>
+   <object id="13" name="SIDE FACE (NEAR)" x="438.703" y="58.2656">
+    <polyline points="0,0 -180.548,220.134 -256.236,181.912"/>
+   </object>
+   <object id="14" name="TOP FACE" x="363.125" y="20.75">
+    <polygon points="0,0 75.5625,37.625 -104.992,257.739 -180.592,219.428"/>
    </object>
   </objectgroup>
  </tile>

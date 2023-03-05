@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.9" tiledversion="1.9.2" orientation="isometric" renderorder="right-down" width="5" height="5" tilewidth="256" tileheight="128" infinite="0" nextlayerid="10" nextobjectid="17">
+<map version="1.9" tiledversion="1.9.2" orientation="isometric" renderorder="right-down" width="5" height="5" tilewidth="256" tileheight="128" infinite="0" nextlayerid="10" nextobjectid="22">
  <editorsettings>
-  <export target="HopWards Layer..tmj" format="json"/>
+  <export target="HopWards Layer2..tmj" format="json"/>
  </editorsettings>
  <tileset firstgid="1" source="Floor.tsx"/>
  <tileset firstgid="2" source="Wall Spritesheet.tsx"/>

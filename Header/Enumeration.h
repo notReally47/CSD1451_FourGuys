@@ -27,12 +27,17 @@ namespace Enum {
 	enum FLAG : unsigned long {
 		IDLE,
 		ACTIVE,
+		DOOR,
 		JUMPING,
 		ISO_UP,
 		ISO_DOWN,
 		ISO_LEFT,
 		ISO_RIGHT,
-		DOOR
+		
+		// PORTRAITS
+		GLOW,
+		VERTICAL,		
+		HORIZONTAL
 	};
 
 	enum SLOPE : unsigned long {
