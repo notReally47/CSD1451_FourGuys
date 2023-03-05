@@ -1,11 +1,11 @@
 /*!***********************************************************************
   \file   GraphicsManager.cpp
-  \authors 
+  \authors
 
-  \brief 
+  \brief
   This file contains the implementation of the graphics manager
 
-  \copyright  
+  \copyright
   Copyright (C) 2023 DigiPen Institute of Technology.
   Reproduction or disclosure of this file or its contents without the
   prior written consent of DigiPen Institute of Technology is prohibited.
@@ -16,7 +16,7 @@ namespace OM
 {
 	/*!***********************************************************************
 	  \brief Set rendering modes, colour tints, blending and transparency
-	  
+
 	*************************************************************************/
 	void RenderSettings()
 	{
@@ -28,24 +28,33 @@ namespace OM
 	}
 	/*!***********************************************************************
 	  \brief Render objects that have textures
-	  
+
 	*************************************************************************/
 	void ObjectInst::RenderObject()
 	{
 		AEGfxTextureSet(pObj->pTex, tex_offset.x, tex_offset.y);
-		AEGfxSetTransform(ConvertIsometric(*this).m);
-		//AEGfxSetTransform(transform.m);
+		if (this->pObj->type == Enum::TYPE::BUBBLE)
+		{
+			AEGfxSetTransparency(0.5f);
+		}
+		if (this->pObj->type == Enum::TYPE::BUTTON || this->pObj->type == Enum::TYPE::BACKGROUND)
+		{
+			AEGfxSetTransform(this->transform.m);
+		}
+		else
+			AEGfxSetTransform(ConvertIsometric(*this).m);
+		// AEGfxSetTransform(transform.m);
 		AEGfxMeshDraw(pObj->pMesh, AE_GFX_MDM_TRIANGLES);
 	}
 	/*!***********************************************************************
 	  \brief Animate the character
-	  
+
 	*************************************************************************/
 	void Character::AnimateCharacter()
 	{
 		SetOffsetX();
 		SetOffsetY();
-		//pObjInst->RenderShadow();
+		// pObjInst->RenderShadow();
 		pObjInst->RenderObject();
 	}
 	/*!***********************************************************************
@@ -67,7 +76,7 @@ namespace OM
 	}
 	/*!***********************************************************************
 	  \brief Render the glow of the portraits
-	  
+
 	*************************************************************************/
 	void ObjectInst::RenderGlow()
 	{
@@ -78,5 +87,13 @@ namespace OM
 		AEGfxSetBlendColor(1.0f, 1.0f, 0.0f, 0.7f);
 		glow.RenderObject();
 		AEGfxSetBlendColor(1.0f, 1.0f, 1.0f, 0.0f);
+	}
+	f32 GetScreenXPercentage(f32 posX)
+	{
+		return -1.0f + ((static_cast<f32>(AEGetWindowWidth()) / 2.0f + posX) / AEGetWindowWidth()) * 2.0f;
+	}
+	f32 GetScreenYPercentage(f32 posY)
+	{
+		return -1.0f + ((static_cast<f32>(AEGetWindowHeight()) / 2.0f + posY) / AEGetWindowHeight()) * 2.0f;
 	}
 }

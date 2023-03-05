@@ -1,11 +1,11 @@
 /*!***********************************************************************
   \file   Main.cpp
   \authors
-  
-  \brief 
+
+  \brief
   This file contains the main function of the game
 
-  \copyright  
+  \copyright
   Copyright (C) 2023 DigiPen Institute of Technology.
   Reproduction or disclosure of this file or its contents without the
   prior written consent of DigiPen Institute of Technology is prohibited.
@@ -19,17 +19,17 @@
 
 /*!***********************************************************************
   \brief The main function of the game
-  
-  \param hInstance 
-  \param hPrevInstance 
-  \param lpCmdLine 
-  \param nCmdShow 
-  \return int 
+
+  \param hInstance
+  \param hPrevInstance
+  \param lpCmdLine
+  \param nCmdShow
+  \return int
 *************************************************************************/
 int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
-	_In_opt_ HINSTANCE hPrevInstance,
-	_In_ LPWSTR    lpCmdLine,
-	_In_ int       nCmdShow)
+					  _In_opt_ HINSTANCE hPrevInstance,
+					  _In_ LPWSTR lpCmdLine,
+					  _In_ int nCmdShow)
 {
 	UNREFERENCED_PARAMETER(hPrevInstance);
 	UNREFERENCED_PARAMETER(lpCmdLine);
@@ -45,10 +45,10 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 	/*INITIALIZATIONS*/
 	EM::WindowCreate(hInstance, nCmdShow);
 
-	AE_ASSERT_MESG(GSM::fontId = AEGfxCreateFont("../Resource/Font/fude.ttf", 12), "Failed to load font");
+	AE_ASSERT_MESG(GSM::fontId = AEGfxCreateFont("../Resource/Font/fude.ttf", 24), "Failed to load font");
 
-	Initialise(GAME_STATES::LEVEL1);
-	
+	Initialise(GAME_STATES::MAINMENU);
+
 	/*GAME LOOP*/
 	while (current != GAME_STATES::QUIT)
 	{

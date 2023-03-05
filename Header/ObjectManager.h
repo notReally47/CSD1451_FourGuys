@@ -124,5 +124,7 @@ namespace OM
 	AEMtx33					ConvertIsometric(const ObjectInst& obj);
 
 	int						PointLineClassification(AEVec2 point, AEVec2 pt1, AEVec2 pt2);
+	f32 GetScreenXPercentage(f32 posX);
+	f32 GetScreenYPercentage(f32 posY);
 }
 
