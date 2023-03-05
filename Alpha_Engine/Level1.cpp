@@ -117,7 +117,7 @@ namespace Level1 {
 		playerObjInst.tex_offset = AEVec2{ 0, 0 };
 		playerObjInst.transform = AEMtx33{ playerObj.width * 2.f, 0, 0,
 											0, playerObj.length + playerObj.height, 0,
-											0, 0, 10 };
+											0, 0, 0 };
 		/*
 			[0][0] scale_x,		[0][1] 0(shearx),	[0][2] world x,
 			[1][0] 0(sheary),	[1][1] scale_y,		[1][2] world y,
@@ -141,7 +141,7 @@ namespace Level1 {
 				tiles[i][j].tex_offset = AEVec2{ 0, 0 };
 				tiles[i][j].transform = AEMtx33{ tileObj.width * 2.f, 0, (f32)i,
 												0, tileObj.length + tileObj.height, (f32)j,
-												0, 0, 0 };
+												0, 0, -10.f };
 
 				//wall[i][j] .flag		= 1;
 				//wall[i][j].pObj			= &tileObj;
@@ -152,12 +152,15 @@ namespace Level1 {
 			}
 		}
 
+		tiles[4][4].transform = AEMtx33{ tileObj.width * 2.f, 0, 2.f,
+										0, tileObj.length + tileObj.height, 3.f,
+										0, 0, 31.f };
 		stair.flag = 1;
 		stair.pObj = &stairObj;
 		stair.tex_offset = AEVec2{ 0, 0 };
 		stair.transform = AEMtx33{ stairObj.width * 2.f, 0, 2,
 									0, stairObj.length + stairObj.height, 2,
-									0, 0, 10 };
+									0, 0, 0 };
 	}
 
 	void Level1_Update() {
@@ -178,11 +181,24 @@ namespace Level1 {
 		//CollisionHandler::CheckSide1(line.first, line.second, playerPos);
 
 		if (CollisionHandler::PointInCell(stair, player.pObjInst)) {
-			CollisionHandler::GetEdges(stair);
-			AEVec2 p = { player.pObjInst.transform.m[0][2], player.pObjInst.transform.m[1][2] };
-			player.pObjInst.transform.m[2][2] = (CollisionHandler::distanceFromAEVec2ToLine(p, stair.bot) - 1.5f) * 40.f;
+			if(AEInputCheckCurr(AEVK_W))
+				player.pObjInst.transform.m[2][2] += player.speed * AEFrameRateControllerGetFrameTime() * 40;
+			if(AEInputCheckCurr(AEVK_S))
+				player.pObjInst.transform.m[2][2] -= player.speed * AEFrameRateControllerGetFrameTime() * 40;
+
+			//CollisionHandler::GetEdges(stair);
+			//AEVec2 p = { player.pObjInst.transform.m[0][2], player.pObjInst.transform.m[1][2] };
+			//player.pObjInst.transform.m[2][2] = (CollisionHandler::distanceFromAEVec2ToLine(p, stair.bot) - 1.5f) * 40.f;
+			std::cout << player.pObjInst.transform.m[2][2] << std::endl;
 		}
-		else player.pObjInst.transform.m[2][2] = 0;
+		else {
+			if (player.pObjInst.transform.m[2][2] < tiles[4][4].transform.m[2][2]) {
+				player.pObjInst.transform.m[2][2] += -1000.f * AEFrameRateControllerGetFrameTime();
+			}
+			if (player.pObjInst.transform.m[2][2] < 0)
+				player.pObjInst.transform.m[2][2] = 0;
+		}
+
 		AEGfxSetCamPosition(0.f, player.pObjInst.transform.m[1][2]);
 	}
 
@@ -198,6 +214,7 @@ namespace Level1 {
 		//		GameObjects::RenderObject(tiles[i][j]);
 		//	}
 		//}
+		GameObjects::RenderObject(tiles[4][4]);
 		GameObjects::RenderObject(stair);
 		AnimationHandler::AnimateCharacter(player);
 	}
