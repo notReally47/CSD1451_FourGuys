@@ -32,6 +32,8 @@ namespace OM
 	*************************************************************************/
 	void ObjectInst::RenderObject()
 	{
+		if (pObj->type == Enum::TYPE::PLATFORM && flag & Enum::ACTIVE)
+			AnimateStairs();
 		AEGfxTextureSet(pObj->pTex, tex_offset.x, tex_offset.y);
 		if (this->pObj->type == Enum::TYPE::BUBBLE)
 		{
@@ -96,4 +98,5 @@ namespace OM
 	{
 		return -1.0f + ((static_cast<f32>(AEGetWindowHeight()) / 2.0f + posY) / AEGetWindowHeight()) * 2.0f;
 	}
+
 }

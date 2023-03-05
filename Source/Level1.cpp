@@ -32,6 +32,7 @@ namespace Level1
 	OM::Character *sCHARACTER;
 	OM::Object bubble;
 	OM::ObjectInst objInst[1];
+	OM::ObjectPair tmp;
 
 	/*!***********************************************************************
 	  \brief Load level 1 data
@@ -55,6 +56,9 @@ namespace Level1
 
 		/*SCALE OBJECTS*/
 		FM::Option_Change(ImportData.vOI);
+
+		tmp.head = &ImportData.vOI[83].flag;
+		tmp.next = &ImportData.vOI[90].flag;
 
 		/*DO NOT DELETE*/
 
@@ -118,6 +122,7 @@ namespace Level1
 				objInst[0].transform.m[1][2] = ImportData.vOI[i].GetPos().y;
 				objInst[0].GetPosZ() = ImportData.vOI[i].GetPosZ() + 100.0f;
 				objInst[0].flag = ACTIVE;
+				*tmp.next = ACTIVE;
 			}
 			if (ImportData.vOI[i].pObj->type == WALL && ImportData.vOI[i].flag & DOOR)
 			{
@@ -129,6 +134,7 @@ namespace Level1
 				}
 			}
 		}
+
 
 		if (objInst[0].flag == ACTIVE)
 			objInst[0].GetElapsed() += GSM::gameTime;

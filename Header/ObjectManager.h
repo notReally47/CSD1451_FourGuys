@@ -61,6 +61,7 @@ namespace OM
 		void				RenderObject();
 		void 				RenderShadow();
 		void				RenderGlow();
+		void				AnimateStairs();
 
 		/*SIMULATION MANAGER*/
 		void				SetCollider();

@@ -1553,10 +1553,10 @@ Object_Instance:
       Transformation:
         scale_x: 417
         shear_x: 0
-        position_x: 350
+        position_x: -100
         shear_y: 0
         scale_y: 280
-        position_y: 278
+        position_y: -100
         elapsed: 0
         empty: 0
         position_z: 0
