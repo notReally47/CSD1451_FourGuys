@@ -24,6 +24,7 @@
     <ClCompile Include="..\Source\ObjectManager.cpp" />
     <ClCompile Include="..\Source\Options.cpp" />
     <ClCompile Include="..\Source\SimulationManager.cpp" />
+    <ClCompile Include="Level2.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Header\AudioManager.h" />

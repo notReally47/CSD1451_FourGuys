@@ -47,6 +47,7 @@ namespace Enum {
 enum class GAME_STATES : int {
 	RESTART,
 	LEVEL1,
+	LEVEL2,
 	MAINMENU,
 	OPTIONS,
 	QUIT = -1

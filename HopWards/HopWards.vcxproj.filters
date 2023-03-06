@@ -78,6 +78,9 @@
     <ClCompile Include="..\Source\Options.cpp">
       <Filter>Source\Game States</Filter>
     </ClCompile>
+    <ClCompile Include="Level2.cpp">
+      <Filter>Source\Game States</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Header\AudioManager.h">

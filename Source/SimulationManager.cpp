@@ -2,10 +2,10 @@
   \file   SimulationManager.cpp
   \authors
 
-  \brief 
+  \brief
   This file contains the implementation of the simulation manager
 
-  \copyright  
+  \copyright
   Copyright (C) 2023 DigiPen Institute of Technology.
   Reproduction or disclosure of this file or its contents without the
   prior written consent of DigiPen Institute of Technology is prohibited.
@@ -17,27 +17,29 @@ namespace OM
 {
 	void Character::MoveCharacter()
 	{
-		AEVec2 pos{ pObjInst->GetPosXY() }, dire { dir };
-		if (pObjInst->flag & Enum::FLAG::ACTIVE)
+		AEVec2 pos{ pObjInst->transform.m[0][2], pObjInst->transform.m[1][2] };
+
+		if (pObjInst->flag)
 		{
-			f32 unitSpeed = pObjInst->GetPlayerSpeed() * GSM::gameTime;
-			AEVec2Normalize(&dire, &dire);
-			AEVec2Scale(&dire, &dire, unitSpeed);
-			AEVec2Add(&pos, &pos, &dire);
+			f32 unitSpeed = pObjInst->GetPlayerSpeed() * static_cast<f32>(AEFrameRateControllerGetFrameTime());
+			AEVec2Normalize(&dir, &dir);
+			AEVec2Scale(&dir, &dir, unitSpeed);
+			AEVec2Add(&pos, &pos, &dir);
+
+			pObjInst->transform.m[0][2] = 0.f > pos.x || pos.x > 5.f ? pObjInst->transform.m[0][2] : pos.x;
+			pObjInst->transform.m[1][2] = 0.f > pos.y || pos.y > 5.f ? pObjInst->transform.m[1][2] : pos.y;
 		}
-		pObjInst->GetPosX() = pos.x;
-		pObjInst->GetPosY() = pos.y;
 	}
 
 	bool Character::InCell(ObjectInst cell)
 	{
-		f32 x = cell.GetPosX();
-		f32 y = cell.GetPosY();
+		f32 x = cell.transform.m[0][2];
+		f32 y = cell.transform.m[1][2];
 
-		AEVec2 p1 = AEVec2{ x - pObjInst->GetScaleX() / 2.f, y + pObjInst->GetScaleY() / 2.f }; // top left
-		AEVec2 p2 = AEVec2{ x + pObjInst->GetScaleX() / 2.f, y + pObjInst->GetScaleY() / 2.f }; // top right
-		AEVec2 p4 = AEVec2{ x - pObjInst->GetScaleX() / 2.f, y - pObjInst->GetScaleY() / 2.f }; // bottom left
-		AEVec2 p3 = AEVec2{ x + pObjInst->GetScaleX() / 2.f, y - pObjInst->GetScaleY() / 2.f }; // bottom right
+		AEVec2 p1 = AEVec2{ x - 0.5f, y + 0.5f }; // top left
+		AEVec2 p2 = AEVec2{ x + 0.5f, y + 0.5f }; // top right
+		AEVec2 p4 = AEVec2{ x - 0.5f, y - 0.5f }; // bottom left
+		AEVec2 p3 = AEVec2{ x + 0.5f, y - 0.5f }; // bottom right
 
 		f32 playerX = pObjInst->GetPosX();
 		f32 playerY = pObjInst->GetPosY();
@@ -47,46 +49,38 @@ namespace OM
 		return a && b;
 	}
 
-	f32 Character::SlopeHeight(ObjectInst cell) 
+	f32 Character::HandleSlope(ObjectInst cell)
 	{
-		f32 distance{};
-		AEVec2 pos{ pObjInst->GetPosX(), pObjInst->GetPosY() };
-
-		AEVec2 bot[2]	{ cell.botLeft, cell.botRight };
-		AEVec2 top[2]	{ cell.topRight, cell.topLeft };;
-		AEVec2 right[2]	{ cell.botRight, cell.topRight };;
-		AEVec2 left[2]	{ cell.topLeft, cell.botLeft };;
+		f32 displacement = pObjInst->GetPlayerSpeed() * AEFrameRateControllerGetFrameTime() * cell.pObj->height;
 
 		switch (cell.direction) {
 		case Enum::NORTH:
-			distance = CDM::PointLineDist(pos, bot);
+			displacement = input.y > 0 ? displacement : input.y < 0 ? -displacement : 0;
 			break;
 		case Enum::SOUTH:
-			distance = CDM::PointLineDist(pos, top);
-			break;
-		case Enum::EAST:
-			distance = CDM::PointLineDist(pos, left);
+			displacement = input.y < 0 ? displacement : input.y > 0 ? -displacement : 0;
 			break;
 		case Enum::WEST:
-			distance = CDM::PointLineDist(pos, right);
+			displacement = input.x < 0 ? displacement : input.x > 0 ? -displacement : 0;
 			break;
-		case Enum::NONE:
-			//nothing
+		case Enum::EAST:
+			displacement = input.x > 0 ? displacement : input.x < 0 ? -displacement : 0;
 			break;
 		default:
+			displacement = 0.f;
 			break;
 		}
-		return distance;
+
+		return displacement;
 	}
 
 	void ObjectInst::SetCollider()
 	{
-		AEVec2 scale	= GetScaleXY();
-		AEVec2 pos		= GetPosXY();
-		topLeft			= { pos.x - scale.x / 2.f, pos.y + scale.y / 2.f };
-		topRight		= { pos.x + scale.x / 2.f, pos.y + scale.y / 2.f };
-		botLeft			= { pos.x - scale.x / 2.f, pos.y - scale.y / 2.f };
-		botRight		= { pos.x + scale.x / 2.f, pos.y - scale.y / 2.f };
+		AEVec2 pos	= GetPosXY();
+		topLeft		= { pos.x - 0.5f, pos.y + 0.5f };
+		topRight	= { pos.x + 0.5f, pos.y + 0.5f };
+		botLeft		= { pos.x - 0.5f, pos.y - 0.5f };
+		botRight	= { pos.x + 0.5f, pos.y - 0.5f };
 	}
 
 

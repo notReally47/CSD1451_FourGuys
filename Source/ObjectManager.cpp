@@ -227,10 +227,10 @@ namespace OM
 		count = 4;
 
 		AEVec2* xyCoords = { new AEVec2[count] };
-		xyCoords[0] = AEVec2{ obj.GetPosX() - obj.pObj->width / 2, obj.GetPosY() + obj.pObj->length / 2 }; //top right
-		xyCoords[1] = AEVec2{ obj.GetPosX() + obj.pObj->width / 2, obj.GetPosY() + obj.pObj->length / 2 }; //top left
-		xyCoords[2] = AEVec2{ obj.GetPosX() - obj.pObj->width / 2, obj.GetPosY() - obj.pObj->length / 2 }; //bot right
-		xyCoords[3] = AEVec2{ obj.GetPosX() + obj.pObj->width / 2, obj.GetPosY() - obj.pObj->length / 2 }; //bot left
+		xyCoords[0] = AEVec2{ obj.GetPosX() - 0.5f, obj.GetPosY() + 0.5f }; //top right
+		xyCoords[1] = AEVec2{ obj.GetPosX() + 0.5f, obj.GetPosY() + 0.5f }; //top left
+		xyCoords[2] = AEVec2{ obj.GetPosX() - 0.5f, obj.GetPosY() - 0.5f }; //bot right
+		xyCoords[3] = AEVec2{ obj.GetPosX() + 0.5f, obj.GetPosY() - 0.5f }; //bot left
 
 		//TODO: Any rotatation 
 		return xyCoords;
@@ -299,8 +299,8 @@ namespace OM
 	AEMtx33 ConvertIsometric(const ObjectInst& obj)
 	{
 		AEMtx33 transform = obj.transform;
-		transform.m[0][2] = (obj.GetPosX() - obj.GetPosY());
-		transform.m[1][2] = (obj.GetPosX() + obj.GetPosY()) / 2.f + obj.GetPosZ();
+		transform.m[0][2] = (obj.GetPosX() - obj.GetPosY()) * 64.f;
+		transform.m[1][2] = ((obj.GetPosX() + obj.GetPosY()) * 64.f / 2.f + obj.GetPosZ() + obj.pObj->height / 2.f) - AEGetWindowHeight() / 4.f;
 		return transform;
 	}
 

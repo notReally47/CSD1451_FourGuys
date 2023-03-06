@@ -72,6 +72,15 @@ namespace GSM
 			fpFree		= Level1_Free;
 			fpUnload	= Level1_Unload;
 			break;
+		case GAME_STATES::LEVEL2:
+		using namespace Level2;
+			fpLoad		= Level2_Load;
+			fpInit		= Level2_Init;
+			fpUpdate	= Level2_Update;
+			fpDraw		= Level2_Draw;
+			fpFree		= Level2_Free;
+			fpUnload	= Level2_Unload;
+			break;
 		case GAME_STATES::RESTART:
 			break;
 		}

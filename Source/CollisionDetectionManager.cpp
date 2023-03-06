@@ -1,12 +1,12 @@
 /*!***********************************************************************
   \file	CollisionDetectionManager.cpp
-  \authors 
-  
-  
-  \brief 
+  \authors
+
+
+  \brief
   This file contains the implementation of the collision detection manager
 
-  \copyright  
+  \copyright
   Copyright (C) 2023 DigiPen Institute of Technology.
   Reproduction or disclosure of this file or its contents without the
   prior written consent of DigiPen Institute of Technology is prohibited.
@@ -26,13 +26,13 @@ namespace CDM
 {
 	/*!***********************************************************************
 	  \brief SAT collision detection
-	  
-	  \param obj1 
-	  \param obj2 
-	  \param depth 
-	  \param normal 
-	  \param GetVertices 
-	  \return true 
+
+	  \param obj1
+	  \param obj2
+	  \param depth
+	  \param normal
+	  \param GetVertices
+	  \return true
 	  \return false
 	*************************************************************************/
 	bool SAT_Collision(ObjectInst obj1, ObjectInst obj2, f32& depth, AEVec2& normal, AEVec2* (*GetVertices)(ObjectInst, int&)) {
@@ -70,14 +70,14 @@ namespace CDM
 		return out;
 	}
 	/*!***********************************************************************
-	  \brief Projects the vertex onto a axis and returns the maximum and 
+	  \brief Projects the vertex onto a axis and returns the maximum and
 	  minimum points
-	  
-	  \param vertices 
-	  \param axis 
-	  \param min 
-	  \param max 
-	  \param len 
+
+	  \param vertices
+	  \param axis
+	  \param min
+	  \param max
+	  \param len
 	*************************************************************************/
 	void ProjectVertices(AEVec2 vertices[], AEVec2 axis, f32& min, f32& max, int len) {
 		min = static_cast<f32>((std::numeric_limits<float>::max)());
@@ -94,15 +94,15 @@ namespace CDM
 	/*!***********************************************************************
 	  \brief Check if the maximum and minimum projections of each object
 	  intersects
-	  
-	  \param verticesA 
-	  \param verticesB 
-	  \param lenA 
-	  \param lenB 
-	  \param depth 
-	  \param normal 
-	  \return true 
-	  \return false 
+
+	  \param verticesA
+	  \param verticesB
+	  \param lenA
+	  \param lenB
+	  \param depth
+	  \param normal
+	  \return true
+	  \return false
 	*************************************************************************/
 	bool CheckIntersect(AEVec2 verticesA[], AEVec2 verticesB[], int lenA, int lenB, f32& depth, AEVec2& normal) {
 		for (int i = 0; i < lenA; i++) {
@@ -135,12 +135,12 @@ namespace CDM
 
 	/*!***********************************************************************
 	  \brief Get the distance between player and object
-	  
-	  \param portrait_x 
-	  \param portrait_y 
-	  \param player_x 
-	  \param player_y 
-	  \return double 
+
+	  \param portrait_x
+	  \param portrait_y
+	  \param player_x
+	  \param player_y
+	  \return double
 	*************************************************************************/
 	double GetDistance(f32 const portrait_x, f32 const portrait_y, f32 const player_x, f32 const player_y) {
 		return sqrt(pow(portrait_x - player_x, 2) + pow(portrait_y - player_y, 2));
@@ -148,11 +148,11 @@ namespace CDM
 
 	/*!***********************************************************************
 	  \brief Check if player is within range of object to interact
-	  
-	  \param portrait 
-	  \param player 
-	  \return true 
-	  \return false 
+
+	  \param portrait
+	  \param player
+	  \return true
+	  \return false
 	*************************************************************************/
 	bool portraitInteract(ObjectInst const portrait, Character const player) {
 		f32 dist = static_cast<f32>(sqrt(pow(portrait.transform.m[0][0] - player.pObjInst->transform.m[0][0], 2) + pow(portrait.GetPosY() - player.pObjInst->GetPosY(), 2)));
@@ -192,7 +192,92 @@ namespace CDM
 			xx = line[0].x + param * C;
 			yy = line[0].y + param * D;
 		}
+		f32 out = distance(pos, { xx, yy });
 
-		return distance(pos, { xx, yy });
+		return out;
+	}
+
+	bool PartialCollision(ObjectInst player, ObjectInst stair)
+	{
+		bool allowMovement{ false };
+		AEVec2 min{ stair.GetPosX() - 0.5f, stair.GetPosY() - 0.5f };
+		AEVec2 max{ stair.GetPosX() + 0.5f, stair.GetPosY() + 0.5f };
+		AEVec2 playerPos{ player.GetPosX(), player.GetPosY() };
+
+		switch (stair.direction) {
+		case Enum::NORTH:
+			allowMovement = (playerPos.y >= min.y && min.x <= playerPos.x && playerPos.x <= max.x);
+			break;
+		case Enum::SOUTH:
+			allowMovement = (playerPos.y <= max.y && min.x <= playerPos.x && playerPos.x <= max.x);
+			break;
+		case Enum::EAST:
+			allowMovement = (playerPos.x <= max.x && min.y <= playerPos.y && playerPos.y <= max.y);
+			break;
+		case Enum::WEST:
+			allowMovement = (playerPos.x >= min.x && min.y <= playerPos.y && playerPos.y <= max.y);
+			break;
+		default:
+			allowMovement = true;
+			break;
+		}
+		return allowMovement;
+	}
+
+	//TODO: rewrite this, ugly af
+	AEVec2 CollisionResponse(ObjectInst player, ObjectInst stair) {
+		AEVec2 normal{ 0.f, 0.f };
+		f32 depth{ 0.f };
+		AEVec2 pos{ player.GetPosX(), player.GetPosY() };
+
+		AEVec2 topLeft	= { pos.x - 0.5f, pos.y + 0.5f };
+		AEVec2 topRight = { pos.x + 0.5f, pos.y + 0.5f };
+		AEVec2 botLeft	= { pos.x - 0.5f, pos.y - 0.5f };
+		AEVec2 botRight = { pos.x + 0.5f, pos.y - 0.5f };
+
+		AEVec2	left[2]		{	botLeft,	topLeft		},
+				right[2]	{	topRight,	botRight	},
+				top[2]		{	topLeft,	topRight	},
+				bot[2]		{	botRight,	botLeft		};
+
+		f32 leftDepth	= PointLineDist(pos, left),
+			rightDepth	= PointLineDist(pos, right),
+			topDepth	= PointLineDist(pos, top),
+			botDepth	= PointLineDist(pos, bot);
+
+		switch (stair.direction) {
+		case Enum::NORTH:
+			depth = min(topDepth, rightDepth, leftDepth);
+			break;
+		case Enum::SOUTH:
+			depth = min(botDepth, rightDepth, leftDepth);
+			break;
+		case Enum::EAST:
+			depth = min(topDepth, rightDepth, botDepth);
+			break;
+		case Enum::WEST:
+			depth = min(topDepth, botDepth, leftDepth);
+			break;
+		default:
+			break;
+		}
+
+		if (depth > 0.f) {
+			if (depth == leftDepth) {
+				normal.x = -1.f;
+			}
+			else if (depth == rightDepth) {
+				normal.x = 1.f;
+			}
+			else if (depth == topDepth) {
+				normal.y = 1.f;
+			}
+			else if (depth == botDepth) {
+				normal.y = -1.f;
+			}
+		}
+
+		AEVec2Scale(&normal, &normal, depth);
+		return normal;
 	}
 }

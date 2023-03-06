@@ -64,6 +64,7 @@ namespace OM
 		AEVec2				input;
 		f32					zVel;
 		int					spriteIteration;
+		unsigned int		layer;
 
 		/*MEMBER FUNCTIONS*/
 		int					CheckDirection();
@@ -75,7 +76,7 @@ namespace OM
 
 		bool				InCell(ObjectInst cell);
 		f32					PointLineDist(ObjectInst cell);
-		f32					SlopeHeight(ObjectInst cell);
+		f32					HandleSlope(ObjectInst cell);
 	};
 
 	/*FUNCTIONS*/
