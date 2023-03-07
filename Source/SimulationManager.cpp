@@ -51,7 +51,7 @@ namespace OM
 
 	f32 Character::HandleSlope(ObjectInst cell)
 	{
-		f32 displacement = pObjInst->GetPlayerSpeed() * AEFrameRateControllerGetFrameTime() * cell.pObj->height;
+		f32 displacement = pObjInst->GetPlayerSpeed() * AEFrameRateControllerGetFrameTime() * (cell.pObj->height);
 
 		switch (cell.direction) {
 		case Enum::NORTH:

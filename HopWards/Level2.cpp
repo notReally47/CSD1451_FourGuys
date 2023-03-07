@@ -25,6 +25,7 @@ namespace Level2
 	/*DEFINES*/
 	//const static std::string level_number = "01";
 	const static f32 MIN_CAM_HEIGHT = -65.f;
+	const static f32 LEVEL_HEIGHT = 80.f;
 
 	//OM::Character player;
 	//FM::Import ImportData;
@@ -37,8 +38,8 @@ namespace Level2
 	static OM::Object	wallLeftObj;
 	static OM::Object	wallRightObj;
 
-	static OM::Character player;
-	static OM::ObjectInst pObjInst;
+	static OM::Character	player;
+	static OM::ObjectInst	pObjInst;
 
 	static OM::ObjectInst walls[5][10];
 	static OM::ObjectInst floors[5][5][5];
@@ -117,7 +118,7 @@ namespace Level2
 		/*STAIR OBJECT*/
 		wallLeftObj.width = 64.f;
 		wallLeftObj.length = 64.f / 7.f;
-		wallLeftObj.height = 80.f;
+		wallLeftObj.height = LEVEL_HEIGHT;
 		wallLeftObj.type = Enum::WALL;
 		wallLeftObj.pTex = AEGfxTextureLoad("../Resource/Textures/wall.png");
 
@@ -137,7 +138,7 @@ namespace Level2
 		/*STAIR OBJECT*/
 		wallRightObj.width = 64.f;
 		wallRightObj.length = 64.f / 7.f;
-		wallRightObj.height = 80.f;
+		wallRightObj.height = LEVEL_HEIGHT;
 		wallRightObj.type = Enum::WALL;
 		wallRightObj.pTex = AEGfxTextureLoad("../Resource/Textures/wall.png");
 
@@ -166,7 +167,7 @@ namespace Level2
 		pObjInst.tex_offset = AEVec2{ 0, 0 };
 		pObjInst.transform = AEMtx33{ playerObj.width * 2.f, 0, 1,
 											0, playerObj.length + playerObj.height, 1,
-											0, 2.f, -10.f };
+											0, 2.f, 0.f };
 		player.dir = AEVec2{ 0, 0 };
 		player.input = AEVec2{ 0, 0 };
 		player.pObjInst = &pObjInst;
@@ -182,7 +183,7 @@ namespace Level2
 				walls[j][i].pObj = &wallLeftObj;
 				walls[j][i].transform = AEMtx33{ walls[j][i].pObj->width * 2.f, 0, (f32)i,
 								0, walls[j][i].pObj->width + walls[j][i].pObj->height, (f32)4 + 3.f / 14.f,
-								0, 0, 80.f * (f32)j };
+								0, 0, LEVEL_HEIGHT * (f32)j };
 			}
 
 			for (size_t i = 5; i < 10; i++)
@@ -190,7 +191,7 @@ namespace Level2
 				walls[j][i].pObj = &wallRightObj;
 				walls[j][i].transform = AEMtx33{ walls[j][i].pObj->width * 2.f, 0, (f32)4 + 3.f / 14.f,
 								0, walls[j][i].pObj->width + walls[j][i].pObj->height, (f32)i - 5,
-								0, 0, 80.f * (f32)j };
+								0, 0, LEVEL_HEIGHT * (f32)j };
 			}
 		}
 
@@ -205,7 +206,7 @@ namespace Level2
 						floors[i][j][k].pObj = &tileObj;
 						floors[i][j][k].transform = AEMtx33{ floors[i][j][k].pObj->width * 2.f, 0, (f32)j,
 														0, floors[i][j][k].pObj->width + floors[i][j][k].pObj->height, (f32)k,
-														0, 0, 80.f * (f32)i };
+														0, 0, LEVEL_HEIGHT * (f32)i };
 					}
 					else floors[i][j][k].pObj = nullptr;
 				}
@@ -218,6 +219,12 @@ namespace Level2
 		floors[0][0][3].transform = AEMtx33{ floors[0][0][3].pObj->width * 2.f, 0, 0,
 											0, floors[0][0][3].pObj->width + floors[0][0][3].pObj->height, 3,
 											0, 0, 64.f / 7.f };
+
+		floors[1][0][4].pObj = &tileObj;
+		floors[1][0][4].direction = Enum::NONE;
+		floors[1][0][4].transform = AEMtx33{ floors[1][0][4].pObj->width * 2.f, 0, 0.f,
+											0, floors[1][0][4].pObj->width + floors[1][0][4].pObj->height, 4.f,
+											0, 0, LEVEL_HEIGHT * 1.f };
 	}
 
 	/*!***********************************************************************
@@ -234,12 +241,18 @@ namespace Level2
 
 		/*SET PLAYER BIT FLAG FOR MOVEMENT OR JUMPING*/
 		unsigned long& flag{ player.pObjInst->flag };
-		//flag = (IM::PlayerJump(player)) ? flag | JUMPING : flag & ~JUMPING;
 
 		if (allowInput) {
+			//flag = (IM::PlayerJump(player)) ? flag | JUMPING : flag & ~JUMPING;
 			flag = (IM::PlayerMovement(player)) ? flag | ACTIVE : flag & ~ACTIVE;
 			player.MoveCharacter();
-			//player.pObjInst->SetCollider();
+		}
+		int x = player.pObjInst->GetPosY();
+
+		for (size_t i = 0; i < 5; i++)
+		{
+			if (player.pObjInst->GetPosZ() >= i * LEVEL_HEIGHT)
+				player.layer = i;
 		}
 
 		OM::ObjectInst* currTile = &floors[player.layer][(int)player.pObjInst->GetPosX()][(int)player.pObjInst->GetPosY()];
@@ -258,7 +271,7 @@ namespace Level2
 			}
 			allowInput = true;
 		}
-		else if (player.pObjInst->GetPosZ() > player.layer * 80.f - 10.f) {
+		else if (player.pObjInst->GetPosZ() > player.layer * LEVEL_HEIGHT) {
 			player.zVel = -200.f * AEFrameRateControllerGetFrameTime();
 			allowInput = false;
 		}
@@ -267,10 +280,11 @@ namespace Level2
 			allowInput = true;
 		}
 
-		player.pObjInst->GetPosZ() += player.zVel;
+		player.pObjInst->GetPosZ() = player.pObjInst->GetPosZ() < player.layer * LEVEL_HEIGHT ?
+			player.layer * LEVEL_HEIGHT : player.zVel + player.pObjInst->GetPosZ();
 
 		/*ANIMATION*/
-		AEGfxSetCamPosition(0.f, max(player.pObjInst->GetPosY() + player.pObjInst->GetPosZ(), MIN_CAM_HEIGHT));
+		AEGfxSetCamPosition(0.f, max(player.pObjInst->GetPosZ(), MIN_CAM_HEIGHT));
 	}
 
 	/*!***********************************************************************
@@ -280,9 +294,7 @@ namespace Level2
 	void Level2_Draw()
 	{
 		OM::RenderSettings();
-		//// Initialise i to 1 to skip player
-		//for (int i{ 1 }; i < ImportData.vOI.size(); i++)
-		//	ImportData.vOI[i].RenderObject();
+
 		for (size_t j = 0; j < 5; j++)
 		{
 			for (int i = 9; i >= 0; i--)
@@ -303,6 +315,14 @@ namespace Level2
 				}
 			}
 
+			////level below player.layer
+			//if (player.layer - 1 == i) //current layer transparency is 0.8f
+			//else if(player.layer == i) // current layer transparency = 1.f
+			//else if(player.layer +1 == i) //current layer transparency is 0.8f
+			//else {
+			//	if(i > player.layer) //increment transparency
+			//	else // do something
+			//}
 			if (player.layer == i)
 				player.AnimateCharacter();
 		}
@@ -310,7 +330,7 @@ namespace Level2
 
 #ifdef DEBUG
 		char buffer[256];
-		sprintf_s(buffer, "Player position: x: %.2f y: %.2f z: %d\n", player.pObjInst->GetPosX(), player.pObjInst->GetPosY(), player.layer);
+		sprintf_s(buffer, "layer: %d x: %.2f y: %.2f z: %f\n", player.layer, player.pObjInst->GetPosX(), player.pObjInst->GetPosY(), player.pObjInst->GetPosZ());
 		//std::cout << "Player position: " << k << ' ' << j << ' ' << i << std::endl;
 		AEGfxPrint(GSM::fontId, buffer, -.5f, -0.7f, 1.f, 1.f, 1.f, 1.f);
 #endif

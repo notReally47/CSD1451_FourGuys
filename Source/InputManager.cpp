@@ -22,7 +22,7 @@
 namespace IM
 {
 	/*DEFINES*/
-	const static f32 GRAVITY		= -1000.f;
+	const static f32 GRAVITY		= -200.f;
 	const static f32 JUMP_HEIGHT	= 50.f;
 
 	/*COMMON NAMESPACE*/
@@ -73,17 +73,12 @@ namespace IM
 	  \return false 
 	*************************************************************************/
 	bool PlayerJump(Character& player) {
-		player.zVel = GRAVITY * (f32)AEFrameRateControllerGetFrameTime() + player.zVel;
-
-		if (AEInputCheckTriggered(AEVK_SPACE) && player.pObjInst->GetPosZ() == 0) {
+		if (AEInputCheckTriggered(AEVK_SPACE) && player.layer * 80.f == player.pObjInst->GetPosZ()) {
 			player.zVel = sqrt(2 * -GRAVITY * (JUMP_HEIGHT));
+			return true;
 		}
 
-		player.pObjInst->GetPosZ() = player.zVel * (f32)AEFrameRateControllerGetFrameTime() + player.pObjInst->GetPosZ();
-		if (player.pObjInst->GetPosZ() < 0)
-			player.pObjInst->GetPosZ() = 0;
-
-		return player.pObjInst->GetPosZ() > 0;
+		return false;
 	}
 
 	/*!***********************************************************************

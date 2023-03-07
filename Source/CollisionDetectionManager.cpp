@@ -170,6 +170,7 @@ namespace CDM
 		return sqrt(pow((p2.x - p1.x), 2) + pow((p2.y - p1.y), 2));
 	}
 
+	/*Direction between point and line segment*/
 	f32 PointLineDist(AEVec2 pos, AEVec2 line[2])
 	{
 		f32 A = pos.x - line[0].x;
@@ -200,14 +201,19 @@ namespace CDM
 		return out;
 	}
 
+	/*Check for collision on a specfic side of rectangle*/
 	bool PartialCollision(ObjectInst player, ObjectInst stair)
 	{
 		bool allowMovement{ false };
+
 		f32 tolerance = 0.1f;
+
 		AEVec2 min{ stair.GetPosX() + TOLERANCE, stair.GetPosY() + TOLERANCE };
 		AEVec2 max{ stair.GetPosX() + RECT_WIDTH - tolerance, stair.GetPosY() + RECT_WIDTH - tolerance };
+
 		AEVec2 playerPos{ player.GetPosX(), player.GetPosY() };
 
+		/*Allow movement based on which side the player position is at.*/
 		switch (stair.direction) {
 		case Enum::NORTH:
 			allowMovement = (playerPos.y <= max.y && min.x <= playerPos.x && playerPos.x <= max.x);
@@ -254,6 +260,7 @@ namespace CDM
 			topDepth	= PointLineDist(pos, top),
 			botDepth	= PointLineDist(pos, bot);
 
+		/*Depth selection*/
 		switch (stair.direction) {
 		case Enum::NORTH:
 			depth = min(topDepth, rightDepth, leftDepth);
@@ -271,6 +278,7 @@ namespace CDM
 			break;
 		}
 
+		/*Set correction vector which the normal of the collision side*/
 		if (depth > 0.f) {
 			if (depth == leftDepth) {
 				normal.x = -1.f;
