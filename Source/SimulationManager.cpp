@@ -36,22 +36,22 @@ namespace OM
 		f32 x = cell.transform.m[0][2];
 		f32 y = cell.transform.m[1][2];
 
-		AEVec2 p1 = AEVec2{ x - 0.5f, y + 0.5f }; // top left
-		AEVec2 p2 = AEVec2{ x + 0.5f, y + 0.5f }; // top right
-		AEVec2 p4 = AEVec2{ x - 0.5f, y - 0.5f }; // bottom left
-		AEVec2 p3 = AEVec2{ x + 0.5f, y - 0.5f }; // bottom right
+		AEVec2 p1 = AEVec2{ x,			y + 1.f }; // top left
+		AEVec2 p2 = AEVec2{ x + 1.f,	y + 1.f }; // top right
+		AEVec2 p4 = AEVec2{ x,			y		}; // bottom left
+		AEVec2 p3 = AEVec2{ x + 1.f,	y		}; // bottom right
 
 		f32 playerX = pObjInst->GetPosX();
 		f32 playerY = pObjInst->GetPosY();
 
-		bool a = x - 0.5f <= playerX && playerX <= x + 0.5f;
-		bool b = y - 0.5f <= playerY && playerY <= y + 0.5f;
+		bool a = x <= playerX && playerX <= x + 1.f;
+		bool b = y <= playerY && playerY <= y + 1.f;
 		return a && b;
 	}
 
 	f32 Character::HandleSlope(ObjectInst cell)
 	{
-		f32 displacement = pObjInst->GetPlayerSpeed() * AEFrameRateControllerGetFrameTime() * (cell.pObj->height);
+		f32 displacement = pObjInst->GetPlayerSpeed() * (f32)AEFrameRateControllerGetFrameTime() * (cell.pObj->height + 10.f);
 
 		switch (cell.direction) {
 		case Enum::NORTH:

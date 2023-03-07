@@ -201,14 +201,14 @@ namespace CDM
 		return out;
 	}
 
-	/*Check for collision on a specfic side of rectangle*/
-	bool PartialCollision(ObjectInst player, ObjectInst stair)
+	/*Check for collision on a specfic side of rectangle based on whether the player is going up or down the stairs*/
+	bool PartialCollision(ObjectInst player, ObjectInst stair, bool direction) // direction refers to up or down: true is from top to bottom
 	{
 		bool allowMovement{ false };
-
+		bool verticalCollision{ false };
 		f32 tolerance = 0.1f;
 
-		AEVec2 min{ stair.GetPosX() + TOLERANCE, stair.GetPosY() + TOLERANCE };
+		AEVec2 min{ stair.GetPosX() - TOLERANCE, stair.GetPosY() - TOLERANCE };
 		AEVec2 max{ stair.GetPosX() + RECT_WIDTH - tolerance, stair.GetPosY() + RECT_WIDTH - tolerance };
 
 		AEVec2 playerPos{ player.GetPosX(), player.GetPosY() };
@@ -216,16 +216,20 @@ namespace CDM
 		/*Allow movement based on which side the player position is at.*/
 		switch (stair.direction) {
 		case Enum::NORTH:
-			allowMovement = (playerPos.y <= max.y && min.x <= playerPos.x && playerPos.x <= max.x);
+			verticalCollision = direction ? true : playerPos.y <= max.y;
+			allowMovement = (verticalCollision && min.x <= playerPos.x && playerPos.x <= max.x);
 			break;
 		case Enum::SOUTH:
-			allowMovement = (playerPos.y >= min.y && min.x <= playerPos.x && playerPos.x <= max.x);
+			verticalCollision = direction ? true : playerPos.y >= min.y;
+			allowMovement = (verticalCollision && min.x <= playerPos.x && playerPos.x <= max.x);
 			break;
 		case Enum::EAST:
-			allowMovement = (playerPos.x <= max.x && min.y <= playerPos.y && playerPos.y <= max.y);
+			verticalCollision = direction ? true : playerPos.x <= max.x;
+			allowMovement = (verticalCollision && min.y <= playerPos.y && playerPos.y <= max.y);
 			break;
 		case Enum::WEST:
-			allowMovement = (playerPos.x >= min.x && min.y <= playerPos.y && playerPos.y <= max.y);
+			verticalCollision = direction ? true : playerPos.x >= min.x;
+			allowMovement = (verticalCollision && min.y <= playerPos.y && playerPos.y <= max.y);
 			break;
 		default:
 			allowMovement = true;
@@ -263,16 +267,16 @@ namespace CDM
 		/*Depth selection*/
 		switch (stair.direction) {
 		case Enum::NORTH:
-			depth = min(topDepth, rightDepth, leftDepth);
+			depth = min(topDepth, min(rightDepth, leftDepth));
 			break;
 		case Enum::SOUTH:
-			depth = min(botDepth, rightDepth, leftDepth);
+			depth = min(botDepth, min(rightDepth, leftDepth));
 			break;
 		case Enum::EAST:
-			depth = min(topDepth, rightDepth, botDepth);
+			depth = min(topDepth, min(rightDepth, botDepth));
 			break;
 		case Enum::WEST:
-			depth = min(topDepth, botDepth, leftDepth);
+			depth = min(topDepth, min(botDepth, leftDepth));
 			break;
 		default:
 			break;

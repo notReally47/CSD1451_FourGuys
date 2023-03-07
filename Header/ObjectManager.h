@@ -64,7 +64,7 @@ namespace OM
 		AEVec2				input;
 		f32					zVel;
 		int					spriteIteration;
-		unsigned int		layer;
+		int					layer;
 
 		/*MEMBER FUNCTIONS*/
 		int					CheckDirection();

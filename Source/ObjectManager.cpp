@@ -300,8 +300,8 @@ namespace OM
 	AEMtx33 ConvertIsometric(const ObjectInst& obj)
 	{
 		AEMtx33 transform = obj.transform;
-		transform.m[0][2] = (obj.GetPosX() + obj.GetPosY()) * SCALE;
-		transform.m[1][2] = -((obj.GetPosX() - obj.GetPosY()) * SCALE / 2.f + (obj.GetPosZ() + obj.pObj->height / 2.f)) - AEGetWindowHeight() / 4.f;
+		transform.m[0][2] = (obj.GetPosX() - obj.GetPosY()) * SCALE;
+		transform.m[1][2] = ((obj.GetPosX() + obj.GetPosY()) * SCALE / 2.f + (obj.GetPosZ() + obj.pObj->height / 2.f)) - AEGetWindowHeight() / 4.f;
 		//if (obj.pObj->type == PLAYER) {
 		//	transform.m[1][2] -= 10.f;
 		//}

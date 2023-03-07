@@ -13,6 +13,6 @@ namespace CDM
 
 	f32 distance(AEVec2 p1, AEVec2 p2);
 	f32 PointLineDist(AEVec2 pos, AEVec2 line[2]);
-	bool PartialCollision(ObjectInst player, ObjectInst stair);
+	bool PartialCollision(ObjectInst player, ObjectInst stair, bool direction);
 	AEVec2 CollisionResponse(ObjectInst player, ObjectInst stair);
 }
