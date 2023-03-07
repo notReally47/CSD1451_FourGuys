@@ -216,8 +216,8 @@ namespace Level2
 		floors[0][0][3].pObj = &stairObj;
 		floors[0][0][3].direction = Enum::NORTH;
 		floors[0][0][3].transform = AEMtx33{ floors[0][0][3].pObj->width * 2.f, 0, 0,
-								0, floors[0][0][3].pObj->width + floors[0][0][3].pObj->height, 3,
-								0, 0, 64.f / 7.f };
+											0, floors[0][0][3].pObj->width + floors[0][0][3].pObj->height, 3,
+											0, 0, 64.f / 7.f };
 	}
 
 	/*!***********************************************************************
@@ -253,13 +253,13 @@ namespace Level2
 			}
 			else {
 				AEVec2 normal = CDM::CollisionResponse(*player.pObjInst, *currTile);
-				player.pObjInst->GetPosX() -= normal.x;
-				player.pObjInst->GetPosY() -= normal.y;
+				player.pObjInst->GetPosX() += normal.x;
+				player.pObjInst->GetPosY() += normal.y;
 			}
 			allowInput = true;
 		}
 		else if (player.pObjInst->GetPosZ() > player.layer * 80.f - 10.f) {
-			player.zVel = -100.f * AEFrameRateControllerGetFrameTime();
+			player.zVel = -200.f * AEFrameRateControllerGetFrameTime();
 			allowInput = false;
 		}
 		else {

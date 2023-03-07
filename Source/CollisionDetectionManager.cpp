@@ -24,6 +24,9 @@
 
 namespace CDM
 {
+	const f32 TOLERANCE		= 0.1f;
+	const f32 RECT_WIDTH	= 1.f;
+
 	/*!***********************************************************************
 	  \brief SAT collision detection
 
@@ -200,16 +203,17 @@ namespace CDM
 	bool PartialCollision(ObjectInst player, ObjectInst stair)
 	{
 		bool allowMovement{ false };
-		AEVec2 min{ stair.GetPosX() - 0.5f, stair.GetPosY() - 0.5f };
-		AEVec2 max{ stair.GetPosX() + 0.5f, stair.GetPosY() + 0.5f };
+		f32 tolerance = 0.1f;
+		AEVec2 min{ stair.GetPosX() + TOLERANCE, stair.GetPosY() + TOLERANCE };
+		AEVec2 max{ stair.GetPosX() + RECT_WIDTH - tolerance, stair.GetPosY() + RECT_WIDTH - tolerance };
 		AEVec2 playerPos{ player.GetPosX(), player.GetPosY() };
 
 		switch (stair.direction) {
 		case Enum::NORTH:
-			allowMovement = (playerPos.y >= min.y && min.x <= playerPos.x && playerPos.x <= max.x);
+			allowMovement = (playerPos.y <= max.y && min.x <= playerPos.x && playerPos.x <= max.x);
 			break;
 		case Enum::SOUTH:
-			allowMovement = (playerPos.y <= max.y && min.x <= playerPos.x && playerPos.x <= max.x);
+			allowMovement = (playerPos.y >= min.y && min.x <= playerPos.x && playerPos.x <= max.x);
 			break;
 		case Enum::EAST:
 			allowMovement = (playerPos.x <= max.x && min.y <= playerPos.y && playerPos.y <= max.y);
@@ -226,20 +230,25 @@ namespace CDM
 
 	//TODO: rewrite this, ugly af
 	AEVec2 CollisionResponse(ObjectInst player, ObjectInst stair) {
-		AEVec2 normal{ 0.f, 0.f };
 		f32 depth{ 0.f };
-		AEVec2 pos{ player.GetPosX(), player.GetPosY() };
+		AEVec2 normal{ 0.f, 0.f };
 
-		AEVec2 topLeft	= { pos.x - 0.5f, pos.y + 0.5f };
-		AEVec2 topRight = { pos.x + 0.5f, pos.y + 0.5f };
-		AEVec2 botLeft	= { pos.x - 0.5f, pos.y - 0.5f };
-		AEVec2 botRight = { pos.x + 0.5f, pos.y - 0.5f };
+		AEVec2 pos		= player.GetPosXY();
+		AEVec2 stairPos = stair.GetPosXY();
 
+		/*CORNERS*/
+		AEVec2 topLeft	= { stairPos.x,					stairPos.y + RECT_WIDTH	};
+		AEVec2 topRight = { stairPos.x + RECT_WIDTH,	stairPos.y + RECT_WIDTH	};
+		AEVec2 botLeft	= { stairPos.x,					stairPos.y				};
+		AEVec2 botRight = { stairPos.x + RECT_WIDTH,	stairPos.y				};
+
+		/*SIDES*/
 		AEVec2	left[2]		{	botLeft,	topLeft		},
 				right[2]	{	topRight,	botRight	},
 				top[2]		{	topLeft,	topRight	},
 				bot[2]		{	botRight,	botLeft		};
 
+		/*DEPTHS*/
 		f32 leftDepth	= PointLineDist(pos, left),
 			rightDepth	= PointLineDist(pos, right),
 			topDepth	= PointLineDist(pos, top),
