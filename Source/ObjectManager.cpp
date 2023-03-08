@@ -171,7 +171,7 @@ namespace OM
 	*************************************************************************/
 	int Character::CheckDirection()
 	{
-		int x{ static_cast<int>(dir.x) }, y{ static_cast<int>(dir.y) };
+		int x{ static_cast<int>(input.x) }, y{ static_cast<int>(input.y) };
 		return	(x > 0) ? (y > 0) ? UP : (y) ? static_cast<int>(RIGHT) : UPRIGHT :
 			(x) ? (y > 0) ? LEFT : (y) ? static_cast<int>(DOWN) : DOWNLEFT :
 			(y > 0) ? static_cast<int>(UPLEFT) : DOWNRIGHT;

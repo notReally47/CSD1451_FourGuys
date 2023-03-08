@@ -22,10 +22,11 @@ namespace OM
 		if (pObjInst->flag)
 		{
 			f32 unitSpeed = pObjInst->GetPlayerSpeed() * static_cast<f32>(AEFrameRateControllerGetFrameTime());
-			AEVec2Normalize(&dir, &dir);
-			AEVec2Scale(&dir, &dir, unitSpeed);
-			AEVec2Add(&pos, &pos, &dir);
-
+			if (dir.x != 0 || dir.y != 0) {
+				AEVec2Normalize(&dir, &dir);
+				AEVec2Scale(&dir, &dir, unitSpeed);
+				AEVec2Add(&pos, &pos, &dir);
+			}
 			pObjInst->transform.m[0][2] = 0.f > pos.x || pos.x > 5.f ? pObjInst->transform.m[0][2] : pos.x;
 			pObjInst->transform.m[1][2] = 0.f > pos.y || pos.y > 5.f ? pObjInst->transform.m[1][2] : pos.y;
 		}
@@ -51,7 +52,7 @@ namespace OM
 
 	f32 Character::HandleSlope(ObjectInst cell)
 	{
-		f32 displacement = pObjInst->GetPlayerSpeed() * (f32)AEFrameRateControllerGetFrameTime() * (cell.pObj->height + 10.f);
+		f32 displacement = pObjInst->GetPlayerSpeed() * (f32)AEFrameRateControllerGetFrameTime() * (cell.pObj->height);
 
 		switch (cell.direction) {
 		case Enum::NORTH:

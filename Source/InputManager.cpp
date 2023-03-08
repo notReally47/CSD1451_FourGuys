@@ -73,8 +73,8 @@ namespace IM
 	  \return false 
 	*************************************************************************/
 	bool PlayerJump(Character& player) {
-		if (AEInputCheckTriggered(AEVK_SPACE) && player.layer * 80.f == player.pObjInst->GetPosZ()) {
-			player.zVel = sqrt(2 * -GRAVITY * (JUMP_HEIGHT));
+		if (AEInputCheckTriggered(AEVK_SPACE)) {
+			player.zVel = 6.f;
 			return true;
 		}
 

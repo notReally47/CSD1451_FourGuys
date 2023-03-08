@@ -46,6 +46,7 @@ namespace Level2
 	static OM::ObjectInst stair;
 	//static OM::ObjectInst layers[5][5][5];
 
+	static bool isFalling{ false };
 	static bool allowInput{ true };
 
 	/*!***********************************************************************
@@ -98,7 +99,7 @@ namespace Level2
 		/*STAIR OBJECT*/
 		stairObj.width = 64.f;
 		stairObj.length = 64.f;
-		stairObj.height = 40.f;
+		stairObj.height = LEVEL_HEIGHT;
 		stairObj.type = Enum::PLATFORM;
 		stairObj.pTex = AEGfxTextureLoad("../Resource/Textures/stairSingle.png");
 
@@ -233,7 +234,8 @@ namespace Level2
 	*************************************************************************/
 	void Level2_Update()
 	{
-		unsigned int playerX{}, playerY{};
+		unsigned int ground{};
+
 
 		using namespace Enum;
 		/*HANDLE INPUT*/
@@ -242,26 +244,16 @@ namespace Level2
 		/*SET PLAYER BIT FLAG FOR MOVEMENT OR JUMPING*/
 		unsigned long& flag{ player.pObjInst->flag };
 
-		if (allowInput) {
-			//flag = (IM::PlayerJump(player)) ? flag | JUMPING : flag & ~JUMPING;
-			flag = (IM::PlayerMovement(player)) ? flag | ACTIVE : flag & ~ACTIVE;
-			player.MoveCharacter();
-		}
-		int x = player.pObjInst->GetPosY();
+		flag = (IM::PlayerJump(player)) ? flag | JUMPING : flag & ~JUMPING;
+		flag = (IM::PlayerMovement(player)) ? flag | ACTIVE : flag & ~ACTIVE;
+		player.MoveCharacter();
 
-		for (size_t i = 0; i < 5; i++)
-		{
-			if (player.pObjInst->GetPosZ() >= i * LEVEL_HEIGHT)
-				player.layer = i;
-		}
-
+		/*Compare player position with grid data*/
 		OM::ObjectInst* currTile = &floors[player.layer][(int)player.pObjInst->GetPosX()][(int)player.pObjInst->GetPosY()];
 
-		if (currTile->pObj == nullptr) {
-			player.layer--;
-		}
-		else if (currTile->pObj == &stairObj) {
-			if (CDM::PartialCollision(*player.pObjInst, *currTile)) {
+		/*if player is on a valid tile*/
+		if (currTile->pObj == &stairObj) { // stairs
+			if (CDM::PartialCollision(*player.pObjInst, *currTile, player.pObjInst->GetPosZ() >= LEVEL_HEIGHT * player.layer)) {
 				player.zVel = player.HandleSlope(*currTile);
 			}
 			else {
@@ -269,21 +261,36 @@ namespace Level2
 				player.pObjInst->GetPosX() += normal.x;
 				player.pObjInst->GetPosY() += normal.y;
 			}
-			allowInput = true;
 		}
-		else if (player.pObjInst->GetPosZ() > player.layer * LEVEL_HEIGHT) {
-			player.zVel = -200.f * AEFrameRateControllerGetFrameTime();
-			allowInput = false;
-		}
+		/*if not fall*/
 		else {
-			player.zVel = 0;
-			allowInput = true;
+			for (int i = 0; i < 5; i++)
+			{
+				if (player.pObjInst->GetPosZ() >= i * LEVEL_HEIGHT)
+					player.layer = i;
+			}
+			player.zVel += -25.f * (f32)AEFrameRateControllerGetFrameTime();
+		}		
+
+		/*check nearst ground to the player*/
+		for (int i = 0; i <= player.layer; i++)
+		{
+			if (floors[i][(int)player.pObjInst->GetPosX()][(int)player.pObjInst->GetPosY()].pObj != nullptr)
+				ground = i;
 		}
 
-		player.pObjInst->GetPosZ() = player.pObjInst->GetPosZ() < player.layer * LEVEL_HEIGHT ?
-			player.layer * LEVEL_HEIGHT : player.zVel + player.pObjInst->GetPosZ();
+		/*change zpos*/
+		player.pObjInst->GetPosZ() += player.zVel;
+		if (player.pObjInst->GetPosZ() < ground * LEVEL_HEIGHT && ground == player.layer) {
+			player.pObjInst->GetPosZ() = ground * LEVEL_HEIGHT;
+			player.zVel = 0;
+		}
+		//player.pObjInst->GetPosZ() = player.zVel + player.pObjInst->GetPosZ() < player.layer * LEVEL_HEIGHT ?
+		//								player.layer * LEVEL_HEIGHT : player.zVel + player.pObjInst->GetPosZ();
 
 		/*ANIMATION*/
+
+		/*camera*/
 		AEGfxSetCamPosition(0.f, max(player.pObjInst->GetPosZ(), MIN_CAM_HEIGHT));
 	}
 
@@ -295,6 +302,7 @@ namespace Level2
 	{
 		OM::RenderSettings();
 
+		/*render walls first as background*/
 		for (size_t j = 0; j < 5; j++)
 		{
 			for (int i = 9; i >= 0; i--)
@@ -304,8 +312,9 @@ namespace Level2
 			}
 		}
 
-		for (int i = 0; i < 5; i++)
+		for (int i = 0; i < 5; i++) // render levels from bottom up
 		{
+			/* render smaller x and y values last to overlap objects further away */
 			for (int j = 4; j >= 0; j--)
 			{
 				for (int k = 4; k >= 0; k--)
@@ -314,15 +323,7 @@ namespace Level2
 						floors[i][j][k].RenderObject();
 				}
 			}
-
-			////level below player.layer
-			//if (player.layer - 1 == i) //current layer transparency is 0.8f
-			//else if(player.layer == i) // current layer transparency = 1.f
-			//else if(player.layer +1 == i) //current layer transparency is 0.8f
-			//else {
-			//	if(i > player.layer) //increment transparency
-			//	else // do something
-			//}
+			/*if player is current level, render with the correct priority*/
 			if (player.layer == i)
 				player.AnimateCharacter();
 		}
