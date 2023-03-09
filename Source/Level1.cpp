@@ -23,16 +23,11 @@
 namespace Level1
 {
 	/*DEFINES*/
-	const static std::string level_number = "01";
 	const static f32 MIN_CAM_HEIGHT = -65.f;
-
-	OM::Character player;
-	FM::Import ImportData;
-	FM::Export ExportData;
-	OM::Character *sCHARACTER;
 	OM::Object bubble;
 	OM::ObjectInst objInst[1];
-	OM::ObjectPair tmp;
+	FM::GameData GD;
+	
 
 	/*!***********************************************************************
 	  \brief Load level 1 data
@@ -40,9 +35,9 @@ namespace Level1
 	*************************************************************************/
 	void Level1_Load()
 	{
-		ImportData.vO = *ImportData.Load_Shape_From_YAML(level_number);
-		ImportData.vOI = *ImportData.Load_Transform_From_YAML(level_number);
-		sCHARACTER = ImportData.Load_Player_Stats_From_YAML(level_number);
+		GD.LoadShapeFromFile();
+		GD.LoadTransformFromFile();
+		GD.LoadLayersFromFile();
 		bubble.type = Enum::TYPE::BUBBLE;
 	}
 	/*!***********************************************************************
@@ -52,13 +47,13 @@ namespace Level1
 	void Level1_Init()
 	{
 		/*CREATE PLAYER*/
-		FM::Init_Player(&ImportData.vOI[0], sCHARACTER, player);
+		GD.LoadPlayerStatsFromFile();
 
 		/*SCALE OBJECTS*/
-		FM::Option_Change(ImportData.vOI);
+		//GD.Option_Change();
 
-		tmp.head = &ImportData.vOI[83].flag;
-		tmp.next = &ImportData.vOI[90].flag;
+		/*tmp.head = &GD.vOI[83].flag;
+		tmp.next = &GD.vOI[90].flag;*/
 
 		/*DO NOT DELETE*/
 
@@ -69,7 +64,8 @@ namespace Level1
 		//}
 
 		/*Extract Using Vector vOBJ_INST & player*/
-		ExportData.Extract_Transform_Data_Out(ImportData.vOI, player, level_number);
+		//ExportData.Extract_Transform_Data_Out(ImportData.vOI, player, level_number);
+	
 		// add bubble mesh and texture
 		AEGfxMeshStart();
 		AEGfxTriAdd(
@@ -82,13 +78,13 @@ namespace Level1
 			-0.5f, 0.5f, 0xFFFFFFFF, 0.0f, 1.0f);
 		// Saving the mesh (list of triangles) in pMesh
 		bubble.pMesh = AEGfxMeshEnd();
-		objInst[0].pObj = &bubble;
+		objInst[0].pO = &bubble;
 		objInst[0].flag = Enum::FLAG::IDLE;
-		objInst[0].tex_offset = {.0f, .0f};
-		objInst[0].transform = {150.f, .0f, .0f + .0f,
+		objInst[0].texture = {.0f, .0f};
+		objInst[0].transf = {150.f, .0f, .0f + .0f,
 								.0f, 150.0f, 0.f,
 								.0f, .0f, .0f};
-		objInst[0].pObj->pTex = AEGfxTextureLoad("../Resource/Textures/bubble.jpg");
+		objInst[0].pO->pTex = AEGfxTextureLoad("../Resource/Textures/bubble.jpg");
 	}
 	/*!***********************************************************************
 	  \brief Update player and objects based on input and collisions
@@ -101,36 +97,36 @@ namespace Level1
 		IM::ExitGame(GSM::next);
 
 		/*SET PLAYER BIT FLAG FOR MOVEMENT OR JUMPING*/
-		unsigned long &flag{player.pObjInst->flag};
-		flag = (IM::PlayerJump(player)) ? flag | JUMPING : flag & ~JUMPING;
-		flag = (IM::PlayerMovement(player)) ? flag | ACTIVE : flag & ~ACTIVE;
+		unsigned long &flag{GD.player.pOI->flag};
+		flag = (IM::PlayerJump(GD.player)) ? flag | JUMPING : flag & ~JUMPING;
+		flag = (IM::PlayerMovement(GD.player)) ? flag | ACTIVE : flag & ~ACTIVE;
 
 		/*MOVEMENT*/
 		// PhysicsHandler::Move::MoveCharacter();
-		player.MoveCharacter();
+		GD.player.MoveCharacter();
 
 		// check if player if near portrait
-		for (size_t i{0}; i < ImportData.vOI.size(); i++)
+		for (size_t i{0}; i < GD.vOI.size(); i++)
 		{
-			if (ImportData.vOI[i].pObj->type == PORTRAIT || ImportData.vOI[i].pObj->type == LANDSCAPE)
+			if (GD.vOI[i].pO->type == PORTRAIT || GD.vOI[i].pO->type == LANDSCAPE)
 			{
-				ImportData.vOI[i].flag = (CDM::GetDistance(ImportData.vOI[i].GetPos().x, ImportData.vOI[i].GetPos().y, ImportData.vOI[i].transform.m[0][0], ImportData.vOI[i].transform.m[1][1], player.pObjInst->GetPos().x, player.pObjInst->GetPos().y) < 10.0) ? static_cast<unsigned long>(GLOW) : IDLE;
+				GD.vOI[i].flag = (CDM::GetDistance(GD.vOI[i].GetPos().x, GD.vOI[i].GetPos().y, GD.vOI[i].transf.m[0][0], GD.vOI[i].transf.m[1][1], GD.player.pOI->GetPos().x, GD.player.pOI->GetPos().y) < 10.0) ? static_cast<unsigned long>(GLOW) : IDLE;
 			}
-			if (ImportData.vOI[i].flag == GLOW)
+			if (GD.vOI[i].flag == GLOW)
 			{
-				objInst[0].transform.m[0][2] = ImportData.vOI[i].GetPos().x;
-				objInst[0].transform.m[1][2] = ImportData.vOI[i].GetPos().y;
-				objInst[0].GetPosZ() = ImportData.vOI[i].GetPosZ() + 100.0f;
+				objInst[0].transf.m[0][2] = GD.vOI[i].GetPos().x;
+				objInst[0].transf.m[1][2] = GD.vOI[i].GetPos().y;
+				objInst[0].GetPosZ() = GD.vOI[i].GetPosZ() + 100.0f;
 				objInst[0].flag = ACTIVE;
-				*tmp.next |= ACTIVE;
+				// * tmp.next |= ACTIVE;
 			}
-			if (ImportData.vOI[i].pObj->type == WALL && ImportData.vOI[i].flag & DOOR)
+			if (GD.vOI[i].pO->type == WALL && GD.vOI[i].flag & DOOR)
 			{
-				if (CDM::GetDistance(ImportData.vOI[i].GetPos().x + ImportData.vOI[i].GetPosZ(), ImportData.vOI[i].GetPos().y + ImportData.vOI[i].GetPosZ(), ImportData.vOI[i].transform.m[0][0], ImportData.vOI[i].transform.m[1][1], player.pObjInst->GetPos().x, player.pObjInst->GetPos().y) == 0.0)
+				if (CDM::GetDistance(GD.vOI[i].GetPos().x + GD.vOI[i].GetPosZ(), GD.vOI[i].GetPos().y + GD.vOI[i].GetPosZ(), GD.vOI[i].transf.m[0][0], GD.vOI[i].transf.m[1][1], GD.player.pOI->GetPos().x, GD.player.pOI->GetPos().y) == 0.0)
 				{
-					ImportData.vOI[i].flag |= static_cast<unsigned long>(ACTIVE);
+					GD.vOI[i].flag |= static_cast<unsigned long>(ACTIVE);
 					//std::cout << "Door is unlocked" << ImportData.vOI[i].flag << std::endl;
-					IM::PlayerInteractionF(player, ImportData.vOI, i);
+					IM::PlayerInteractionF(GD.player, GD.vOI, i);
 				}
 			}
 		}
@@ -148,7 +144,7 @@ namespace Level1
 		// TODO: Collision
 
 		/*ANIMATION*/
-		AEGfxSetCamPosition(0.f, max(player.pObjInst->GetPos().y, MIN_CAM_HEIGHT));
+		AEGfxSetCamPosition(0.f, max(GD.player.pOI->GetPos().y, MIN_CAM_HEIGHT));
 	}
 	/*!***********************************************************************
 	  \brief Render game objects
@@ -158,13 +154,13 @@ namespace Level1
 	{
 		OM::RenderSettings();
 		// Initialise i to 1 to skip player
-		for (int i{1}; i < ImportData.vOI.size(); i++)
+		for (int i{1}; i < GD.vOI.size(); i++)
 		{
-			if (ImportData.vOI[i].flag & Enum::FLAG::GLOW)
-				ImportData.vOI[i].RenderGlow();
-			ImportData.vOI[i].RenderObject();
+			if (GD.vOI[i].flag & Enum::FLAG::GLOW)
+				GD.vOI[i].RenderGlow();
+			GD.vOI[i].RenderObject();
 		}
-		player.AnimateCharacter();
+		GD.player.AnimateCharacter();
 		if (objInst[0].flag == Enum::FLAG::ACTIVE)
 			objInst[0].RenderObject();
 	}
@@ -174,10 +170,10 @@ namespace Level1
 	*************************************************************************/
 	void Level1_Free()
 	{
-		for (size_t i{0}; i < ImportData.vO.size(); i++)
-			AEGfxMeshFree(ImportData.vO[i].pMesh);
+		for (size_t i{0}; i < GD.vO.size(); i++)
+			AEGfxMeshFree(GD.vO[i].pMesh);
 		AEGfxMeshFree(bubble.pMesh);
-		ImportData.vOI.clear();
+		GD.vOI.clear();
 	}
 	/*!***********************************************************************
 	  \brief Unload level 1 data
@@ -185,9 +181,9 @@ namespace Level1
 	*************************************************************************/
 	void Level1_Unload()
 	{
-		for (size_t i{0}; i < ImportData.vO.size(); i++)
-			AEGfxTextureUnload(ImportData.vO[i].pTex);
+		for (size_t i{0}; i < GD.vO.size(); i++)
+			AEGfxTextureUnload(GD.vO[i].pTex);
 		AEGfxTextureUnload(bubble.pTex);
-		ImportData.vO.clear();
+		GD.vO.clear();
 	}
 }

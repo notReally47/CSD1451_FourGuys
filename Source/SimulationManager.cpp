@@ -21,15 +21,15 @@ namespace OM
 	*************************************************************************/
 	void Character::MoveCharacter()
 	{
-		AEVec2 pos{ pObjInst->GetPos() }, dire { dir };
-		if (pObjInst->flag & Enum::FLAG::ACTIVE)
+		AEVec2 pos{ pOI->GetPos() }, dire { dir };
+		if (pOI->flag & Enum::FLAG::ACTIVE)
 		{
-			f32 unitSpeed = pObjInst->GetPlayerSpeed() * GSM::gameTime;
+			f32 unitSpeed = pOI->GetPlayerSpeed() * GSM::gameTime;
 			AEVec2Normalize(&dire, &dire);
 			AEVec2Scale(&dire, &dire, unitSpeed);
 			AEVec2Add(&pos, &pos, &dire);
 		}
-		pObjInst->SetPos(pos);
+		pOI->SetPos(pos);
 	}
 	/*!***********************************************************************
 	  \brief Check if the character is in the cell
@@ -43,13 +43,13 @@ namespace OM
 		f32 x = cell.GetPos().x;
 		f32 y = cell.GetPos().y;
 
-		AEVec2 p1 = AEVec2{ x - pObjInst->GetScale(0.5f).x, y + pObjInst->GetScale(0.5f).y }; // top left
-		AEVec2 p2 = AEVec2{ x + pObjInst->GetScale(0.5f).x, y + pObjInst->GetScale(0.5f).y }; // top right
-		AEVec2 p4 = AEVec2{ x - pObjInst->GetScale(0.5f).x, y - pObjInst->GetScale(0.5f).y }; // bottom left
-		AEVec2 p3 = AEVec2{ x + pObjInst->GetScale(0.5f).x, y - pObjInst->GetScale(0.5f).y }; // bottom right
+		AEVec2 p1 = AEVec2{ x - pOI->GetScale(0.5f).x, y + pOI->GetScale(0.5f).y }; // top left
+		AEVec2 p2 = AEVec2{ x + pOI->GetScale(0.5f).x, y + pOI->GetScale(0.5f).y }; // top right
+		AEVec2 p4 = AEVec2{ x - pOI->GetScale(0.5f).x, y - pOI->GetScale(0.5f).y }; // bottom left
+		AEVec2 p3 = AEVec2{ x + pOI->GetScale(0.5f).x, y - pOI->GetScale(0.5f).y }; // bottom right
 
-		f32 playerX = pObjInst->GetPos().x;
-		f32 playerY = pObjInst->GetPos().y;
+		f32 playerX = pOI->GetPos().x;
+		f32 playerY = pOI->GetPos().y;
 
 		bool a = x - 0.5f <= playerX && playerX <= x + 0.5f;
 		bool b = y - 0.5f <= playerY && playerY <= y + 0.5f;
@@ -61,58 +61,58 @@ namespace OM
 	  \param cell 
 	  \return f32 
 	*************************************************************************/
-	f32 Character::SlopeHeight(ObjectInst cell) 
-	{
-		f32 distance{};
-		AEVec2 pos{ pObjInst->GetPos() };
+	//f32 Character::SlopeHeight(ObjectInst cell) 
+	//{
+	//	f32 distance{};
+	//	AEVec2 pos{ pOI->GetPos() };
 
-		AEVec2 bot[2]	{ cell.botLeft, cell.botRight };
-		AEVec2 top[2]	{ cell.topRight, cell.topLeft };;
-		AEVec2 right[2]	{ cell.botRight, cell.topRight };;
-		AEVec2 left[2]	{ cell.topLeft, cell.botLeft };;
+	//	AEVec2 bot[2]	{ cell.botLeft, cell.botRight };
+	//	AEVec2 top[2]	{ cell.topRight, cell.topLeft };;
+	//	AEVec2 right[2]	{ cell.botRight, cell.topRight };;
+	//	AEVec2 left[2]	{ cell.topLeft, cell.botLeft };;
 
-		switch (cell.direction) {
-		case Enum::NORTH:
-			distance = CDM::PointLineDist(pos, bot);
-			break;
-		case Enum::SOUTH:
-			distance = CDM::PointLineDist(pos, top);
-			break;
-		case Enum::EAST:
-			distance = CDM::PointLineDist(pos, left);
-			break;
-		case Enum::WEST:
-			distance = CDM::PointLineDist(pos, right);
-			break;
-		case Enum::NONE:
-			//nothing
-			break;
-		default:
-			break;
-		}
-		return distance;
-	}
+	//	switch (cell.direction) {
+	//	case Enum::NORTH:
+	//		distance = CDM::PointLineDist(pos, bot);
+	//		break;
+	//	case Enum::SOUTH:
+	//		distance = CDM::PointLineDist(pos, top);
+	//		break;
+	//	case Enum::EAST:
+	//		distance = CDM::PointLineDist(pos, left);
+	//		break;
+	//	case Enum::WEST:
+	//		distance = CDM::PointLineDist(pos, right);
+	//		break;
+	//	case Enum::NONE:
+	//		//nothing
+	//		break;
+	//	default:
+	//		break;
+	//	}
+	//	return distance;
+	//}
 	/*!***********************************************************************
 	  \brief Set the collider vertices
 	  
 	*************************************************************************/
-	void ObjectInst::SetCollider()
-	{
-		topLeft			= { GetPos().x - GetScale(0.5f).x, GetPos().y + GetScale(0.5f).y };
-		topRight		= { GetPos().x + GetScale(0.5f).x, GetPos().y + GetScale(0.5f).y };
-		botLeft			= { GetPos().x - GetScale(0.5f).x, GetPos().y - GetScale(0.5f).y };
-		botRight		= { GetPos().x + GetScale(0.5f).x, GetPos().y - GetScale(0.5f).y };
-	}
+	//void ObjectInst::SetCollider()
+	//{
+	//	topLeft			= { GetPos().x - GetScale(0.5f).x, GetPos().y + GetScale(0.5f).y };
+	//	topRight		= { GetPos().x + GetScale(0.5f).x, GetPos().y + GetScale(0.5f).y };
+	//	botLeft			= { GetPos().x - GetScale(0.5f).x, GetPos().y - GetScale(0.5f).y };
+	//	botRight		= { GetPos().x + GetScale(0.5f).x, GetPos().y - GetScale(0.5f).y };
+	//}
 
 	void ObjectInst::AnimateStairs()
 	{
 		GetElapsed() += GSM::gameTime;
 		if (GetElapsed() >= 0.1f)
 		{
-			tex_offset.x += 0.0476190476190476f;
+			texture.x += 0.0476190476190476f;
 			GetElapsed() = 0.0f;
 		}
-		if (tex_offset.x >= 0.89f && tex_offset.x >= 0.91f)
+		if (texture.x >= 0.89f && texture.x >= 0.91f)
 		{
 			flag &= ~Enum::FLAG::ACTIVE;
 		}

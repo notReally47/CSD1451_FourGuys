@@ -7,21 +7,27 @@ using namespace std;
 
 namespace FM
 {
+	struct GameData {
+		static vector<OM::Object>		vO;
+		static vector<OM::ObjectInst>	vOI;
+		static OM::Character			player;
+		static vector<OM::ObjectInst>	platform;
+		static vector<OM::ObjectInst>	portraits;
+		static vector<OM::ObjectLayer>	vOL;
+	
+		
+		void			LoadShapeFromFile();
+		void			LoadTransformFromFile();
+		void			LoadPlayerStatsFromFile();
+		void			LoadLayersFromFile();
+		void			Option_Change();
+		//void			ExtractTransformToFile();
+		
+	};
+
 	struct Export : public OM::ObjectInst, public OM::Character
 	{
 		void					Extract_Transform_Data_Out(vector<OM::ObjectInst> vOI, OM::Character p_player, const string level_number);
 	};
 
-	struct Import : public OM::ObjectInst, public OM::Character
-	{
-		vector<OM::Object>		vO;
-		vector<OM::ObjectInst>	vOI;
-
-		vector<OM::Object>*		Load_Shape_From_YAML		(const string level_number);
-		vector<OM::ObjectInst>* Load_Transform_From_YAML	(const string level_number);
-		OM::Character*			Load_Player_Stats_From_YAML	(const string level_number);
-	};
-
-	void Option_Change	(vector<OM::ObjectInst>& vOI);
-	void Init_Player	(OM::ObjectInst* vOI, OM::Character* sCHARACTER, OM::Character& p_player);
 }

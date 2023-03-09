@@ -32,21 +32,21 @@ namespace OM
 	*************************************************************************/
 	void ObjectInst::RenderObject()
 	{
-		if (pObj->type == Enum::TYPE::PLATFORM && flag & Enum::ACTIVE)
+		if (pO->type == Enum::TYPE::PLATFORM && flag & Enum::ACTIVE)
 			AnimateStairs();
-		AEGfxTextureSet(pObj->pTex, tex_offset.x, tex_offset.y);
-		if (this->pObj->type == Enum::TYPE::BUBBLE)
+		AEGfxTextureSet(pO->pTex, texture.x, texture.y);
+		if (this->pO->type == Enum::TYPE::BUBBLE)
 		{
 			AEGfxSetTransparency(0.5f);
 		}
-		if (this->pObj->type == Enum::TYPE::BUTTON || this->pObj->type == Enum::TYPE::BACKGROUND)
+		if (this->pO->type == Enum::TYPE::BUTTON || this->pO->type == Enum::TYPE::BACKGROUND)
 		{
-			AEGfxSetTransform(this->transform.m);
+			AEGfxSetTransform(this->transf.m);
 		}
 		else
 			AEGfxSetTransform(ConvertIsometric(*this).m);
 		// AEGfxSetTransform(transform.m);
-		AEGfxMeshDraw(pObj->pMesh, AE_GFX_MDM_TRIANGLES);
+		AEGfxMeshDraw(pO->pMesh, AE_GFX_MDM_TRIANGLES);
 	}
 	/*!***********************************************************************
 	  \brief Animate the character
@@ -56,8 +56,8 @@ namespace OM
 	{
 		SetOffsetX();
 		SetOffsetY();
-		// pObjInst->RenderShadow();
-		pObjInst->RenderObject();
+		// pOI->RenderShadow();
+		pOI->RenderObject();
 	}
 	/*!***********************************************************************
 	  \brief Render the shadow of the character
@@ -71,7 +71,7 @@ namespace OM
 		AEGfxSetBlendColor(0.0f, 0.0f, 0.0f, 1.0f);
 		AEGfxSetTransparency(0.2f);
 
-		AEGfxMeshDraw(pObj->pMesh, AE_GFX_MDM_TRIANGLES);
+		AEGfxMeshDraw(pO->pMesh, AE_GFX_MDM_TRIANGLES);
 
 		AEGfxSetBlendColor(1.0f, 1.0f, 1.0f, 0.0f);
 		AEGfxSetTransparency(1.0f);*/

@@ -56,22 +56,22 @@ namespace Menu
 		button.pMesh = background.pMesh = AEGfxMeshEnd();
 		for (int i = 0; i < 3; i++)
 		{
-			objInst[i].pObj = &button;
+			objInst[i].pO = &button;
 			objInst[i].flag = Enum::FLAG::IDLE;
-			objInst[i].tex_offset = {.0f, .0f};
-			objInst[i].transform = {100.0f, .0f, .0f + .0f,
+			objInst[i].texture = {.0f, .0f};
+			objInst[i].transf = {100.0f, .0f, .0f + .0f,
 									.0f, 50.0f, i * 100.f - 100.f,
 									.0f, .0f, .0f};
-			objInst[i].pObj->pTex = AEGfxTextureLoad("../Resource/Textures/button.png");
+			objInst[i].pO->pTex = AEGfxTextureLoad("../Resource/Textures/button.png");
 		}
 
-		objInst[3].pObj = &background;
+		objInst[3].pO = &background;
 		objInst[3].flag = Enum::FLAG::IDLE;
-		objInst[3].tex_offset = {.0f, .0f};
-		objInst[3].transform = {static_cast<f32>(AEGetWindowWidth()), .0f, .0f,
+		objInst[3].texture = {.0f, .0f};
+		objInst[3].transf = {static_cast<f32>(AEGetWindowWidth()), .0f, .0f,
 								.0f, static_cast<f32>(AEGetWindowHeight()), 0.f,
 								.0f, .0f, .0f};
-		objInst[3].pObj->pTex = AEGfxTextureLoad("../Resource/Textures/spellbook.png");
+		objInst[3].pO->pTex = AEGfxTextureLoad("../Resource/Textures/spellbook.png");
 
 		memset(strBuffer, 0, 10 * sizeof(char));
 		sprintf_s(strBuffer, "Start");
@@ -117,9 +117,9 @@ namespace Menu
 		// }
 
 		AEGfxSetBlendMode(AE_GFX_BM_BLEND);
-		AEGfxPrint(GSM::fontId, strBuffer3, OM::GetScreenXPercentage(objInst[0].GetPos().x - objInst[0].transform.m[0][0] / 4.f), OM::GetScreenYPercentage(objInst[0].GetPos().y), 1.0f, 1.0f, 1.f, 1.f);
-		AEGfxPrint(GSM::fontId, strBuffer2, OM::GetScreenXPercentage(objInst[1].GetPos().x - objInst[1].transform.m[0][0] / 4.f), OM::GetScreenYPercentage(objInst[1].GetPos().y), 1.0f, 1.0f, 1.f, 1.f);
-		AEGfxPrint(GSM::fontId, strBuffer, OM::GetScreenXPercentage(objInst[2].GetPos().x - objInst[2].transform.m[0][0] / 4.f), OM::GetScreenYPercentage(objInst[2].GetPos().y), 1.0f, 1.0f, 1.f, 1.f);
+		AEGfxPrint(GSM::fontId, strBuffer3, OM::GetScreenXPercentage(objInst[0].GetPos().x - objInst[0].transf.m[0][0] / 4.f), OM::GetScreenYPercentage(objInst[0].GetPos().y), 1.0f, 1.0f, 1.f, 1.f);
+		AEGfxPrint(GSM::fontId, strBuffer2, OM::GetScreenXPercentage(objInst[1].GetPos().x - objInst[1].transf.m[0][0] / 4.f), OM::GetScreenYPercentage(objInst[1].GetPos().y), 1.0f, 1.0f, 1.f, 1.f);
+		AEGfxPrint(GSM::fontId, strBuffer, OM::GetScreenXPercentage(objInst[2].GetPos().x - objInst[2].transf.m[0][0] / 4.f), OM::GetScreenYPercentage(objInst[2].GetPos().y), 1.0f, 1.0f, 1.f, 1.f);
 	}
 
 	/*!***********************************************************************

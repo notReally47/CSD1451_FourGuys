@@ -73,15 +73,15 @@ namespace IM
 	bool PlayerJump(Character& player) {
 		player.zVel = GRAVITY * (f32)AEFrameRateControllerGetFrameTime() + player.zVel;
 
-		if (AEInputCheckTriggered(AEVK_SPACE) && player.pObjInst->GetPosZ() == 0) {
+		if (AEInputCheckTriggered(AEVK_SPACE) && player.pOI->GetPosZ() == 0) {
 			player.zVel = sqrt(2 * -GRAVITY * (JUMP_HEIGHT));
 		}
 
-		player.pObjInst->GetPosZ() = player.zVel * (f32)AEFrameRateControllerGetFrameTime() + player.pObjInst->GetPosZ();
-		if (player.pObjInst->GetPosZ() < 0)
-			player.pObjInst->GetPosZ() = 0;
+		player.pOI->GetPosZ() = player.zVel * (f32)AEFrameRateControllerGetFrameTime() + player.pOI->GetPosZ();
+		if (player.pOI->GetPosZ() < 0)
+			player.pOI->GetPosZ() = 0;
 
-		return player.pObjInst->GetPosZ() > 0;
+		return player.pOI->GetPosZ() > 0;
 	}
 	/*!***********************************************************************
 	  \brief Checks if the mouse clicked on a button
@@ -109,13 +109,13 @@ namespace IM
 			{
 				if (i == index)
 					continue;
-				if (obj[i].pObj->type == Enum::TYPE::WALL && obj[i].flag & Enum::FLAG::DOOR && obj[i].flag & Enum::FLAG::ACTIVE )
+				if (obj[i].pO->type == Enum::TYPE::WALL && obj[i].flag & Enum::FLAG::DOOR && obj[i].flag & Enum::FLAG::ACTIVE )
 				{
 					AEVec2 pos{};
 					pos.x = obj[i].GetPos().x + obj[i].GetPosZ();
 					pos.y = obj[i].GetPos().y + obj[i].GetPosZ();
-					player.pObjInst->transform.m[0][2] = pos.x;
-					player.pObjInst->transform.m[1][2] = pos.y;
+					player.pOI->transf.m[0][2] = pos.x;
+					player.pOI->transf.m[1][2] = pos.y;
 				}
 			}
 		}

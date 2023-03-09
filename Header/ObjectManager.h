@@ -1,6 +1,7 @@
 #pragma once
 #include "PCH.h"
 #include <utility>
+#include <vector>
 #include <string>
 
 namespace OM
@@ -16,11 +17,7 @@ namespace OM
 		AEGfxTexture*		pTex;
 		AEGfxVertexList*	pMesh;
 		unsigned long		type;
-
-		// DEPRECIATED ?
-		f32					width;
-		f32					length;
-		f32					height;
+		unsigned long		flag;
 	};
 
 	/*GAME OBJECT INSTANCE STRUCTURE*/
@@ -33,19 +30,12 @@ namespace OM
 
 
 		/*PUBLIC DATA*/
-		Object*				pObj;
+		Object*				pO;
 		unsigned long		flag;
-		AEVec2				tex_offset;
-		AEMtx33				transform;
-		unsigned long		direction; // slope direction; none if not a slope
+		AEVec2				texture;
+		AEMtx33				transf;
+		unsigned long*		pair;
 
-		/*TO BE MOVE UNDER OBJECTCOLLISION STRUCT*/
-		/*COLLIDER VERTICES*/
-		// Not required to be added to YAML, calculated at run time
-		AEVec2				topLeft;
-		AEVec2				topRight;
-		AEVec2				botLeft;
-		AEVec2				botRight;
 
 		/*MEMBER FUNCTIONS FOR TRANSFORMATIONS*/
 		f32&				GetElapsed();
@@ -67,52 +57,28 @@ namespace OM
 		void				SetCollider();
 	};
 
-	struct ObjectCollision
-	{
-		/*TO MOVE COLLIDER VERITCES HERE*/
-	};
-
-	struct ObjectPair
-	{
-		/*CONSTRUCTORS*/
-		ObjectPair();
-		~ObjectPair();
-
-		unsigned long*		head;
-		unsigned long*		next;
-	};
-
 	struct ObjectLayer
 	{
 		/*CONSTRUCTORS*/
-		ObjectLayer();
-		~ObjectLayer();
+		//ObjectLayer();
+		//~ObjectLayer();
 
 		/*PUBLIC DATA*/
-		int					layer[5][5];
-		f32					offsetx;
-		f32					offsety;
+		short					data[25];
+		short					layer;
+		f32						transp;
+		AEVec2					offset;
 	};
-
-	struct Ground : public ObjectLayer, public ObjectInst
-	{
-		/*CONSTRUCTORS*/
-		Ground();
-		~Ground();
-
-		/*PUBLIC DATA*/
-	};
-
 
 	/*CHARACTER STRUCTURE*/
 	struct Character
 	{
 		/*PUBLIC DATA*/
-		ObjectInst*			pObjInst;
+		ObjectInst*			pOI;
 		AEVec2				dir;
 		AEVec2				input;
 		f32					zVel;
-		int					spriteIteration;
+		int					iter;
 
 		/*MEMBER FUNCTIONS*/
 		int					CheckDirection();
@@ -126,6 +92,17 @@ namespace OM
 		f32					PointLineDist(ObjectInst cell);
 		f32					SlopeHeight(ObjectInst cell);
 	};
+
+	struct Platform
+	{
+		ObjectInst* pOI;
+	};
+
+	struct Portraits
+	{
+		ObjectInst* pOI;
+	};
+
 
 	/*FUNCTIONS*/
 	void					RenderSettings();

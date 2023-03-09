@@ -173,7 +173,7 @@ namespace CDM
 	  \return false 
 	*************************************************************************/
 	bool portraitInteract(ObjectInst const portrait, Character const player) {
-		f32 dist = static_cast<f32>(sqrt(pow(portrait.transform.m[0][0] - player.pObjInst->transform.m[0][0], 2) + pow(portrait.GetPos().y - player.pObjInst->GetPos().y, 2)));
+		f32 dist = static_cast<f32>(sqrt(pow(portrait.transf.m[0][0] - player.pOI->transf.m[0][0], 2) + pow(portrait.GetPos().y - player.pOI->GetPos().y, 2)));
 
 		if (dist < 55.f)
 			return true;

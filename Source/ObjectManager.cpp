@@ -49,9 +49,6 @@ namespace OM
 		pTex			= nullptr;
 		pMesh			= nullptr;
 		type			= 0;
-		width			= .0f;
-		length			= .0f;
-		height			= .0f;
 	}
 	/*!***********************************************************************
 	  \brief Destroy the Object:: Object object
@@ -81,16 +78,10 @@ namespace OM
 	*************************************************************************/
 	ObjectInst::ObjectInst()
 	{
-		pObj			= nullptr;
+		pO			= nullptr;
 		flag			= 0;
-		tex_offset		= { .0f };
-		transform		= { .0f };
-		direction		= 0;
-
-		topLeft			= { .0f };
-		topRight		= { .0f };
-		botLeft			= { .0f };
-		botRight		= { .0f };
+		texture		= { .0f };
+		transf		= { .0f };
 	}
 	/*!***********************************************************************
 	  \brief Construct a new Object Inst:: Object Inst object from another object
@@ -116,7 +107,7 @@ namespace OM
 	*************************************************************************/
 	f32& ObjectInst::GetElapsed()
 	{ 
-		return transform.m[2][0];
+		return transf.m[2][0];
 	}
 	/*!***********************************************************************
 	  \brief Get the player speed
@@ -125,7 +116,7 @@ namespace OM
 	*************************************************************************/
 	f32& ObjectInst::GetPlayerSpeed()
 	{ 
-		return transform.m[2][1];
+		return transf.m[2][1];
 	}
 	/*!***********************************************************************
 	  \brief Get the Pos Z of the object in world screen coordinates
@@ -134,7 +125,7 @@ namespace OM
 	*************************************************************************/
 	f32& ObjectInst::GetPosZ()
 	{ 
-		return transform.m[2][2];
+		return transf.m[2][2];
 	}
 	/*!***********************************************************************
 	  \brief Get the Pos Z of the object in world screen coordinates
@@ -143,7 +134,7 @@ namespace OM
 	*************************************************************************/
 	f32 ObjectInst::GetPosZ() const
 	{ 
-		return transform.m[2][2];
+		return transf.m[2][2];
 	}
 	/*!***********************************************************************
 	  \brief Get the Pos X and Pos Y of the object in world screen coordinates
@@ -152,7 +143,7 @@ namespace OM
 	*************************************************************************/
 	AEVec2 ObjectInst::GetPos() const
 	{ 
-		return { transform.m[0][2], transform.m[1][2] };
+		return { transf.m[0][2], transf.m[1][2] };
 	}
 	/*!***********************************************************************
 	  \brief Set the Pos X and Pos Y of the object in world screen coordinates
@@ -161,8 +152,8 @@ namespace OM
 	*************************************************************************/
 	void ObjectInst::SetPos(const AEVec2& pos)
 	{
-		transform.m[0][2] = pos.x;
-		transform.m[1][2] = pos.y;
+		transf.m[0][2] = pos.x;
+		transf.m[1][2] = pos.y;
 	}
 	/*!***********************************************************************
 	  \brief Scale the object by a value
@@ -172,12 +163,12 @@ namespace OM
 	*************************************************************************/
 	AEVec2 ObjectInst::GetScale(const f32& val)
 	{
-		return { transform.m[0][0] * val, transform.m[1][1] * val };
+		return { transf.m[0][0] * val, transf.m[1][1] * val };
 	}
 	void ObjectInst::SetScale(const f32& val)
 	{
-		transform.m[0][0] *= val;
-		transform.m[1][1] *= val;
+		transf.m[0][0] *= val;
+		transf.m[1][1] *= val;
 	}
 	/*
 				  mm           mm                                               mm
@@ -193,15 +184,15 @@ namespace OM
 							:: ::
 							::::
 	*/
-	ObjectPair::ObjectPair()
-	{
-		head			= nullptr;
-		next			= nullptr;
-	}
-	ObjectPair::~ObjectPair()
-	{
-		
-	}
+	//ObjectPair::ObjectPair()
+	//{
+	//	head			= nullptr;
+	//	next			= nullptr;
+	//}
+	//ObjectPair::~ObjectPair()
+	//{
+	//	
+	//}
 	/*!***********************************************************************
 	  \brief Check the direction the player is facing
 	  
@@ -221,7 +212,7 @@ namespace OM
 	*************************************************************************/
 	AEVec2& Character::GetOffset()
 	{ 
-		return pObjInst->tex_offset;
+		return pOI->texture;
 	}
 	/*!***********************************************************************
 	  \brief Set the texture y offset of the player
@@ -229,7 +220,7 @@ namespace OM
 	*************************************************************************/
 	void Character::SetOffsetY()
 	{
-		if (pObjInst->flag & ACTIVE)
+		if (pOI->flag & ACTIVE)
 			GetOffset().y = 0.125f * static_cast<f32>(CheckDirection());
 	}
 	/*!***********************************************************************
@@ -238,14 +229,14 @@ namespace OM
 	*************************************************************************/
 	void Character::SetOffsetX()
 	{
-		pObjInst->GetElapsed() += GSM::gameTime;
-		if (pObjInst->flag & JUMPING)
+		pOI->GetElapsed() += GSM::gameTime;
+		if (pOI->flag & JUMPING)
 			GetOffset().x = JUMP_SPRITE;
-		else if (pObjInst->flag & ACTIVE)
+		else if (pOI->flag & ACTIVE)
 		{
-			if (pObjInst->GetElapsed() >= 0.1f)
-				spriteIteration = (pObjInst->GetElapsed() = .0f, ++spriteIteration % 10) ? spriteIteration : 1;
-			GetOffset().x = static_cast<f32>(spriteIteration) / 11.0f;
+			if (pOI->GetElapsed() >= 0.1f)
+				iter = (pOI->GetElapsed() = .0f, ++iter % 10) ? iter : 1;
+			GetOffset().x = static_cast<f32>(iter) / 11.0f;
 		}
 		else
 			GetOffset().x = .0f;
@@ -257,71 +248,71 @@ namespace OM
 	  \param count 
 	  \return AEVec2* 
 	*************************************************************************/
-	AEVec2* GetVerticesXY(const ObjectInst& obj, int& count)
-	{
-		count = 4;
+	//AEVec2* GetVerticesXY(const ObjectInst& obj, int& count)
+	//{
+	//	count = 4;
 
-		AEVec2* xyCoords = { new AEVec2[count] };
-		xyCoords[0] = AEVec2{ obj.GetPos().x - obj.pObj->width / 2, obj.GetPos().y + obj.pObj->length / 2 }; //top right
-		xyCoords[1] = AEVec2{ obj.GetPos().x + obj.pObj->width / 2, obj.GetPos().y + obj.pObj->length / 2 }; //top left
-		xyCoords[2] = AEVec2{ obj.GetPos().x - obj.pObj->width / 2, obj.GetPos().y - obj.pObj->length / 2 }; //bot right
-		xyCoords[3] = AEVec2{ obj.GetPos().x + obj.pObj->width / 2, obj.GetPos().y - obj.pObj->length / 2 }; //bot left
+	//	AEVec2* xyCoords = { new AEVec2[count] };
+	//	xyCoords[0] = AEVec2{ obj.GetPos().x - obj.pO->width / 2, obj.GetPos().y + obj.pO->length / 2 }; //top right
+	//	xyCoords[1] = AEVec2{ obj.GetPos().x + obj.pO->width / 2, obj.GetPos().y + obj.pO->length / 2 }; //top left
+	//	xyCoords[2] = AEVec2{ obj.GetPos().x - obj.pO->width / 2, obj.GetPos().y - obj.pO->length / 2 }; //bot right
+	//	xyCoords[3] = AEVec2{ obj.GetPos().x + obj.pO->width / 2, obj.GetPos().y - obj.pO->length / 2 }; //bot left
 
-		//TODO: Any rotatation 
-		return xyCoords;
-	}
-	/*!***********************************************************************
-	  \brief Get the Vertices Y Z object
-	  
-	  \param obj 
-	  \param count 
-	  \return AEVec2* 
-	*************************************************************************/
-	AEVec2* GetVerticesYZ(const ObjectInst& obj, int& count)
-	{
-		count = 4;
-		AEVec2* yzCoords = { new AEVec2[count] };
-		yzCoords[0] = AEVec2{ obj.GetPos().y - obj.pObj->width / 2, obj.GetPosZ() + obj.pObj->height / 2 }; //top right
-		yzCoords[1] = AEVec2{ obj.GetPos().y + obj.pObj->width / 2, obj.GetPosZ() + obj.pObj->height / 2 }; //top left
-		yzCoords[2] = AEVec2{ obj.GetPos().y - obj.pObj->width / 2, obj.GetPosZ() - obj.pObj->height / 2 }; //bot right
-		yzCoords[3] = AEVec2{ obj.GetPos().y + obj.pObj->width / 2, obj.GetPosZ() - obj.pObj->height / 2 }; //bot left
+	//	//TODO: Any rotatation 
+	//	return xyCoords;
+	//}
+	///*!***********************************************************************
+	//  \brief Get the Vertices Y Z object
+	//  
+	//  \param obj 
+	//  \param count 
+	//  \return AEVec2* 
+	//*************************************************************************/
+	//AEVec2* GetVerticesYZ(const ObjectInst& obj, int& count)
+	//{
+	//	count = 4;
+	//	AEVec2* yzCoords = { new AEVec2[count] };
+	//	yzCoords[0] = AEVec2{ obj.GetPos().y - obj.pO->width / 2, obj.GetPosZ() + obj.pO->height / 2 }; //top right
+	//	yzCoords[1] = AEVec2{ obj.GetPos().y + obj.pO->width / 2, obj.GetPosZ() + obj.pO->height / 2 }; //top left
+	//	yzCoords[2] = AEVec2{ obj.GetPos().y - obj.pO->width / 2, obj.GetPosZ() - obj.pO->height / 2 }; //bot right
+	//	yzCoords[3] = AEVec2{ obj.GetPos().y + obj.pO->width / 2, obj.GetPosZ() - obj.pO->height / 2 }; //bot left
 
-		//TODO: Any rotatation 
-		return yzCoords;
-	}
-	/*!***********************************************************************
-	  \brief Get the Vertices X Z object
-	  
-	  \param obj 
-	  \param count 
-	  \return AEVec2* 
-	*************************************************************************/
-	AEVec2* GetVerticesXZ(const ObjectInst& obj, int& count)
-	{
-		if (1) { //TODO: Change to check if not a staircase
-			count = 4;
-			AEVec2* xzCoords = { new AEVec2[count] };
-			xzCoords[0] = AEVec2{ obj.GetPos().x - obj.pObj->width / 2, obj.GetPosZ() + obj.pObj->height / 2 }; // top right
-			xzCoords[1] = AEVec2{ obj.GetPos().x + obj.pObj->width / 2, obj.GetPosZ() + obj.pObj->height / 2 }; // top left
-			xzCoords[2] = AEVec2{ obj.GetPos().x - obj.pObj->width / 2, obj.GetPosZ() - obj.pObj->height / 2 }; // bot right
-			xzCoords[3] = AEVec2{ obj.GetPos().x + obj.pObj->width / 2, obj.GetPosZ() - obj.pObj->height / 2 }; // bot left
-			return xzCoords;
-		}
-		else {
-			count = 3;
-			AEVec2* xzCoords = { new AEVec2[count] };
-			xzCoords[0] = AEVec2{ obj.GetPos().x - obj.pObj->width / 3,
-									obj.GetPosZ() - obj.pObj->height / 3 };		// bot left
+	//	//TODO: Any rotatation 
+	//	return yzCoords;
+	//}
+	///*!***********************************************************************
+	//  \brief Get the Vertices X Z object
+	//  
+	//  \param obj 
+	//  \param count 
+	//  \return AEVec2* 
+	//*************************************************************************/
+	//AEVec2* GetVerticesXZ(const ObjectInst& obj, int& count)
+	//{
+	//	if (1) { //TODO: Change to check if not a staircase
+	//		count = 4;
+	//		AEVec2* xzCoords = { new AEVec2[count] };
+	//		xzCoords[0] = AEVec2{ obj.GetPos().x - obj.pO->width / 2, obj.GetPosZ() + obj.pO->height / 2 }; // top right
+	//		xzCoords[1] = AEVec2{ obj.GetPos().x + obj.pO->width / 2, obj.GetPosZ() + obj.pO->height / 2 }; // top left
+	//		xzCoords[2] = AEVec2{ obj.GetPos().x - obj.pO->width / 2, obj.GetPosZ() - obj.pO->height / 2 }; // bot right
+	//		xzCoords[3] = AEVec2{ obj.GetPos().x + obj.pO->width / 2, obj.GetPosZ() - obj.pO->height / 2 }; // bot left
+	//		return xzCoords;
+	//	}
+	//	else {
+	//		count = 3;
+	//		AEVec2* xzCoords = { new AEVec2[count] };
+	//		xzCoords[0] = AEVec2{ obj.GetPos().x - obj.pO->width / 3,
+	//								obj.GetPosZ() - obj.pO->height / 3 };		// bot left
 
-			xzCoords[1] = AEVec2{ obj.GetPos().x - obj.pObj->width / 3,
-									obj.GetPosZ() + (2 * obj.pObj->height) / 3 }; // top left
+	//		xzCoords[1] = AEVec2{ obj.GetPos().x - obj.pO->width / 3,
+	//								obj.GetPosZ() + (2 * obj.pO->height) / 3 }; // top left
 
-			xzCoords[2] = AEVec2{ obj.GetPos().x + (2 * obj.pObj->width) / 3,
-									obj.GetPosZ() - obj.pObj->height / 3 };		// bot right
+	//		xzCoords[2] = AEVec2{ obj.GetPos().x + (2 * obj.pO->width) / 3,
+	//								obj.GetPosZ() - obj.pO->height / 3 };		// bot right
 
-			return xzCoords;
-		}
-	}
+	//		return xzCoords;
+	//	}
+	//}
 	/*!***********************************************************************
 	  \brief Convert the object to isometric
 	  
@@ -330,7 +321,7 @@ namespace OM
 	*************************************************************************/
 	AEMtx33 ConvertIsometric(const ObjectInst& obj)
 	{
-		AEMtx33 transform = obj.transform;
+		AEMtx33 transform = obj.transf;
 		transform.m[0][2] = (obj.GetPos().x - obj.GetPos().y);
 		transform.m[1][2] = (obj.GetPos().x + obj.GetPos().y) / 2.f + obj.GetPosZ();
 		return transform;
