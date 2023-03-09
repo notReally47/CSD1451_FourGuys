@@ -21,13 +21,7 @@ namespace FM
 		void			LoadPlayerStatsFromFile();
 		void			LoadLayersFromFile();
 		void			Option_Change();
-		//void			ExtractTransformToFile();
+		void			ExtractTransformToFile();
 		
 	};
-
-	struct Export : public OM::ObjectInst, public OM::Character
-	{
-		void					Extract_Transform_Data_Out(vector<OM::ObjectInst> vOI, OM::Character p_player, const string level_number);
-	};
-
 }

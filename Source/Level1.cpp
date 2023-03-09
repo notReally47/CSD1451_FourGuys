@@ -64,7 +64,7 @@ namespace Level1
 		//}
 
 		/*Extract Using Vector vOBJ_INST & player*/
-		//ExportData.Extract_Transform_Data_Out(ImportData.vOI, player, level_number);
+		GD.ExtractTransformToFile();
 	
 		// add bubble mesh and texture
 		AEGfxMeshStart();

@@ -42,7 +42,7 @@ OM::Character			FM::GameData::player;
 				 7456  99   75  65         626    29   86    44
 */
 namespace FM {
-	
+
 
 	// Load Shape From Data Functions
 	void operator >> (const YAML::Node& node, OM::Object& Object) {
@@ -142,8 +142,8 @@ namespace FM {
 
 	// Load Transform From Data Functions
 	void operator >> (const YAML::Node& node, OM::ObjectInst& ObjectInstance) {
-		string			type_string	{};
-		unsigned long	type		{ 0 };
+		string			type_string{};
+		unsigned long	type{ 0 };
 
 		// Extract Object Type
 		node["Type"] >> type_string;
@@ -245,7 +245,7 @@ namespace FM {
 		for (unsigned i = 0; i < 1; i++) {
 			doc[i] >> Player;
 		}
-		
+
 		GameData::player = Player;
 	}// END LoadPlayerStatsFromFile
 
@@ -289,7 +289,7 @@ namespace FM {
 			ObjectLayer.layer = 15;
 		else if (layer == "Floor16")
 			ObjectLayer.layer = 16;
-		
+
 		// Extract Grid Data
 		for (size_t i{ 0 }; i < 25; ++i)
 			node["Grid"][i] >> ObjectLayer.data[i];
@@ -324,6 +324,82 @@ namespace FM {
 	}// END LoadLayersFromFile
 
 
+	void PrintToYAML(const int& index, ofstream& data_file) {
+
+		// Print data of object to file
+		if(FM::GameData::vOI[index].pO->type == Enum::TYPE::PLAYER)
+			data_file << "- " << "Type: " << "Player" << endl;
+		else if (FM::GameData::vOI[index].pO->type == Enum::TYPE::FLOOR)
+			data_file << "- " << "Type: " << "Floor" << endl;
+		else if (FM::GameData::vOI[index].pO->type == Enum::TYPE::WALL)
+			data_file << "- " << "Type: " << "Wall" << endl;
+		else if (FM::GameData::vOI[index].pO->type == Enum::TYPE::DECO)
+			data_file << "- " << "Type: " << "Decoration" << endl;
+		else if (FM::GameData::vOI[index].pO->type == Enum::TYPE::PORTRAIT)
+			data_file << "- " << "Type: " << "Portrait" << endl;
+		else if (FM::GameData::vOI[index].pO->type == Enum::TYPE::LANDSCAPE)
+			data_file << "- " << "Type: " << "Portrait" << endl;
+		else if (FM::GameData::vOI[index].pO->type == Enum::TYPE::PLATFORM)
+			data_file << "- " << "Type: " << "Platform" << endl;
+		data_file << "  " << "Flag: " << FM::GameData::vOI[index].flag << endl;
+		data_file << "  " << "Texture_Offset:" << endl;
+		data_file << "    " << "x_offset: " << FM::GameData::vOI[index].texture.x << endl;
+		data_file << "    " << "y_offset: " << FM::GameData::vOI[index].texture.y << endl;
+		data_file << "  " << "Transformation:" << endl;
+		data_file << "    " << "scale_x: " << FM::GameData::vOI[index].transf.m[0][0] << endl;
+		data_file << "    " << "shear_x: " << FM::GameData::vOI[index].transf.m[0][1] << endl;
+		data_file << "    " << "position_x: " << FM::GameData::vOI[index].transf.m[0][2] << endl;
+		data_file << "    " << "shear_y: " << FM::GameData::vOI[index].transf.m[1][0] << endl;
+		data_file << "    " << "scale_y: " << FM::GameData::vOI[index].transf.m[1][1] << endl;
+		data_file << "    " << "position_y: " << FM::GameData::vOI[index].transf.m[1][2] << endl;
+		data_file << "    " << "elapsed: " << FM::GameData::vOI[index].transf.m[2][0] << endl;
+		data_file << "    " << "empty: " << FM::GameData::vOI[index].transf.m[2][1] << endl;
+		data_file << "    " << "position_z: " << FM::GameData::vOI[index].transf.m[2][2] << endl;
+		data_file << "  " << "Pair: " << 0 << endl;
+
+		// Player Stats
+		if (FM::GameData::vOI[index].pO->type == Enum::TYPE::PLAYER) {
+			data_file << "  " << "Direction:" << endl;
+			data_file << "    " << "direction_x: " << FM::GameData::player.dir.x << endl;
+			data_file << "    " << "direction_y: " << FM::GameData::player.dir.y << endl;
+			data_file << "  " << "Input:" << endl;
+			data_file << "    " << "input_x: " << FM::GameData::player.input.x << endl;
+			data_file << "    " << "input_y: " << FM::GameData::player.input.y << endl;
+			data_file << "  " << "Z_Velocity: " << FM::GameData::player.zVel << endl;
+			data_file << "  " << "Sprite_Iteration: " << FM::GameData::player.iter << endl;
+		}
+
+		data_file << endl;
+
+	}// END Print_To_Transform_YAML
+
+	void GameData::ExtractTransformToFile() {
+		// file name to extract to based on level_number
+		string out_file{ "./Resource/Data/Transform_Data_Extracted.yml" };
+
+		// out file to extract data to
+		ofstream data_file(out_file);
+		if (!data_file.good())
+			data_file.open("." + out_file);
+
+		// if out file successfully opened
+		if (data_file.is_open()) {
+
+			// iterate through data vector
+			for (size_t i{ 0 }; i < FM::GameData::vOI.size(); ++i)
+				PrintToYAML(i, data_file);	// print data of object to file
+
+			data_file.close();
+		}
+		else {
+			cout << "Error Opening File: " << out_file << endl;									// if out file can't be opened
+			exit(1);																			// exit program
+		}
+	}
+
+
+
+	// Scaling Stuff
 	void GameData::Option_Change() {
 		// Scale Value
 		f32 scaling = 1920.0f / static_cast<f32>(AEGetWindowWidth());
@@ -335,7 +411,9 @@ namespace FM {
 				FM::GameData::vOI[i].transf.m[j / count][j % count] /= scaling;
 
 	}// END Init_Object_From_Vector
+
 }
+
 
 
 
