@@ -43,6 +43,8 @@ OM::Character			FM::GameData::player;
 */
 namespace FM {
 
+	using enum LAYER;
+	using enum TYPE;
 
 	// Load Shape From Data Functions
 	void operator >> (const YAML::Node& node, OM::Object& Object) {
@@ -52,31 +54,21 @@ namespace FM {
 		// Extract Object Type
 		node["Type"] >> type;
 		if (type == "Player")
-			Object.type = 0;
+			Object.type = PLAYER;
 		else if (type == "Floor")
-			Object.type = 1;
+			Object.type = FLOOR;
 		else if (type == "Wall")
-			Object.type = 2;
+			Object.type = WALL;
 		else if (type == "Decoration")
-			Object.type = 3;
+			Object.type = DECO;
 		else if (type == "Portrait")
-			Object.type = 4;
-		else if (type == "Platform")
-			Object.type = 5;
-
-		node["Flag"] >> type;
-		if (type == "Empty")
-			Object.flag = 0;
-		else if (type == "Candle")
-			Object.flag = 0;
-		else if (type == "Horizontal")
-			Object.flag = 0;
-		else if (type == "Vertical")
-			Object.flag = 0;
+			Object.type = PORTRAIT;
+		else if (type == "Landscape")
+			Object.type = LANDSCAPE;
 		else if (type == "Stairs")
-			Object.flag = 0;
+			Object.type = STAIRS;
 		else if (type == "Bridge")
-			Object.flag = 0;
+			Object.type = BRIDGE;
 
 		// Extract Object Mesh Data
 		node["Mesh"][0] >> uv01;
@@ -143,28 +135,33 @@ namespace FM {
 	// Load Transform From Data Functions
 	void operator >> (const YAML::Node& node, OM::ObjectInst& ObjectInstance) {
 		string			type_string{};
-		unsigned long	type{ 0 };
+		TYPE			type{ PLAYER };
 
 		// Extract Object Type
 		node["Type"] >> type_string;
 		if (type_string == "Player")
-			type = 0;
+			type = PLAYER;
 		else if (type_string == "Floor")
-			type = 1;
+			type = FLOOR;
 		else if (type_string == "Wall")
-			type = 2;
+			type = WALL;
 		else if (type_string == "Decoration")
-			type = 3;
+			type = DECO;
 		else if (type_string == "Portrait")
-			type = 4;
-		else if (type_string == "Platform")
-			type = 5;
+			type = PORTRAIT;
+		else if (type_string == "Landscape")
+			type = LANDSCAPE;
+		else if (type_string == "Stairs")
+			type = STAIRS;
+		else if (type_string == "Bridge")
+			type = BRIDGE;
 
 		for (size_t i{ 0 }; i < FM::GameData::vO.size(); i++)
 			if (FM::GameData::vO[i].type == type)
 				ObjectInstance.pO = &FM::GameData::vO[i];
 
 		// Extract Flag
+		node["Layer"] >> ObjectInstance.layer;
 		node["Flag"] >> ObjectInstance.flag;
 
 		// Extract Texture Offset
@@ -256,50 +253,43 @@ namespace FM {
 		// Extract Layer Data
 		node["Layer"] >> layer;
 		if (layer == "Ground")
-			ObjectLayer.layer = 0;
+			ObjectLayer.layer = GROUND;
 		else if (layer == "Floor01")
-			ObjectLayer.layer = 1;
+			ObjectLayer.layer = FLOOR01;
 		else if (layer == "Floor02")
-			ObjectLayer.layer = 2;
+			ObjectLayer.layer = FLOOR02;
 		else if (layer == "Floor03")
-			ObjectLayer.layer = 3;
+			ObjectLayer.layer = FLOOR03;
 		else if (layer == "Floor04")
-			ObjectLayer.layer = 4;
+			ObjectLayer.layer = FLOOR04;
 		else if (layer == "Floor05")
-			ObjectLayer.layer = 5;
+			ObjectLayer.layer = FLOOR05;
 		else if (layer == "Floor06")
-			ObjectLayer.layer = 6;
+			ObjectLayer.layer = FLOOR06;
 		else if (layer == "Floor07")
-			ObjectLayer.layer = 7;
+			ObjectLayer.layer = FLOOR07;
 		else if (layer == "Floor08")
-			ObjectLayer.layer = 8;
+			ObjectLayer.layer = FLOOR08;
 		else if (layer == "Floor09")
-			ObjectLayer.layer = 9;
+			ObjectLayer.layer = FLOOR09;
 		else if (layer == "Floor10")
-			ObjectLayer.layer = 10;
+			ObjectLayer.layer = FLOOR10;
 		else if (layer == "Floor11")
-			ObjectLayer.layer = 11;
+			ObjectLayer.layer = FLOOR11;
 		else if (layer == "Floor12")
-			ObjectLayer.layer = 12;
+			ObjectLayer.layer = FLOOR12;
 		else if (layer == "Floor13")
-			ObjectLayer.layer = 13;
+			ObjectLayer.layer = FLOOR13;
 		else if (layer == "Floor14")
-			ObjectLayer.layer = 14;
+			ObjectLayer.layer = FLOOR14;
 		else if (layer == "Floor15")
-			ObjectLayer.layer = 15;
+			ObjectLayer.layer = FLOOR15;
 		else if (layer == "Floor16")
-			ObjectLayer.layer = 16;
+			ObjectLayer.layer = FLOOR16;
 
 		// Extract Grid Data
-		for (size_t i{ 0 }; i < 25; ++i)
+		for (size_t i{ 0 }; i < 36; ++i)
 			node["Grid"][i] >> ObjectLayer.data[i];
-
-		// Extract Offset Data
-		node["Offset"][0] >> ObjectLayer.offset.x;
-		node["Offset"][1] >> ObjectLayer.offset.y;
-
-		// Extract Transparency Data
-		node["Transparency"] >> ObjectLayer.transp;
 
 	}// END operator >> overload Object Layer
 
@@ -327,20 +317,23 @@ namespace FM {
 	void PrintToYAML(const int& index, ofstream& data_file) {
 
 		// Print data of object to file
-		if(FM::GameData::vOI[index].pO->type == Enum::TYPE::PLAYER)
+		if(FM::GameData::vOI[index].pO->type == PLAYER)
 			data_file << "- " << "Type: " << "Player" << endl;
-		else if (FM::GameData::vOI[index].pO->type == Enum::TYPE::FLOOR)
+		else if (FM::GameData::vOI[index].pO->type == FLOOR)
 			data_file << "- " << "Type: " << "Floor" << endl;
-		else if (FM::GameData::vOI[index].pO->type == Enum::TYPE::WALL)
+		else if (FM::GameData::vOI[index].pO->type == WALL)
 			data_file << "- " << "Type: " << "Wall" << endl;
-		else if (FM::GameData::vOI[index].pO->type == Enum::TYPE::DECO)
+		else if (FM::GameData::vOI[index].pO->type == DECO)
 			data_file << "- " << "Type: " << "Decoration" << endl;
-		else if (FM::GameData::vOI[index].pO->type == Enum::TYPE::PORTRAIT)
+		else if (FM::GameData::vOI[index].pO->type == PORTRAIT)
 			data_file << "- " << "Type: " << "Portrait" << endl;
-		else if (FM::GameData::vOI[index].pO->type == Enum::TYPE::LANDSCAPE)
-			data_file << "- " << "Type: " << "Portrait" << endl;
-		else if (FM::GameData::vOI[index].pO->type == Enum::TYPE::PLATFORM)
-			data_file << "- " << "Type: " << "Platform" << endl;
+		else if (FM::GameData::vOI[index].pO->type == LANDSCAPE)
+			data_file << "- " << "Type: " << "Landscape" << endl;
+		else if (FM::GameData::vOI[index].pO->type == STAIRS)
+			data_file << "- " << "Type: " << "Stairs" << endl;
+		else if (FM::GameData::vOI[index].pO->type == BRIDGE)
+			data_file << "- " << "Type: " << "Bridge" << endl;
+		data_file << "  " << "Layer: " << FM::GameData::vOI[index].layer << endl;
 		data_file << "  " << "Flag: " << FM::GameData::vOI[index].flag << endl;
 		data_file << "  " << "Texture_Offset:" << endl;
 		data_file << "    " << "x_offset: " << FM::GameData::vOI[index].texture.x << endl;
@@ -358,7 +351,7 @@ namespace FM {
 		data_file << "  " << "Pair: " << 0 << endl;
 
 		// Player Stats
-		if (FM::GameData::vOI[index].pO->type == Enum::TYPE::PLAYER) {
+		if (FM::GameData::vOI[index].pO->type == PLAYER) {
 			data_file << "  " << "Direction:" << endl;
 			data_file << "    " << "direction_x: " << FM::GameData::player.dir.x << endl;
 			data_file << "    " << "direction_y: " << FM::GameData::player.dir.y << endl;
@@ -786,66 +779,6 @@ namespace FM
 	void Print_To_Transform_YAML(vector<OM::ObjectInst>& vOBJ_INST, OM::Character p_player, string& object_type, stringstream& object_type_number, int& index, ofstream& data_file);
 
 	/*!***********************************************************************
-	  \brief Extracts the transform data from the object instances and
-	  exports it to a YAML file
-
-	  \param vOI
-	  \param p_player
-	  \param level_number
-	*************************************************************************/
-	void Export::Extract_Transform_Data_Out(vector<OM::ObjectInst> vOI, OM::Character p_player, const string level_number)
-	{
-
-		// file name to extract to based on level_number
-		string
-			out_file{ "./Resource/Data/Level_" + level_number + "_Transform_Extracted.yml" },
-			object_type{ 0 };
-
-		// converting int to string to count objects
-		stringstream object_type_number;
-
-		// out file to extract data to
-		ofstream data_file(out_file);
-		if (!data_file.good())
-			data_file.open("." + out_file);
-
-		// to check object type
-		int
-			type{ 0 },
-			previous_type{ -1 };
-
-		// if out file successfully opened
-		if (data_file.is_open()) {
-			data_file << "Level: " + level_number << endl;													// first line is level number
-			data_file << "Object_Instance:" << endl;														// second line is 'Object_Instance: '
-
-			// iterate through data vector
-			for (int i{ 0 }, object_count{ 0 }; i < vOI.size(); i++, object_count++) {
-				type = vOI[i].pO->type;																	// set type enum for object type
-
-				// if object type changes, prints different object as header for list
-				if (type != previous_type)
-					Set_Object_Transform_Type(vOI, object_type, object_count, i, data_file);
-
-				// adding '0' to front of object count if less than 10
-				if (object_count < 10)
-					object_type_number << '0' << object_count;
-				else
-					object_type_number << object_count;
-
-				Print_To_Transform_YAML(vOI, p_player, object_type, object_type_number, i, data_file);	// print data of object to file
-
-				previous_type = type;
-			}
-			data_file.close();																	// close file
-		}
-		else {
-			cout << "Error Opening File: " << out_file << endl;									// if out file can't be opened
-			exit(1);																			// exit program
-		}
-	}// END extract_transform_data_out
-
-	/*!***********************************************************************
 	  \brief Sets the object type and prints the header for the object type
 
 	  \param vOI
@@ -856,34 +789,27 @@ namespace FM
 	*************************************************************************/
 	void Set_Object_Transform_Type(vector<OM::ObjectInst>& vOI, string& object_type, int& object_count, int& index, ofstream& data_file) {
 		object_count = 0;												// Reset Object Count
-		if (vOI[index].pO->type == Enum::TYPE::PLAYER) {
+		if (vOI[index].pO->type == PLAYER) {
 			object_type = "00_Player";									// Set to Player
 			data_file << "  " << object_type << ":" << endl;
 		}
-		else if (vOI[index].pO->type == Enum::TYPE::FLOOR) {
+		else if (vOI[index].pO->type == FLOOR) {
 			object_type = "01_Floor";									// Set to Floor
 			data_file << "  " << object_type << ":" << endl;
 		}
-		else if (vOI[index].pO->type == Enum::TYPE::WALL) {
+		else if (vOI[index].pO->type == WALL) {
 			object_type = "02_Wall";									// Set to Wall
 			data_file << "  " << object_type << ":" << endl;
 		}
-		else if (vOI[index].pO->type == Enum::TYPE::DECO) {
+		else if (vOI[index].pO->type == DECO) {
 			object_type = "03_Decoration";								// Set to Decoration
 			data_file << "  " << object_type << ":" << endl;
 		}
-		else if (vOI[index].pO->type == Enum::TYPE::PORTRAIT) {
+		else if (vOI[index].pO->type == PORTRAIT) {
 			object_type = "04_Portrait";								// Set to Portrait
 			data_file << "  " << object_type << ":" << endl;
 		}
-		else if (vOI[index].pO->type == Enum::TYPE::LANDSCAPE) {
-			object_type = "05_Landscape";								// Set to Landscape
-			data_file << "  " << object_type << ":" << endl;
-		}
-		else if (vOI[index].pO->type == Enum::TYPE::PLATFORM) {
-			object_type = "06_Platform";								// Set to Platform
-			data_file << "  " << object_type << ":" << endl;
-		}
+
 	}// END Set_Object_Transform_Type
 
 	/*!***********************************************************************
@@ -901,7 +827,7 @@ namespace FM
 		// Print data of object to file
 		data_file << "    " << object_type << "_" << object_type_number.str() << ":" << endl;
 		object_type_number.str(string());
-		data_file << "      " << "Type: " << vOI[index].pO->type << endl;
+		data_file << "      " << "Type: " << static_cast<int>(vOI[index].pO->type) << endl;
 		data_file << "      " << "Flag: " << vOI[index].flag << endl;
 		data_file << "      " << "Texture_Offset:" << endl;
 		data_file << "        " << "x_offset: " << vOI[index].texture.x << endl;
@@ -918,7 +844,7 @@ namespace FM
 		data_file << "        " << "position_z: " << vOI[index].transf.m[2][2] << endl;
 
 		// Player Stats
-		if (vOI[index].pO->type == Enum::TYPE::PLAYER) {
+		if (vOI[index].pO->type == PLAYER) {
 			data_file << "      " << "Direction:" << endl;
 			data_file << "        " << "direction_x: " << p_player.dir.x << endl;
 			data_file << "        " << "direction_y: " << p_player.dir.y << endl;

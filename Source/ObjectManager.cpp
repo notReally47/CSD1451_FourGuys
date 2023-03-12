@@ -48,7 +48,7 @@ namespace OM
 	{
 		pTex			= nullptr;
 		pMesh			= nullptr;
-		type			= 0;
+		type			= TYPE::PLAYER;
 	}
 	/*!***********************************************************************
 	  \brief Destroy the Object:: Object object
@@ -56,7 +56,7 @@ namespace OM
 	*************************************************************************/
 	Object::~Object()
 	{
-
+		
 	}
 	/*
 				  mm           mm
@@ -81,7 +81,8 @@ namespace OM
 		pO			= nullptr;
 		flag			= 0;
 		texture		= { .0f };
-		transf		= { .0f };
+		transf = { .0f };
+		pair = nullptr;
 	}
 	/*!***********************************************************************
 	  \brief Construct a new Object Inst:: Object Inst object from another object
@@ -105,9 +106,17 @@ namespace OM
 	  
 	  \return f32& 
 	*************************************************************************/
-	f32& ObjectInst::GetElapsed()
+	f32 ObjectInst::GetCounter() const
 	{ 
 		return transf.m[2][0];
+	}
+	void ObjectInst::SetCounter(f32 dt)
+	{
+		transf.m[2][0] += dt;
+	}
+	void ObjectInst::ResetCounter()
+	{
+		transf.m[2][0] = .0f;
 	}
 	/*!***********************************************************************
 	  \brief Get the player speed
@@ -150,7 +159,7 @@ namespace OM
 	  
 	  \param pos 
 	*************************************************************************/
-	void ObjectInst::SetPos(const AEVec2& pos)
+	void ObjectInst::SetPos(AEVec2 pos)
 	{
 		transf.m[0][2] = pos.x;
 		transf.m[1][2] = pos.y;
@@ -161,38 +170,15 @@ namespace OM
 	  \param val 
 	  \return AEVec2 
 	*************************************************************************/
-	AEVec2 ObjectInst::GetScale(const f32& val)
+	AEVec2 ObjectInst::GetScale(f32 val)
 	{
 		return { transf.m[0][0] * val, transf.m[1][1] * val };
 	}
-	void ObjectInst::SetScale(const f32& val)
+	void ObjectInst::SetScale(f32 val)
 	{
 		transf.m[0][0] *= val;
 		transf.m[1][1] *= val;
 	}
-	/*
-				  mm           mm                                               mm
-	  mm@**@@m   m@@           @@                    @@   *@@@***@@m            @@
-	m@@*    *@@m  @@                                 @@     @@   *@@m
-	@@*      *@@  @@m@@@@m   *@@@   mm@*@@  m@@*@@ @@@@@@   @@   m@@  m@*@@m  *@@@  *@@@m@@@
-	@@        @@  @@    *@@    @@  m@*   @@@@*  @@   @@     @@@@@@@  @@   @@    @@    @@* **
-	@@        @@  !@     @@    @@  !@******@!        @@     @@        m@@@!@    !@    @!
-	*@@      @@*  !!!   m@!    @@  !@m    m@!m    m  @!     @!       @!   !@    !@    @!
-	!@@      !@!  !!     !!    !!  !!******!!        !!     @!        !!!!:!    !!    !!
-	*@!!!    !!!  :!!   !!!    !!  :!!     !:!    !  !!     !!       !!   :!    !!    !:
-	  : : : :     : : : ::     :    : : ::  : : :    ::: ::!:!:      :!: : !: : : : : :::
-							:: ::
-							::::
-	*/
-	//ObjectPair::ObjectPair()
-	//{
-	//	head			= nullptr;
-	//	next			= nullptr;
-	//}
-	//ObjectPair::~ObjectPair()
-	//{
-	//	
-	//}
 	/*!***********************************************************************
 	  \brief Check the direction the player is facing
 	  
@@ -201,12 +187,12 @@ namespace OM
 	int Character::CheckDirection()
 	{
 		int x{ static_cast<int>(dir.x) }, y{ static_cast<int>(dir.y) };
-		return	(x > 0) ? (y > 0) ? UP : (y) ? static_cast<int>(RIGHT) : UPRIGHT :
-			(x) ? (y > 0) ? LEFT : (y) ? static_cast<int>(DOWN) : DOWNLEFT :
-			(y > 0) ? static_cast<int>(UPLEFT) : DOWNRIGHT;
+		return	(x > 0) ? (y > 0) ? RIGHT : (y) ? static_cast<int>(DOWN) : DOWNRIGHT :
+			(x) ? (y > 0) ? UP : (y) ? static_cast<int>(LEFT) :  UPLEFT :
+			(y > 0) ? static_cast<int>(UPRIGHT) : DOWNLEFT;
 	}
 	/*!***********************************************************************
-	  \brief Get the texture offset of the object
+	  \brief Get the texture offset of the objects
 	  
 	  \return AEVec2& 
 	*************************************************************************/
@@ -229,90 +215,18 @@ namespace OM
 	*************************************************************************/
 	void Character::SetOffsetX()
 	{
-		pOI->GetElapsed() += GSM::gameTime;
+		pOI->SetCounter(GSM::gameTime);
 		if (pOI->flag & JUMPING)
 			GetOffset().x = JUMP_SPRITE;
 		else if (pOI->flag & ACTIVE)
 		{
-			if (pOI->GetElapsed() >= 0.1f)
-				iter = (pOI->GetElapsed() = .0f, ++iter % 10) ? iter : 1;
+			if (pOI->GetCounter() >= 0.1f)
+				iter = (pOI->ResetCounter(), ++iter % 10) ? iter : 1;
 			GetOffset().x = static_cast<f32>(iter) / 11.0f;
 		}
 		else
 			GetOffset().x = .0f;
 	}
-	/*!***********************************************************************
-	  \brief Get the Vertices X Y object
-	  
-	  \param obj 
-	  \param count 
-	  \return AEVec2* 
-	*************************************************************************/
-	//AEVec2* GetVerticesXY(const ObjectInst& obj, int& count)
-	//{
-	//	count = 4;
-
-	//	AEVec2* xyCoords = { new AEVec2[count] };
-	//	xyCoords[0] = AEVec2{ obj.GetPos().x - obj.pO->width / 2, obj.GetPos().y + obj.pO->length / 2 }; //top right
-	//	xyCoords[1] = AEVec2{ obj.GetPos().x + obj.pO->width / 2, obj.GetPos().y + obj.pO->length / 2 }; //top left
-	//	xyCoords[2] = AEVec2{ obj.GetPos().x - obj.pO->width / 2, obj.GetPos().y - obj.pO->length / 2 }; //bot right
-	//	xyCoords[3] = AEVec2{ obj.GetPos().x + obj.pO->width / 2, obj.GetPos().y - obj.pO->length / 2 }; //bot left
-
-	//	//TODO: Any rotatation 
-	//	return xyCoords;
-	//}
-	///*!***********************************************************************
-	//  \brief Get the Vertices Y Z object
-	//  
-	//  \param obj 
-	//  \param count 
-	//  \return AEVec2* 
-	//*************************************************************************/
-	//AEVec2* GetVerticesYZ(const ObjectInst& obj, int& count)
-	//{
-	//	count = 4;
-	//	AEVec2* yzCoords = { new AEVec2[count] };
-	//	yzCoords[0] = AEVec2{ obj.GetPos().y - obj.pO->width / 2, obj.GetPosZ() + obj.pO->height / 2 }; //top right
-	//	yzCoords[1] = AEVec2{ obj.GetPos().y + obj.pO->width / 2, obj.GetPosZ() + obj.pO->height / 2 }; //top left
-	//	yzCoords[2] = AEVec2{ obj.GetPos().y - obj.pO->width / 2, obj.GetPosZ() - obj.pO->height / 2 }; //bot right
-	//	yzCoords[3] = AEVec2{ obj.GetPos().y + obj.pO->width / 2, obj.GetPosZ() - obj.pO->height / 2 }; //bot left
-
-	//	//TODO: Any rotatation 
-	//	return yzCoords;
-	//}
-	///*!***********************************************************************
-	//  \brief Get the Vertices X Z object
-	//  
-	//  \param obj 
-	//  \param count 
-	//  \return AEVec2* 
-	//*************************************************************************/
-	//AEVec2* GetVerticesXZ(const ObjectInst& obj, int& count)
-	//{
-	//	if (1) { //TODO: Change to check if not a staircase
-	//		count = 4;
-	//		AEVec2* xzCoords = { new AEVec2[count] };
-	//		xzCoords[0] = AEVec2{ obj.GetPos().x - obj.pO->width / 2, obj.GetPosZ() + obj.pO->height / 2 }; // top right
-	//		xzCoords[1] = AEVec2{ obj.GetPos().x + obj.pO->width / 2, obj.GetPosZ() + obj.pO->height / 2 }; // top left
-	//		xzCoords[2] = AEVec2{ obj.GetPos().x - obj.pO->width / 2, obj.GetPosZ() - obj.pO->height / 2 }; // bot right
-	//		xzCoords[3] = AEVec2{ obj.GetPos().x + obj.pO->width / 2, obj.GetPosZ() - obj.pO->height / 2 }; // bot left
-	//		return xzCoords;
-	//	}
-	//	else {
-	//		count = 3;
-	//		AEVec2* xzCoords = { new AEVec2[count] };
-	//		xzCoords[0] = AEVec2{ obj.GetPos().x - obj.pO->width / 3,
-	//								obj.GetPosZ() - obj.pO->height / 3 };		// bot left
-
-	//		xzCoords[1] = AEVec2{ obj.GetPos().x - obj.pO->width / 3,
-	//								obj.GetPosZ() + (2 * obj.pO->height) / 3 }; // top left
-
-	//		xzCoords[2] = AEVec2{ obj.GetPos().x + (2 * obj.pO->width) / 3,
-	//								obj.GetPosZ() - obj.pO->height / 3 };		// bot right
-
-	//		return xzCoords;
-	//	}
-	//}
 	/*!***********************************************************************
 	  \brief Convert the object to isometric
 	  
@@ -322,8 +236,8 @@ namespace OM
 	AEMtx33 ConvertIsometric(const ObjectInst& obj)
 	{
 		AEMtx33 transform = obj.transf;
-		transform.m[0][2] = (obj.GetPos().x - obj.GetPos().y);
-		transform.m[1][2] = (obj.GetPos().x + obj.GetPos().y) / 2.f + obj.GetPosZ();
+		transform.m[0][2] = (obj.GetPos().x + obj.GetPos().y);
+		transform.m[1][2] = -(obj.GetPos().x - obj.GetPos().y) / 2.f + obj.GetPosZ();
 		return transform;
 	}
 	/*!***********************************************************************

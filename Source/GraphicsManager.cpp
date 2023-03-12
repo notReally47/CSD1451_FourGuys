@@ -13,7 +13,8 @@
 #include "PCH.h"
 
 namespace OM
-{
+{	
+	using enum TYPE;
 	/*!***********************************************************************
 	  \brief Set rendering modes, colour tints, blending and transparency
 
@@ -32,20 +33,21 @@ namespace OM
 	*************************************************************************/
 	void ObjectInst::RenderObject()
 	{
-		if (pO->type == Enum::TYPE::PLATFORM && flag & Enum::ACTIVE)
+		if (pO->type == STAIRS && flag & Enum::ACTIVE)
 			AnimateStairs();
 		AEGfxTextureSet(pO->pTex, texture.x, texture.y);
-		if (this->pO->type == Enum::TYPE::BUBBLE)
+		/*		if (this->pO->type == BUBBLE)
 		{
 			AEGfxSetTransparency(0.5f);
 		}
-		if (this->pO->type == Enum::TYPE::BUTTON || this->pO->type == Enum::TYPE::BACKGROUND)
+		if (this->pO->type == BUTTON || this->pO->type == BACKGROUND)
 		{
 			AEGfxSetTransform(this->transf.m);
 		}
-		else
+		else*/
+
 			AEGfxSetTransform(ConvertIsometric(*this).m);
-		// AEGfxSetTransform(transform.m);
+			//AEGfxSetTransform(transf.m);
 		AEGfxMeshDraw(pO->pMesh, AE_GFX_MDM_TRIANGLES);
 	}
 	/*!***********************************************************************
@@ -58,6 +60,19 @@ namespace OM
 		SetOffsetY();
 		// pOI->RenderShadow();
 		pOI->RenderObject();
+	}
+	void ObjectInst::AnimateStairs()
+	{
+		SetCounter(GSM::gameTime);
+		if (GetCounter() >= 0.1f)
+		{
+			texture.x += 0.0476190476190476f;
+			ResetCounter();
+		}
+		if (texture.x >= 0.89f && texture.x >= 0.91f)
+		{
+			flag &= ~Enum::FLAG::ACTIVE;
+		}
 	}
 	/*!***********************************************************************
 	  \brief Render the shadow of the character

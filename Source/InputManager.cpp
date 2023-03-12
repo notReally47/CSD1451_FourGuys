@@ -109,7 +109,7 @@ namespace IM
 			{
 				if (i == index)
 					continue;
-				if (obj[i].pO->type == Enum::TYPE::WALL && obj[i].flag & Enum::FLAG::DOOR && obj[i].flag & Enum::FLAG::ACTIVE )
+				if (obj[i].pO->type == TYPE::WALL && obj[i].flag & Enum::FLAG::DOOR && obj[i].flag & Enum::FLAG::ACTIVE )
 				{
 					AEVec2 pos{};
 					pos.x = obj[i].GetPos().x + obj[i].GetPosZ();

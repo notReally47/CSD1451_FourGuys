@@ -1,5 +1,4 @@
 - Type: Player
-  Layer: 1
   Flag: 0
   Texture_Offset:
     x_offset: 0.429
@@ -25,7 +24,6 @@
   Sprite_Iteration: 0
 
 - Type: Floor
-  Layer: 0
   Flag: 0
   Texture_Offset:
     x_offset: 0
@@ -33,17 +31,16 @@
   Transformation:
     scale_x: 256
     shear_x: 0
-    position_x: 126
+    position_x: 256
     shear_y: 0
     scale_y: 148
-    position_y: -126
+    position_y: 256
     elapsed: 0
     empty: 0
     position_z: 0
   Pair: 0
 
 - Type: Floor
-  Layer: 0
   Flag: 0
   Texture_Offset:
     x_offset: 0
@@ -51,17 +48,16 @@
   Transformation:
     scale_x: 256
     shear_x: 0
-    position_x: 252
+    position_x: 128
     shear_y: 0
     scale_y: 148
-    position_y: -126
+    position_y: 256
     elapsed: 0
     empty: 0
     position_z: 0
   Pair: 0
 
 - Type: Floor
-  Layer: 0
   Flag: 0
   Texture_Offset:
     x_offset: 0
@@ -69,17 +65,16 @@
   Transformation:
     scale_x: 256
     shear_x: 0
-    position_x: 378
+    position_x: 0
     shear_y: 0
     scale_y: 148
-    position_y: -126
+    position_y: 256
     elapsed: 0
     empty: 0
     position_z: 0
   Pair: 0
 
 - Type: Floor
-  Layer: 0
   Flag: 0
   Texture_Offset:
     x_offset: 0
@@ -87,17 +82,16 @@
   Transformation:
     scale_x: 256
     shear_x: 0
-    position_x: 504
+    position_x: -128
     shear_y: 0
     scale_y: 148
-    position_y: -126
+    position_y: 256
     elapsed: 0
     empty: 0
     position_z: 0
   Pair: 0
 
 - Type: Floor
-  Layer: 0
   Flag: 0
   Texture_Offset:
     x_offset: 0
@@ -105,17 +99,16 @@
   Transformation:
     scale_x: 256
     shear_x: 0
-    position_x: 630
+    position_x: -256
     shear_y: 0
     scale_y: 148
-    position_y: -126
+    position_y: 256
     elapsed: 0
     empty: 0
     position_z: 0
   Pair: 0
 
 - Type: Floor
-  Layer: 0
   Flag: 0
   Texture_Offset:
     x_offset: 0
@@ -123,17 +116,16 @@
   Transformation:
     scale_x: 256
     shear_x: 0
-    position_x: 126
+    position_x: 256
     shear_y: 0
     scale_y: 148
-    position_y: -252
+    position_y: 128
     elapsed: 0
     empty: 0
     position_z: 0
   Pair: 0
 
 - Type: Floor
-  Layer: 0
   Flag: 0
   Texture_Offset:
     x_offset: 0
@@ -141,17 +133,16 @@
   Transformation:
     scale_x: 256
     shear_x: 0
-    position_x: 252
+    position_x: 128
     shear_y: 0
     scale_y: 148
-    position_y: -252
+    position_y: 128
     elapsed: 0
     empty: 0
     position_z: 0
   Pair: 0
 
 - Type: Floor
-  Layer: 0
   Flag: 0
   Texture_Offset:
     x_offset: 0
@@ -159,17 +150,16 @@
   Transformation:
     scale_x: 256
     shear_x: 0
-    position_x: 378
+    position_x: 0
     shear_y: 0
     scale_y: 148
-    position_y: -252
+    position_y: 128
     elapsed: 0
     empty: 0
     position_z: 0
   Pair: 0
 
 - Type: Floor
-  Layer: 0
   Flag: 0
   Texture_Offset:
     x_offset: 0
@@ -177,17 +167,16 @@
   Transformation:
     scale_x: 256
     shear_x: 0
-    position_x: 504
+    position_x: -128
     shear_y: 0
     scale_y: 148
-    position_y: -252
+    position_y: 128
     elapsed: 0
     empty: 0
     position_z: 0
   Pair: 0
 
 - Type: Floor
-  Layer: 0
   Flag: 0
   Texture_Offset:
     x_offset: 0
@@ -195,17 +184,16 @@
   Transformation:
     scale_x: 256
     shear_x: 0
-    position_x: 630
+    position_x: -256
     shear_y: 0
     scale_y: 148
-    position_y: -252
+    position_y: 128
     elapsed: 0
     empty: 0
     position_z: 0
   Pair: 0
 
 - Type: Floor
-  Layer: 0
   Flag: 0
   Texture_Offset:
     x_offset: 0
@@ -213,17 +201,16 @@
   Transformation:
     scale_x: 256
     shear_x: 0
-    position_x: 126
+    position_x: 256
     shear_y: 0
     scale_y: 148
-    position_y: -378
+    position_y: 0
     elapsed: 0
     empty: 0
     position_z: 0
   Pair: 0
 
 - Type: Floor
-  Layer: 0
   Flag: 0
   Texture_Offset:
     x_offset: 0
@@ -231,17 +218,16 @@
   Transformation:
     scale_x: 256
     shear_x: 0
-    position_x: 252
+    position_x: 128
     shear_y: 0
     scale_y: 148
-    position_y: -378
+    position_y: 0
     elapsed: 0
     empty: 0
     position_z: 0
   Pair: 0
 
 - Type: Floor
-  Layer: 0
   Flag: 0
   Texture_Offset:
     x_offset: 0
@@ -249,17 +235,16 @@
   Transformation:
     scale_x: 256
     shear_x: 0
-    position_x: 378
+    position_x: 0
     shear_y: 0
     scale_y: 148
-    position_y: -378
+    position_y: 0
     elapsed: 0
     empty: 0
     position_z: 0
   Pair: 0
 
 - Type: Floor
-  Layer: 0
   Flag: 0
   Texture_Offset:
     x_offset: 0
@@ -267,17 +252,16 @@
   Transformation:
     scale_x: 256
     shear_x: 0
-    position_x: 504
+    position_x: -128
     shear_y: 0
     scale_y: 148
-    position_y: -378
+    position_y: 0
     elapsed: 0
     empty: 0
     position_z: 0
   Pair: 0
 
 - Type: Floor
-  Layer: 0
   Flag: 0
   Texture_Offset:
     x_offset: 0
@@ -285,17 +269,16 @@
   Transformation:
     scale_x: 256
     shear_x: 0
-    position_x: 630
+    position_x: -256
     shear_y: 0
     scale_y: 148
-    position_y: -378
+    position_y: 0
     elapsed: 0
     empty: 0
     position_z: 0
   Pair: 0
 
 - Type: Floor
-  Layer: 0
   Flag: 0
   Texture_Offset:
     x_offset: 0
@@ -303,17 +286,16 @@
   Transformation:
     scale_x: 256
     shear_x: 0
-    position_x: 126
+    position_x: 256
     shear_y: 0
     scale_y: 148
-    position_y: -504
+    position_y: -128
     elapsed: 0
     empty: 0
     position_z: 0
   Pair: 0
 
 - Type: Floor
-  Layer: 0
   Flag: 0
   Texture_Offset:
     x_offset: 0
@@ -321,17 +303,16 @@
   Transformation:
     scale_x: 256
     shear_x: 0
-    position_x: 252
+    position_x: 128
     shear_y: 0
     scale_y: 148
-    position_y: -504
+    position_y: -128
     elapsed: 0
     empty: 0
     position_z: 0
   Pair: 0
 
 - Type: Floor
-  Layer: 0
   Flag: 0
   Texture_Offset:
     x_offset: 0
@@ -339,17 +320,16 @@
   Transformation:
     scale_x: 256
     shear_x: 0
-    position_x: 378
+    position_x: 0
     shear_y: 0
     scale_y: 148
-    position_y: -504
+    position_y: -128
     elapsed: 0
     empty: 0
     position_z: 0
   Pair: 0
 
 - Type: Floor
-  Layer: 0
   Flag: 0
   Texture_Offset:
     x_offset: 0
@@ -357,17 +337,16 @@
   Transformation:
     scale_x: 256
     shear_x: 0
-    position_x: 504
+    position_x: -128
     shear_y: 0
     scale_y: 148
-    position_y: -504
+    position_y: -128
     elapsed: 0
     empty: 0
     position_z: 0
   Pair: 0
 
 - Type: Floor
-  Layer: 0
   Flag: 0
   Texture_Offset:
     x_offset: 0
@@ -375,17 +354,16 @@
   Transformation:
     scale_x: 256
     shear_x: 0
-    position_x: 630
+    position_x: -256
     shear_y: 0
     scale_y: 148
-    position_y: -504
+    position_y: -128
     elapsed: 0
     empty: 0
     position_z: 0
   Pair: 0
 
 - Type: Floor
-  Layer: 0
   Flag: 0
   Texture_Offset:
     x_offset: 0
@@ -393,17 +371,16 @@
   Transformation:
     scale_x: 256
     shear_x: 0
-    position_x: 126
+    position_x: 256
     shear_y: 0
     scale_y: 148
-    position_y: -630
+    position_y: -256
     elapsed: 0
     empty: 0
     position_z: 0
   Pair: 0
 
 - Type: Floor
-  Layer: 0
   Flag: 0
   Texture_Offset:
     x_offset: 0
@@ -411,17 +388,16 @@
   Transformation:
     scale_x: 256
     shear_x: 0
-    position_x: 252
+    position_x: 128
     shear_y: 0
     scale_y: 148
-    position_y: -630
+    position_y: -256
     elapsed: 0
     empty: 0
     position_z: 0
   Pair: 0
 
 - Type: Floor
-  Layer: 0
   Flag: 0
   Texture_Offset:
     x_offset: 0
@@ -429,17 +405,16 @@
   Transformation:
     scale_x: 256
     shear_x: 0
-    position_x: 378
+    position_x: 0
     shear_y: 0
     scale_y: 148
-    position_y: -630
+    position_y: -256
     elapsed: 0
     empty: 0
     position_z: 0
   Pair: 0
 
 - Type: Floor
-  Layer: 0
   Flag: 0
   Texture_Offset:
     x_offset: 0
@@ -447,17 +422,16 @@
   Transformation:
     scale_x: 256
     shear_x: 0
-    position_x: 504
+    position_x: -128
     shear_y: 0
     scale_y: 148
-    position_y: -630
+    position_y: -256
     elapsed: 0
     empty: 0
     position_z: 0
   Pair: 0
 
 - Type: Floor
-  Layer: 0
   Flag: 0
   Texture_Offset:
     x_offset: 0
@@ -465,17 +439,16 @@
   Transformation:
     scale_x: 256
     shear_x: 0
-    position_x: 630
+    position_x: -256
     shear_y: 0
     scale_y: 148
-    position_y: -630
+    position_y: -256
     elapsed: 0
     empty: 0
     position_z: 0
   Pair: 0
 
 - Type: Wall
-  Layer: 1
   Flag: 0
   Texture_Offset:
     x_offset: 0.444444
@@ -483,17 +456,84 @@
   Transformation:
     scale_x: 256
     shear_x: 0
-    position_x: 0
+    position_x: 326
     shear_y: 0
     scale_y: 288
-    position_y: -0
+    position_y: 326
     elapsed: 0
     empty: 0
     position_z: 0
   Pair: 0
 
 - Type: Wall
-  Layer: 1
+  Flag: 0
+  Texture_Offset:
+    x_offset: 0.444444
+    y_offset: 0
+  Transformation:
+    scale_x: 256
+    shear_x: 0
+    position_x: 327
+    shear_y: 0
+    scale_y: 288
+    position_y: 325
+    elapsed: 0
+    empty: 0
+    position_z: 155
+  Pair: 0
+
+- Type: Wall
+  Flag: 0
+  Texture_Offset:
+    x_offset: 0.444444
+    y_offset: 0
+  Transformation:
+    scale_x: 256
+    shear_x: 0
+    position_x: 328
+    shear_y: 0
+    scale_y: 288
+    position_y: 324
+    elapsed: 0
+    empty: 0
+    position_z: 310
+  Pair: 0
+
+- Type: Wall
+  Flag: 0
+  Texture_Offset:
+    x_offset: 0.444444
+    y_offset: 0
+  Transformation:
+    scale_x: 256
+    shear_x: 0
+    position_x: 329
+    shear_y: 0
+    scale_y: 288
+    position_y: 323
+    elapsed: 0
+    empty: 0
+    position_z: 465
+  Pair: 0
+
+- Type: Wall
+  Flag: 0
+  Texture_Offset:
+    x_offset: 0.444444
+    y_offset: 0
+  Transformation:
+    scale_x: 256
+    shear_x: 0
+    position_x: 330
+    shear_y: 0
+    scale_y: 288
+    position_y: 322
+    elapsed: 0
+    empty: 0
+    position_z: 620
+  Pair: 0
+
+- Type: Wall
   Flag: 0
   Texture_Offset:
     x_offset: 0.555556
@@ -501,17 +541,84 @@
   Transformation:
     scale_x: 256
     shear_x: 0
-    position_x: 126
+    position_x: 326
     shear_y: 0
     scale_y: 288
-    position_y: -0
+    position_y: 198
     elapsed: 0
     empty: 0
     position_z: 0
   Pair: 0
 
 - Type: Wall
-  Layer: 1
+  Flag: 0
+  Texture_Offset:
+    x_offset: 0.555556
+    y_offset: 0
+  Transformation:
+    scale_x: 256
+    shear_x: 0
+    position_x: 327
+    shear_y: 0
+    scale_y: 288
+    position_y: 197
+    elapsed: 0
+    empty: 0
+    position_z: 155
+  Pair: 0
+
+- Type: Wall
+  Flag: 0
+  Texture_Offset:
+    x_offset: 0.555556
+    y_offset: 0
+  Transformation:
+    scale_x: 256
+    shear_x: 0
+    position_x: 328
+    shear_y: 0
+    scale_y: 288
+    position_y: 196
+    elapsed: 0
+    empty: 0
+    position_z: 310
+  Pair: 0
+
+- Type: Wall
+  Flag: 0
+  Texture_Offset:
+    x_offset: 0.555556
+    y_offset: 0
+  Transformation:
+    scale_x: 256
+    shear_x: 0
+    position_x: 329
+    shear_y: 0
+    scale_y: 288
+    position_y: 195
+    elapsed: 0
+    empty: 0
+    position_z: 465
+  Pair: 0
+
+- Type: Wall
+  Flag: 0
+  Texture_Offset:
+    x_offset: 0.555556
+    y_offset: 0
+  Transformation:
+    scale_x: 256
+    shear_x: 0
+    position_x: 330
+    shear_y: 0
+    scale_y: 288
+    position_y: 194
+    elapsed: 0
+    empty: 0
+    position_z: 620
+  Pair: 0
+
+- Type: Wall
   Flag: 0
   Texture_Offset:
     x_offset: 0.666667
@@ -519,17 +626,84 @@
   Transformation:
     scale_x: 256
     shear_x: 0
-    position_x: 252
+    position_x: 326
     shear_y: 0
     scale_y: 288
-    position_y: -0
+    position_y: 70
     elapsed: 0
     empty: 0
     position_z: 0
   Pair: 0
 
 - Type: Wall
-  Layer: 1
+  Flag: 0
+  Texture_Offset:
+    x_offset: 0.666667
+    y_offset: 0
+  Transformation:
+    scale_x: 256
+    shear_x: 0
+    position_x: 327
+    shear_y: 0
+    scale_y: 288
+    position_y: 69
+    elapsed: 0
+    empty: 0
+    position_z: 155
+  Pair: 0
+
+- Type: Wall
+  Flag: 0
+  Texture_Offset:
+    x_offset: 0.666667
+    y_offset: 0
+  Transformation:
+    scale_x: 256
+    shear_x: 0
+    position_x: 328
+    shear_y: 0
+    scale_y: 288
+    position_y: 68
+    elapsed: 0
+    empty: 0
+    position_z: 310
+  Pair: 0
+
+- Type: Wall
+  Flag: 0
+  Texture_Offset:
+    x_offset: 0.666667
+    y_offset: 0
+  Transformation:
+    scale_x: 256
+    shear_x: 0
+    position_x: 329
+    shear_y: 0
+    scale_y: 288
+    position_y: 67
+    elapsed: 0
+    empty: 0
+    position_z: 465
+  Pair: 0
+
+- Type: Wall
+  Flag: 0
+  Texture_Offset:
+    x_offset: 0.666667
+    y_offset: 0
+  Transformation:
+    scale_x: 256
+    shear_x: 0
+    position_x: 330
+    shear_y: 0
+    scale_y: 288
+    position_y: 66
+    elapsed: 0
+    empty: 0
+    position_z: 620
+  Pair: 0
+
+- Type: Wall
   Flag: 0
   Texture_Offset:
     x_offset: 0.888889
@@ -537,17 +711,16 @@
   Transformation:
     scale_x: 256
     shear_x: 0
-    position_x: 378
+    position_x: 326
     shear_y: 0
     scale_y: 288
-    position_y: -0
+    position_y: -58
     elapsed: 0
     empty: 0
     position_z: 0
   Pair: 0
 
 - Type: Wall
-  Layer: 1
   Flag: 0
   Texture_Offset:
     x_offset: 0.555556
@@ -555,17 +728,186 @@
   Transformation:
     scale_x: 256
     shear_x: 0
-    position_x: 504
+    position_x: 327
     shear_y: 0
     scale_y: 288
-    position_y: -0
+    position_y: -59
+    elapsed: 0
+    empty: 0
+    position_z: 155
+  Pair: 0
+
+- Type: Wall
+  Flag: 0
+  Texture_Offset:
+    x_offset: 0.555556
+    y_offset: 0
+  Transformation:
+    scale_x: 256
+    shear_x: 0
+    position_x: 328
+    shear_y: 0
+    scale_y: 288
+    position_y: -60
+    elapsed: 0
+    empty: 0
+    position_z: 310
+  Pair: 0
+
+- Type: Wall
+  Flag: 0
+  Texture_Offset:
+    x_offset: 0.555556
+    y_offset: 0
+  Transformation:
+    scale_x: 256
+    shear_x: 0
+    position_x: 329
+    shear_y: 0
+    scale_y: 288
+    position_y: -61
+    elapsed: 0
+    empty: 0
+    position_z: 465
+  Pair: 0
+
+- Type: Wall
+  Flag: 0
+  Texture_Offset:
+    x_offset: 0.555556
+    y_offset: 0
+  Transformation:
+    scale_x: 256
+    shear_x: 0
+    position_x: 330
+    shear_y: 0
+    scale_y: 288
+    position_y: -62
+    elapsed: 0
+    empty: 0
+    position_z: 620
+  Pair: 0
+
+- Type: Wall
+  Flag: 0
+  Texture_Offset:
+    x_offset: 0.555556
+    y_offset: 0
+  Transformation:
+    scale_x: 256
+    shear_x: 0
+    position_x: 331
+    shear_y: 0
+    scale_y: 288
+    position_y: -63
+    elapsed: 0
+    empty: 0
+    position_z: 775
+  Pair: 0
+
+- Type: Wall
+  Flag: 0
+  Texture_Offset:
+    x_offset: 0.555556
+    y_offset: 0
+  Transformation:
+    scale_x: 256
+    shear_x: 0
+    position_x: 326
+    shear_y: 0
+    scale_y: 288
+    position_y: -186
     elapsed: 0
     empty: 0
     position_z: 0
   Pair: 0
 
 - Type: Wall
-  Layer: 1
+  Flag: 0
+  Texture_Offset:
+    x_offset: 0.555556
+    y_offset: 0
+  Transformation:
+    scale_x: 256
+    shear_x: 0
+    position_x: 327
+    shear_y: 0
+    scale_y: 288
+    position_y: -187
+    elapsed: 0
+    empty: 0
+    position_z: 155
+  Pair: 0
+
+- Type: Wall
+  Flag: 0
+  Texture_Offset:
+    x_offset: 0.555556
+    y_offset: 0
+  Transformation:
+    scale_x: 256
+    shear_x: 0
+    position_x: 328
+    shear_y: 0
+    scale_y: 288
+    position_y: -188
+    elapsed: 0
+    empty: 0
+    position_z: 310
+  Pair: 0
+
+- Type: Wall
+  Flag: 0
+  Texture_Offset:
+    x_offset: 0.555556
+    y_offset: 0
+  Transformation:
+    scale_x: 256
+    shear_x: 0
+    position_x: 329
+    shear_y: 0
+    scale_y: 288
+    position_y: -189
+    elapsed: 0
+    empty: 0
+    position_z: 465
+  Pair: 0
+
+- Type: Wall
+  Flag: 0
+  Texture_Offset:
+    x_offset: 0.555556
+    y_offset: 0
+  Transformation:
+    scale_x: 256
+    shear_x: 0
+    position_x: 330
+    shear_y: 0
+    scale_y: 288
+    position_y: -190
+    elapsed: 0
+    empty: 0
+    position_z: 620
+  Pair: 0
+
+- Type: Wall
+  Flag: 0
+  Texture_Offset:
+    x_offset: 0.555556
+    y_offset: 0
+  Transformation:
+    scale_x: 256
+    shear_x: 0
+    position_x: 331
+    shear_y: 0
+    scale_y: 288
+    position_y: -191
+    elapsed: 0
+    empty: 0
+    position_z: 775
+  Pair: 0
+
+- Type: Wall
   Flag: 0
   Texture_Offset:
     x_offset: 0.333333
@@ -573,17 +915,84 @@
   Transformation:
     scale_x: 256
     shear_x: 0
-    position_x: 0
+    position_x: 198
     shear_y: 0
     scale_y: 288
-    position_y: -126
+    position_y: 326
     elapsed: 0
     empty: 0
     position_z: 0
   Pair: 0
 
 - Type: Wall
-  Layer: 1
+  Flag: 0
+  Texture_Offset:
+    x_offset: 0.333333
+    y_offset: 0
+  Transformation:
+    scale_x: 256
+    shear_x: 0
+    position_x: 199
+    shear_y: 0
+    scale_y: 288
+    position_y: 325
+    elapsed: 0
+    empty: 0
+    position_z: 155
+  Pair: 0
+
+- Type: Wall
+  Flag: 0
+  Texture_Offset:
+    x_offset: 0.333333
+    y_offset: 0
+  Transformation:
+    scale_x: 256
+    shear_x: 0
+    position_x: 200
+    shear_y: 0
+    scale_y: 288
+    position_y: 324
+    elapsed: 0
+    empty: 0
+    position_z: 310
+  Pair: 0
+
+- Type: Wall
+  Flag: 0
+  Texture_Offset:
+    x_offset: 0.333333
+    y_offset: 0
+  Transformation:
+    scale_x: 256
+    shear_x: 0
+    position_x: 201
+    shear_y: 0
+    scale_y: 288
+    position_y: 323
+    elapsed: 0
+    empty: 0
+    position_z: 465
+  Pair: 0
+
+- Type: Wall
+  Flag: 0
+  Texture_Offset:
+    x_offset: 0.333333
+    y_offset: 0
+  Transformation:
+    scale_x: 256
+    shear_x: 0
+    position_x: 202
+    shear_y: 0
+    scale_y: 288
+    position_y: 322
+    elapsed: 0
+    empty: 0
+    position_z: 620
+  Pair: 0
+
+- Type: Wall
   Flag: 0
   Texture_Offset:
     x_offset: 0.222222
@@ -591,53 +1000,101 @@
   Transformation:
     scale_x: 256
     shear_x: 0
-    position_x: 0
+    position_x: 70
     shear_y: 0
     scale_y: 288
-    position_y: -252
+    position_y: 326
     elapsed: 0
     empty: 0
     position_z: 0
   Pair: 0
 
 - Type: Wall
-  Layer: 1
   Flag: 0
+  Texture_Offset:
+    x_offset: 0
+    y_offset: 0
+  Transformation:
+    scale_x: 256
+    shear_x: 0
+    position_x: 71
+    shear_y: 0
+    scale_y: 288
+    position_y: 325
+    elapsed: 0
+    empty: 0
+    position_z: 155
+  Pair: 0
+
+- Type: Wall
+  Flag: 0
+  Texture_Offset:
+    x_offset: 0.222222
+    y_offset: 0
+  Transformation:
+    scale_x: 256
+    shear_x: 0
+    position_x: 72
+    shear_y: 0
+    scale_y: 288
+    position_y: 324
+    elapsed: 0
+    empty: 0
+    position_z: 310
+  Pair: 0
+
+- Type: Wall
+  Flag: 0
+  Texture_Offset:
+    x_offset: 0.222222
+    y_offset: 0
+  Transformation:
+    scale_x: 256
+    shear_x: 0
+    position_x: 73
+    shear_y: 0
+    scale_y: 288
+    position_y: 323
+    elapsed: 0
+    empty: 0
+    position_z: 465
+  Pair: 0
+
+- Type: Wall
+  Flag: 0
+  Texture_Offset:
+    x_offset: 0.222222
+    y_offset: 0
+  Transformation:
+    scale_x: 256
+    shear_x: 0
+    position_x: 74
+    shear_y: 0
+    scale_y: 288
+    position_y: 322
+    elapsed: 0
+    empty: 0
+    position_z: 620
+  Pair: 0
+
+- Type: Wall
+  Flag: 3
   Texture_Offset:
     x_offset: 0.111111
     y_offset: 0
   Transformation:
     scale_x: 256
     shear_x: 0
-    position_x: 0
+    position_x: -58
     shear_y: 0
     scale_y: 288
-    position_y: -378
-    elapsed: 0
-    empty: 0
-    position_z: 0
-  Pair: 0
-
-- Type: Stairs
-  Layer: 1
-  Flag: 0
-  Texture_Offset:
-    x_offset: 0.952381
-    y_offset: 0
-  Transformation:
-    scale_x: 541
-    shear_x: 0
-    position_x: 470
-    shear_y: 0
-    scale_y: 422
-    position_y: -213
+    position_y: 326
     elapsed: 0
     empty: 0
     position_z: 0
   Pair: 0
 
 - Type: Wall
-  Layer: 1
   Flag: 0
   Texture_Offset:
     x_offset: 0.333333
@@ -645,678 +1102,471 @@
   Transformation:
     scale_x: 256
     shear_x: 0
-    position_x: 0
+    position_x: -57
     shear_y: 0
     scale_y: 288
-    position_y: -504
+    position_y: 325
+    elapsed: 0
+    empty: 0
+    position_z: 155
+  Pair: 0
+
+- Type: Wall
+  Flag: 0
+  Texture_Offset:
+    x_offset: 0.333333
+    y_offset: 0
+  Transformation:
+    scale_x: 256
+    shear_x: 0
+    position_x: -56
+    shear_y: 0
+    scale_y: 288
+    position_y: 324
+    elapsed: 0
+    empty: 0
+    position_z: 310
+  Pair: 0
+
+- Type: Wall
+  Flag: 0
+  Texture_Offset:
+    x_offset: 0.333333
+    y_offset: 0
+  Transformation:
+    scale_x: 256
+    shear_x: 0
+    position_x: -55
+    shear_y: 0
+    scale_y: 288
+    position_y: 323
+    elapsed: 0
+    empty: 0
+    position_z: 465
+  Pair: 0
+
+- Type: Wall
+  Flag: 0
+  Texture_Offset:
+    x_offset: 0.333333
+    y_offset: 0
+  Transformation:
+    scale_x: 256
+    shear_x: 0
+    position_x: -54
+    shear_y: 0
+    scale_y: 288
+    position_y: 322
+    elapsed: 0
+    empty: 0
+    position_z: 620
+  Pair: 0
+
+- Type: Wall
+  Flag: 0
+  Texture_Offset:
+    x_offset: 0.333333
+    y_offset: 0
+  Transformation:
+    scale_x: 256
+    shear_x: 0
+    position_x: -53
+    shear_y: 0
+    scale_y: 288
+    position_y: 321
+    elapsed: 0
+    empty: 0
+    position_z: 775
+  Pair: 0
+
+- Type: Wall
+  Flag: 0
+  Texture_Offset:
+    x_offset: 0.333333
+    y_offset: 0
+  Transformation:
+    scale_x: 256
+    shear_x: 0
+    position_x: -186
+    shear_y: 0
+    scale_y: 288
+    position_y: 326
     elapsed: 0
     empty: 0
     position_z: 0
   Pair: 0
 
-- Type: Stairs
-  Layer: 1
+- Type: Wall
+  Flag: 0
+  Texture_Offset:
+    x_offset: 0.333333
+    y_offset: 0
+  Transformation:
+    scale_x: 256
+    shear_x: 0
+    position_x: -185
+    shear_y: 0
+    scale_y: 288
+    position_y: 325
+    elapsed: 0
+    empty: 0
+    position_z: 155
+  Pair: 0
+
+- Type: Wall
+  Flag: 0
+  Texture_Offset:
+    x_offset: 0.333333
+    y_offset: 0
+  Transformation:
+    scale_x: 256
+    shear_x: 0
+    position_x: -184
+    shear_y: 0
+    scale_y: 288
+    position_y: 324
+    elapsed: 0
+    empty: 0
+    position_z: 310
+  Pair: 0
+
+- Type: Wall
+  Flag: 0
+  Texture_Offset:
+    x_offset: 0.333333
+    y_offset: 0
+  Transformation:
+    scale_x: 256
+    shear_x: 0
+    position_x: -183
+    shear_y: 0
+    scale_y: 288
+    position_y: 323
+    elapsed: 0
+    empty: 0
+    position_z: 465
+  Pair: 0
+
+- Type: Wall
+  Flag: 0
+  Texture_Offset:
+    x_offset: 0.333333
+    y_offset: 0
+  Transformation:
+    scale_x: 256
+    shear_x: 0
+    position_x: -182
+    shear_y: 0
+    scale_y: 288
+    position_y: 322
+    elapsed: 0
+    empty: 0
+    position_z: 620
+  Pair: 0
+
+- Type: Wall
+  Flag: 0
+  Texture_Offset:
+    x_offset: 0.333333
+    y_offset: 0
+  Transformation:
+    scale_x: 256
+    shear_x: 0
+    position_x: -181
+    shear_y: 0
+    scale_y: 288
+    position_y: 321
+    elapsed: 0
+    empty: 0
+    position_z: 775
+  Pair: 0
+
+- Type: Wall
+  Flag: 0
+  Texture_Offset:
+    x_offset: 0.444444
+    y_offset: 0
+  Transformation:
+    scale_x: 256
+    shear_x: 0
+    position_x: 331
+    shear_y: 0
+    scale_y: 288
+    position_y: 321
+    elapsed: 0
+    empty: 0
+    position_z: 775
+  Pair: 0
+
+- Type: Wall
+  Flag: 3
+  Texture_Offset:
+    x_offset: 0.777778
+    y_offset: 0
+  Transformation:
+    scale_x: 256
+    shear_x: 0
+    position_x: 331
+    shear_y: 0
+    scale_y: 288
+    position_y: 193
+    elapsed: 0
+    empty: 0
+    position_z: 775
+  Pair: 0
+
+- Type: Wall
+  Flag: 0
+  Texture_Offset:
+    x_offset: 0.666667
+    y_offset: 0
+  Transformation:
+    scale_x: 256
+    shear_x: 0
+    position_x: 331
+    shear_y: 0
+    scale_y: 288
+    position_y: 65
+    elapsed: 0
+    empty: 0
+    position_z: 775
+  Pair: 0
+
+- Type: Wall
+  Flag: 0
+  Texture_Offset:
+    x_offset: 0.333333
+    y_offset: 0
+  Transformation:
+    scale_x: 256
+    shear_x: 0
+    position_x: 203
+    shear_y: 0
+    scale_y: 288
+    position_y: 321
+    elapsed: 0
+    empty: 0
+    position_z: 775
+  Pair: 0
+
+- Type: Wall
+  Flag: 0
+  Texture_Offset:
+    x_offset: 0.222222
+    y_offset: 0
+  Transformation:
+    scale_x: 256
+    shear_x: 0
+    position_x: 75
+    shear_y: 0
+    scale_y: 288
+    position_y: 321
+    elapsed: 0
+    empty: 0
+    position_z: 775
+  Pair: 0
+
+- Type: Portrait
   Flag: 0
   Texture_Offset:
     x_offset: 0
     y_offset: 0
   Transformation:
-    scale_x: 541
+    scale_x: 102.6
     shear_x: 0
-    position_x: 465
+    position_x: 230
     shear_y: 0
-    scale_y: 422
-    position_y: -470
+    scale_y: 169.2
+    position_y: 370
     elapsed: 0
     empty: 0
     position_z: 0
   Pair: 0
 
-- Type: Wall
-  Layer: 2
+- Type: Portrait
   Flag: 0
   Texture_Offset:
-    x_offset: 0.444444
-    y_offset: 0
+    x_offset: 0
+    y_offset: 0.2
   Transformation:
-    scale_x: 256
+    scale_x: 102.6
     shear_x: 0
-    position_x: 0
+    position_x: 410
     shear_y: 0
-    scale_y: 288
-    position_y: -0
+    scale_y: 169.2
+    position_y: 850
     elapsed: 0
     empty: 0
-    position_z: 155
+    position_z: 0
   Pair: 0
 
-- Type: Wall
-  Layer: 2
+- Type: Portrait
   Flag: 0
   Texture_Offset:
-    x_offset: 0.555556
-    y_offset: 0
+    x_offset: 0.5
+    y_offset: 0.4
   Transformation:
-    scale_x: 256
+    scale_x: 102.6
     shear_x: 0
-    position_x: 126
+    position_x: 855
     shear_y: 0
-    scale_y: 288
-    position_y: -0
+    scale_y: 169.2
+    position_y: 485
     elapsed: 0
     empty: 0
-    position_z: 155
+    position_z: 0
   Pair: 0
 
-- Type: Wall
-  Layer: 2
+- Type: Portrait
   Flag: 0
   Texture_Offset:
-    x_offset: 0.666667
-    y_offset: 0
+    x_offset: 0.5
+    y_offset: 0.6
   Transformation:
-    scale_x: 256
+    scale_x: 102.6
     shear_x: 0
-    position_x: 252
+    position_x: 540
     shear_y: 0
-    scale_y: 288
-    position_y: -0
+    scale_y: 169.2
+    position_y: 140
     elapsed: 0
     empty: 0
-    position_z: 155
+    position_z: 0
   Pair: 0
 
-- Type: Wall
-  Layer: 2
+- Type: Portrait
   Flag: 0
   Texture_Offset:
-    x_offset: 0.555556
-    y_offset: 0
+    x_offset: 0.5
+    y_offset: 0.8
   Transformation:
-    scale_x: 256
+    scale_x: 102.6
     shear_x: 0
-    position_x: 378
+    position_x: 695
     shear_y: 0
-    scale_y: 288
-    position_y: -0
+    scale_y: 169.2
+    position_y: 545
     elapsed: 0
     empty: 0
-    position_z: 155
+    position_z: 0
   Pair: 0
 
-- Type: Wall
-  Layer: 2
+- Type: Portrait
   Flag: 0
   Texture_Offset:
-    x_offset: 0.555556
+    x_offset: 0.5
     y_offset: 0
   Transformation:
-    scale_x: 256
+    scale_x: 124
     shear_x: 0
-    position_x: 504
+    position_x: 700
     shear_y: 0
-    scale_y: 288
-    position_y: -0
+    scale_y: 150
+    position_y: 220
     elapsed: 0
     empty: 0
-    position_z: 155
+    position_z: 0
   Pair: 0
 
-- Type: Wall
-  Layer: 2
+- Type: Portrait
   Flag: 0
   Texture_Offset:
-    x_offset: 0.333333
-    y_offset: 0
+    x_offset: 0
+    y_offset: 0.2
   Transformation:
-    scale_x: 256
+    scale_x: 124
     shear_x: 0
-    position_x: 0
+    position_x: 530
     shear_y: 0
-    scale_y: 288
-    position_y: -126
+    scale_y: 150
+    position_y: 690
     elapsed: 0
     empty: 0
-    position_z: 155
+    position_z: 0
   Pair: 0
 
-- Type: Wall
-  Layer: 2
+- Type: Portrait
+  Flag: 0
+  Texture_Offset:
+    x_offset: 0
+    y_offset: 0.4
+  Transformation:
+    scale_x: 124
+    shear_x: 0
+    position_x: 130
+    shear_y: 0
+    scale_y: 150
+    position_y: 530
+    elapsed: 0
+    empty: 0
+    position_z: 0
+  Pair: 0
+
+- Type: Portrait
+  Flag: 0
+  Texture_Offset:
+    x_offset: 0
+    y_offset: 0.6
+  Transformation:
+    scale_x: 124
+    shear_x: 0
+    position_x: 205
+    shear_y: 0
+    scale_y: 140
+    position_y: 695
+    elapsed: 0
+    empty: 0
+    position_z: 0
+  Pair: 0
+
+- Type: Portrait
+  Flag: 0
+  Texture_Offset:
+    x_offset: 0.5
+    y_offset: 0.8
+  Transformation:
+    scale_x: 124
+    shear_x: 0
+    position_x: 530
+    shear_y: 0
+    scale_y: 140
+    position_y: 370
+    elapsed: 0
+    empty: 0
+    position_z: 0
+  Pair: 0
+
+- Type: Portrait
   Flag: 0
   Texture_Offset:
     x_offset: 0
     y_offset: 0
   Transformation:
-    scale_x: 256
+    scale_x: 417
     shear_x: 0
-    position_x: 0
+    position_x: -100
     shear_y: 0
-    scale_y: 288
-    position_y: -252
+    scale_y: 280
+    position_y: -100
     elapsed: 0
     empty: 0
-    position_z: 155
+    position_z: 0
   Pair: 0
 
-- Type: Wall
-  Layer: 2
+- Type: Portrait
   Flag: 0
   Texture_Offset:
-    x_offset: 0.333333
+    x_offset: 0
     y_offset: 0
   Transformation:
-    scale_x: 256
+    scale_x: 417
     shear_x: 0
-    position_x: 0
+    position_x: 350
     shear_y: 0
-    scale_y: 288
-    position_y: -378
+    scale_y: 280
+    position_y: 278
     elapsed: 0
     empty: 0
-    position_z: 155
-  Pair: 0
-
-- Type: Wall
-  Layer: 2
-  Flag: 0
-  Texture_Offset:
-    x_offset: 0.333333
-    y_offset: 0
-  Transformation:
-    scale_x: 256
-    shear_x: 0
-    position_x: 0
-    shear_y: 0
-    scale_y: 288
-    position_y: -504
-    elapsed: 0
-    empty: 0
-    position_z: 155
-  Pair: 0
-
-- Type: Wall
-  Layer: 3
-  Flag: 0
-  Texture_Offset:
-    x_offset: 0.444444
-    y_offset: 0
-  Transformation:
-    scale_x: 256
-    shear_x: 0
-    position_x: 0
-    shear_y: 0
-    scale_y: 288
-    position_y: -0
-    elapsed: 0
-    empty: 0
-    position_z: 310
-  Pair: 0
-
-- Type: Wall
-  Layer: 3
-  Flag: 0
-  Texture_Offset:
-    x_offset: 0.555556
-    y_offset: 0
-  Transformation:
-    scale_x: 256
-    shear_x: 0
-    position_x: 126
-    shear_y: 0
-    scale_y: 288
-    position_y: -0
-    elapsed: 0
-    empty: 0
-    position_z: 310
-  Pair: 0
-
-- Type: Wall
-  Layer: 3
-  Flag: 0
-  Texture_Offset:
-    x_offset: 0.666667
-    y_offset: 0
-  Transformation:
-    scale_x: 256
-    shear_x: 0
-    position_x: 252
-    shear_y: 0
-    scale_y: 288
-    position_y: -0
-    elapsed: 0
-    empty: 0
-    position_z: 310
-  Pair: 0
-
-- Type: Wall
-  Layer: 3
-  Flag: 0
-  Texture_Offset:
-    x_offset: 0.555556
-    y_offset: 0
-  Transformation:
-    scale_x: 256
-    shear_x: 0
-    position_x: 378
-    shear_y: 0
-    scale_y: 288
-    position_y: -0
-    elapsed: 0
-    empty: 0
-    position_z: 310
-  Pair: 0
-
-- Type: Wall
-  Layer: 3
-  Flag: 0
-  Texture_Offset:
-    x_offset: 0.555556
-    y_offset: 0
-  Transformation:
-    scale_x: 256
-    shear_x: 0
-    position_x: 504
-    shear_y: 0
-    scale_y: 288
-    position_y: -0
-    elapsed: 0
-    empty: 0
-    position_z: 310
-  Pair: 0
-
-- Type: Wall
-  Layer: 3
-  Flag: 0
-  Texture_Offset:
-    x_offset: 0.333333
-    y_offset: 0
-  Transformation:
-    scale_x: 256
-    shear_x: 0
-    position_x: 0
-    shear_y: 0
-    scale_y: 288
-    position_y: -126
-    elapsed: 0
-    empty: 0
-    position_z: 310
-  Pair: 0
-
-- Type: Wall
-  Layer: 3
-  Flag: 0
-  Texture_Offset:
-    x_offset: 0.222222
-    y_offset: 0
-  Transformation:
-    scale_x: 256
-    shear_x: 0
-    position_x: 0
-    shear_y: 0
-    scale_y: 288
-    position_y: -252
-    elapsed: 0
-    empty: 0
-    position_z: 310
-  Pair: 0
-
-- Type: Wall
-  Layer: 3
-  Flag: 0
-  Texture_Offset:
-    x_offset: 0.333333
-    y_offset: 0
-  Transformation:
-    scale_x: 256
-    shear_x: 0
-    position_x: 0
-    shear_y: 0
-    scale_y: 288
-    position_y: -378
-    elapsed: 0
-    empty: 0
-    position_z: 310
-  Pair: 0
-
-- Type: Wall
-  Layer: 3
-  Flag: 0
-  Texture_Offset:
-    x_offset: 0.333333
-    y_offset: 0
-  Transformation:
-    scale_x: 256
-    shear_x: 0
-    position_x: 0
-    shear_y: 0
-    scale_y: 288
-    position_y: -504
-    elapsed: 0
-    empty: 0
-    position_z: 310
-  Pair: 0
-
-- Type: Wall
-  Layer: 4
-  Flag: 0
-  Texture_Offset:
-    x_offset: 0.444444
-    y_offset: 0
-  Transformation:
-    scale_x: 256
-    shear_x: 0
-    position_x: 0
-    shear_y: 0
-    scale_y: 288
-    position_y: -0
-    elapsed: 0
-    empty: 0
-    position_z: 465
-  Pair: 0
-
-- Type: Wall
-  Layer: 4
-  Flag: 0
-  Texture_Offset:
-    x_offset: 0.555556
-    y_offset: 0
-  Transformation:
-    scale_x: 256
-    shear_x: 0
-    position_x: 126
-    shear_y: 0
-    scale_y: 288
-    position_y: -0
-    elapsed: 0
-    empty: 0
-    position_z: 465
-  Pair: 0
-
-- Type: Wall
-  Layer: 4
-  Flag: 0
-  Texture_Offset:
-    x_offset: 0.666667
-    y_offset: 0
-  Transformation:
-    scale_x: 256
-    shear_x: 0
-    position_x: 252
-    shear_y: 0
-    scale_y: 288
-    position_y: -0
-    elapsed: 0
-    empty: 0
-    position_z: 465
-  Pair: 0
-
-- Type: Wall
-  Layer: 4
-  Flag: 0
-  Texture_Offset:
-    x_offset: 0.555556
-    y_offset: 0
-  Transformation:
-    scale_x: 256
-    shear_x: 0
-    position_x: 378
-    shear_y: 0
-    scale_y: 288
-    position_y: -0
-    elapsed: 0
-    empty: 0
-    position_z: 465
-  Pair: 0
-
-- Type: Wall
-  Layer: 4
-  Flag: 0
-  Texture_Offset:
-    x_offset: 0.555556
-    y_offset: 0
-  Transformation:
-    scale_x: 256
-    shear_x: 0
-    position_x: 504
-    shear_y: 0
-    scale_y: 288
-    position_y: -0
-    elapsed: 0
-    empty: 0
-    position_z: 465
-  Pair: 0
-
-- Type: Wall
-  Layer: 4
-  Flag: 0
-  Texture_Offset:
-    x_offset: 0.333333
-    y_offset: 0
-  Transformation:
-    scale_x: 256
-    shear_x: 0
-    position_x: 0
-    shear_y: 0
-    scale_y: 288
-    position_y: -126
-    elapsed: 0
-    empty: 0
-    position_z: 465
-  Pair: 0
-
-- Type: Wall
-  Layer: 4
-  Flag: 0
-  Texture_Offset:
-    x_offset: 0.222222
-    y_offset: 0
-  Transformation:
-    scale_x: 256
-    shear_x: 0
-    position_x: 0
-    shear_y: 0
-    scale_y: 288
-    position_y: -252
-    elapsed: 0
-    empty: 0
-    position_z: 465
-  Pair: 0
-
-- Type: Wall
-  Layer: 4
-  Flag: 0
-  Texture_Offset:
-    x_offset: 0.333333
-    y_offset: 0
-  Transformation:
-    scale_x: 256
-    shear_x: 0
-    position_x: 0
-    shear_y: 0
-    scale_y: 288
-    position_y: -378
-    elapsed: 0
-    empty: 0
-    position_z: 465
-  Pair: 0
-
-- Type: Wall
-  Layer: 4
-  Flag: 0
-  Texture_Offset:
-    x_offset: 0.333333
-    y_offset: 0
-  Transformation:
-    scale_x: 256
-    shear_x: 0
-    position_x: 0
-    shear_y: 0
-    scale_y: 288
-    position_y: -504
-    elapsed: 0
-    empty: 0
-    position_z: 465
-  Pair: 0
-
-- Type: Wall
-  Layer: 5
-  Flag: 0
-  Texture_Offset:
-    x_offset: 0.444444
-    y_offset: 0
-  Transformation:
-    scale_x: 256
-    shear_x: 0
-    position_x: 0
-    shear_y: 0
-    scale_y: 288
-    position_y: -0
-    elapsed: 0
-    empty: 0
-    position_z: 620
-  Pair: 0
-
-- Type: Wall
-  Layer: 5
-  Flag: 0
-  Texture_Offset:
-    x_offset: 0.555556
-    y_offset: 0
-  Transformation:
-    scale_x: 256
-    shear_x: 0
-    position_x: 126
-    shear_y: 0
-    scale_y: 288
-    position_y: -0
-    elapsed: 0
-    empty: 0
-    position_z: 620
-  Pair: 0
-
-- Type: Wall
-  Layer: 5
-  Flag: 0
-  Texture_Offset:
-    x_offset: 0.666667
-    y_offset: 0
-  Transformation:
-    scale_x: 256
-    shear_x: 0
-    position_x: 252
-    shear_y: 0
-    scale_y: 288
-    position_y: -0
-    elapsed: 0
-    empty: 0
-    position_z: 620
-  Pair: 0
-
-- Type: Wall
-  Layer: 5
-  Flag: 0
-  Texture_Offset:
-    x_offset: 0.555556
-    y_offset: 0
-  Transformation:
-    scale_x: 256
-    shear_x: 0
-    position_x: 378
-    shear_y: 0
-    scale_y: 288
-    position_y: -0
-    elapsed: 0
-    empty: 0
-    position_z: 620
-  Pair: 0
-
-- Type: Wall
-  Layer: 5
-  Flag: 0
-  Texture_Offset:
-    x_offset: 0.555556
-    y_offset: 0
-  Transformation:
-    scale_x: 256
-    shear_x: 0
-    position_x: 504
-    shear_y: 0
-    scale_y: 288
-    position_y: -0
-    elapsed: 0
-    empty: 0
-    position_z: 620
-  Pair: 0
-
-- Type: Wall
-  Layer: 5
-  Flag: 0
-  Texture_Offset:
-    x_offset: 0.333333
-    y_offset: 0
-  Transformation:
-    scale_x: 256
-    shear_x: 0
-    position_x: 0
-    shear_y: 0
-    scale_y: 288
-    position_y: -126
-    elapsed: 0
-    empty: 0
-    position_z: 620
-  Pair: 0
-
-- Type: Wall
-  Layer: 5
-  Flag: 0
-  Texture_Offset:
-    x_offset: 0.222222
-    y_offset: 0
-  Transformation:
-    scale_x: 256
-    shear_x: 0
-    position_x: 0
-    shear_y: 0
-    scale_y: 288
-    position_y: -252
-    elapsed: 0
-    empty: 0
-    position_z: 620
-  Pair: 0
-
-- Type: Wall
-  Layer: 5
-  Flag: 0
-  Texture_Offset:
-    x_offset: 0.333333
-    y_offset: 0
-  Transformation:
-    scale_x: 256
-    shear_x: 0
-    position_x: 0
-    shear_y: 0
-    scale_y: 288
-    position_y: -378
-    elapsed: 0
-    empty: 0
-    position_z: 620
-  Pair: 0
-
-- Type: Wall
-  Layer: 5
-  Flag: 0
-  Texture_Offset:
-    x_offset: 0.333333
-    y_offset: 0
-  Transformation:
-    scale_x: 256
-    shear_x: 0
-    position_x: 0
-    shear_y: 0
-    scale_y: 288
-    position_y: -504
-    elapsed: 0
-    empty: 0
-    position_z: 620
+    position_z: 0
   Pair: 0
 

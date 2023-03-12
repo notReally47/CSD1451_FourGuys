@@ -104,17 +104,5 @@ namespace OM
 	//	botRight		= { GetPos().x + GetScale(0.5f).x, GetPos().y - GetScale(0.5f).y };
 	//}
 
-	void ObjectInst::AnimateStairs()
-	{
-		GetElapsed() += GSM::gameTime;
-		if (GetElapsed() >= 0.1f)
-		{
-			texture.x += 0.0476190476190476f;
-			GetElapsed() = 0.0f;
-		}
-		if (texture.x >= 0.89f && texture.x >= 0.91f)
-		{
-			flag &= ~Enum::FLAG::ACTIVE;
-		}
-	}
+
 }

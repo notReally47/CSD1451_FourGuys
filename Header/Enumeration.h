@@ -14,20 +14,6 @@ namespace Enum {
 		UP
 	};
 
-	enum TYPE : unsigned long {
-		PLAYER,
-		FLOOR,
-		WALL,
-		DECO,
-		PORTRAIT,
-		LANDSCAPE,
-		PLATFORM,
-		BUTTON,
-		BACKGROUND,
-		BUBBLE
-
-	};
-
 	enum FLAG : unsigned long {
 		IDLE,
 		ACTIVE,
@@ -40,18 +26,69 @@ namespace Enum {
 		
 		// PORTRAITS
 		GLOW,
-		VERTICAL,		
-		HORIZONTAL
+		
 	};
 
-	enum SLOPE : unsigned long {
-		NONE,
-		NORTH,
-		SOUTH,
-		EAST,
-		WEST
-	};
 }
+
+enum GRID : unsigned short
+{
+	EMPTY,
+	TILE,
+	WBRIDGEL,
+	WDOORL,
+	WCOLUMNL,
+	WPLAINL,
+	WCORNER,
+	WPLAINR,
+	WCOLUMNR,
+	WDOORR,
+	WBRIDGER,
+	STAIRSL,
+	STAIRSL2,
+	STAIRSR,
+	STAIRSR2,
+	BRIDGEL,
+	VERTICAL,
+	HORIZONTAL
+
+};
+
+enum class TYPE : unsigned long {
+	PLAYER,
+	FLOOR,
+	WALL,
+	DECO,
+	PORTRAIT,
+	LANDSCAPE,
+	STAIRS,
+	BRIDGE,
+	BUTTON,
+	BACKGROUND,
+	BUBBLE
+
+};
+
+enum LAYER : unsigned short
+{
+	GROUND,
+	FLOOR01,
+	FLOOR02,
+	FLOOR03,
+	FLOOR04,
+	FLOOR05,
+	FLOOR06,
+	FLOOR07,
+	FLOOR08,
+	FLOOR09,
+	FLOOR10,
+	FLOOR11,
+	FLOOR12,
+	FLOOR13,
+	FLOOR14,
+	FLOOR15,
+	FLOOR16
+};
 
 enum class GAME_STATES : int {
 	RESTART,

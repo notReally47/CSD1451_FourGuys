@@ -22,8 +22,12 @@
 
 namespace Level1
 {
+	using enum TYPE;
+	using enum LAYER;
+
 	/*DEFINES*/
 	const static f32 MIN_CAM_HEIGHT = -65.f;
+	std::vector<OM::ObjectInst> tmp;
 	OM::Object bubble;
 	OM::ObjectInst objInst[1];
 	FM::GameData GD;
@@ -38,7 +42,7 @@ namespace Level1
 		GD.LoadShapeFromFile();
 		GD.LoadTransformFromFile();
 		GD.LoadLayersFromFile();
-		bubble.type = Enum::TYPE::BUBBLE;
+		bubble.type = BUBBLE;
 	}
 	/*!***********************************************************************
 	  \brief Initialise level 1
@@ -50,10 +54,9 @@ namespace Level1
 		GD.LoadPlayerStatsFromFile();
 
 		/*SCALE OBJECTS*/
-		//GD.Option_Change();
+		GD.Option_Change();
+		//GD.ExtractTransformToFile();
 
-		/*tmp.head = &GD.vOI[83].flag;
-		tmp.next = &GD.vOI[90].flag;*/
 
 		/*DO NOT DELETE*/
 
@@ -62,8 +65,167 @@ namespace Level1
 		// it.GetPosX() = a.x;
 		// it.GetPosY() = a.y;
 		//}
+		tmp.push_back(GD.vOI[0]);
+		for (const auto& iter : GD.vOL)
+		{
+			for (int i = 0; i < 6; i++)
+				for (int j = 0; j < 6; j++)
+				{
+					OM::ObjectInst tamp;
+					switch (iter.data[i * 6 + j])
+					{
+					case GRID::TILE:
+						tamp.pO = &GD.vO[1];
+						tamp.layer = iter.layer;
+						tamp.flag = 0;
+						tamp.texture = { .0f, .0f };
+						tamp.transf = { 256.0f, .0f, 126.0f * (j),
+										.0f, 148.0f, -126.0f * (i),
+										.0f, .0f, .0f };
+						tamp.pair = nullptr;
+						tmp.push_back(tamp);
+						break;
+					case GRID::WBRIDGEL:
+						tamp.pO = &GD.vO[2];
+						tamp.layer = iter.layer;
+						tamp.flag = 0;
+						tamp.texture = { 0.f / 9.f, .0f };
+						tamp.transf = { 256.0f, .0f, 126.0f * (j),
+										.0f, 288.0f, -126.0f * (i),
+										.0f, .0f, static_cast<f32>(iter.layer - TILE) * 155.0f };
+						tamp.pair = nullptr;
+						tmp.push_back(tamp);
+						break;
+					case GRID::WDOORL:
+						tamp.pO = &GD.vO[2];
+						tamp.layer = iter.layer;
+						tamp.flag = 0;
+						tamp.texture = { 1.f/9.f, .0f };
+						tamp.transf = { 256.0f, .0f, 126.0f * (j),
+										.0f, 288.0f, -126.0f * (i),
+										.0f, .0f, static_cast<f32>(iter.layer - TILE) * 155.0f};
+						tamp.pair = nullptr;
+						tmp.push_back(tamp);
+						break;
+					case GRID::WCOLUMNL:
+						tamp.pO = &GD.vO[2];
+						tamp.layer = iter.layer;
+						tamp.flag = 0;
+						tamp.texture = { 2.f / 9.f, .0f };
+						tamp.transf = { 256.0f, .0f, 126.0f * (j),
+										.0f, 288.0f, -126.0f * (i),
+										.0f, .0f, static_cast<f32>(iter.layer - TILE) * 155.0f };
+						tamp.pair = nullptr;
+						tmp.push_back(tamp);
+						break;
+					case GRID::WPLAINL:
+						tamp.pO = &GD.vO[2];
+						tamp.layer = iter.layer;
+						tamp.flag = 0;
+						tamp.texture = { 3.f / 9.f, .0f };
+						tamp.transf = { 256.0f, .0f, 126.0f * (j),
+										.0f, 288.0f, -126.0f * (i),
+										.0f, .0f, static_cast<f32>(iter.layer - TILE) * 155.0f };
+						tamp.pair = nullptr;
+						tmp.push_back(tamp);
+						break;
+
+					case GRID::WCORNER:
+						tamp.pO = &GD.vO[2];
+						tamp.layer = iter.layer;
+						tamp.flag = 0;
+						tamp.texture = { 4.f / 9.f, .0f };
+						tamp.transf = { 256.0f, .0f, 126.0f * (j),
+										.0f, 288.0f, -126.0f * (i),
+										.0f, .0f, static_cast<f32>(iter.layer - TILE) * 155.0f };
+						tamp.pair = nullptr;
+						tmp.push_back(tamp);
+						break;
+					case GRID::WPLAINR:
+						tamp.pO = &GD.vO[2];
+						tamp.layer = iter.layer;
+						tamp.flag = 0;
+						tamp.texture = { 5.f / 9.f, .0f };
+						tamp.transf = { 256.0f, .0f, 126.0f * (j),
+										.0f, 288.0f, -126.0f * (i),
+										.0f, .0f, static_cast<f32>(iter.layer - TILE) * 155.0f };
+						tamp.pair = nullptr;
+						tmp.push_back(tamp);
+						break;
+					case GRID::WCOLUMNR:
+						tamp.pO = &GD.vO[2];
+						tamp.layer = iter.layer;
+						tamp.flag = 0;
+						tamp.texture = { 6.f / 9.f, .0f };
+						tamp.transf = { 256.0f, .0f, 126.0f * (j),
+										.0f, 288.0f, -126.0f * (i),
+										.0f, .0f, static_cast<f32>(iter.layer - TILE) * 155.0f };
+						tamp.pair = nullptr;
+						tmp.push_back(tamp);
+						break;
+					case GRID::WDOORR:
+						tamp.pO = &GD.vO[2];
+						tamp.layer = iter.layer;
+						tamp.flag = 0;
+						tamp.texture = { 7.f / 9.f, .0f };
+						tamp.transf = { 256.0f, .0f, 126.0f * (j),
+										.0f, 288.0f, -126.0f * (i),
+										.0f, .0f, static_cast<f32>(iter.layer - TILE) * 155.0f };
+						tamp.pair = nullptr;
+						tmp.push_back(tamp);
+						break;
+					case GRID::WBRIDGER:
+						tamp.pO = &GD.vO[2];
+						tamp.layer = iter.layer;
+						tamp.flag = 0;
+						tamp.texture = { 8.f / 9.f, .0f };
+						tamp.transf = { 256.0f, .0f, 126.0f * (j),
+										.0f, 288.0f, -126.0f * (i),
+										.0f, .0f, static_cast<f32>(iter.layer - TILE) * 155.0f };
+						tamp.pair = nullptr;
+						tmp.push_back(tamp);
+						break;
+					case GRID::STAIRSL:
+						tamp.pO = &GD.vO[6];
+						tamp.layer = iter.layer;
+						tamp.flag = 0;
+						tamp.texture = { 0.f / 21.f, .0f };
+						tamp.transf = { 541.0f, .0f, 126.0f * (j)-165.0f,
+										.0f, 422.0f, -126.0f * (i)+160.0f,
+										.0f, .0f, static_cast<f32>(iter.layer - TILE) * 155.0f };
+						tamp.pair = nullptr;
+						tmp.push_back(tamp);
+						break;
+					case GRID::STAIRSR:
+						tamp.pO = &GD.vO[6];
+						tamp.layer = iter.layer;
+						tamp.flag = 0;
+						tamp.texture = { 20.f / 21.f, .0f };
+						tamp.transf = { 541.0f, .0f, 126.0f * (j)-160.0f,
+										.0f, 422.0f, -126.0f * (i)+165.0f,
+										.0f, .0f, static_cast<f32>(iter.layer - TILE) * 155.0f };
+						tamp.pair = nullptr;
+						tmp.push_back(tamp);
+						break;
+					case GRID::BRIDGEL:
+						tamp.pO = &GD.vO[7];
+						tamp.layer = iter.layer;
+						tamp.flag = 0;
+						tamp.texture = { 2.f / 4.f, .0f };
+						tamp.transf = { 190.0f, .0f, 126.0f * (j),
+										.0f, 101.0f, -126.0f * (i),
+										.0f, .0f, static_cast<f32>(iter.layer - TILE) * 155.0f };
+						tamp.pair = nullptr;
+						tmp.push_back(tamp);
+						break;
+					}
+
+				}
+		}
+
 
 		/*Extract Using Vector vOBJ_INST & player*/
+		GD.vOI = tmp;
 		GD.ExtractTransformToFile();
 	
 		// add bubble mesh and texture
@@ -97,7 +259,7 @@ namespace Level1
 		IM::ExitGame(GSM::next);
 
 		/*SET PLAYER BIT FLAG FOR MOVEMENT OR JUMPING*/
-		unsigned long &flag{GD.player.pOI->flag};
+		unsigned short& flag{GD.player.pOI->flag};
 		flag = (IM::PlayerJump(GD.player)) ? flag | JUMPING : flag & ~JUMPING;
 		flag = (IM::PlayerMovement(GD.player)) ? flag | ACTIVE : flag & ~ACTIVE;
 
@@ -108,7 +270,7 @@ namespace Level1
 		// check if player if near portrait
 		for (size_t i{0}; i < GD.vOI.size(); i++)
 		{
-			if (GD.vOI[i].pO->type == PORTRAIT || GD.vOI[i].pO->type == LANDSCAPE)
+			if (GD.vOI[i].pO->type == PORTRAIT)
 			{
 				GD.vOI[i].flag = (CDM::GetDistance(GD.vOI[i].GetPos().x, GD.vOI[i].GetPos().y, GD.vOI[i].transf.m[0][0], GD.vOI[i].transf.m[1][1], GD.player.pOI->GetPos().x, GD.player.pOI->GetPos().y) < 10.0) ? static_cast<unsigned long>(GLOW) : IDLE;
 			}
@@ -133,11 +295,11 @@ namespace Level1
 
 
 		if (objInst[0].flag == ACTIVE)
-			objInst[0].GetElapsed() += GSM::gameTime;
-		if (objInst[0].GetElapsed() > 3.f)
+			objInst[0].SetCounter(GSM::gameTime);
+		if (objInst[0].GetCounter() > 3.f)
 		{
 			objInst[0].flag = IDLE;
-			objInst[0].GetElapsed() = {};
+			objInst[0].ResetCounter();
 		}
 
 		/*COLLISIONS*/
@@ -163,6 +325,11 @@ namespace Level1
 		GD.player.AnimateCharacter();
 		if (objInst[0].flag == Enum::FLAG::ACTIVE)
 			objInst[0].RenderObject();
+/*		for (int i{ 0 }; i < tmp.size(); i++)
+		{
+			tmp[i].RenderObject();
+		}*/
+			
 	}
 	/*!***********************************************************************
 	  \brief Free level 1 data

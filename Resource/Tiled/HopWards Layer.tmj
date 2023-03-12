@@ -1,0 +1,189 @@
+{ "compressionlevel":-1,
+ "editorsettings":
+    {
+     "export":
+        {
+         "format":"json"
+        }
+    },
+ "height":6,
+ "infinite":false,
+ "layers":[
+        {
+         "class":"GROUND",
+         "data":[0, 0, 0, 0, 0, 0,
+            0, 1, 1, 1, 1, 1,
+            0, 1, 1, 1, 1, 1,
+            0, 1, 1, 1, 1, 1,
+            0, 1, 1, 1, 1, 1,
+            0, 1, 1, 1, 1, 1],
+         "height":6,
+         "id":1,
+         "name":"GROUND",
+         "opacity":1,
+         "type":"tilelayer",
+         "visible":true,
+         "width":6,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "class":"FLOOR_1",
+         "data":[6, 7, 8, 7, 7, 0,
+            5, 0, 0, 0, 0, 0,
+            4, 0, 39, 0, 0, 0,
+            3, 0, 0, 0, 0, 0,
+            5, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 60],
+         "height":6,
+         "id":2,
+         "name":"FLOOR_1",
+         "opacity":1,
+         "type":"tilelayer",
+         "visible":true,
+         "width":6,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "class":"FLOOR_2",
+         "data":[0, 0, 0, 0, 0, 0,
+            0, 6, 7, 53, 7, 7,
+            0, 5, 53, 53, 0, 0,
+            0, 2, 0, 0, 0, 0,
+            0, 5, 0, 0, 0, 0,
+            0, 5, 0, 0, 0, 0],
+         "height":6,
+         "id":3,
+         "name":"FLOOR_2",
+         "offsetx":2,
+         "offsety":-155,
+         "opacity":1,
+         "type":"tilelayer",
+         "visible":false,
+         "width":6,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "class":"FLOOR_3",
+         "data":[0, 0, 0, 0, 0, 0,
+            0, 6, 7, 8, 7, 7,
+            0, 5, 0, 0, 0, 0,
+            0, 4, 0, 0, 0, 0,
+            0, 5, 0, 0, 0, 0,
+            0, 5, 0, 0, 0, 0],
+         "height":6,
+         "id":4,
+         "name":"FLOOR_3",
+         "offsetx":4,
+         "offsety":-310,
+         "opacity":1,
+         "type":"tilelayer",
+         "visible":false,
+         "width":6,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "class":"FLOOR_4",
+         "data":[0, 0, 0, 0, 0, 0,
+            0, 6, 7, 8, 7, 7,
+            0, 5, 0, 0, 0, 0,
+            0, 4, 0, 0, 0, 0,
+            0, 5, 0, 0, 0, 0,
+            0, 5, 0, 0, 0, 0],
+         "height":6,
+         "id":5,
+         "name":"FLOOR_4",
+         "offsetx":6,
+         "offsety":-465,
+         "opacity":1,
+         "type":"tilelayer",
+         "visible":false,
+         "width":6,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "class":"FLOOR_5",
+         "data":[0, 0, 0, 0, 0, 0,
+            0, 6, 7, 8, 7, 7,
+            0, 5, 0, 0, 0, 0,
+            0, 4, 0, 0, 0, 0,
+            0, 5, 0, 0, 0, 0,
+            0, 5, 0, 0, 0, 0],
+         "height":6,
+         "id":6,
+         "name":"FLOOR_5",
+         "offsetx":8,
+         "offsety":-620,
+         "opacity":1,
+         "type":"tilelayer",
+         "visible":false,
+         "width":6,
+         "x":0,
+         "y":0
+        },
+    
+        {
+         "class":"FLOOR_6",
+         "data":[0, 0, 0, 0, 0, 0,
+            0, 6, 7, 8, 7, 7,
+            0, 5, 0, 0, 0, 0,
+            0, 4, 0, 0, 0, 0,
+            0, 5, 0, 0, 0, 0,
+            0, 5, 0, 0, 0, 0],
+         "height":6,
+         "id":7,
+         "name":"FLOOR_6",
+         "offsetx":10,
+         "offsety":-775,
+         "opacity":1,
+         "type":"tilelayer",
+         "visible":false,
+         "width":6,
+         "x":0,
+         "y":0
+        }],
+ "nextlayerid":10,
+ "nextobjectid":22,
+ "orientation":"isometric",
+ "renderorder":"right-down",
+ "tiledversion":"1.9.2",
+ "tileheight":128,
+ "tilesets":[
+        {
+         "firstgid":1,
+         "source":"Floor.tsx"
+        }, 
+        {
+         "firstgid":2,
+         "source":"Wall Spritesheet.tsx"
+        }, 
+        {
+         "firstgid":11,
+         "source":"Landscape Spritesheet.tsx"
+        }, 
+        {
+         "firstgid":31,
+         "source":"Portrait Tileset.tsx"
+        }, 
+        {
+         "firstgid":51,
+         "source":"Bridge Tiletset.tsx"
+        }, 
+        {
+         "firstgid":55,
+         "source":"Candles Tilesheet.tsx"
+        },
+    
+        {
+         "firstgid":60,
+         "source":"Stairs Tileset.tsx"
+        }],
+ "tilewidth":256,
+ "type":"map",
+ "version":"1.9",
+ "width":6
+}

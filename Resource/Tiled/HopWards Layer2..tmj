@@ -1,90 +1,52 @@
 { "compressionlevel":-1,
- "height":5,
+ "height":6,
  "infinite":false,
  "layers":[
         {
          "class":"GROUND",
-         "data":[1, 1, 1, 1, 1,
-            1, 1, 1, 1, 1,
-            1, 1, 1, 1, 1,
-            1, 1, 1, 1, 1,
-            1, 1, 1, 1, 1],
-         "height":5,
+         "data":[0, 0, 0, 0, 0, 0,
+            0, 1, 1, 1, 1, 1,
+            0, 1, 1, 1, 1, 1,
+            0, 1, 1, 1, 1, 1,
+            0, 1, 1, 1, 1, 1,
+            0, 1, 1, 1, 1, 1],
+         "height":6,
          "id":1,
          "name":"GROUND",
          "opacity":1,
          "type":"tilelayer",
          "visible":true,
-         "width":5,
+         "width":6,
          "x":0,
          "y":0
         }, 
         {
          "class":"FLOOR_1",
-         "data":[6, 7, 8, 10, 7,
-            5, 0, 0, 0, 0,
-            4, 0, 0, 0, 0,
-            3, 0, 0, 0, 0,
-            5, 0, 0, 0, 0],
-         "height":5,
+         "data":[6, 7, 8, 10, 7, 0,
+            5, 0, 0, 0, 0, 0,
+            4, 0, 0, 0, 0, 0,
+            3, 0, 0, 0, 0, 0,
+            5, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 60],
+         "height":6,
          "id":2,
          "name":"FLOOR_1",
          "opacity":1,
          "type":"tilelayer",
          "visible":true,
-         "width":5,
-         "x":0,
-         "y":0
-        }, 
-        {
-         "draworder":"topdown",
-         "id":8,
-         "name":"FLOOR_1",
-         "objects":[
-                {
-                 "class":"",
-                 "gid":39,
-                 "height":127,
-                 "id":3,
-                 "name":"0",
-                 "properties":[
-                        {
-                         "name":"INTERACT",
-                         "type":"object",
-                         "value":4
-                        }],
-                 "rotation":0,
-                 "visible":true,
-                 "width":77,
-                 "x":2.91667,
-                 "y":161.083
-                }, 
-                {
-                 "class":"",
-                 "gid":60,
-                 "height":279,
-                 "id":4,
-                 "name":"0",
-                 "rotation":0,
-                 "visible":true,
-                 "width":439,
-                 "x":450.917,
-                 "y":342.417
-                }],
-         "opacity":1,
-         "type":"objectgroup",
-         "visible":true,
+         "width":6,
          "x":0,
          "y":0
         }, 
         {
          "class":"FLOOR_2",
-         "data":[6, 7, 8, 7, 7,
-            5, 0, 0, 0, 0,
-            2, 0, 0, 0, 0,
-            5, 0, 0, 0, 0,
-            5, 0, 0, 0, 0],
-         "height":5,
+         "data":[6, 7, 8, 7, 7, 0,
+            2, 0, 0, 0, 0, 0,
+            4, 0, 0, 0, 0, 0,
+            5, 0, 0, 0, 0, 0,
+            5, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0],
+         "height":6,
          "id":3,
          "name":"FLOOR_2",
          "offsetx":2,
@@ -92,56 +54,19 @@
          "opacity":1,
          "type":"tilelayer",
          "visible":true,
-         "width":5,
+         "width":6,
          "x":0,
          "y":0
         }, 
         {
-         "draworder":"topdown",
-         "id":9,
-         "name":"FLOOR_2",
-         "objects":[
-                {
-                 "class":"",
-                 "gid":53,
-                 "height":101,
-                 "id":11,
-                 "name":"",
-                 "rotation":0,
-                 "visible":true,
-                 "width":190,
-                 "x":263.333,
-                 "y":84.6667
-                }, 
-                {
-                 "class":"",
-                 "gid":52,
-                 "height":101,
-                 "id":14,
-                 "name":"",
-                 "rotation":0,
-                 "visible":true,
-                 "width":190,
-                 "x":73.3333,
-                 "y":84
-                }],
-         "offsetx":2,
-         "offsety":-155,
-         "opacity":1,
-         "type":"objectgroup",
-         "visible":true,
-         "x":0,
-         "y":0
-        },
-    
-        {
          "class":"FLOOR_3",
-         "data":[6, 7, 8, 7, 7,
-            5, 0, 0, 0, 0,
-            4, 0, 0, 0, 0,
-            5, 0, 0, 0, 0,
-            5, 0, 0, 0, 0],
-         "height":5,
+         "data":[6, 7, 8, 7, 7, 0,
+            5, 0, 0, 0, 0, 0,
+            4, 0, 0, 0, 0, 0,
+            5, 0, 0, 0, 0, 0,
+            5, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0],
+         "height":6,
          "id":4,
          "name":"FLOOR_3",
          "offsetx":4,
@@ -149,18 +74,19 @@
          "opacity":1,
          "type":"tilelayer",
          "visible":true,
-         "width":5,
+         "width":6,
          "x":0,
          "y":0
         }, 
         {
          "class":"FLOOR_4",
-         "data":[6, 7, 8, 7, 7,
-            5, 0, 0, 0, 0,
-            4, 0, 0, 0, 0,
-            5, 0, 0, 0, 0,
-            5, 0, 0, 0, 0],
-         "height":5,
+         "data":[6, 7, 8, 7, 7, 0,
+            5, 0, 0, 0, 0, 0,
+            4, 0, 0, 0, 0, 0,
+            5, 0, 0, 0, 0, 0,
+            5, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0],
+         "height":6,
          "id":5,
          "name":"FLOOR_4",
          "offsetx":6,
@@ -168,18 +94,19 @@
          "opacity":1,
          "type":"tilelayer",
          "visible":true,
-         "width":5,
+         "width":6,
          "x":0,
          "y":0
         }, 
         {
          "class":"FLOOR_5",
-         "data":[6, 7, 8, 7, 7,
-            5, 0, 0, 0, 0,
-            4, 0, 0, 0, 0,
-            5, 0, 0, 0, 0,
-            5, 0, 0, 0, 0],
-         "height":5,
+         "data":[6, 7, 8, 7, 7, 0,
+            5, 0, 0, 0, 0, 0,
+            4, 0, 0, 0, 0, 0,
+            5, 0, 0, 0, 0, 0,
+            5, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0],
+         "height":6,
          "id":6,
          "name":"FLOOR_5",
          "offsetx":8,
@@ -187,18 +114,20 @@
          "opacity":1,
          "type":"tilelayer",
          "visible":true,
-         "width":5,
+         "width":6,
          "x":0,
          "y":0
-        }, 
+        },
+    
         {
          "class":"FLOOR_6",
-         "data":[6, 7, 8, 7, 7,
-            5, 0, 0, 0, 0,
-            4, 0, 0, 0, 0,
-            5, 0, 0, 0, 0,
-            5, 0, 0, 0, 0],
-         "height":5,
+         "data":[6, 7, 8, 7, 7, 0,
+            5, 0, 0, 0, 0, 0,
+            4, 0, 0, 0, 0, 0,
+            5, 0, 0, 0, 0, 0,
+            5, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0],
+         "height":6,
          "id":7,
          "name":"FLOOR_6",
          "offsetx":10,
@@ -206,7 +135,7 @@
          "opacity":1,
          "type":"tilelayer",
          "visible":true,
-         "width":5,
+         "width":6,
          "x":0,
          "y":0
         }],
@@ -307,12 +236,12 @@
                 {
                  "class":"WALL",
                  "id":4
-                },
-            
+                }, 
                 {
                  "class":"WALL",
                  "id":5
-                }, 
+                },
+            
                 {
                  "class":"WALL",
                  "id":6
@@ -461,8 +390,7 @@
                          "type":"bool",
                          "value":false
                         }]
-                },
-            
+                }, 
                 {
                  "class":"PORTRAITS",
                  "id":5,
@@ -472,7 +400,8 @@
                          "type":"bool",
                          "value":false
                         }]
-                }, 
+                },
+            
                 {
                  "animation":[
                         {
@@ -530,8 +459,7 @@
                          "type":"bool",
                          "value":false
                         }]
-                },
-            
+                }, 
                 {
                  "animation":[
                         {
@@ -560,7 +488,8 @@
                          "type":"bool",
                          "value":false
                         }]
-                }, 
+                },
+            
                 {
                  "animation":[
                         {
@@ -608,8 +537,7 @@
                          "type":"bool",
                          "value":false
                         }]
-                },
-            
+                }, 
                 {
                  "class":"PORTRAITS",
                  "id":15,
@@ -648,7 +576,8 @@
                          "type":"bool",
                          "value":false
                         }]
-                }, 
+                },
+            
                 {
                  "animation":[
                         {
@@ -768,8 +697,7 @@
                          "type":"bool",
                          "value":false
                         }]
-                },
-            
+                }, 
                 {
                  "class":"PORTRAITS",
                  "id":5,
@@ -779,7 +707,8 @@
                          "type":"bool",
                          "value":false
                         }]
-                }, 
+                },
+            
                 {
                  "animation":[
                         {
@@ -837,8 +766,7 @@
                          "type":"bool",
                          "value":false
                         }]
-                },
-            
+                }, 
                 {
                  "animation":[
                         {
@@ -867,7 +795,8 @@
                          "type":"bool",
                          "value":false
                         }]
-                }, 
+                },
+            
                 {
                  "animation":[
                         {
@@ -915,8 +844,7 @@
                          "type":"bool",
                          "value":false
                         }]
-                },
-            
+                }, 
                 {
                  "class":"PORTRAITS",
                  "id":15,
@@ -955,7 +883,8 @@
                          "type":"bool",
                          "value":false
                         }]
-                }, 
+                },
+            
                 {
                  "animation":[
                         {
@@ -1176,8 +1105,7 @@
                     }
                 }],
          "tilewidth":190
-        },
-    
+        }, 
         {
          "columns":5,
          "firstgid":55,
@@ -1232,531 +1160,23 @@
                  "id":4
                 }],
          "tilewidth":16
-        }, 
+        },
+    
         {
          "columns":21,
          "firstgid":60,
          "image":"..\/Textures\/stairs.png",
-         "imageheight":279,
-         "imagewidth":9219,
+         "imageheight":422,
+         "imagewidth":11361,
          "margin":0,
          "name":"Stairs Tileset",
          "spacing":0,
          "tilecount":21,
-         "tileheight":279,
-         "tiles":[
-                {
-                 "animation":[
-                        {
-                         "duration":5000,
-                         "tileid":0
-                        }, 
-                        {
-                         "duration":100,
-                         "tileid":1
-                        }, 
-                        {
-                         "duration":100,
-                         "tileid":2
-                        }, 
-                        {
-                         "duration":100,
-                         "tileid":3
-                        }, 
-                        {
-                         "duration":100,
-                         "tileid":4
-                        },
-                    
-                        {
-                         "duration":100,
-                         "tileid":5
-                        }, 
-                        {
-                         "duration":100,
-                         "tileid":6
-                        }, 
-                        {
-                         "duration":100,
-                         "tileid":7
-                        }, 
-                        {
-                         "duration":100,
-                         "tileid":8
-                        }, 
-                        {
-                         "duration":100,
-                         "tileid":9
-                        },
-                    
-                        {
-                         "duration":100,
-                         "tileid":10
-                        }, 
-                        {
-                         "duration":100,
-                         "tileid":11
-                        }, 
-                        {
-                         "duration":100,
-                         "tileid":12
-                        }, 
-                        {
-                         "duration":100,
-                         "tileid":13
-                        }, 
-                        {
-                         "duration":100,
-                         "tileid":14
-                        },
-                    
-                        {
-                         "duration":100,
-                         "tileid":15
-                        }, 
-                        {
-                         "duration":100,
-                         "tileid":16
-                        }, 
-                        {
-                         "duration":100,
-                         "tileid":17
-                        }, 
-                        {
-                         "duration":100,
-                         "tileid":18
-                        }, 
-                        {
-                         "duration":100,
-                         "tileid":19
-                        },
-                    
-                        {
-                         "duration":5000,
-                         "tileid":20
-                        }],
-                 "class":"PLATFORM",
-                 "id":0,
-                 "properties":[
-                        {
-                         "name":"INACTIVE",
-                         "type":"bool",
-                         "value":false
-                        }]
-                }, 
-                {
-                 "class":"PLATFORM",
-                 "id":1,
-                 "properties":[
-                        {
-                         "name":"INACTIVE",
-                         "type":"bool",
-                         "value":false
-                        }]
-                }, 
-                {
-                 "class":"PLATFORM",
-                 "id":2,
-                 "properties":[
-                        {
-                         "name":"INACTIVE",
-                         "type":"bool",
-                         "value":false
-                        }]
-                }, 
-                {
-                 "class":"PLATFORM",
-                 "id":3,
-                 "properties":[
-                        {
-                         "name":"INACTIVE",
-                         "type":"bool",
-                         "value":false
-                        }]
-                }, 
-                {
-                 "class":"PLATFORM",
-                 "id":4,
-                 "properties":[
-                        {
-                         "name":"INACTIVE",
-                         "type":"bool",
-                         "value":false
-                        }]
-                },
-            
-                {
-                 "class":"PLATFORM",
-                 "id":5,
-                 "properties":[
-                        {
-                         "name":"INACTIVE",
-                         "type":"bool",
-                         "value":false
-                        }]
-                }, 
-                {
-                 "class":"PLATFORM",
-                 "id":6,
-                 "properties":[
-                        {
-                         "name":"INACTIVE",
-                         "type":"bool",
-                         "value":false
-                        }]
-                }, 
-                {
-                 "class":"PLATFORM",
-                 "id":7,
-                 "properties":[
-                        {
-                         "name":"INACTIVE",
-                         "type":"bool",
-                         "value":false
-                        }]
-                }, 
-                {
-                 "class":"PLATFORM",
-                 "id":8,
-                 "properties":[
-                        {
-                         "name":"INACTIVE",
-                         "type":"bool",
-                         "value":false
-                        }]
-                }, 
-                {
-                 "class":"PLATFORM",
-                 "id":9,
-                 "properties":[
-                        {
-                         "name":"INACTIVE",
-                         "type":"bool",
-                         "value":false
-                        }]
-                },
-            
-                {
-                 "class":"PLATFORM",
-                 "id":10,
-                 "properties":[
-                        {
-                         "name":"INACTIVE",
-                         "type":"bool",
-                         "value":false
-                        }]
-                }, 
-                {
-                 "class":"PLATFORM",
-                 "id":11,
-                 "properties":[
-                        {
-                         "name":"INACTIVE",
-                         "type":"bool",
-                         "value":false
-                        }]
-                }, 
-                {
-                 "class":"PLATFORM",
-                 "id":12,
-                 "properties":[
-                        {
-                         "name":"INACTIVE",
-                         "type":"bool",
-                         "value":false
-                        }]
-                }, 
-                {
-                 "class":"PLATFORM",
-                 "id":13,
-                 "properties":[
-                        {
-                         "name":"INACTIVE",
-                         "type":"bool",
-                         "value":false
-                        }]
-                }, 
-                {
-                 "class":"PLATFORM",
-                 "id":14,
-                 "properties":[
-                        {
-                         "name":"INACTIVE",
-                         "type":"bool",
-                         "value":false
-                        }]
-                },
-            
-                {
-                 "class":"PLATFORM",
-                 "id":15,
-                 "properties":[
-                        {
-                         "name":"INACTIVE",
-                         "type":"bool",
-                         "value":false
-                        }]
-                }, 
-                {
-                 "class":"PLATFORM",
-                 "id":16,
-                 "properties":[
-                        {
-                         "name":"INACTIVE",
-                         "type":"bool",
-                         "value":false
-                        }]
-                }, 
-                {
-                 "class":"PLATFORM",
-                 "id":17,
-                 "properties":[
-                        {
-                         "name":"INACTIVE",
-                         "type":"bool",
-                         "value":false
-                        }]
-                }, 
-                {
-                 "class":"PLATFORM",
-                 "id":18,
-                 "properties":[
-                        {
-                         "name":"INACTIVE",
-                         "type":"bool",
-                         "value":false
-                        }]
-                }, 
-                {
-                 "class":"PLATFORM",
-                 "id":19,
-                 "properties":[
-                        {
-                         "name":"INACTIVE",
-                         "type":"bool",
-                         "value":false
-                        }]
-                },
-            
-                {
-                 "class":"PLATFORM",
-                 "id":20,
-                 "objectgroup":
-                    {
-                     "draworder":"index",
-                     "id":4,
-                     "name":"",
-                     "objects":[
-                            {
-                             "class":"",
-                             "height":0,
-                             "id":8,
-                             "name":"ELEVATED FACE",
-                             "polygon":[
-                                    {
-                                     "x":0,
-                                     "y":0
-                                    }, 
-                                    {
-                                     "x":0.0625,
-                                     "y":-39.46875
-                                    }, 
-                                    {
-                                     "x":-75.3125,
-                                     "y":-77.21875
-                                    }, 
-                                    {
-                                     "x":-75.8863636363636,
-                                     "y":-38.5142045454545
-                                    }],
-                             "rotation":0,
-                             "visible":true,
-                             "width":0,
-                             "x":438.4375,
-                             "y":97.59375
-                            }, 
-                            {
-                             "class":"",
-                             "height":0,
-                             "id":9,
-                             "name":"",
-                             "polygon":[
-                                    {
-                                     "x":0,
-                                     "y":0
-                                    }, 
-                                    {
-                                     "x":-180.652173913043,
-                                     "y":220.217391304348
-                                    }, 
-                                    {
-                                     "x":-135.130434782609,
-                                     "y":204.260869565217
-                                    }, 
-                                    {
-                                     "x":-0.214673913043441,
-                                     "y":39.383152173913
-                                    }],
-                             "rotation":0,
-                             "visible":true,
-                             "width":0,
-                             "x":438.652173913043,
-                             "y":58.304347826087
-                            }, 
-                            {
-                             "class":"",
-                             "height":0,
-                             "id":10,
-                             "name":"GROUND FACE",
-                             "polygon":[
-                                    {
-                                     "x":0,
-                                     "y":0
-                                    }, 
-                                    {
-                                     "x":-75.640625,
-                                     "y":-38.3125
-                                    }, 
-                                    {
-                                     "x":-32.6548295454545,
-                                     "y":-55.4090909090909
-                                    }, 
-                                    {
-                                     "x":45.4017361111111,
-                                     "y":-15.8333333333333
-                                    }],
-                             "rotation":0,
-                             "visible":true,
-                             "width":0,
-                             "x":258.109375,
-                             "y":278.5
-                            }, 
-                            {
-                             "class":"",
-                             "height":0,
-                             "id":11,
-                             "name":"SIDE FACE (FAR)",
-                             "polygon":[
-                                    {
-                                     "x":0,
-                                     "y":0
-                                    }, 
-                                    {
-                                     "x":180.642361111111,
-                                     "y":-219.877083333333
-                                    }, 
-                                    {
-                                     "x":180.042361111111,
-                                     "y":-181.499305555556
-                                    }, 
-                                    {
-                                     "x":42.8868055555556,
-                                     "y":-17.2993055555555
-                                    }],
-                             "rotation":0,
-                             "visible":true,
-                             "width":0,
-                             "x":182.46875,
-                             "y":240.34375
-                            }, 
-                            {
-                             "class":"",
-                             "height":0,
-                             "id":12,
-                             "name":"BOTTOM FACE",
-                             "polygon":[
-                                    {
-                                     "x":0,
-                                     "y":0
-                                    }, 
-                                    {
-                                     "x":-76.03125,
-                                     "y":-38.640625
-                                    }, 
-                                    {
-                                     "x":-213.233333333333,
-                                     "y":125.441666666667
-                                    }, 
-                                    {
-                                     "x":-134.96875,
-                                     "y":165
-                                    }],
-                             "rotation":0,
-                             "visible":true,
-                             "width":0,
-                             "x":438.5,
-                             "y":97.625
-                            },
-                        
-                            {
-                             "class":"",
-                             "height":0,
-                             "id":13,
-                             "name":"SIDE FACE (NEAR)",
-                             "polyline":[
-                                    {
-                                     "x":0,
-                                     "y":0
-                                    }, 
-                                    {
-                                     "x":-180.547569444444,
-                                     "y":220.134375
-                                    }, 
-                                    {
-                                     "x":-256.236458333333,
-                                     "y":181.912152777778
-                                    }],
-                             "rotation":0,
-                             "visible":true,
-                             "width":0,
-                             "x":438.703125,
-                             "y":58.265625
-                            }, 
-                            {
-                             "class":"",
-                             "height":0,
-                             "id":14,
-                             "name":"TOP FACE",
-                             "polygon":[
-                                    {
-                                     "x":0,
-                                     "y":0
-                                    }, 
-                                    {
-                                     "x":75.5625,
-                                     "y":37.625
-                                    }, 
-                                    {
-                                     "x":-104.991666666667,
-                                     "y":257.738888888889
-                                    }, 
-                                    {
-                                     "x":-180.591666666667,
-                                     "y":219.427777777778
-                                    }],
-                             "rotation":0,
-                             "visible":true,
-                             "width":0,
-                             "x":363.125,
-                             "y":20.75
-                            }],
-                     "opacity":1,
-                     "type":"objectgroup",
-                     "visible":true,
-                     "x":0,
-                     "y":0
-                    },
-                 "properties":[
-                        {
-                         "name":"INACTIVE",
-                         "type":"bool",
-                         "value":false
-                        }]
-                }],
-         "tilewidth":439
+         "tileheight":422,
+         "tilewidth":541
         }],
  "tilewidth":256,
  "type":"map",
  "version":"1.9",
- "width":5
+ "width":6
 }

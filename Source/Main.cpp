@@ -47,7 +47,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
 	AE_ASSERT_MESG(GSM::fontId = AEGfxCreateFont("../Resource/Font/fude.ttf", 24), "Failed to load font");
 
-	Initialise(GAME_STATES::MAINMENU);
+	Initialise(GAME_STATES::LEVEL1);
 
 	/*GAME LOOP*/
 	while (current != GAME_STATES::QUIT)

@@ -1,39 +1,31 @@
 - Type: Player
-  Flag: Empty
   Mesh: [0, 0.125, 0.0909, 0.125, 0, 0]
   Texture: "./Resource/Textures/player.png"
 
 - Type: Floor
-  Flag: Empty
   Mesh: [0, 1, 1, 1, 0, 0]
   Texture: "./Resource/Textures/floor.png"
 
 - Type: Wall
-  Flag: Empty
   Mesh: [0, 1, 0.1111111111111111, 1, 0, 0]
   Texture: "./Resource/Textures/wall.png"
 
 - Type: Decoration
-  Flag: Candle
   Mesh: [0, 0, 0, 0, 0, 0]
   Texture: "./Resource/Textures/candles.png"
 
 - Type: Portrait
-  Flag: Vertical
   Mesh: [0, 0.2, 0.25, 0.2, 0, 0]
   Texture: "./Resource/Textures/portrait.png"
 
-- Type: Portrait
-  Flag: Horizontal
+- Type: Landscape
   Mesh: [0, 0.2, 0.25, 0.2, 0, 0]
   Texture: "./Resource/Textures/landscape.png"
 
-- Type: Platform
-  Flag: Stairs
+- Type: Stairs
   Mesh: [0, 1, 0.0476190476190476, 1, 0, 0]
   Texture: "./Resource/Textures/stairs.png"
 
-- Type: Platform
-  Flag: Bridge
+- Type: Bridge
   Mesh: [0, 1, 0.25, 1, 0, 0]
   Texture: "./Resource/Textures/bridge.png"

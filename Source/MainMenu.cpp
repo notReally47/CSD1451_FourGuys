@@ -26,15 +26,15 @@ namespace Menu
 	char strBuffer[10];
 	char strBuffer2[10];
 	char strBuffer3[10];
-
+	using enum TYPE;
 	/*!***********************************************************************
 	  \brief Loads the assets for the main menu
 
 	*************************************************************************/
 	void Menu_Load()
 	{
-		button.type = Enum::TYPE::BUTTON;
-		background.type = Enum::TYPE::BACKGROUND;
+		button.type = BUTTON;
+		background.type = BACKGROUND;
 	}
 
 	/*!***********************************************************************

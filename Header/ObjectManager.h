@@ -1,8 +1,5 @@
 #pragma once
 #include "PCH.h"
-#include <utility>
-#include <vector>
-#include <string>
 
 namespace OM
 {
@@ -16,8 +13,7 @@ namespace OM
 		/*PUBLIC DATA*/
 		AEGfxTexture*		pTex;
 		AEGfxVertexList*	pMesh;
-		unsigned long		type;
-		unsigned long		flag;
+		TYPE				type;
 	};
 
 	/*GAME OBJECT INSTANCE STRUCTURE*/
@@ -31,21 +27,25 @@ namespace OM
 
 		/*PUBLIC DATA*/
 		Object*				pO;
-		unsigned long		flag;
+		unsigned short		layer;
+		unsigned short		flag;
 		AEVec2				texture;
 		AEMtx33				transf;
-		unsigned long*		pair;
+		void*				pair;
 
 
 		/*MEMBER FUNCTIONS FOR TRANSFORMATIONS*/
-		f32&				GetElapsed();
+		f32					GetCounter() const;
+		void				SetCounter(f32);
+		void				ResetCounter();
+
 		f32&				GetPlayerSpeed();
 		f32&				GetPosZ();
 		f32					GetPosZ() const;
 		AEVec2				GetPos() const;
-		void				SetPos(const AEVec2&);
-		AEVec2				GetScale(const f32&);
-		void				SetScale(const f32&);
+		void				SetPos(AEVec2);
+		AEVec2				GetScale(f32);
+		void				SetScale(f32);
 
 		/*GRAPHICS MANAGER*/
 		void				RenderObject();
@@ -53,21 +53,14 @@ namespace OM
 		void				RenderGlow();
 		void				AnimateStairs();
 
-		/*SIMULATION MANAGER*/
-		void				SetCollider();
+		void				PairObject();
 	};
 
 	struct ObjectLayer
 	{
-		/*CONSTRUCTORS*/
-		//ObjectLayer();
-		//~ObjectLayer();
-
 		/*PUBLIC DATA*/
-		short					data[25];
-		short					layer;
-		f32						transp;
-		AEVec2					offset;
+		short					data[36];
+		unsigned short			layer;
 	};
 
 	/*CHARACTER STRUCTURE*/
@@ -107,10 +100,6 @@ namespace OM
 	/*FUNCTIONS*/
 	void					RenderSettings();
 
-	/*GET VERTICES*/
-	AEVec2*					GetVerticesXY(const ObjectInst& obj, int& count);
-	AEVec2*					GetVerticesYZ(const ObjectInst& obj, int& count);
-	AEVec2*					GetVerticesXZ(const ObjectInst& obj, int& count);
 	AEMtx33					ConvertIsometric(const ObjectInst& obj);
 
 	int						PointLineClassification(AEVec2 point, AEVec2 pt1, AEVec2 pt2);
