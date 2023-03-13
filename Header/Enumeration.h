@@ -93,6 +93,7 @@ enum LAYER : unsigned short
 enum class GAME_STATES : int {
 	RESTART,
 	LEVEL1,
+	LOAD,
 	MAINMENU,
 	OPTIONS,
 	QUIT = -1
