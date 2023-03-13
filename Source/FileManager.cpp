@@ -64,19 +64,9 @@ namespace FM {
 		else if (type == "Decoration")
 			Object.type = DECO;
 		else if (type == "Portrait")
-			Object.type = Enum::TYPE::PORTRAIT;
-		else if (type == "Platform")
-			Object.type = Enum::TYPE::PLATFORM;
-
-		node["Flag"] >> type;
-		if (type == "Empty")
-			Object.flag = 0;
-		else if (type == "Candle")
-			Object.flag = 0;
-		else if (type == "Horizontal")
-			Object.flag = 0;
-		else if (type == "Vertical")
-			Object.flag = 0;
+			Object.type = PORTRAIT;
+		else if (type == "Landscape")
+			Object.type = LANDSCAPE;
 		else if (type == "Stairs")
 			Object.type = STAIRS;
 		else if (type == "Bridge")
@@ -226,12 +216,12 @@ namespace FM {
 		for (unsigned i = 0; i < doc.size(); i++) {
 			doc[i] >> ObjectInstance;
 			FM::GameData::vOI.push_back(ObjectInstance);
-			if (ObjectInstance.pO->type == Enum::TYPE::PLATFORM) {
+			if (ObjectInstance.pO->type == STAIRS) {
 				Platform.pOI = &FM::GameData::vOI[i];
 				FM::GameData::platforms.push_back(Platform);
 			}
 			
-			if (ObjectInstance.pO->type == Enum::TYPE::PORTRAIT) {
+			if (ObjectInstance.pO->type == PORTRAIT) {
 				Portraits.pOI = &FM::GameData::vOI[i];
 				FM::GameData::portraits.push_back(Portraits);
 			}
@@ -364,7 +354,6 @@ namespace FM {
 		YAML::Parser parser(ifs);
 		YAML::Node doc;
 		parser.GetNextDocument(doc);
-		OM::Character Player{};
 		for (unsigned i = 0; i < doc.size(); i++) {
 			OM::ObjectLayer ObjectLayer{};
 			doc[i] >> ObjectLayer;
@@ -396,47 +385,60 @@ namespace FM
 
 		// Print data of object to file
 		switch (objectInstance.pO->type) {
-		case Enum::TYPE::PLAYER:
+		case PLAYER:
 			saveFile << "- " << "Type: " << "Player" << endl;
 			break;
-		case Enum::TYPE::FLOOR:
+		case FLOOR:
 			saveFile << "- " << "Type: " << "Floor" << endl;
 			break;
-		case Enum::TYPE::WALL:
+		case WALL:
 			saveFile << "- " << "Type: " << "Wall" << endl;
 			break;
-		case Enum::TYPE::DECO:
+		case DECO:
 			saveFile << "- " << "Type: " << "Decoration" << endl;
 			break;
-		case Enum::TYPE::PORTRAIT:
+		case PORTRAIT:
 			saveFile << "- " << "Type: " << "Portrait" << endl;
 			break;
-		case Enum::TYPE::LANDSCAPE:
+		case LANDSCAPE:
 			saveFile << "- " << "Type: " << "Landscape" << endl;
 			break;
-		case Enum::TYPE::PLATFORM:
-			saveFile << "- " << "Type: " << "Platform" << endl;
+		case STAIRS:
+			saveFile << "- " << "Type: " << "Stairs" << endl;
+			break;
+		case BRIDGE:
+			saveFile << "- " << "Type: " << "Bridge" << endl;
+			break;
+		case BUTTON:
+			saveFile << "- " << "Type: " << "Button" << endl;
+			break;
+		case BACKGROUND:
+			saveFile << "- " << "Type: " << "Background" << endl;
+			break;
+		case BUBBLE:
+			saveFile << "- " << "Type: " << "Bubble" << endl;
 			break;
 		}
-
+		
+		saveFile << "  "	<< "Layer: "			<< objectInstance.layer				<< endl;
 		saveFile << "  "	<< "Flag: "				<< objectInstance.flag				<< endl;
 		saveFile << "  "	<< "Texture_Offset:"										<< endl;
-		saveFile << "    " << "x_offset: "			<< objectInstance.texture.x			<< endl;
-		saveFile << "    " << "y_offset: "			<< objectInstance.texture.y			<< endl;
+		saveFile << "    "	<< "x_offset: "			<< objectInstance.texture.x			<< endl;
+		saveFile << "    "	<< "y_offset: "			<< objectInstance.texture.y			<< endl;
 		saveFile << "  "	<< "Transformation:"										<< endl;
-		saveFile << "    " << "scale_x: "			<< objectInstance.transf.m[0][0]	<< endl;
-		saveFile << "    " << "shear_x: "			<< objectInstance.transf.m[0][1]	<< endl;
-		saveFile << "    " << "position_x: "		<< objectInstance.transf.m[0][2]	<< endl;
-		saveFile << "    " << "shear_y: "			<< objectInstance.transf.m[1][0]	<< endl;
-		saveFile << "    " << "scale_y: "			<< objectInstance.transf.m[1][1]	<< endl;
-		saveFile << "    " << "position_y: "		<< objectInstance.transf.m[1][2]	<< endl;
-		saveFile << "    " << "elapsed: "			<< objectInstance.transf.m[2][0]	<< endl;
-		saveFile << "    " << "empty: "				<< objectInstance.transf.m[2][1]	<< endl;
-		saveFile << "    " << "position_z: "		<< objectInstance.transf.m[2][2]	<< endl;
+		saveFile << "    "	<< "scale_x: "			<< objectInstance.transf.m[0][0]	<< endl;
+		saveFile << "    "	<< "shear_x: "			<< objectInstance.transf.m[0][1]	<< endl;
+		saveFile << "    "	<< "position_x: "		<< objectInstance.transf.m[0][2]	<< endl;
+		saveFile << "    "	<< "shear_y: "			<< objectInstance.transf.m[1][0]	<< endl;
+		saveFile << "    "	<< "scale_y: "			<< objectInstance.transf.m[1][1]	<< endl;
+		saveFile << "    "	<< "position_y: "		<< objectInstance.transf.m[1][2]	<< endl;
+		saveFile << "    "	<< "elapsed: "			<< objectInstance.transf.m[2][0]	<< endl;
+		saveFile << "    "	<< "empty: "			<< objectInstance.transf.m[2][1]	<< endl;
+		saveFile << "    "	<< "position_z: "		<< objectInstance.transf.m[2][2]	<< endl;
 		saveFile << "  "	<< "Pair: "				<< 0								<< endl;
 
 		// Player Stats
-		if (objectInstance.pO->type == Enum::TYPE::PLAYER) {
+		if (objectInstance.pO->type == PLAYER) {
 			saveFile << "  "	<< "Direction:"											<< endl;
 			saveFile << "    "	<< "direction_x: "		<< FM::GameData::player.dir.x	<< endl;
 			saveFile << "    "	<< "direction_y: "		<< FM::GameData::player.dir.y	<< endl;
@@ -486,12 +488,12 @@ namespace FM
 				saveFile << i << ']' << endl;
 				break;
 			}
-			else if (0 == ((count + 1)) % 5)
+			else if (0 == ((count + 1)) % 6)
 				saveFile << i << ',';
 			else
 				saveFile << i << ", ";
 
-			if ((0 == ((count + 1) % 5)) && (count < (sizeof(objectLayer.data)))) {
+			if ((0 == ((count + 1) % 6)) && (count < (sizeof(objectLayer.data)))) {
 				saveFile << endl;
 				saveFile << "         ";
 			}
@@ -499,8 +501,8 @@ namespace FM
 			count++;
 		}
 
-		saveFile << "  Offset: "		<< '[' << objectLayer.offset.x << ", " << objectLayer.offset.y << ']'	<< endl;
-		saveFile << "  Transparency: "	<< objectLayer.transp													<< endl;
+		//saveFile << "  Offset: "		<< '[' << objectLayer.offset.x << ", " << objectLayer.offset.y << ']'	<< endl;
+		//saveFile << "  Transparency: "	<< objectLayer.transp													<< endl;
 		saveFile << endl;
 		return saveFile;
 

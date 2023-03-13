@@ -54,7 +54,7 @@ namespace Level1
 		GD.LoadPlayerStatsFromFile();
 
 		/*SCALE OBJECTS*/
-		GD.Option_Change();
+		GD.OptionChange();
 		//GD.ExtractTransformToFile();
 
 
@@ -226,7 +226,7 @@ namespace Level1
 
 		/*Extract Using Vector vOBJ_INST & player*/
 		GD.vOI = tmp;
-		GD.ExtractTransformToFile();
+		GD.SaveProgress();
 	
 		// add bubble mesh and texture
 		AEGfxMeshStart();
