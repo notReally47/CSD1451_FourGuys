@@ -35,3 +35,5 @@
 /.tmp
 /.vs
 /Bin
+/Debug
+/Release
