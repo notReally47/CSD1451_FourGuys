@@ -35,6 +35,6 @@
 /.tmp
 /.vs
 /Bin
-Debug/
+/Debug
 /Release
 /x64
