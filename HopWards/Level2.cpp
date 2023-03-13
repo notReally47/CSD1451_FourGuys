@@ -253,7 +253,7 @@ namespace Level2
 
 		/*if player is on a valid tile*/
 		if (currTile->pObj == &stairObj) { // stairs
-			if (CDM::PartialCollision(*player.pObjInst, *currTile, player.pObjInst->GetPosZ() >= LEVEL_HEIGHT * player.layer)) {
+			if (CDM::PartialCollision(*player.pObjInst, *currTile, player.pObjInst->GetPosZ() > LEVEL_HEIGHT * player.layer)) {
 				player.zVel = player.HandleSlope(*currTile);
 			}
 			else {
@@ -319,13 +319,29 @@ namespace Level2
 			{
 				for (int k = 4; k >= 0; k--)
 				{
-					if (floors[i][j][k].pObj)
-						floors[i][j][k].RenderObject();
+					if (player.layer == i && (int)player.pObjInst->GetPosX() == j && (int)player.pObjInst->GetPosY() == k) 
+					{
+						AEGfxSetBlendColor(0.f, 0.f, 0.f, 0.5f);
+						if (floors[i][j][k].pObj) 
+						{
+							AEGfxSetTransparency(0.5f);
+							floors[i][j][k].RenderObject();
+							AEGfxSetTransparency(1.f);
+						}
+						AEGfxSetBlendColor(1.f, 1.f, 1.f, 0.f);
+						player.AnimateCharacter();
+					}
+					else 
+					{
+						AEGfxSetBlendColor(1.f, 1.f, 1.f, 0.f);
+						if (floors[i][j][k].pObj)
+							floors[i][j][k].RenderObject();
+					}
 				}
 			}
 			/*if player is current level, render with the correct priority*/
-			if (player.layer == i)
-				player.AnimateCharacter();
+			//if (player.layer == i)
+			//	player.AnimateCharacter();
 		}
 
 

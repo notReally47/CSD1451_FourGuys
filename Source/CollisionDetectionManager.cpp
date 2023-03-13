@@ -206,10 +206,9 @@ namespace CDM
 	{
 		bool allowMovement{ false };
 		bool verticalCollision{ false };
-		f32 tolerance = 0.1f;
 
 		AEVec2 min{ stair.GetPosX() - TOLERANCE, stair.GetPosY() - TOLERANCE };
-		AEVec2 max{ stair.GetPosX() + RECT_WIDTH - tolerance, stair.GetPosY() + RECT_WIDTH - tolerance };
+		AEVec2 max{ stair.GetPosX() + RECT_WIDTH - TOLERANCE, stair.GetPosY() + RECT_WIDTH - TOLERANCE };
 
 		AEVec2 playerPos{ player.GetPosX(), player.GetPosY() };
 
@@ -217,7 +216,7 @@ namespace CDM
 		switch (stair.direction) {
 		case Enum::NORTH:
 			verticalCollision = direction ? true : playerPos.y <= max.y;
-			allowMovement = (verticalCollision && min.x <= playerPos.x && playerPos.x <= max.x);
+			allowMovement = (verticalCollision && min.x < playerPos.x && playerPos.x < max.x);
 			break;
 		case Enum::SOUTH:
 			verticalCollision = direction ? true : playerPos.y >= min.y;
