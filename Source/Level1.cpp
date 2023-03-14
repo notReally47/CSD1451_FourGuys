@@ -27,7 +27,7 @@ namespace Level1
 
 	/*DEFINES*/
 	const static f32 MIN_CAM_HEIGHT = -65.f;
-	//std::vector<OM::ObjectInst> tmp;
+	std::vector<OM::ObjectInst> tmp;
 	OM::Object bubble;
 	OM::ObjectInst objInst[1];
 	FM::GameData GD;
@@ -65,7 +65,7 @@ namespace Level1
 		// it.GetPosX() = a.x;
 		// it.GetPosY() = a.y;
 		//}
-/*		tmp.push_back(GD.vOI[0]);
+		tmp.push_back(GD.vOI[0]);
 		for (const auto& iter : GD.vOL)
 		{
 			for (int i = 0; i < 6; i++)
@@ -190,8 +190,8 @@ namespace Level1
 						tamp.layer = iter.layer;
 						tamp.flag = 0;
 						tamp.texture = { 0.f / 21.f, .0f };
-						tamp.transf = { 541.0f, .0f, 126.0f * (j)-165.0f,
-										.0f, 422.0f, -126.0f * (i)+160.0f,
+						tamp.transf = { 425.0f, .0f, 126.0f * (j)-135.0f,
+										.0f, 332.0f, -126.0f * (i)+130.0f,
 										.0f, .0f, static_cast<f32>(iter.layer - TILE) * 155.0f };
 						tamp.pair = nullptr;
 						tmp.push_back(tamp);
@@ -201,8 +201,8 @@ namespace Level1
 						tamp.layer = iter.layer;
 						tamp.flag = 0;
 						tamp.texture = { 20.f / 21.f, .0f };
-						tamp.transf = { 541.0f, .0f, 126.0f * (j)-160.0f,
-										.0f, 422.0f, -126.0f * (i)+165.0f,
+						tamp.transf = { 425.0f, .0f, 126.0f * (j)-130.0f,
+										.0f, 332.0f, -126.0f * (i)+135.0f,
 										.0f, .0f, static_cast<f32>(iter.layer - TILE) * 155.0f };
 						tamp.pair = nullptr;
 						tmp.push_back(tamp);
@@ -255,9 +255,9 @@ namespace Level1
 						tamp.pO = &GD.vO[4];
 						tamp.layer = iter.layer;
 						tamp.flag = 0;
-						tamp.texture = { .0f / 4.f, .0f/ 5.f };
-						tamp.transf = { 77.0f, .0f, 126.0f * (j)-140.0f,
-										.0f, 127.0f, -126.0f * (i)+70.0f,
+						tamp.texture = { 2.0f / 4.f, .0f/ 5.f };
+						tamp.transf = { 77.0f, .0f, 126.0f * (j) - 150.0f,
+										.0f, 127.0f, -126.0f * (i) + 150.0f,
 										.0f, .0f, static_cast<f32>(iter.layer - TILE) * 155.0f };
 						tamp.pair = nullptr;
 						tmp.push_back(tamp);
@@ -283,7 +283,7 @@ namespace Level1
 
 		//Extract Using Vector vOBJ_INST & player
 		GD.vOI = tmp;
-		GD.SaveProgress();
+		GD.SaveProgress(); 
 	
 		// add bubble mesh and texture
 		AEGfxMeshStart();

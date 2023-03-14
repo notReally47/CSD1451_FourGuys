@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.9" tiledversion="1.9.2" orientation="isometric" renderorder="right-down" width="6" height="6" tilewidth="256" tileheight="128" infinite="0" nextlayerid="11" nextobjectid="24">
+<map version="1.9" tiledversion="1.9.2" orientation="isometric" renderorder="right-down" width="6" height="6" tilewidth="256" tileheight="128" infinite="0" nextlayerid="136" nextobjectid="38">
  <editorsettings>
   <export target="HopWards Layer2..tmj" format="json"/>
  </editorsettings>
  <tileset firstgid="1" source="Floor.tsx"/>
  <tileset firstgid="2" source="Wall Spritesheet.tsx"/>
  <tileset firstgid="11" source="Landscape Spritesheet.tsx"/>
- <tileset firstgid="31" source="Portrait Tileset.tsx"/>
- <tileset firstgid="51" source="Bridge Tiletset.tsx"/>
- <tileset firstgid="55" source="Candles Tilesheet.tsx"/>
+ <tileset firstgid="31" source="Bridge Tiletset.tsx"/>
+ <tileset firstgid="35" source="Candles Tilesheet.tsx"/>
+ <tileset firstgid="40" source="Portrait Tileset.tsx"/>
  <tileset firstgid="60" source="Stairs Tileset.tsx"/>
- <layer id="1" name="GROUND" class="GROUND" width="6" height="6">
+ <layer id="93" name="Tile Layer 0" width="6" height="6">
   <data encoding="csv">
 0,0,0,0,0,0,
 0,1,1,1,1,1,
@@ -20,61 +20,53 @@
 0,1,1,1,1,1
 </data>
  </layer>
- <layer id="2" name="FLOOR_1" class="FLOOR_1" width="6" height="6">
-  <data encoding="csv">
+ <group id="119" name="Group 1">
+  <layer id="76" name="Tile Layer 1" width="6" height="6">
+   <data encoding="csv">
 6,7,8,10,7,0,
 5,0,0,0,0,0,
-4,31,0,0,0,0,
+4,0,0,60,0,0,
 3,0,0,0,0,0,
 5,0,0,0,0,0,
 0,0,0,0,0,0
 </data>
- </layer>
- <objectgroup id="10" name="FLOOR_1">
-  <object id="22" gid="11" x="0.25" y="153.75" width="93" height="105"/>
- </objectgroup>
- <layer id="3" name="FLOOR_2" class="FLOOR_2" width="6" height="6" offsetx="2" offsety="-155">
-  <data encoding="csv">
-6,7,8,7,7,0,
-2,0,0,0,0,0,
-4,0,0,0,0,0,
-5,0,0,0,0,0,
-5,0,0,0,0,0,
-0,0,0,0,0,0
-</data>
- </layer>
- <layer id="4" name="FLOOR_3" class="FLOOR_3" width="6" height="6" offsetx="4" offsety="-310">
-  <data encoding="csv">
-6,7,8,7,7,0,
-5,0,0,0,0,0,
-4,0,0,0,0,0,
-5,0,0,0,0,0,
-5,0,0,0,0,0,
-0,0,0,0,0,0
-</data>
- </layer>
- <layer id="5" name="FLOOR_4" class="FLOOR_4" width="6" height="6" offsetx="6" offsety="-465">
-  <data encoding="csv">
+  </layer>
+  <objectgroup id="103" name="Object Layer 1">
+   <object id="34" gid="40" x="5.25" y="160.75" width="77" height="127">
+    <properties>
+     <property name="pair" type="object" value="35"/>
+    </properties>
+   </object>
+   <object id="35" name="rotate" x="463.5" y="262.5">
+    <point/>
+   </object>
+  </objectgroup>
+ </group>
+ <group id="121" name="Group 2">
+  <layer id="78" name="Tile Layer 2" width="6" height="6" offsetx="0" offsety="-155">
+   <data encoding="csv">
 6,7,8,7,7,0,
 5,0,0,0,0,0,
-4,0,0,0,0,0,
+4,0,0,0,0,31,
 5,0,0,0,0,0,
-5,0,0,0,0,0,
-0,0,0,0,0,0
+5,0,0,0,0,32,
+0,0,0,0,33,0
 </data>
- </layer>
- <layer id="6" name="FLOOR_5" class="FLOOR_5" width="6" height="6" offsetx="8" offsety="-620">
-  <data encoding="csv">
-6,7,8,7,7,0,
-5,0,0,0,0,0,
-4,0,0,0,0,0,
-5,0,0,0,0,0,
-5,0,0,0,0,0,
-0,0,0,0,0,0
-</data>
- </layer>
- <layer id="7" name="FLOOR_6" class="FLOOR_6" width="6" height="6" offsetx="10" offsety="-775">
-  <data encoding="csv">
+  </layer>
+  <objectgroup id="104" name="Object Layer 2">
+   <object id="36" gid="46" x="385.75" y="-149.75" width="77" height="127">
+    <properties>
+     <property name="pair" type="object" value="37"/>
+    </properties>
+   </object>
+   <object id="37" name="hidden" x="535" y="189">
+    <point/>
+   </object>
+  </objectgroup>
+ </group>
+ <group id="122" name="Group 3">
+  <layer id="79" name="Tile Layer 3" width="6" height="6" offsetx="0" offsety="-310">
+   <data encoding="csv">
 6,7,8,7,7,0,
 5,0,0,0,0,0,
 4,0,0,0,0,0,
@@ -82,5 +74,176 @@
 5,0,0,0,0,0,
 0,0,0,0,0,0
 </data>
- </layer>
+  </layer>
+  <objectgroup id="105" name="Object Layer 3"/>
+ </group>
+ <group id="123" name="Group 4">
+  <layer id="80" name="Tile Layer 4" width="6" height="6" offsetx="0" offsety="-465">
+   <data encoding="csv">
+6,7,8,7,7,0,
+5,0,0,0,0,0,
+4,0,0,0,0,0,
+5,0,0,0,0,0,
+5,0,0,0,0,0,
+0,0,0,0,0,0
+</data>
+  </layer>
+  <objectgroup id="106" name="Object Layer 4"/>
+ </group>
+ <group id="124" name="Group 5">
+  <layer id="81" name="Tile Layer 5" width="6" height="6" offsetx="0" offsety="-620">
+   <data encoding="csv">
+6,7,8,7,7,0,
+5,0,0,0,0,0,
+4,0,0,0,0,0,
+5,0,0,0,0,0,
+5,0,0,0,0,0,
+0,0,0,0,0,0
+</data>
+  </layer>
+  <objectgroup id="107" name="Object Layer 5"/>
+ </group>
+ <group id="125" name="Group 6">
+  <layer id="82" name="Tile Layer 6" width="6" height="6" offsetx="0" offsety="-775">
+   <data encoding="csv">
+6,7,8,7,7,0,
+5,0,0,0,0,0,
+4,0,0,0,0,0,
+5,0,0,0,0,0,
+5,0,0,0,0,0,
+0,0,0,0,0,0
+</data>
+  </layer>
+  <objectgroup id="108" name="Object Layer 6"/>
+ </group>
+ <group id="126" name="Group 7">
+  <layer id="83" name="Tile Layer 7" width="6" height="6" offsetx="0" offsety="-930">
+   <data encoding="csv">
+6,7,8,7,7,0,
+5,0,0,0,0,0,
+4,0,0,0,0,0,
+5,0,0,0,0,0,
+5,0,0,0,0,0,
+0,0,0,0,0,0
+</data>
+  </layer>
+  <objectgroup id="109" name="Object Layer 7"/>
+ </group>
+ <group id="127" name="Group 8">
+  <layer id="84" name="Tile Layer 8" width="6" height="6" offsetx="0" offsety="-1085">
+   <data encoding="csv">
+6,7,8,7,7,0,
+5,0,0,0,0,0,
+4,0,0,0,0,0,
+5,0,0,0,0,0,
+5,0,0,0,0,0,
+0,0,0,0,0,0
+</data>
+  </layer>
+  <objectgroup id="110" name="Object Layer 8"/>
+ </group>
+ <group id="128" name="Group 9">
+  <layer id="85" name="Tile Layer 9" width="6" height="6" offsetx="0" offsety="-1240">
+   <data encoding="csv">
+6,7,8,7,7,0,
+5,0,0,0,0,0,
+4,0,0,0,0,0,
+5,0,0,0,0,0,
+5,0,0,0,0,0,
+0,0,0,0,0,0
+</data>
+  </layer>
+  <objectgroup id="111" name="Object Layer 9"/>
+ </group>
+ <group id="129" name="Group 10">
+  <layer id="86" name="Tile Layer 10" width="6" height="6" offsetx="0" offsety="-1395">
+   <data encoding="csv">
+6,7,8,7,7,0,
+5,0,0,0,0,0,
+4,0,0,0,0,0,
+5,0,0,0,0,0,
+5,0,0,0,0,0,
+0,0,0,0,0,0
+</data>
+  </layer>
+  <objectgroup id="112" name="Object Layer 10"/>
+ </group>
+ <group id="130" name="Group 11">
+  <objectgroup id="113" name="Object Layer 11"/>
+  <layer id="87" name="Tile Layer 11" width="6" height="6" offsetx="0" offsety="-1550">
+   <data encoding="csv">
+6,7,8,7,7,0,
+5,0,0,0,0,0,
+4,0,0,0,0,0,
+5,0,0,0,0,0,
+5,0,0,0,0,0,
+0,0,0,0,0,0
+</data>
+  </layer>
+ </group>
+ <group id="131" name="Group 12">
+  <layer id="88" name="Tile Layer 12" width="6" height="6" offsetx="0" offsety="-1705">
+   <data encoding="csv">
+6,7,8,7,7,0,
+5,0,0,0,0,0,
+4,0,0,0,0,0,
+5,0,0,0,0,0,
+5,0,0,0,0,0,
+0,0,0,0,0,0
+</data>
+  </layer>
+  <objectgroup id="114" name="Object Layer 12"/>
+ </group>
+ <group id="132" name="Group 13">
+  <layer id="89" name="Tile Layer 13" width="6" height="6" offsetx="0" offsety="-1860">
+   <data encoding="csv">
+6,7,8,7,7,0,
+5,0,0,0,0,0,
+4,0,0,0,0,0,
+5,0,0,0,0,0,
+5,0,0,0,0,0,
+0,0,0,0,0,0
+</data>
+  </layer>
+  <objectgroup id="115" name="Object Layer 13"/>
+ </group>
+ <group id="133" name="Group 14">
+  <layer id="90" name="Tile Layer 14" width="6" height="6" offsetx="0" offsety="-2015">
+   <data encoding="csv">
+6,7,8,7,7,0,
+5,0,0,0,0,0,
+4,0,0,0,0,0,
+5,0,0,0,0,0,
+5,0,0,0,0,0,
+0,0,0,0,0,0
+</data>
+  </layer>
+  <objectgroup id="116" name="Object Layer 14"/>
+ </group>
+ <group id="134" name="Group 15">
+  <layer id="91" name="Tile Layer 15" width="6" height="6" offsetx="0" offsety="-2170">
+   <data encoding="csv">
+6,7,8,7,7,0,
+5,0,0,0,0,0,
+4,0,0,0,0,0,
+5,0,0,0,0,0,
+5,0,0,0,0,0,
+0,0,0,0,0,0
+</data>
+  </layer>
+  <objectgroup id="117" name="Object Layer 15"/>
+ </group>
+ <group id="135" name="Group 16">
+  <layer id="92" name="Tile Layer 16" width="6" height="6" offsetx="0" offsety="-2325">
+   <data encoding="csv">
+6,7,8,7,7,0,
+5,0,0,0,0,0,
+4,0,0,0,0,0,
+5,0,0,0,0,0,
+5,0,0,0,0,0,
+0,0,0,0,0,0
+</data>
+  </layer>
+  <objectgroup id="118" name="Object Layer 16"/>
+ </group>
 </map>

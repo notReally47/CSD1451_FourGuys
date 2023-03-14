@@ -41,7 +41,7 @@
         {
          "draworder":"topdown",
          "id":10,
-         "name":"FLOOR_1",
+         "name":"Object Layer 1",
          "objects":[
                 {
                  "class":"",
@@ -52,8 +52,8 @@
                  "rotation":0,
                  "visible":true,
                  "width":93,
-                 "x":0.25,
-                 "y":153.75
+                 "x":14.25,
+                 "y":185.75
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -82,6 +82,29 @@
          "y":0
         }, 
         {
+         "draworder":"topdown",
+         "id":11,
+         "name":"Object Layer 2",
+         "objects":[
+                {
+                 "class":"",
+                 "gid":37,
+                 "height":127,
+                 "id":25,
+                 "name":"",
+                 "rotation":0,
+                 "visible":true,
+                 "width":77,
+                 "x":-8.25,
+                 "y":-157.75
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
          "class":"FLOOR_3",
          "data":[6, 7, 8, 7, 7, 0,
             5, 0, 0, 0, 0, 0,
@@ -100,7 +123,8 @@
          "width":6,
          "x":0,
          "y":0
-        }, 
+        },
+    
         {
          "class":"FLOOR_4",
          "data":[6, 7, 8, 7, 7, 0,
@@ -120,8 +144,7 @@
          "width":6,
          "x":0,
          "y":0
-        },
-    
+        }, 
         {
          "class":"FLOOR_5",
          "data":[6, 7, 8, 7, 7, 0,
@@ -162,8 +185,8 @@
          "x":0,
          "y":0
         }],
- "nextlayerid":11,
- "nextobjectid":24,
+ "nextlayerid":12,
+ "nextobjectid":27,
  "orientation":"isometric",
  "renderorder":"right-down",
  "tiledversion":"1.9.2",

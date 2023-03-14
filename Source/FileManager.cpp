@@ -121,7 +121,7 @@ namespace FM {
 		if (!ifs.good())
 			ifs.open("." + file_name);
 
-		YAML::Parser parser(ifs);
+		YAML::Parser parser(ifs);	
 		YAML::Node doc;
 		parser.GetNextDocument(doc);
 
