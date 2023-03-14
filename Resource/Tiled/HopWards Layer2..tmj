@@ -24,10 +24,10 @@
          "class":"FLOOR_1",
          "data":[6, 7, 8, 10, 7, 0,
             5, 0, 0, 0, 0, 0,
-            4, 0, 0, 0, 0, 0,
+            4, 31, 0, 0, 0, 0,
             3, 0, 0, 0, 0, 0,
             5, 0, 0, 0, 0, 0,
-            0, 0, 0, 0, 0, 60],
+            0, 0, 0, 0, 0, 0],
          "height":6,
          "id":2,
          "name":"FLOOR_1",
@@ -35,6 +35,29 @@
          "type":"tilelayer",
          "visible":true,
          "width":6,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "draworder":"topdown",
+         "id":10,
+         "name":"FLOOR_1",
+         "objects":[
+                {
+                 "class":"",
+                 "gid":11,
+                 "height":105,
+                 "id":22,
+                 "name":"",
+                 "rotation":0,
+                 "visible":true,
+                 "width":93,
+                 "x":0.25,
+                 "y":153.75
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
          "x":0,
          "y":0
         }, 
@@ -97,7 +120,8 @@
          "width":6,
          "x":0,
          "y":0
-        }, 
+        },
+    
         {
          "class":"FLOOR_5",
          "data":[6, 7, 8, 7, 7, 0,
@@ -117,8 +141,7 @@
          "width":6,
          "x":0,
          "y":0
-        },
-    
+        }, 
         {
          "class":"FLOOR_6",
          "data":[6, 7, 8, 7, 7, 0,
@@ -139,8 +162,8 @@
          "x":0,
          "y":0
         }],
- "nextlayerid":10,
- "nextobjectid":22,
+ "nextlayerid":11,
+ "nextobjectid":24,
  "orientation":"isometric",
  "renderorder":"right-down",
  "tiledversion":"1.9.2",

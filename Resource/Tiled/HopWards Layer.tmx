@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.9" tiledversion="1.9.2" orientation="isometric" renderorder="right-down" width="6" height="6" tilewidth="256" tileheight="128" infinite="0" nextlayerid="10" nextobjectid="22">
+<map version="1.9" tiledversion="1.9.2" orientation="isometric" renderorder="right-down" width="6" height="6" tilewidth="256" tileheight="128" infinite="0" nextlayerid="11" nextobjectid="24">
  <editorsettings>
   <export target="HopWards Layer2..tmj" format="json"/>
  </editorsettings>
@@ -24,12 +24,15 @@
   <data encoding="csv">
 6,7,8,10,7,0,
 5,0,0,0,0,0,
-4,0,0,0,0,0,
+4,31,0,0,0,0,
 3,0,0,0,0,0,
 5,0,0,0,0,0,
-0,0,0,0,0,60
+0,0,0,0,0,0
 </data>
  </layer>
+ <objectgroup id="10" name="FLOOR_1">
+  <object id="22" gid="11" x="0.25" y="153.75" width="93" height="105"/>
+ </objectgroup>
  <layer id="3" name="FLOOR_2" class="FLOOR_2" width="6" height="6" offsetx="2" offsety="-155">
   <data encoding="csv">
 6,7,8,7,7,0,

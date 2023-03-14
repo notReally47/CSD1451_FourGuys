@@ -27,7 +27,7 @@ namespace Level1
 
 	/*DEFINES*/
 	const static f32 MIN_CAM_HEIGHT = -65.f;
-	std::vector<OM::ObjectInst> tmp;
+	//std::vector<OM::ObjectInst> tmp;
 	OM::Object bubble;
 	OM::ObjectInst objInst[1];
 	FM::GameData GD;
@@ -65,7 +65,7 @@ namespace Level1
 		// it.GetPosX() = a.x;
 		// it.GetPosY() = a.y;
 		//}
-		tmp.push_back(GD.vOI[0]);
+/*		tmp.push_back(GD.vOI[0]);
 		for (const auto& iter : GD.vOL)
 		{
 			for (int i = 0; i < 6; i++)
@@ -90,8 +90,8 @@ namespace Level1
 						tamp.layer = iter.layer;
 						tamp.flag = 0;
 						tamp.texture = { 0.f / 9.f, .0f };
-						tamp.transf = { 256.0f, .0f, 126.0f * (j),
-										.0f, 288.0f, -126.0f * (i),
+						tamp.transf = { 256.0f, .0f, 126.0f * (j)+40.0f,
+										.0f, 288.0f, -126.0f * (i)-40.0f,
 										.0f, .0f, static_cast<f32>(iter.layer - TILE) * 155.0f };
 						tamp.pair = nullptr;
 						tmp.push_back(tamp);
@@ -101,8 +101,8 @@ namespace Level1
 						tamp.layer = iter.layer;
 						tamp.flag = 0;
 						tamp.texture = { 1.f/9.f, .0f };
-						tamp.transf = { 256.0f, .0f, 126.0f * (j),
-										.0f, 288.0f, -126.0f * (i),
+						tamp.transf = { 256.0f, .0f, 126.0f * (j)+40.0f,
+										.0f, 288.0f, -126.0f * (i)-40.0f,
 										.0f, .0f, static_cast<f32>(iter.layer - TILE) * 155.0f};
 						tamp.pair = nullptr;
 						tmp.push_back(tamp);
@@ -112,8 +112,8 @@ namespace Level1
 						tamp.layer = iter.layer;
 						tamp.flag = 0;
 						tamp.texture = { 2.f / 9.f, .0f };
-						tamp.transf = { 256.0f, .0f, 126.0f * (j),
-										.0f, 288.0f, -126.0f * (i),
+						tamp.transf = { 256.0f, .0f, 126.0f * (j)+40.0f,
+										.0f, 288.0f, -126.0f * (i)-40.0f,
 										.0f, .0f, static_cast<f32>(iter.layer - TILE) * 155.0f };
 						tamp.pair = nullptr;
 						tmp.push_back(tamp);
@@ -123,8 +123,8 @@ namespace Level1
 						tamp.layer = iter.layer;
 						tamp.flag = 0;
 						tamp.texture = { 3.f / 9.f, .0f };
-						tamp.transf = { 256.0f, .0f, 126.0f * (j),
-										.0f, 288.0f, -126.0f * (i),
+						tamp.transf = { 256.0f, .0f, 126.0f * (j) + 40.0f,
+										.0f, 288.0f, -126.0f * (i) - 40.0f,
 										.0f, .0f, static_cast<f32>(iter.layer - TILE) * 155.0f };
 						tamp.pair = nullptr;
 						tmp.push_back(tamp);
@@ -135,8 +135,8 @@ namespace Level1
 						tamp.layer = iter.layer;
 						tamp.flag = 0;
 						tamp.texture = { 4.f / 9.f, .0f };
-						tamp.transf = { 256.0f, .0f, 126.0f * (j),
-										.0f, 288.0f, -126.0f * (i),
+						tamp.transf = { 256.0f, .0f, 126.0f * (j)+40.0f,
+										.0f, 288.0f, -126.0f * (i)-40.0f,
 										.0f, .0f, static_cast<f32>(iter.layer - TILE) * 155.0f };
 						tamp.pair = nullptr;
 						tmp.push_back(tamp);
@@ -146,8 +146,8 @@ namespace Level1
 						tamp.layer = iter.layer;
 						tamp.flag = 0;
 						tamp.texture = { 5.f / 9.f, .0f };
-						tamp.transf = { 256.0f, .0f, 126.0f * (j),
-										.0f, 288.0f, -126.0f * (i),
+						tamp.transf = { 256.0f, .0f, 126.0f * (j)+40.0f,
+										.0f, 288.0f, -126.0f * (i)-40.0f,
 										.0f, .0f, static_cast<f32>(iter.layer - TILE) * 155.0f };
 						tamp.pair = nullptr;
 						tmp.push_back(tamp);
@@ -157,8 +157,8 @@ namespace Level1
 						tamp.layer = iter.layer;
 						tamp.flag = 0;
 						tamp.texture = { 6.f / 9.f, .0f };
-						tamp.transf = { 256.0f, .0f, 126.0f * (j),
-										.0f, 288.0f, -126.0f * (i),
+						tamp.transf = { 256.0f, .0f, 126.0f * (j)+40.0f,
+										.0f, 288.0f, -126.0f * (i)-40.0f,
 										.0f, .0f, static_cast<f32>(iter.layer - TILE) * 155.0f };
 						tamp.pair = nullptr;
 						tmp.push_back(tamp);
@@ -168,8 +168,8 @@ namespace Level1
 						tamp.layer = iter.layer;
 						tamp.flag = 0;
 						tamp.texture = { 7.f / 9.f, .0f };
-						tamp.transf = { 256.0f, .0f, 126.0f * (j),
-										.0f, 288.0f, -126.0f * (i),
+						tamp.transf = { 256.0f, .0f, 126.0f * (j)+40.0f,
+										.0f, 288.0f, -126.0f * (i)-40.0f,
 										.0f, .0f, static_cast<f32>(iter.layer - TILE) * 155.0f };
 						tamp.pair = nullptr;
 						tmp.push_back(tamp);
@@ -179,8 +179,8 @@ namespace Level1
 						tamp.layer = iter.layer;
 						tamp.flag = 0;
 						tamp.texture = { 8.f / 9.f, .0f };
-						tamp.transf = { 256.0f, .0f, 126.0f * (j),
-										.0f, 288.0f, -126.0f * (i),
+						tamp.transf = { 256.0f, .0f, 126.0f * (j)+40.0f,
+										.0f, 288.0f, -126.0f * (i)-40.0f,
 										.0f, .0f, static_cast<f32>(iter.layer - TILE) * 155.0f };
 						tamp.pair = nullptr;
 						tmp.push_back(tamp);
@@ -207,24 +207,81 @@ namespace Level1
 						tamp.pair = nullptr;
 						tmp.push_back(tamp);
 						break;
-					case GRID::BRIDGEL:
+					case GRID::BRIDGER:
 						tamp.pO = &GD.vO[7];
 						tamp.layer = iter.layer;
 						tamp.flag = 0;
-						tamp.texture = { 2.f / 4.f, .0f };
-						tamp.transf = { 190.0f, .0f, 126.0f * (j),
-										.0f, 101.0f, -126.0f * (i),
+						tamp.texture = { 0.f / 4.f, .0f };
+						tamp.transf = { 190.0f, .0f, 126.0f * (j) - 10.0f,
+										.0f, 101.0f, -126.0f * (i) + 10.0f,
 										.0f, .0f, static_cast<f32>(iter.layer - TILE) * 155.0f };
 						tamp.pair = nullptr;
 						tmp.push_back(tamp);
 						break;
+					case GRID::BROKENR:
+						tamp.pO = &GD.vO[7];
+						tamp.layer = iter.layer;
+						tamp.flag = 0;
+						tamp.texture = { 1.f / 4.f, .0f };
+						tamp.transf = { 190.0f, .0f, 126.0f * (j)-10.0f,
+										.0f, 101.0f, -126.0f * (i)+10.0f,
+										.0f, .0f, static_cast<f32>(iter.layer - TILE) * 155.0f };
+						tamp.pair = nullptr;
+						tmp.push_back(tamp);
+						break;
+					case GRID::BROKENL:
+						tamp.pO = &GD.vO[7];
+						tamp.layer = iter.layer;
+						tamp.flag = 0;
+						tamp.texture = { 2.f / 4.f, .0f };
+						tamp.transf = { 190.0f, .0f, 126.0f * (j)-10.0f,
+										.0f, 101.0f, -126.0f * (i)+10.0f,
+										.0f, .0f, static_cast<f32>(iter.layer - TILE) * 155.0f };
+						tamp.pair = nullptr;
+						tmp.push_back(tamp);
+						break;
+					case GRID::BRIDGEL:
+						tamp.pO = &GD.vO[7];
+						tamp.layer = iter.layer;
+						tamp.flag = 0;
+						tamp.texture = { 3.f / 4.f, .0f };
+						tamp.transf = { 190.0f, .0f, 126.0f * (j)-10.0f,
+										.0f, 101.0f, -126.0f * (i)+10.0f,
+										.0f, .0f, static_cast<f32>(iter.layer - TILE) * 155.0f };
+						tamp.pair = nullptr;
+						tmp.push_back(tamp);
+						break;
+					case GRID::VERTICAL:
+						tamp.pO = &GD.vO[4];
+						tamp.layer = iter.layer;
+						tamp.flag = 0;
+						tamp.texture = { .0f / 4.f, .0f/ 5.f };
+						tamp.transf = { 77.0f, .0f, 126.0f * (j)-140.0f,
+										.0f, 127.0f, -126.0f * (i)+70.0f,
+										.0f, .0f, static_cast<f32>(iter.layer - TILE) * 155.0f };
+						tamp.pair = nullptr;
+						tmp.push_back(tamp);
+						break;
+					case GRID::HORIZONTAL:
+						tamp.pO = &GD.vO[5];
+						tamp.layer = iter.layer;
+						tamp.flag = 0;
+						tamp.texture = { .0f / 4.f, .0f / 5.f };
+						tamp.transf = { 93.0f, .0f, 126.0f * (j)-140.0f,
+										.0f, 105.0f, -126.0f * (i)+70.0f,
+										.0f, .0f, static_cast<f32>(iter.layer - TILE) * 155.0f };
+						tamp.pair = nullptr;
+						tmp.push_back(tamp);
+						break;
+
 					}
+
 
 				}
 		}
 
 
-		/*Extract Using Vector vOBJ_INST & player*/
+		//Extract Using Vector vOBJ_INST & player
 		GD.vOI = tmp;
 		GD.SaveProgress();
 	
@@ -270,7 +327,7 @@ namespace Level1
 		// check if player if near portrait
 		for (size_t i{0}; i < GD.vOI.size(); i++)
 		{
-			if (GD.vOI[i].pO->type == PORTRAIT)
+			if (GD.vOI[i].pO->type == PORTRAIT || GD.vOI[i].pO->type == LANDSCAPE)
 			{
 				GD.vOI[i].flag = (CDM::GetDistance(GD.vOI[i].GetPos().x, GD.vOI[i].GetPos().y, GD.vOI[i].transf.m[0][0], GD.vOI[i].transf.m[1][1], GD.player.pOI->GetPos().x, GD.player.pOI->GetPos().y) < 10.0) ? static_cast<unsigned long>(GLOW) : IDLE;
 			}

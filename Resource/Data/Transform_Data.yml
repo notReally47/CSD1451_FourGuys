@@ -33,114 +33,6 @@
   Transformation:
     scale_x: 256
     shear_x: 0
-    position_x: 0
-    shear_y: 0
-    scale_y: 148
-    position_y: -0
-    elapsed: 0
-    empty: 0
-    position_z: 0
-  Pair: 0
-
-- Type: Floor
-  Layer: 0
-  Flag: 0
-  Texture_Offset:
-    x_offset: 0
-    y_offset: 0
-  Transformation:
-    scale_x: 256
-    shear_x: 0
-    position_x: 126
-    shear_y: 0
-    scale_y: 148
-    position_y: -0
-    elapsed: 0
-    empty: 0
-    position_z: 0
-  Pair: 0
-
-- Type: Floor
-  Layer: 0
-  Flag: 0
-  Texture_Offset:
-    x_offset: 0
-    y_offset: 0
-  Transformation:
-    scale_x: 256
-    shear_x: 0
-    position_x: 252
-    shear_y: 0
-    scale_y: 148
-    position_y: -0
-    elapsed: 0
-    empty: 0
-    position_z: 0
-  Pair: 0
-
-- Type: Floor
-  Layer: 0
-  Flag: 0
-  Texture_Offset:
-    x_offset: 0
-    y_offset: 0
-  Transformation:
-    scale_x: 256
-    shear_x: 0
-    position_x: 378
-    shear_y: 0
-    scale_y: 148
-    position_y: -0
-    elapsed: 0
-    empty: 0
-    position_z: 0
-  Pair: 0
-
-- Type: Floor
-  Layer: 0
-  Flag: 0
-  Texture_Offset:
-    x_offset: 0
-    y_offset: 0
-  Transformation:
-    scale_x: 256
-    shear_x: 0
-    position_x: 504
-    shear_y: 0
-    scale_y: 148
-    position_y: -0
-    elapsed: 0
-    empty: 0
-    position_z: 0
-  Pair: 0
-
-- Type: Floor
-  Layer: 0
-  Flag: 0
-  Texture_Offset:
-    x_offset: 0
-    y_offset: 0
-  Transformation:
-    scale_x: 256
-    shear_x: 0
-    position_x: 0
-    shear_y: 0
-    scale_y: 148
-    position_y: -126
-    elapsed: 0
-    empty: 0
-    position_z: 0
-  Pair: 0
-
-- Type: Floor
-  Layer: 0
-  Flag: 0
-  Texture_Offset:
-    x_offset: 0
-    y_offset: 0
-  Transformation:
-    scale_x: 256
-    shear_x: 0
     position_x: 126
     shear_y: 0
     scale_y: 148
@@ -213,10 +105,10 @@
   Transformation:
     scale_x: 256
     shear_x: 0
-    position_x: 0
+    position_x: 630
     shear_y: 0
     scale_y: 148
-    position_y: -252
+    position_y: -126
     elapsed: 0
     empty: 0
     position_z: 0
@@ -303,10 +195,10 @@
   Transformation:
     scale_x: 256
     shear_x: 0
-    position_x: 0
+    position_x: 630
     shear_y: 0
     scale_y: 148
-    position_y: -378
+    position_y: -252
     elapsed: 0
     empty: 0
     position_z: 0
@@ -393,10 +285,10 @@
   Transformation:
     scale_x: 256
     shear_x: 0
-    position_x: 0
+    position_x: 630
     shear_y: 0
     scale_y: 148
-    position_y: -504
+    position_y: -378
     elapsed: 0
     empty: 0
     position_z: 0
@@ -469,6 +361,114 @@
     shear_y: 0
     scale_y: 148
     position_y: -504
+    elapsed: 0
+    empty: 0
+    position_z: 0
+  Pair: 0
+
+- Type: Floor
+  Layer: 0
+  Flag: 0
+  Texture_Offset:
+    x_offset: 0
+    y_offset: 0
+  Transformation:
+    scale_x: 256
+    shear_x: 0
+    position_x: 630
+    shear_y: 0
+    scale_y: 148
+    position_y: -504
+    elapsed: 0
+    empty: 0
+    position_z: 0
+  Pair: 0
+
+- Type: Floor
+  Layer: 0
+  Flag: 0
+  Texture_Offset:
+    x_offset: 0
+    y_offset: 0
+  Transformation:
+    scale_x: 256
+    shear_x: 0
+    position_x: 126
+    shear_y: 0
+    scale_y: 148
+    position_y: -630
+    elapsed: 0
+    empty: 0
+    position_z: 0
+  Pair: 0
+
+- Type: Floor
+  Layer: 0
+  Flag: 0
+  Texture_Offset:
+    x_offset: 0
+    y_offset: 0
+  Transformation:
+    scale_x: 256
+    shear_x: 0
+    position_x: 252
+    shear_y: 0
+    scale_y: 148
+    position_y: -630
+    elapsed: 0
+    empty: 0
+    position_z: 0
+  Pair: 0
+
+- Type: Floor
+  Layer: 0
+  Flag: 0
+  Texture_Offset:
+    x_offset: 0
+    y_offset: 0
+  Transformation:
+    scale_x: 256
+    shear_x: 0
+    position_x: 378
+    shear_y: 0
+    scale_y: 148
+    position_y: -630
+    elapsed: 0
+    empty: 0
+    position_z: 0
+  Pair: 0
+
+- Type: Floor
+  Layer: 0
+  Flag: 0
+  Texture_Offset:
+    x_offset: 0
+    y_offset: 0
+  Transformation:
+    scale_x: 256
+    shear_x: 0
+    position_x: 504
+    shear_y: 0
+    scale_y: 148
+    position_y: -630
+    elapsed: 0
+    empty: 0
+    position_z: 0
+  Pair: 0
+
+- Type: Floor
+  Layer: 0
+  Flag: 0
+  Texture_Offset:
+    x_offset: 0
+    y_offset: 0
+  Transformation:
+    scale_x: 256
+    shear_x: 0
+    position_x: 630
+    shear_y: 0
+    scale_y: 148
+    position_y: -630
     elapsed: 0
     empty: 0
     position_z: 0
@@ -483,10 +483,10 @@
   Transformation:
     scale_x: 256
     shear_x: 0
-    position_x: -90
+    position_x: 40
     shear_y: 0
     scale_y: 288
-    position_y: 90
+    position_y: -40
     elapsed: 0
     empty: 0
     position_z: 0
@@ -501,10 +501,10 @@
   Transformation:
     scale_x: 256
     shear_x: 0
-    position_x: 36
+    position_x: 166
     shear_y: 0
     scale_y: 288
-    position_y: 90
+    position_y: -40
     elapsed: 0
     empty: 0
     position_z: 0
@@ -519,10 +519,10 @@
   Transformation:
     scale_x: 256
     shear_x: 0
-    position_x: 162
+    position_x: 292
     shear_y: 0
     scale_y: 288
-    position_y: 90
+    position_y: -40
     elapsed: 0
     empty: 0
     position_z: 0
@@ -537,10 +537,10 @@
   Transformation:
     scale_x: 256
     shear_x: 0
-    position_x: 288
+    position_x: 418
     shear_y: 0
     scale_y: 288
-    position_y: 90
+    position_y: -40
     elapsed: 0
     empty: 0
     position_z: 0
@@ -555,10 +555,10 @@
   Transformation:
     scale_x: 256
     shear_x: 0
-    position_x: 414
+    position_x: 544
     shear_y: 0
     scale_y: 288
-    position_y: 90
+    position_y: -40
     elapsed: 0
     empty: 0
     position_z: 0
@@ -573,10 +573,10 @@
   Transformation:
     scale_x: 256
     shear_x: 0
-    position_x: -90
+    position_x: 40
     shear_y: 0
     scale_y: 288
-    position_y: -36
+    position_y: -166
     elapsed: 0
     empty: 0
     position_z: 0
@@ -591,28 +591,28 @@
   Transformation:
     scale_x: 256
     shear_x: 0
-    position_x: -90
+    position_x: 40
     shear_y: 0
     scale_y: 288
-    position_y: -162
+    position_y: -292
     elapsed: 0
     empty: 0
     position_z: 0
   Pair: 0
 
-- Type: Stairs
+- Type: Landscape
   Layer: 1
   Flag: 0
   Texture_Offset:
-    x_offset: 0.952381
+    x_offset: 0
     y_offset: 0
   Transformation:
-    scale_x: 541
+    scale_x: 93
     shear_x: 0
-    position_x: 344
+    position_x: -14
     shear_y: 0
-    scale_y: 422
-    position_y: -87
+    scale_y: 105
+    position_y: -182
     elapsed: 0
     empty: 0
     position_z: 0
@@ -627,161 +627,53 @@
   Transformation:
     scale_x: 256
     shear_x: 0
-    position_x: -90
+    position_x: 40
     shear_y: 0
     scale_y: 288
-    position_y: -288
+    position_y: -418
     elapsed: 0
     empty: 0
     position_z: 0
-  Pair: 0
-
-- Type: Wall
-  Layer: 1
-  Flag: 0
-  Texture_Offset:
-    x_offset: 0.333333
-    y_offset: 0
-  Transformation:
-    scale_x: 256
-    shear_x: 0
-    position_x: -90
-    shear_y: 0
-    scale_y: 288
-    position_y: -414
-    elapsed: 0
-    empty: 0
-    position_z: 0
-  Pair: 0
-
-- Type: Stairs
-  Layer: 1
-  Flag: 0
-  Texture_Offset:
-    x_offset: 0
-    y_offset: 0
-  Transformation:
-    scale_x: 541
-    shear_x: 0
-    position_x: 339
-    shear_y: 0
-    scale_y: 422
-    position_y: -344
-    elapsed: 0
-    empty: 0
-    position_z: 0
-  Pair: 0
-
-- Type: Wall
-  Layer: 2
-  Flag: 0
-  Texture_Offset:
-    x_offset: 0.444444
-    y_offset: 0
-  Transformation:
-    scale_x: 256
-    shear_x: 0
-    position_x: -90
-    shear_y: 0
-    scale_y: 288
-    position_y: 90
-    elapsed: 0
-    empty: 0
-    position_z: 155
-  Pair: 0
-
-- Type: Wall
-  Layer: 2
-  Flag: 0
-  Texture_Offset:
-    x_offset: 0.555556
-    y_offset: 0
-  Transformation:
-    scale_x: 256
-    shear_x: 0
-    position_x: 36
-    shear_y: 0
-    scale_y: 288
-    position_y: 90
-    elapsed: 0
-    empty: 0
-    position_z: 155
-  Pair: 0
-
-- Type: Wall
-  Layer: 2
-  Flag: 0
-  Texture_Offset:
-    x_offset: 0.666667
-    y_offset: 0
-  Transformation:
-    scale_x: 256
-    shear_x: 0
-    position_x: 162
-    shear_y: 0
-    scale_y: 288
-    position_y: 90
-    elapsed: 0
-    empty: 0
-    position_z: 155
-  Pair: 0
-
-- Type: Wall
-  Layer: 2
-  Flag: 0
-  Texture_Offset:
-    x_offset: 0.555556
-    y_offset: 0
-  Transformation:
-    scale_x: 256
-    shear_x: 0
-    position_x: 288
-    shear_y: 0
-    scale_y: 288
-    position_y: 90
-    elapsed: 0
-    empty: 0
-    position_z: 155
-  Pair: 0
-
-- Type: Wall
-  Layer: 2
-  Flag: 0
-  Texture_Offset:
-    x_offset: 0.555556
-    y_offset: 0
-  Transformation:
-    scale_x: 256
-    shear_x: 0
-    position_x: 414
-    shear_y: 0
-    scale_y: 288
-    position_y: 90
-    elapsed: 0
-    empty: 0
-    position_z: 155
-  Pair: 0
-
-- Type: Wall
-  Layer: 2
-  Flag: 0
-  Texture_Offset:
-    x_offset: 0.333333
-    y_offset: 0
-  Transformation:
-    scale_x: 256
-    shear_x: 0
-    position_x: -90
-    shear_y: 0
-    scale_y: 288
-    position_y: -36
-    elapsed: 0
-    empty: 0
-    position_z: 155
   Pair: 0
 
 - Type: Bridge
-  Layer: 2
+  Layer: 1
+  Flag: 0
+  Texture_Offset:
+    x_offset: 0.75
+    y_offset: 0
+  Transformation:
+    scale_x: 190
+    shear_x: 0
+    position_x: 620
+    shear_y: 0
+    scale_y: 101
+    position_y: -368
+    elapsed: 0
+    empty: 0
+    position_z: 0
+  Pair: 0
+
+- Type: Wall
+  Layer: 1
+  Flag: 0
+  Texture_Offset:
+    x_offset: 0.333333
+    y_offset: 0
+  Transformation:
+    scale_x: 256
+    shear_x: 0
+    position_x: 40
+    shear_y: 0
+    scale_y: 288
+    position_y: -544
+    elapsed: 0
+    empty: 0
+    position_z: 0
+  Pair: 0
+
+- Type: Bridge
+  Layer: 1
   Flag: 0
   Texture_Offset:
     x_offset: 0.5
@@ -789,10 +681,154 @@
   Transformation:
     scale_x: 190
     shear_x: 0
-    position_x: 162
+    position_x: 620
     shear_y: 0
     scale_y: 101
-    position_y: -36
+    position_y: -494
+    elapsed: 0
+    empty: 0
+    position_z: 0
+  Pair: 0
+
+- Type: Bridge
+  Layer: 1
+  Flag: 0
+  Texture_Offset:
+    x_offset: 0.25
+    y_offset: 0
+  Transformation:
+    scale_x: 190
+    shear_x: 0
+    position_x: 494
+    shear_y: 0
+    scale_y: 101
+    position_y: -620
+    elapsed: 0
+    empty: 0
+    position_z: 0
+  Pair: 0
+
+- Type: Bridge
+  Layer: 1
+  Flag: 0
+  Texture_Offset:
+    x_offset: 0
+    y_offset: 0
+  Transformation:
+    scale_x: 190
+    shear_x: 0
+    position_x: 620
+    shear_y: 0
+    scale_y: 101
+    position_y: -620
+    elapsed: 0
+    empty: 0
+    position_z: 0
+  Pair: 0
+
+- Type: Wall
+  Layer: 2
+  Flag: 0
+  Texture_Offset:
+    x_offset: 0.444444
+    y_offset: 0
+  Transformation:
+    scale_x: 256
+    shear_x: 0
+    position_x: 40
+    shear_y: 0
+    scale_y: 288
+    position_y: -40
+    elapsed: 0
+    empty: 0
+    position_z: 155
+  Pair: 0
+
+- Type: Wall
+  Layer: 2
+  Flag: 0
+  Texture_Offset:
+    x_offset: 0.555556
+    y_offset: 0
+  Transformation:
+    scale_x: 256
+    shear_x: 0
+    position_x: 166
+    shear_y: 0
+    scale_y: 288
+    position_y: -40
+    elapsed: 0
+    empty: 0
+    position_z: 155
+  Pair: 0
+
+- Type: Wall
+  Layer: 2
+  Flag: 0
+  Texture_Offset:
+    x_offset: 0.666667
+    y_offset: 0
+  Transformation:
+    scale_x: 256
+    shear_x: 0
+    position_x: 292
+    shear_y: 0
+    scale_y: 288
+    position_y: -40
+    elapsed: 0
+    empty: 0
+    position_z: 155
+  Pair: 0
+
+- Type: Wall
+  Layer: 2
+  Flag: 0
+  Texture_Offset:
+    x_offset: 0.555556
+    y_offset: 0
+  Transformation:
+    scale_x: 256
+    shear_x: 0
+    position_x: 418
+    shear_y: 0
+    scale_y: 288
+    position_y: -40
+    elapsed: 0
+    empty: 0
+    position_z: 155
+  Pair: 0
+
+- Type: Wall
+  Layer: 2
+  Flag: 0
+  Texture_Offset:
+    x_offset: 0.555556
+    y_offset: 0
+  Transformation:
+    scale_x: 256
+    shear_x: 0
+    position_x: 544
+    shear_y: 0
+    scale_y: 288
+    position_y: -40
+    elapsed: 0
+    empty: 0
+    position_z: 155
+  Pair: 0
+
+- Type: Wall
+  Layer: 2
+  Flag: 0
+  Texture_Offset:
+    x_offset: 0.333333
+    y_offset: 0
+  Transformation:
+    scale_x: 256
+    shear_x: 0
+    position_x: 40
+    shear_y: 0
+    scale_y: 288
+    position_y: -166
     elapsed: 0
     empty: 0
     position_z: 155
@@ -807,10 +843,10 @@
   Transformation:
     scale_x: 256
     shear_x: 0
-    position_x: -90
+    position_x: 40
     shear_y: 0
     scale_y: 288
-    position_y: -162
+    position_y: -292
     elapsed: 0
     empty: 0
     position_z: 155
@@ -825,10 +861,10 @@
   Transformation:
     scale_x: 256
     shear_x: 0
-    position_x: -90
+    position_x: 40
     shear_y: 0
     scale_y: 288
-    position_y: -288
+    position_y: -418
     elapsed: 0
     empty: 0
     position_z: 155
@@ -843,10 +879,10 @@
   Transformation:
     scale_x: 256
     shear_x: 0
-    position_x: -90
+    position_x: 40
     shear_y: 0
     scale_y: 288
-    position_y: -414
+    position_y: -544
     elapsed: 0
     empty: 0
     position_z: 155
@@ -861,10 +897,10 @@
   Transformation:
     scale_x: 256
     shear_x: 0
-    position_x: -90
+    position_x: 40
     shear_y: 0
     scale_y: 288
-    position_y: 90
+    position_y: -40
     elapsed: 0
     empty: 0
     position_z: 310
@@ -879,10 +915,10 @@
   Transformation:
     scale_x: 256
     shear_x: 0
-    position_x: 36
+    position_x: 166
     shear_y: 0
     scale_y: 288
-    position_y: 90
+    position_y: -40
     elapsed: 0
     empty: 0
     position_z: 310
@@ -897,10 +933,10 @@
   Transformation:
     scale_x: 256
     shear_x: 0
-    position_x: 162
+    position_x: 292
     shear_y: 0
     scale_y: 288
-    position_y: 90
+    position_y: -40
     elapsed: 0
     empty: 0
     position_z: 310
@@ -915,10 +951,10 @@
   Transformation:
     scale_x: 256
     shear_x: 0
-    position_x: 288
+    position_x: 418
     shear_y: 0
     scale_y: 288
-    position_y: 90
+    position_y: -40
     elapsed: 0
     empty: 0
     position_z: 310
@@ -933,10 +969,10 @@
   Transformation:
     scale_x: 256
     shear_x: 0
-    position_x: 414
+    position_x: 544
     shear_y: 0
     scale_y: 288
-    position_y: 90
+    position_y: -40
     elapsed: 0
     empty: 0
     position_z: 310
@@ -951,10 +987,10 @@
   Transformation:
     scale_x: 256
     shear_x: 0
-    position_x: -90
+    position_x: 40
     shear_y: 0
     scale_y: 288
-    position_y: -36
+    position_y: -166
     elapsed: 0
     empty: 0
     position_z: 310
@@ -969,10 +1005,10 @@
   Transformation:
     scale_x: 256
     shear_x: 0
-    position_x: -90
+    position_x: 40
     shear_y: 0
     scale_y: 288
-    position_y: -162
+    position_y: -292
     elapsed: 0
     empty: 0
     position_z: 310
@@ -987,10 +1023,10 @@
   Transformation:
     scale_x: 256
     shear_x: 0
-    position_x: -90
+    position_x: 40
     shear_y: 0
     scale_y: 288
-    position_y: -288
+    position_y: -418
     elapsed: 0
     empty: 0
     position_z: 310
@@ -1005,10 +1041,10 @@
   Transformation:
     scale_x: 256
     shear_x: 0
-    position_x: -90
+    position_x: 40
     shear_y: 0
     scale_y: 288
-    position_y: -414
+    position_y: -544
     elapsed: 0
     empty: 0
     position_z: 310
@@ -1023,10 +1059,10 @@
   Transformation:
     scale_x: 256
     shear_x: 0
-    position_x: -90
+    position_x: 40
     shear_y: 0
     scale_y: 288
-    position_y: 90
+    position_y: -40
     elapsed: 0
     empty: 0
     position_z: 465
@@ -1041,10 +1077,10 @@
   Transformation:
     scale_x: 256
     shear_x: 0
-    position_x: 36
+    position_x: 166
     shear_y: 0
     scale_y: 288
-    position_y: 90
+    position_y: -40
     elapsed: 0
     empty: 0
     position_z: 465
@@ -1059,10 +1095,10 @@
   Transformation:
     scale_x: 256
     shear_x: 0
-    position_x: 162
+    position_x: 292
     shear_y: 0
     scale_y: 288
-    position_y: 90
+    position_y: -40
     elapsed: 0
     empty: 0
     position_z: 465
@@ -1077,10 +1113,10 @@
   Transformation:
     scale_x: 256
     shear_x: 0
-    position_x: 288
+    position_x: 418
     shear_y: 0
     scale_y: 288
-    position_y: 90
+    position_y: -40
     elapsed: 0
     empty: 0
     position_z: 465
@@ -1095,10 +1131,10 @@
   Transformation:
     scale_x: 256
     shear_x: 0
-    position_x: 414
+    position_x: 544
     shear_y: 0
     scale_y: 288
-    position_y: 90
+    position_y: -40
     elapsed: 0
     empty: 0
     position_z: 465
@@ -1113,10 +1149,10 @@
   Transformation:
     scale_x: 256
     shear_x: 0
-    position_x: -90
+    position_x: 40
     shear_y: 0
     scale_y: 288
-    position_y: -36
+    position_y: -166
     elapsed: 0
     empty: 0
     position_z: 465
@@ -1131,10 +1167,10 @@
   Transformation:
     scale_x: 256
     shear_x: 0
-    position_x: -90
+    position_x: 40
     shear_y: 0
     scale_y: 288
-    position_y: -162
+    position_y: -292
     elapsed: 0
     empty: 0
     position_z: 465
@@ -1149,10 +1185,10 @@
   Transformation:
     scale_x: 256
     shear_x: 0
-    position_x: -90
+    position_x: 40
     shear_y: 0
     scale_y: 288
-    position_y: -288
+    position_y: -418
     elapsed: 0
     empty: 0
     position_z: 465
@@ -1167,10 +1203,10 @@
   Transformation:
     scale_x: 256
     shear_x: 0
-    position_x: -90
+    position_x: 40
     shear_y: 0
     scale_y: 288
-    position_y: -414
+    position_y: -544
     elapsed: 0
     empty: 0
     position_z: 465
@@ -1185,10 +1221,10 @@
   Transformation:
     scale_x: 256
     shear_x: 0
-    position_x: -90
+    position_x: 40
     shear_y: 0
     scale_y: 288
-    position_y: 90
+    position_y: -40
     elapsed: 0
     empty: 0
     position_z: 620
@@ -1203,10 +1239,10 @@
   Transformation:
     scale_x: 256
     shear_x: 0
-    position_x: 36
+    position_x: 166
     shear_y: 0
     scale_y: 288
-    position_y: 90
+    position_y: -40
     elapsed: 0
     empty: 0
     position_z: 620
@@ -1221,10 +1257,10 @@
   Transformation:
     scale_x: 256
     shear_x: 0
-    position_x: 162
+    position_x: 292
     shear_y: 0
     scale_y: 288
-    position_y: 90
+    position_y: -40
     elapsed: 0
     empty: 0
     position_z: 620
@@ -1239,10 +1275,10 @@
   Transformation:
     scale_x: 256
     shear_x: 0
-    position_x: 288
+    position_x: 418
     shear_y: 0
     scale_y: 288
-    position_y: 90
+    position_y: -40
     elapsed: 0
     empty: 0
     position_z: 620
@@ -1257,10 +1293,10 @@
   Transformation:
     scale_x: 256
     shear_x: 0
-    position_x: 414
+    position_x: 544
     shear_y: 0
     scale_y: 288
-    position_y: 90
+    position_y: -40
     elapsed: 0
     empty: 0
     position_z: 620
@@ -1275,10 +1311,10 @@
   Transformation:
     scale_x: 256
     shear_x: 0
-    position_x: -90
+    position_x: 40
     shear_y: 0
     scale_y: 288
-    position_y: -36
+    position_y: -166
     elapsed: 0
     empty: 0
     position_z: 620
@@ -1293,10 +1329,10 @@
   Transformation:
     scale_x: 256
     shear_x: 0
-    position_x: -90
+    position_x: 40
     shear_y: 0
     scale_y: 288
-    position_y: -162
+    position_y: -292
     elapsed: 0
     empty: 0
     position_z: 620
@@ -1311,10 +1347,10 @@
   Transformation:
     scale_x: 256
     shear_x: 0
-    position_x: -90
+    position_x: 40
     shear_y: 0
     scale_y: 288
-    position_y: -288
+    position_y: -418
     elapsed: 0
     empty: 0
     position_z: 620
@@ -1329,10 +1365,10 @@
   Transformation:
     scale_x: 256
     shear_x: 0
-    position_x: -90
+    position_x: 40
     shear_y: 0
     scale_y: 288
-    position_y: -414
+    position_y: -544
     elapsed: 0
     empty: 0
     position_z: 620
